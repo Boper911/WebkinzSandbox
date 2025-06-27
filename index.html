@@ -7,6 +7,66 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Authentication Container -->
+  <div id="authContainer" class="auth-container">
+    <div class="auth-modal">
+      <h1>Welcome to Webkinz Sandbox</h1>
+      <p>Sign in to start designing your rooms!</p>
+      
+      <!-- Google Sign In -->
+      <button onclick="signInWithGoogle()" class="auth-btn google-btn">
+        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google">
+        Continue with Google
+      </button>
+      
+      <!-- Email Sign In Form -->
+      <div class="email-auth">
+        <h3>Or use email</h3>
+        <form id="emailForm" onsubmit="handleEmailAuth(event)">
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="submit" class="auth-btn email-btn">Sign In</button>
+          <button type="button" onclick="toggleAuthMode()" class="toggle-btn">
+            Need an account? <span id="toggleText">Sign Up</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Info Bar (shows when logged in) -->
+  <div id="userInfo" class="user-info-bar"></div>
+
+  <script>
+  let isSignUpMode = false;
+
+  function toggleAuthMode() {
+    isSignUpMode = !isSignUpMode;
+    const submitBtn = document.querySelector('#emailForm button[type="submit"]');
+    const toggleText = document.getElementById('toggleText');
+    const toggleBtn = document.querySelector('.toggle-btn');
+    
+    if (isSignUpMode) {
+      submitBtn.textContent = 'Create Account';
+      toggleBtn.innerHTML = 'Already have an account? <span id="toggleText">Sign In</span>';
+    } else {
+      submitBtn.textContent = 'Sign In';
+      toggleBtn.innerHTML = 'Need an account? <span id="toggleText">Sign Up</span>';
+    }
+  }
+
+  function handleEmailAuth(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    if (isSignUpMode) {
+      createAccount(email, password);
+    } else {
+      signInWithEmail(email, password);
+    }
+  }
+  </script>
   <div class="container">
     <div id="leftTabs">
       <button class="tablinks" onclick="openLeftTab(event, 'Items')">
@@ -135,5 +195,8 @@
   </div>
 
   <script src="script.js"></script>
+  <script type="module">
+    import './auth.js';
+  </script>
 </body>
 </html>
