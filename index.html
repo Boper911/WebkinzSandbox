@@ -67,6 +67,7 @@
     }
   }
   </script>
+  
   <div class="container">
     <div id="leftTabs">
       <button class="tablinks" onclick="openLeftTab(event, 'Items')">
@@ -195,8 +196,159 @@
   </div>
 
   <script src="script.js"></script>
+  
+  <!-- Firebase Authentication Script -->
   <script type="module">
-    import './auth.js';
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { 
+      getAuth, 
+      signInWithPopup, 
+      GoogleAuthProvider, 
+      signOut, 
+      onAuthStateChanged,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAPKjpaByXu8u67dzXkdaJOqKDsTzws9AY",
+      authDomain: "webkinzsandbox.firebaseapp.com",
+      projectId: "webkinzsandbox",
+      storageBucket: "webkinzsandbox.firebasestorage.app",
+      messagingSenderId: "695345467024",
+      appId: "1:695345467024:web:9cc2f5a8ebdce96fc41215"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
+
+    // Current user state
+    let currentUser = null;
+    let firebaseReady = false;
+
+    // Auth state listener
+    onAuthStateChanged(auth, (user) => {
+      currentUser = user;
+      firebaseReady = true;
+      updateUI();
+      console.log('Firebase ready, user:', user ? user.email : 'none');
+    });
+
+    // Sign in with Google
+    async function signInWithGoogle() {
+      if (!firebaseReady) {
+        alert('Please wait, loading...');
+        return;
+      }
+      
+      try {
+        console.log('Attempting Google sign in...');
+        const result = await signInWithPopup(auth, googleProvider);
+        console.log('User signed in:', result.user.displayName);
+      } catch (error) {
+        console.error('Error signing in:', error);
+        console.error('Error code:', error.code);
+        console.error('Error message:', error.message);
+        
+        if (error.code === 'auth/unauthorized-domain') {
+          alert('This domain is not authorized. Please check Firebase console settings.');
+        } else if (error.code === 'auth/popup-blocked') {
+          alert('Popup was blocked. Please allow popups for this site.');
+        } else {
+          alert('Error signing in: ' + error.message);
+        }
+      }
+    }
+
+    // Sign in with email/password
+    async function signInWithEmail(email, password) {
+      if (!firebaseReady) {
+        alert('Please wait, loading...');
+        return;
+      }
+      
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        console.error('Error signing in:', error);
+        alert('Error signing in: ' + error.message);
+      }
+    }
+
+    // Create account with email/password
+    async function createAccount(email, password) {
+      if (!firebaseReady) {
+        alert('Please wait, loading...');
+        return;
+      }
+      
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        console.error('Error creating account:', error);
+        alert('Error creating account: ' + error.message);
+      }
+    }
+
+    // Sign out
+    async function signOutUser() {
+      try {
+        await signOut(auth);
+        console.log('User signed out');
+      } catch (error) {
+        console.error('Error signing out:', error);
+      }
+    }
+
+    // Update UI based on auth state
+    function updateUI() {
+      const authContainer = document.getElementById('authContainer');
+      const mainApp = document.querySelector('.container');
+      const userInfo = document.getElementById('userInfo');
+      
+      // Update button text to show loading state
+      const googleBtn = document.querySelector('.google-btn');
+      if (googleBtn && !firebaseReady) {
+        googleBtn.innerHTML = '<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"> Loading...';
+        googleBtn.disabled = true;
+      } else if (googleBtn && firebaseReady) {
+        googleBtn.innerHTML = '<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"> Continue with Google';
+        googleBtn.disabled = false;
+      }
+      
+      if (currentUser) {
+        // User is signed in
+        if (authContainer) authContainer.style.display = 'none';
+        if (mainApp) mainApp.style.display = 'flex';
+        if (userInfo) {
+          userInfo.innerHTML = `
+            <div class="user-profile">
+              <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
+              <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
+              <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
+            </div>
+          `;
+        }
+      } else {
+        // User is signed out
+        if (authContainer) authContainer.style.display = 'flex';
+        if (mainApp) mainApp.style.display = 'none';
+        if (userInfo) userInfo.innerHTML = '';
+      }
+    }
+
+    // Make functions available globally
+    window.signInWithGoogle = signInWithGoogle;
+    window.signInWithEmail = signInWithEmail;
+    window.createAccount = createAccount;
+    window.signOutUser = signOutUser;
+
+    // Initial UI update
+    updateUI();
   </script>
 </body>
 </html>
