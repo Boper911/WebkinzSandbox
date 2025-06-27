@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Room Designer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="leftCatalogContainer">
+      <div id="leftTabs">
+        <button class="tablinks" onclick="openLeftTab(event, 'Items')">Items</button>
+        <button class="tablinks" onclick="openLeftTab(event, 'WallpaperFlooring')">Wallpaper & Flooring</button>
+        <button class="tablinks" onclick="openLeftTab(event, 'Backgrounds')">Backgrounds</button>
+      </div>
+      <div id="leftCatalogContent">
+        <div id="Items" class="leftTabContent">
+          <div id="searchFiltersContainer">
+            <input type="text" id="searchInputLeft" placeholder="Search items..." onkeyup="searchItemsLeft()">
+            <div id="filtersContainer">
+              <button id="resetAllFiltersButton" onclick="resetAllFilters()">Reset All Filters</button>
+              <button id="collectionsButton" class="dropdown-button" onclick="toggleDropdown('collectionsDropdown')">Collections</button>
+              <div id="collectionsDropdown" class="dropdown-content"></div>
+              <button id="colorsButton" class="dropdown-button" onclick="toggleDropdown('colorsDropdown')">Colors</button>
+              <div id="colorsDropdown" class="dropdown-content"></div>
+              <button id="categoriesButton" class="dropdown-button" onclick="toggleDropdown('categoriesDropdown')">Category</button>
+              <div id="categoriesDropdown" class="dropdown-content"></div>
+              <button id="footprintButton" class="dropdown-button" onclick="toggleDropdown('footprintDropdown')">Footprint</button>
+              <div id="footprintDropdown" class="dropdown-content"></div>
+            </div>
+          </div>
+          <div id="AllItems" class="itemsContainer"></div>
+        </div>
+        <div id="WallpaperFlooring" class="leftTabContent">
+          <div id="searchFiltersContainerWallpaperFlooring">
+            <input type="text" id="searchInputWallpaperFlooring" placeholder="Search walls & floors..." onkeyup="searchItemsWallpaperFlooring()">
+            <div id="filtersContainerWallpaperFlooring">
+              <button id="resetAllFiltersButtonWallpaperFlooring" onclick="resetAllFiltersWallpaperFlooring()">Reset All Filters</button>
+              <button id="collectionsButtonWallpaperFlooring" class="dropdown-button" onclick="toggleDropdown('collectionsDropdownWallpaperFlooring')">Collections</button>
+              <div id="collectionsDropdownWallpaperFlooring" class="dropdown-content"></div>
+              <button id="colorsButtonWallpaperFlooring" class="dropdown-button" onclick="toggleDropdown('colorsDropdownWallpaperFlooring')">Colors</button>
+              <div id="colorsDropdownWallpaperFlooring" class="dropdown-content"></div>
+              <button id="categoriesButtonWallpaperFlooring" class="dropdown-button" onclick="toggleDropdown('categoriesDropdownWallpaperFlooring')">Category</button>
+              <div id="categoriesDropdownWallpaperFlooring" class="dropdown-content"></div>
+            </div>
+          </div>
+          <div id="AllWallpaperFlooring" class="itemsContainer"></div>
+        </div>
+        <div id="Backgrounds" class="leftTabContent">
+          <div id="searchFiltersContainerBackgrounds">
+            <input type="text" id="searchInputBackgrounds" placeholder="Search backgrounds..." onkeyup="searchItemsBackgrounds()">
+          </div>
+          <div id="AllBackgrounds" class="itemsContainer"></div>
+        </div>
+      </div>
+    </div>
+    <div id="dropZoneContainer">
+      <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img id="background" class="background" src="">
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

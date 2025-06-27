@@ -1,0 +1,247 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+#leftCatalogContainer {
+  display: flex;
+  flex-direction: row;
+  height: 1500px;
+}
+
+#leftTabs {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+#leftTabs .tablinks {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 20px 0;
+  font-size: 24px;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  transition: 0.3s;
+  text-align: center;
+  height: 25%;
+}
+
+#leftTabs .tablinks:hover {
+  background-color: #ddd;
+}
+
+#leftTabs .tablinks.active {
+  background-color: #ccc;
+}
+
+#leftCatalogContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  height: 1500px;
+  box-sizing: border-box;
+}
+
+.leftTabContent {
+  display: none;
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#searchFiltersContainer,
+#searchFiltersContainerWallpaperFlooring,
+#searchFiltersContainerBackgrounds {
+  margin-bottom: 15px;
+}
+
+#AllWallpaperFlooring,
+#AllItems,
+#AllBackgrounds {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 10px;
+}
+
+.catalog-item {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.catalog-item img {
+  display: block;
+  margin: 0 auto;
+}
+
+#searchInputLeft,
+#searchInputWallpaperFlooring,
+#searchInputBackgrounds {
+  flex-shrink: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#resetAllFiltersButton,
+#resetAllFiltersButtonWallpaperFlooring,
+#collectionsButton,
+#collectionsButtonWallpaperFlooring,
+#colorsButton,
+#colorsButtonWallpaperFlooring,
+#categoriesButton,
+#categoriesButtonWallpaperFlooring,
+#footprintButton {
+  padding: 10px;
+  font-size: 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 5px;
+  width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+#collectionsButton.active,
+#collectionsButtonWallpaperFlooring.active,
+#colorsButton.active,
+#colorsButtonWallpaperFlooring.active,
+#categoriesButton.active,
+#categoriesButtonWallpaperFlooring.active,
+#footprintButton.active {
+  background-color: #0056b3;
+}
+
+#filtersContainer,
+#filtersContainerWallpaperFlooring {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.dropdown-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+#dropZoneContainer {
+  position: relative;
+}
+
+#dropZone {
+  width: 2000px;
+  height: 1500px;
+  border: 2px dashed #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -3;
+}
+
+#background {
+  z-index: -4;
+}
+
+.grid {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  display: none;
+}
+
+#gridFlooring {
+  left: 300px;
+  top: 590px;
+}
+
+#gridWallpaper {
+  left: 295px;
+  top: 230px;
+}
+
+#toggleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.toggle-button {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 25px;
+  border: none;
+  position: relative;
+  margin: 0 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.toggle-button:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-button.active {
+  background-color: #4caf50;
+}
+
+.toggle-button.active:before {
+  transform: translateX(50px);
+}

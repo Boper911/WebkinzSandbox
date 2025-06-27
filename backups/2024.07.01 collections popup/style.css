@@ -1,0 +1,242 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+#catalog, #backgroundCatalog {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: 1px solid #ccc;
+  height: 1500px; /* Match the height of the drop zone */
+}
+
+#catalog {
+  margin-right: 20px;
+}
+
+#backgroundCatalog {
+  margin-left: 20px;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+#searchInputLeft, #searchInputRight {
+  width: 90%;
+  padding: 15px;
+  margin: 10px auto;
+  font-size: 20px;
+  display: block;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.filter-button, #collectionsButton {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  padding: 15px 20px; /* Increased padding */
+  transition: 0.3s;
+  font-size: 20px; /* Increased font size */
+  margin: 5px;
+}
+
+.filter-button:hover, #collectionsButton:hover {
+  background-color: #ddd;
+}
+
+.filter-button.active, #collectionsButton.active {
+  background-color: #ccc;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-content h3 {
+  margin-bottom: 20px;
+}
+
+.close-popup {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.collection-button {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  padding: 15px 20px; /* Increased padding */
+  transition: 0.3s;
+  font-size: 20px; /* Increased font size */
+  margin: 5px;
+}
+
+.collection-button:hover {
+  background-color: #ddd;
+}
+
+.collection-button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+  height: calc(100% - 70px); /* Full height minus the tab height and filter buttons */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+
+.catalog-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.catalog-item img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 5px; /* Reduce margin-bottom to bring text closer */
+}
+
+.catalog-item p {
+  font-size: 24px;
+  word-wrap: break-word;
+  max-width: 400px;
+  margin-top: 0; /* Remove top margin */
+  text-align: center; /* Center the text beneath the image */
+}
+
+#dropZoneContainer {
+  position: relative;
+}
+
+#dropZone {
+  width: 2000px;
+  height: 1500px;
+  border: 2px dashed #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -3;
+}
+
+#background {
+  z-index: -4;
+}
+
+.grid {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -2;
+  display: none; /* Initially hidden */
+}
+
+#gridFlooring {
+  left: 297px; 
+  top: 578px; 
+}
+
+#gridWallpaper {
+  left: 293px; 
+  top: 223px; 
+}
+
+#checkboxContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#checkboxContainer label {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 20px;
+}
+
+#leftCatalogContainer {
+  width: 450px; /* Increase width to avoid scroll wheels */
+  overflow-y: hidden;
+  height: 1500px; /* Match height of the drop zone */
+  /*border: 1px solid #ccc; /* Ensure the border matches the height */
+}
+
+#rightCatalogContainer {
+  width: 450px; /* Maintain width for right catalog */
+  overflow: hidden; /* Remove external scroll wheels */
+  height: 1500px; /* Match height of the drop zone */
+}
+
+#rightCatalogContainer .tabcontent {
+  overflow-y: auto; /* Enable vertical scroll inside tab content */
+}
+

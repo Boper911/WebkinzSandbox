@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Default Background",
+      "catalogImage": "Defaultbackground.png",
+      "dropImage": "Defaultbackgroundlarge.png"
+    },
+    {
+      "name": "Sunset",
+      "catalogImage": "Sunsetbackground.png",
+      "dropImage": "Sunsetbackgroundlarge.png"
+    },
+    {
+      "name": "Nighttime",
+      "catalogImage": "Nighttimebackground.png",
+      "dropImage": "Nighttimebackgroundlarge.png"
+    },
+    {
+      "name": "Daytime",
+      "catalogImage": "Daytimebackground.png",
+      "dropImage": "Daytimebackgroundlarge.png"
+    },
+    {
+      "name": "Sunrise",
+      "catalogImage": "Sunrisebackground.png",
+      "dropImage": "Sunrisebackgroundlarge.png"
+    },
+    {
+      "name": "Fall Forest",
+      "catalogImage": "Fallforestbackground.png",
+      "dropImage": "Fallforestbackgroundlarge.png"
+    }
+  ]
+  

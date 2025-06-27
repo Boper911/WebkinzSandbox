@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="leftCatalogContainer">
+            <div class="tab">
+                <button class="tablinks active" onclick="openLeftTab(event, 'AllItems')">All Items</button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-button" onclick="filterItems('Furniture')">Furniture</button>
+                <button class="filter-button" onclick="filterItems('Decorations')">Decorations</button>
+            </div>
+            <div id="AllItems" class="tabcontent" style="display: block;"></div>
+        </div>
+        <div id="dropZoneContainer">
+            <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img id="background" class="background" src="" alt="Background">
+                <img id="wallpaper" class="background" src="" alt="Wallpaper">
+                <img id="gridWallpaper" class="grid" src="images/grid/Grid_wallpaper.png" alt="Grid Wallpaper">
+                <img id="flooring" class="background" src="" alt="Flooring">
+                <img id="gridFlooring" class="grid" src="images/grid/Grid_flooring.png" alt="Grid Flooring">
+            </div>
+            <div id="toggleContainer">
+                <button id="toggleGridWallpaper" class="toggle-button">Wallpaper Grid</button>
+                <button id="toggleGridFlooring" class="toggle-button">Flooring Grid</button>
+            </div>
+        </div>
+        <div id="rightCatalogContainer">
+            <div class="tab">
+                <button class="tablinks active" onclick="openRightTab(event, 'Flooring')">Flooring</button>
+                <button class="tablinks" onclick="openRightTab(event, 'Wallpaper')">Wallpaper</button>
+                <button class="tablinks" onclick="openRightTab(event, 'Background')">Background</button>
+            </div>
+            <div id="Flooring" class="tabcontent" style="display: block;"></div>
+            <div id="Wallpaper" class="tabcontent"></div>
+            <div id="Background" class="tabcontent"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

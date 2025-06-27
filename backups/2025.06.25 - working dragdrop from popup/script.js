@@ -1,0 +1,2170 @@
+let highestZIndex = 0;
+let offsetX = 0;
+let offsetY = 0;
+let activeCollections = new Set();
+let activeColors = new Set();
+let activeCategories = new Set();
+let activeFootprints = new Set();
+let collections = new Set();
+let colors = new Set();
+let categories = new Set();
+let footprints = new Set();
+let currentWallpaper = null;
+let currentFlooring = null;
+let currentBackground = null;
+let activeCategoriesWallpaperFlooring = new Set();
+let activeCollectionsWallpaperFlooring = new Set();
+let activeColorsWallpaperFlooring = new Set();
+let categoriesWallpaperFlooring = new Set();
+let collectionsWallpaperFlooring = new Set();
+let colorsWallpaperFlooring = new Set();
+let activeCollectionsBackgrounds = new Set();
+let activeColorsBackgrounds = new Set();
+let collectionsBackgrounds = new Set();
+let colorsBackgrounds = new Set();
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
+    document.querySelector('#leftTabs .tablinks').click();
+
+    fetch('wallfloor.json')
+        .then(response => response.json())
+        .then(data => {
+            const defaultWallpaper = data.find(item => item.name === 'Default Wallpaper');
+            const defaultFlooring = data.find(item => item.name === 'Default Flooring');
+
+            if (defaultWallpaper) {
+                setDefaultItem(defaultWallpaper);
+            }
+
+            if (defaultFlooring) {
+                setDefaultItem(defaultFlooring);
+            }
+
+            loadWallpaperFlooring();
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+
+    fetch('backgrounds.json')
+        .then(response => response.json())
+        .then(data => {
+            const defaultBackground = data.find(item => item.name === 'Default Background');
+            if (defaultBackground) {
+                setDefaultBackground(defaultBackground);
+            }
+
+            loadBackgrounds();
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+        
+    fetch('catalog.json')
+        .then(response => response.json())
+        .then(data => {
+            loadItems(data);
+            loadFilters(data);
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+        
+    // REMOVED ALL DROPDOWN EVENT LISTENERS - using onclick in HTML instead
+    
+    // Close dropdowns when clicking outside
+    window.addEventListener('click', function(event) {
+        // Check if the click was on a dropdown button or inside a dropdown
+        if (!event.target.matches('.dropdown-button') && 
+            !event.target.closest('.dropdown-content') &&
+            !event.target.closest('.dropdown-button')) {
+            
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.classList.remove('show');
+                content.style.display = 'none';
+            });
+            document.querySelectorAll('.dropdown-button').forEach(btn => {
+                btn.classList.remove('show');
+            });
+        }
+    });
+
+    // Set up reset filter button listeners
+    document.getElementById('resetAllFiltersButton').addEventListener('click', resetAllFilters);
+    document.getElementById('resetAllFiltersButtonWallpaperFlooring').addEventListener('click', resetAllFiltersWallpaperFlooring);
+
+    // Set up auto Z-axis toggle
+    const autoZAxisToggle = document.getElementById("autoZAxisToggle");
+    if (autoZAxisToggle) {
+        autoZAxisToggle.addEventListener("change", function() {
+            autoZAxisEnabled = this.checked;
+            updateItemZIndex(); // Recalculate z-index when toggled
+        });
+    }
+});
+
+function attachCheckboxListeners() {
+    const footprintCheckboxes = document.querySelectorAll('.footprint-checkbox');
+
+    footprintCheckboxes.forEach(function(checkbox) {
+        checkbox.removeEventListener('click', toggleCheckbox); // Ensure no duplicate listeners
+        checkbox.addEventListener('click', toggleCheckbox);
+    });
+}
+
+function toggleCheckbox(event) {
+    const checkbox = event.currentTarget;
+    if (checkbox.classList.contains('checkbox_off')) {
+        checkbox.classList.remove('checkbox_off');
+        checkbox.classList.add('checkbox_on');
+        checkbox.src = 'assets/icons/items/footprint/checkbox_on.png';
+    } else {
+        checkbox.classList.remove('checkbox_on');
+        checkbox.classList.add('checkbox_off');
+        checkbox.src = 'assets/icons/items/footprint/checkbox_off.png';
+    }
+}
+
+function openLeftTab(evt, tabName) {
+    const tabContents = document.getElementsByClassName('leftTabContent');
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = 'none';
+    }
+
+    const tabLinks = document.getElementsByClassName('tablinks');
+    for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(' active', '');
+    }
+
+    document.getElementById(tabName).style.display = 'block';
+    evt.currentTarget.className += ' active';
+
+    // Show or hide the filter container based on the tab
+    if (tabName === 'Items') {
+        document.getElementById('filterContainer').style.display = 'flex';
+        document.getElementById('filterContainerWallpaperFlooring').style.display = 'none';
+        document.getElementById('filterContainerBackgrounds').style.display = 'none';
+        document.getElementById('settingsContainer').style.display = 'none';
+    } else if (tabName === 'WallpaperFlooring') {
+        document.getElementById('filterContainer').style.display = 'none';
+        document.getElementById('filterContainerWallpaperFlooring').style.display = 'flex';
+        document.getElementById('filterContainerBackgrounds').style.display = 'none';
+        document.getElementById('settingsContainer').style.display = 'none';
+    } else if (tabName === 'Backgrounds') {
+        document.getElementById('filterContainer').style.display = 'none';
+        document.getElementById('filterContainerWallpaperFlooring').style.display = 'none';
+        document.getElementById('filterContainerBackgrounds').style.display = 'flex';
+        document.getElementById('settingsContainer').style.display = 'none';
+    } else if (tabName === 'Settings') {
+        document.getElementById('filterContainer').style.display = 'none';
+        document.getElementById('filterContainerWallpaperFlooring').style.display = 'none';
+        document.getElementById('filterContainerBackgrounds').style.display = 'none';
+        document.getElementById('settingsContainer').style.display = 'block';
+    } else {
+        document.getElementById('filterContainer').style.display = 'none';
+        document.getElementById('filterContainerWallpaperFlooring').style.display = 'none';
+        document.getElementById('filterContainerBackgrounds').style.display = 'none';
+        document.getElementById('settingsContainer').style.display = 'none';
+    }
+}
+
+function setDefaultItem(item) {
+    const imgElement = document.createElement('img');
+    imgElement.src = 'images/wallfloor/' + item.views[2]; // Use the "large" view
+    imgElement.style.left = item.fixedLocationLeft;
+    imgElement.style.top = item.fixedLocationTop;
+    imgElement.style.position = 'absolute';
+    imgElement.classList.add('background');
+
+    imgElement.dataset.category = item.category;
+    imgElement.dataset.dropImage = 'images/wallfloor/' + item.views[2];
+    imgElement.dataset.fixedLocationLeft = item.fixedLocationLeft;
+    imgElement.dataset.fixedLocationTop = item.fixedLocationTop;
+    
+    if (item.category.toLowerCase() === 'wallpaper') {
+        imgElement.id = 'wallpaper';
+        currentWallpaper = imgElement;
+    } else if (item.category.toLowerCase() === 'flooring') {
+        imgElement.id = 'flooring';
+        currentFlooring = imgElement;
+    }
+
+    document.getElementById('dropZone').appendChild(imgElement);
+}
+
+function setDefaultBackground(item) {
+    const imgElement = document.getElementById('background');
+    imgElement.src = 'images/backgrounds/' + item.dropImage;
+    imgElement.style.left = '0px';
+    imgElement.style.top = '0px';
+    currentBackground = imgElement;
+}
+
+function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) return;
+
+    const button = dropdown.previousElementSibling; // Get the button that triggers this dropdown
+    const isCurrentlyOpen = dropdown.classList.contains('show');
+
+    // Close all dropdowns first
+    document.querySelectorAll('.dropdown-content').forEach(content => {
+        content.classList.remove('show');
+        content.style.display = 'none';
+    });
+
+    // Remove 'show' class from all buttons
+    document.querySelectorAll('.dropdown-button').forEach(btn => {
+        btn.classList.remove('show');
+    });
+
+    // If the clicked dropdown was NOT open, open it
+    if (!isCurrentlyOpen) {
+        dropdown.classList.add('show');
+        dropdown.style.display = 'block';
+        if (button) {
+            button.classList.add('show');
+        }
+    }
+    // If it WAS open, it stays closed (we already closed everything above)
+}
+
+// Ensure dropdowns don't close when clicking inside them
+document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+    dropdown.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevents closing when clicking inside the dropdown
+    });
+});
+
+function resetAllFilters() {
+    // Reset all footprint checkboxes to checkbox_off.png
+    const footprintCheckboxes = document.querySelectorAll('.footprint-checkbox');
+
+    footprintCheckboxes.forEach(function(checkbox) {
+        checkbox.classList.remove('checkbox_on');
+        checkbox.classList.add('checkbox_off');
+        checkbox.src = 'assets/icons/items/footprint/checkbox_off.png';
+    });
+
+    // Clear other filters if needed
+    activeCollections.clear();
+    activeColors.clear();
+    activeCategories.clear();
+    activeFootprints.clear();
+    document.getElementById('collectionsButton').textContent = 'Collections';
+    document.getElementById('colorsButton').textContent = 'Colors';
+    document.getElementById('categoriesButton').textContent = 'Category';
+    document.getElementById('footprintButton').textContent = 'Footprint';
+
+    // Remove the highlight from filter options
+    const buttons = document.querySelectorAll('.collection-button, .color-button, .category-button, .footprint-button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Close all dropdowns
+    const dropdowns = document.querySelectorAll('.dropdown-content');
+    dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+
+    filterItems(); // Reapply filter
+}
+
+function loadCollections(collections) {
+    const collectionButtonsContainer = document.getElementById('collectionsDropdown');
+    collectionButtonsContainer.innerHTML = '';
+
+    const sortedCollections = Array.from(collections).sort();
+
+    sortedCollections.forEach(collection => {
+        if (collection.trim() === '') return;
+
+        const normalizedCollection = collection.split(/,\s*/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(', ');
+
+        const iconMap = {
+            'Bags & Baskets': 'bags&baskets.png',
+            'Decorative Food': 'decorativefood.png',
+            'Ponds & Lakes': 'ponds&lakes.png',
+            'Room Dividers': 'roomdividers.png',
+            'Windows & Doors': 'windows&doors.png',
+            'Wishing Wells': 'wishingwells.png'
+        };
+
+        const icon = iconMap[normalizedCollection] || `${normalizedCollection.replace(/ /g, '').toLowerCase()}.png`;
+
+        const button = document.createElement('div');
+        button.className = 'collection-button';
+        button.innerHTML = `
+            <img src="assets/icons/items/collections/${icon}" alt="${normalizedCollection}" class="icon">
+            <span>${normalizedCollection}</span>
+        `;
+        button.onclick = () => {
+            const isActive = !button.classList.contains('active');
+            setActiveCollection(normalizedCollection, isActive);
+        };
+        // Add double-click functionality
+        button.ondblclick = () => {
+            setExclusiveCollection(normalizedCollection);
+        };
+        collectionButtonsContainer.appendChild(button);
+    });
+}
+
+function loadColors(colors) {
+    const colorButtonsContainer = document.getElementById('colorsDropdown');
+    colorButtonsContainer.innerHTML = '';
+
+    const sortedColors = [
+        "Red", "Orange", "Yellow", "Green", "Blue", "Purple",
+        "Pink", "Brown", "Gray", "Black", "White", "Gold", "Rainbow"
+    ];
+
+    sortedColors.forEach(color => {
+        if (colors.map(c => c.toLowerCase()).includes(color.toLowerCase())) {
+            const button = document.createElement('div');
+            button.className = 'color-button';
+            button.innerHTML = `
+                <div class="color-icon" style="background-image: url('assets/icons/items/colors/${color.toLowerCase()}.png');"></div>
+                <span>${color}</span>
+            `;
+            button.onclick = () => {
+                const isActive = !button.classList.contains('active');
+                setActiveColor(color, isActive);
+            };
+            // Add double-click functionality
+            button.ondblclick = () => {
+                setExclusiveColor(color);
+            };
+            colorButtonsContainer.appendChild(button);
+        }
+    });
+}
+
+function loadCategories(categories) {
+    const categoryButtonsContainer = document.getElementById('categoriesDropdown');
+    categoryButtonsContainer.innerHTML = '';
+
+    const iconMap = {
+        'Furniture': 'furniture.png',
+        'Object': 'object.png',
+        'Wall Item': 'wallitem.png',
+        'Tile, Rug': 'tilerug.png'
+    };
+
+    const sortedCategories = Array.from(categories).sort();
+
+    sortedCategories.forEach(category => {
+        if (category.trim() === '') return;
+
+        let normalizedCategory = category.split(/,\s*/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(', ');
+
+        if (category.toLowerCase() === 'wall item') {
+            normalizedCategory = 'Wall Item';
+        }
+
+        const button = document.createElement('div');
+        button.className = 'category-button';
+        const icon = iconMap[normalizedCategory] ? `<img src="assets/icons/items/category/${iconMap[normalizedCategory]}" alt="${normalizedCategory}" class="icon">` : '';
+        button.innerHTML = `${icon} <span>${normalizedCategory}</span>`;
+        button.onclick = () => {
+            const isActive = !button.classList.contains('active');
+            setActiveCategory(normalizedCategory, isActive);
+        };
+        // Add double-click functionality
+        button.ondblclick = () => {
+            setExclusiveCategory(normalizedCategory);
+        };
+        categoryButtonsContainer.appendChild(button);
+    });
+}
+
+function loadFootprints(footprints) {
+    const footprintButtonsContainer = document.getElementById('footprintDropdown');
+    footprintButtonsContainer.innerHTML = '';
+
+    const sortedFootprints = Array.from(footprints).sort();
+
+    sortedFootprints.forEach(footprint => {
+        if (footprint.trim() === '') return;
+        const button = document.createElement('div');
+        button.className = 'footprint-button';
+        button.innerHTML = `
+            <img src="assets/icons/items/footprint/checkbox_off.png" alt="Checkbox Off" class="checkbox-icon footprint-checkbox">
+            <span>${footprint}</span>
+        `;
+        button.onclick = () => {
+            const isActive = !button.classList.contains('active');
+            setActiveFootprint(footprint, isActive);
+        };
+        // Add double-click functionality
+        button.ondblclick = () => {
+            setExclusiveFootprint(footprint);
+        };
+        footprintButtonsContainer.appendChild(button);
+    });
+
+    attachCheckboxListeners(); // Add this line to attach listeners
+}
+
+// New exclusive filter functions for Items section
+function setExclusiveCollection(collection) {
+    // Clear all collections first
+    activeCollections.clear();
+    document.querySelectorAll('.collection-button').forEach(btn => btn.classList.remove('active'));
+    
+    // Set only the double-clicked collection
+    activeCollections.add(collection.toLowerCase());
+    const collectionButton = [...document.getElementsByClassName('collection-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === collection.toLowerCase()
+    );
+    if (collectionButton) {
+        collectionButton.classList.add('active');
+    }
+
+    // Update button text
+    const collectionsButton = document.getElementById('collectionsButton');
+    collectionsButton.textContent = `Collection: ${capitalizeWords(collection)}`;
+
+    filterItems();
+}
+
+function setExclusiveColor(color) {
+    // Clear all colors first
+    activeColors.clear();
+    document.querySelectorAll('.color-button').forEach(btn => btn.classList.remove('active'));
+    
+    // Set only the double-clicked color
+    activeColors.add(color.toLowerCase());
+    const colorButton = [...document.getElementsByClassName('color-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === color.toLowerCase()
+    );
+    if (colorButton) {
+        colorButton.classList.add('active');
+    }
+
+    // Update button text
+    const colorsButton = document.getElementById('colorsButton');
+    colorsButton.textContent = `Colors ${capitalizeWords(color)}`;
+
+    filterItems();
+}
+
+function setExclusiveCategory(category) {
+    // Clear all categories first
+    activeCategories.clear();
+    document.querySelectorAll('.category-button').forEach(btn => btn.classList.remove('active'));
+    
+    // Set only the double-clicked category
+    activeCategories.add(category.toLowerCase());
+    const categoryButton = [...document.getElementsByClassName('category-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === category.toLowerCase()
+    );
+    if (categoryButton) {
+        categoryButton.classList.add('active');
+    }
+
+    // Update button text
+    const categoriesButton = document.getElementById('categoriesButton');
+    categoriesButton.textContent = `Category ${capitalizeWords(category)}`;
+
+    filterItems();
+}
+
+function setExclusiveFootprint(footprint) {
+    // Clear all footprints first
+    activeFootprints.clear();
+    document.querySelectorAll('.footprint-button').forEach(btn => {
+        btn.classList.remove('active');
+        const checkboxIcon = btn.querySelector('.checkbox-icon');
+        if (checkboxIcon) {
+            checkboxIcon.src = 'assets/icons/items/footprint/checkbox_off.png';
+        }
+    });
+    
+    // Set only the double-clicked footprint
+    activeFootprints.add(footprint.toLowerCase());
+    const selectedFootprintButton = [...document.getElementsByClassName('footprint-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === footprint.toLowerCase()
+    );
+    if (selectedFootprintButton) {
+        selectedFootprintButton.classList.add('active');
+        const checkboxIcon = selectedFootprintButton.querySelector('.checkbox-icon');
+        if (checkboxIcon) {
+            checkboxIcon.src = 'assets/icons/items/footprint/checkbox_on.png';
+        }
+    }
+
+    // Update button text
+    const footprintHeaderButton = document.getElementById('footprintButton');
+    footprintHeaderButton.textContent = `Footprint ${footprint}`;
+
+    filterItems();
+}
+
+function loadItems(data) {
+    const allTab = document.getElementById('AllItems');
+    allTab.innerHTML = ''; // Clear existing items
+
+    collections.clear();
+    colors.clear();
+    categories.clear();
+    footprints.clear();
+
+    data.forEach(item => {
+        const itemContainer = document.createElement('div');
+        itemContainer.className = 'catalog-item';
+        itemContainer.dataset.category = item.category;
+        itemContainer.dataset.collection = item.collection ? item.collection.toLowerCase() : '';
+        itemContainer.dataset.colors = JSON.stringify(item.colors ? item.colors.map(color => color.toLowerCase()) : []);
+        itemContainer.dataset.footprint = item.footprint ? item.footprint.toLowerCase() : '';
+
+        collections.add(item.collection ? item.collection.toLowerCase() : '');
+        (item.colors || []).forEach(color => colors.add(color.toLowerCase()));
+        categories.add(item.category.toLowerCase());
+        footprints.add(item.footprint.toLowerCase());
+
+        const img = document.createElement('img');
+        img.id = item.name;
+        img.src = 'images/items/' + item.catalogImage;
+        img.alt = item.name;
+        img.draggable = true;
+        img.dataset.dropImage = 'images/items/' + item.views[0];
+        img.dataset.views = JSON.stringify(item.views.map(view => 'images/items/' + view));
+        img.dataset.source = 'catalog';
+        img.dataset.category = item.category;
+        img.dataset.collection = JSON.stringify(Array.isArray(item.collection) ? item.collection : [item.collection]);
+        img.dataset.colors = JSON.stringify(item.colors);
+        img.dataset.footprint = item.footprint;
+        img.ondragstart = drag;
+        itemContainer.addEventListener('dblclick', () => openPopup(img));
+
+        const label = document.createElement('div');
+        label.classList.add('item-label');
+        label.textContent = item.name
+
+        itemContainer.appendChild(img);
+        itemContainer.appendChild(label);
+
+        allTab.appendChild(itemContainer);
+    });
+
+    loadCollections([...collections]);
+    loadColors([...colors]);
+    loadCategories([...categories]);
+    loadFootprints([...footprints]);
+
+    filterItems(); // Initialize the filter on load
+}
+
+function loadFilters(data) {
+    const categories = new Set();
+    const collections = new Set();
+    const colors = new Set();
+    const footprints = new Set();
+
+    data.forEach(item => {
+        categories.add(item.category);
+        collections.add(item.collection);
+        (item.colors || []).forEach(color => colors.add(color));
+        footprints.add(item.footprint);
+    });
+
+    loadCollections([...collections]);
+    loadColors([...colors]);
+    loadCategories([...categories]);
+    loadFootprints([...footprints]);
+}
+
+function filterItems() {
+    const items = document.getElementsByClassName('catalog-item');
+
+    for (let item of items) {
+        const itemCategories = (item.getAttribute('data-category') || '').toLowerCase().split(',').map(cat => cat.trim());
+        const itemCollections = (item.getAttribute('data-collection') || '').toLowerCase().split(',').map(col => col.trim());
+        const itemColors = JSON.parse(item.getAttribute('data-colors') || '[]').map(col => col.toLowerCase());
+        const itemFootprints = (item.getAttribute('data-footprint') || '').toLowerCase().split(',').map(fp => fp.trim());
+
+        const matchesCategory = !activeCategories.size || [...activeCategories].some(category => itemCategories.includes(category.toLowerCase()));
+        const matchesCollection = !activeCollections.size || [...activeCollections].some(collection => itemCollections.includes(collection.toLowerCase()));
+        const matchesColor = !activeColors.size || [...activeColors].some(color => itemColors.includes(color.toLowerCase()));
+        const matchesFootprint = !activeFootprints.size || [...activeFootprints].some(footprint => itemFootprints.includes(footprint.toLowerCase()));
+
+        if (matchesCategory && matchesCollection && matchesColor && matchesFootprint) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    }
+}
+
+function searchItemsLeft() {
+    const searchTerm = document.getElementById('searchInputLeft').value.toLowerCase().trim();
+    const items = Array.from(document.querySelectorAll('#AllItems .catalog-item'));
+    
+    // If search is empty, just apply filters without search
+    if (!searchTerm) {
+        items.forEach(item => {
+            // Get item properties for filtering
+            const itemCategory = item.dataset.category ? item.dataset.category.toLowerCase() : '';
+            const itemCollection = item.dataset.collection ? item.dataset.collection.toLowerCase() : '';
+            const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors).map(c => c.toLowerCase()) : [];
+            const itemFootprint = item.dataset.footprint ? item.dataset.footprint.toLowerCase() : '';
+
+            // Check active filters
+            const matchesCategory = activeCategories.size === 0 || 
+                [...activeCategories].some(cat => itemCategory.includes(cat.toLowerCase()));
+            const matchesCollection = activeCollections.size === 0 || 
+                [...activeCollections].some(col => itemCollection.includes(col.toLowerCase()));
+            const matchesColor = activeColors.size === 0 || 
+                [...activeColors].some(color => itemColors.includes(color.toLowerCase()));
+            const matchesFootprint = activeFootprints.size === 0 || 
+                [...activeFootprints].some(fp => itemFootprint.includes(fp.toLowerCase()));
+
+            // Show/hide based on filters only
+            item.style.display = (matchesCollection && matchesColor && matchesCategory && matchesFootprint) ? 'block' : 'none';
+        });
+        return;
+    }
+
+    // Arrays to categorize matches
+    const exactFullMatches = [];
+    const exactWordMatches = [];
+    const substringMatches = [];
+    const fuzzyMatches = [];
+
+    items.forEach(item => {
+        // Get item name
+        const itemName = item.querySelector('.item-label')?.textContent?.trim() || '';
+        const itemNameLower = itemName.toLowerCase();
+        const itemWords = itemNameLower.split(/\s+/);
+        
+        // Get item properties for filtering
+        const itemCategory = item.dataset.category ? item.dataset.category.toLowerCase() : '';
+        const itemCollection = item.dataset.collection ? item.dataset.collection.toLowerCase() : '';
+        const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors).map(c => c.toLowerCase()) : [];
+        const itemFootprint = item.dataset.footprint ? item.dataset.footprint.toLowerCase() : '';
+
+        // Check active filters
+        const matchesCategory = activeCategories.size === 0 || 
+            [...activeCategories].some(cat => itemCategory.includes(cat.toLowerCase()));
+        const matchesCollection = activeCollections.size === 0 || 
+            [...activeCollections].some(col => itemCollection.includes(col.toLowerCase()));
+        const matchesColor = activeColors.size === 0 || 
+            [...activeColors].some(color => itemColors.includes(color.toLowerCase()));
+        const matchesFootprint = activeFootprints.size === 0 || 
+            [...activeFootprints].some(fp => itemFootprint.includes(fp.toLowerCase()));
+
+        // Skip if doesn't match filters
+        if (!matchesCollection || !matchesColor || !matchesCategory || !matchesFootprint) {
+            item.style.display = 'none';
+            return;
+        }
+
+        // Check match type
+        if (itemNameLower === searchTerm) {
+            // Priority 1: Exact full name match
+            exactFullMatches.push({ item, name: itemName });
+        } else if (itemWords.includes(searchTerm)) {
+            // Priority 2: Exact word match
+            exactWordMatches.push({ item, name: itemName });
+        } else if (itemNameLower.includes(searchTerm)) {
+            // Priority 3: Substring match
+            const index = itemNameLower.indexOf(searchTerm);
+            substringMatches.push({ 
+                item, 
+                name: itemName, 
+                index: index,
+                startsWord: index === 0 || itemNameLower[index - 1] === ' '
+            });
+        } else {
+            // Priority 4: Fuzzy match (only if very close)
+            let minDistance = Infinity;
+            
+            // Check each word
+            for (const word of itemWords) {
+                const distance = levenshteinDistance(searchTerm, word);
+                minDistance = Math.min(minDistance, distance);
+            }
+            
+            // Only include if very close match (max 1 character different)
+            if (minDistance === 1) {
+                fuzzyMatches.push({ item, name: itemName, distance: minDistance });
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    });
+
+    // Hide all items first
+    items.forEach(item => item.style.display = 'none');
+
+    // Sort substring matches (words that start with search term come first)
+    substringMatches.sort((a, b) => {
+        if (a.startsWord !== b.startsWord) return b.startsWord ? 1 : -1;
+        return a.index - b.index;
+    });
+
+    // Combine all results in priority order (NO alphabetical sorting)
+    const allResults = [
+        ...exactFullMatches,
+        ...exactWordMatches,
+        ...substringMatches,
+        ...fuzzyMatches
+    ];
+
+    // Get the parent container
+    const container = document.getElementById('AllItems');
+    
+    // Display results in order by moving them to the end of the container
+    allResults.forEach((result, index) => {
+        result.item.style.display = 'block';
+        // Move the item to the end of the container to maintain our custom order
+        container.appendChild(result.item);
+    });
+
+    // Debug logging
+    console.log(`Search for "${searchTerm}":`);
+    console.log(`- Exact full matches: ${exactFullMatches.length}`, exactFullMatches.map(m => m.name));
+    console.log(`- Exact word matches: ${exactWordMatches.length}`, exactWordMatches.slice(0, 5).map(m => m.name));
+    console.log(`- Substring matches: ${substringMatches.length}`, substringMatches.slice(0, 5).map(m => m.name));
+    console.log(`- Fuzzy matches: ${fuzzyMatches.length}`, fuzzyMatches.map(m => m.name));
+}
+
+// Helper function for fuzzy matching
+function levenshteinDistance(str1, str2) {
+    const matrix = Array(str2.length + 1).fill(null).map(() => Array(str1.length + 1).fill(null));
+    
+    for (let i = 0; i <= str1.length; i++) matrix[0][i] = i;
+    for (let j = 0; j <= str2.length; j++) matrix[j][0] = j;
+    
+    for (let j = 1; j <= str2.length; j++) {
+        for (let i = 1; i <= str1.length; i++) {
+            const substitutionCost = str1[i - 1] === str2[j - 1] ? 0 : 1;
+            matrix[j][i] = Math.min(
+                matrix[j][i - 1] + 1, // deletion
+                matrix[j - 1][i] + 1, // insertion
+                matrix[j - 1][i - 1] + substitutionCost // substitution
+            );
+        }
+    }
+    
+    return matrix[str2.length][str1.length];
+}
+
+function capitalizeWords(str) {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+}
+
+function setActiveCategory(category, isActive) {
+    const categoryButton = [...document.getElementsByClassName('category-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === category.toLowerCase()
+    );
+    if (isActive) {
+        activeCategories.add(category.toLowerCase());
+        categoryButton.classList.add('active');
+    } else {
+        activeCategories.delete(category.toLowerCase());
+        categoryButton.classList.remove('active');
+    }
+
+    const categoriesButton = document.getElementById('categoriesButton');
+    if (activeCategories.size === 0) {
+        categoriesButton.textContent = 'Category';
+    } else {
+        categoriesButton.textContent = `Category: ${[...activeCategories].map(c => capitalizeWords(c)).join(', ')}`;
+    }
+
+    filterItems();
+}
+
+function setActiveCollection(collection, isActive) {
+    const collectionButton = [...document.getElementsByClassName('collection-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === collection.toLowerCase()
+    );
+    if (isActive) {
+        activeCollections.add(collection.toLowerCase());
+        collectionButton.classList.add('active');
+    } else {
+        activeCollections.delete(collection.toLowerCase());
+        collectionButton.classList.remove('active');
+    }
+
+    const collectionsButton = document.getElementById('collectionsButton');
+    if (activeCollections.size === 0) {
+        collectionsButton.textContent = 'Collections';
+    } else {
+        collectionsButton.textContent = `Collections: ${[...activeCollections].map(c => capitalizeWords(c)).join(', ')}`;
+    }
+
+    filterItems();
+}
+
+function setActiveColor(color, isActive) {
+    const colorButton = [...document.getElementsByClassName('color-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === color.toLowerCase()
+    );
+    if (isActive) {
+        activeColors.add(color.toLowerCase());
+        colorButton.classList.add('active');
+    } else {
+        activeColors.delete(color.toLowerCase());
+        colorButton.classList.remove('active');
+    }
+
+    const colorButtonHeader = document.getElementById('colorsButton');
+    if (activeColors.size === 0) {
+        colorButtonHeader.textContent = 'Colors';
+    } else {
+        colorButtonHeader.textContent = `Colors: ${[...activeColors].map(c => capitalizeWords(c)).join(', ')}`;
+    }
+
+    filterItems();
+}
+
+function setActiveFootprint(footprint, isActive) {
+    const footprintButton = [...document.getElementsByClassName('footprint-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === footprint.toLowerCase()
+    );
+    const checkboxIcon = footprintButton.querySelector('.checkbox-icon');
+    if (isActive) {
+        activeFootprints.add(footprint.toLowerCase());
+        footprintButton.classList.add('active');
+        checkboxIcon.src = 'assets/icons/items/footprint/checkbox_on.png';
+    } else {
+        activeFootprints.delete(footprint.toLowerCase());
+        footprintButton.classList.remove('active');
+        checkboxIcon.src = 'assets/icons/items/footprint/checkbox_off.png';
+    }
+
+    const footprintButtonHeader = document.getElementById('footprintButton');
+    if (activeFootprints.size === 0) {
+        footprintButtonHeader.textContent = 'Footprint';
+    } else {
+        footprintButtonHeader.textContent = `Footprint: ${[...activeFootprints].join(', ')}`;
+    }
+
+    filterItems();
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drag(event) {
+    event.dataTransfer.setData("text/plain", event.target.id);
+
+    const views = JSON.parse(event.target.dataset.views);
+    let currentViewIndex = event.target.dataset.currentViewIndex ? parseInt(event.target.dataset.currentViewIndex) : 0;
+    const dragImage = document.createElement('img');
+    dragImage.src = views[currentViewIndex];
+    dragImage.style.opacity = '0.75'; // Set the opacity to a uniform lower value
+    dragImage.style.position = 'absolute';
+    dragImage.style.left = '-99999px';
+    document.body.appendChild(dragImage);
+    event.dataTransfer.setDragImage(dragImage, event.offsetX, event.offsetY);
+
+    offsetX = event.offsetX;
+    offsetY = event.offsetY;
+
+    setTimeout(() => {
+        document.body.removeChild(dragImage);
+    }, 0);
+}
+
+function drop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    const dropZone = document.getElementById('dropZone');
+
+    const dropRect = dropZone.getBoundingClientRect();
+    const x = event.clientX - dropRect.left - offsetX;
+    const y = event.clientY - dropRect.top - offsetY;
+
+    // Handle popup preview drag
+        // Handle popup preview drag
+    if (data === "popup-preview-item" && window.popupDragData) {
+        const dragData = window.popupDragData;
+        const dropZone = document.getElementById('dropZone');
+
+        const dropRect = dropZone.getBoundingClientRect();
+        
+        // Use the pre-calculated adjusted offsets
+        const x = event.clientX - dropRect.left - dragData.adjustedOffsetX;
+        const y = event.clientY - dropRect.top - dragData.adjustedOffsetY;
+        
+        console.log(`Drop position: ${x.toFixed(1)}, ${y.toFixed(1)}`);
+        
+        const clonedElement = document.createElement('img');
+        clonedElement.src = dragData.views[dragData.currentViewIndex];
+        clonedElement.alt = dragData.alt;
+        clonedElement.style.position = 'absolute';
+        clonedElement.style.left = `${x}px`;
+        clonedElement.style.top = `${y}px`;
+        clonedElement.setAttribute('tabindex', '0');
+        clonedElement.id = `cloned-popup-${Date.now()}`;
+        clonedElement.dataset.views = JSON.stringify(dragData.views);
+        clonedElement.dataset.currentViewIndex = dragData.currentViewIndex.toString();
+        clonedElement.dataset.source = 'dropZone';
+        clonedElement.dataset.category = dragData.category;
+        clonedElement.dataset.collection = dragData.collection;
+        clonedElement.dataset.colors = dragData.colors;
+        clonedElement.dataset.footprint = dragData.footprint;
+
+        clonedElement.style.zIndex = ++highestZIndex;
+        clonedElement.draggable = true;
+
+        clonedElement.addEventListener('dragstart', drag);
+        clonedElement.addEventListener('keydown', function(event) {
+            handleArrowKeys(event, clonedElement);
+        });
+        clonedElement.addEventListener('click', function() {
+            bringToFront(clonedElement);
+        });
+        clonedElement.addEventListener('dblclick', function() {
+            changeView(clonedElement);
+        });
+
+        dropZone.appendChild(clonedElement);
+        
+        // Clean up
+        window.popupDragData = null;
+        return;
+    }
+
+    // Rest of your existing drop function logic...
+    const draggedElement = document.getElementById(data);
+    if (!draggedElement) return;
+
+    if (event.shiftKey) {
+        const clonedElement = createClonedElement(draggedElement, x, y);
+        dropZone.appendChild(clonedElement);
+    } else if (draggedElement.dataset.source === 'catalog') {
+        // Your existing catalog drag logic...
+        const views = JSON.parse(draggedElement.dataset.views);
+        const clonedElement = document.createElement('img');
+        clonedElement.src = views[0];
+        clonedElement.alt = draggedElement.alt;
+        clonedElement.style.position = 'absolute';
+        clonedElement.style.left = `${x}px`;
+        clonedElement.style.top = `${y}px`;
+        clonedElement.setAttribute('tabindex', '0');
+        clonedElement.id = `cloned-${data}-${Date.now()}`;
+        clonedElement.dataset.views = JSON.stringify(views);
+        clonedElement.dataset.currentViewIndex = "0";
+        clonedElement.dataset.source = 'dropZone';
+
+        clonedElement.style.zIndex = ++highestZIndex;
+        clonedElement.draggable = true;
+
+        clonedElement.addEventListener('dragstart', drag);
+        clonedElement.addEventListener('keydown', function(event) {
+            handleArrowKeys(event, clonedElement);
+        });
+        clonedElement.addEventListener('click', function() {
+            bringToFront(clonedElement);
+        });
+        clonedElement.addEventListener('dblclick', function() {
+            changeView(clonedElement);
+        });
+
+        dropZone.appendChild(clonedElement);
+    } else {
+        draggedElement.style.left = `${x}px`;
+        draggedElement.style.top = `${y}px`;
+        draggedElement.style.zIndex = ++highestZIndex;
+    }
+}
+
+function createClonedElement(draggedElement, x, y) {
+    const views = JSON.parse(draggedElement.dataset.views);
+    const currentViewIndex = parseInt(draggedElement.dataset.currentViewIndex);
+    const clonedElement = document.createElement('img');
+    clonedElement.src = views[currentViewIndex];
+    clonedElement.alt = draggedElement.alt;
+    clonedElement.style.position = 'absolute';
+    clonedElement.style.left = `${x}px`;
+    clonedElement.style.top = `${y}px`;
+    clonedElement.setAttribute('tabindex', '0');
+    clonedElement.id = `cloned-${draggedElement.id}-${Date.now()}`;
+    clonedElement.dataset.views = JSON.stringify(views);
+    clonedElement.dataset.currentViewIndex = currentViewIndex.toString();
+
+    clonedElement.style.zIndex = ++highestZIndex;
+    clonedElement.draggable = true;
+    clonedElement.dataset.source = 'dropZone';
+
+    clonedElement.addEventListener('dragstart', drag);
+    clonedElement.addEventListener('keydown', function(event) {
+        handleArrowKeys(event, clonedElement);
+    });
+    clonedElement.addEventListener('click', function() {
+        bringToFront(clonedElement);
+    });
+    clonedElement.addEventListener('dblclick', function() {
+        changeView(clonedElement);
+    });
+
+    return clonedElement;
+}
+
+function handleArrowKeys(event, element) {
+    const step = 5;
+    event.preventDefault();
+    switch(event.key) {
+        case 'ArrowLeft':
+            element.style.left = `${parseInt(element.style.left) - step}px`;
+            break;
+        case 'ArrowRight':
+            element.style.left = `${parseInt(element.style.left) + step}px`;
+            break;
+        case 'ArrowUp':
+            element.style.top = `${parseInt(element.style.top) - step}px`;
+            break;
+        case 'ArrowDown':
+            element.style.top = `${parseInt(element.style.top) + step}px`;
+            break;
+        case 'Backspace':
+            element.remove();
+            event.preventDefault();
+            break;
+    }
+}
+
+function bringToFront(element) {
+    element.style.zIndex = ++highestZIndex;
+}
+
+function changeView(element) {
+    const views = JSON.parse(element.dataset.views);
+    let currentViewIndex = parseInt(element.dataset.currentViewIndex);
+    currentViewIndex = (currentViewIndex + 1) % views.length;
+    element.src = views[currentViewIndex];
+    element.dataset.currentViewIndex = currentViewIndex;
+}
+
+function setBackground(item) {
+    const dropZone = document.getElementById('dropZone');
+    const category = item.dataset.category ? item.dataset.category.toLowerCase() : null;
+    let imgElement;
+
+    if (category === 'wallpaper') {
+        imgElement = document.getElementById('wallpaper');
+        if (currentWallpaper) {
+            currentWallpaper.src = '';
+        }
+    } else if (category === 'flooring') {
+        imgElement = document.getElementById('flooring');
+        if (currentFlooring) {
+            currentFlooring.src = '';
+        }
+    } else {
+        imgElement = document.getElementById('background');
+        if (currentBackground) {
+            currentBackground.src = '';
+        }
+    }
+
+    if (!imgElement) return;
+
+    imgElement.src = item.dataset.dropImage;
+    imgElement.style.left = item.dataset.fixedLocationLeft || '0px';
+    imgElement.style.top = item.dataset.fixedLocationTop || '0px';
+
+    if (category === 'wallpaper') {
+        currentWallpaper = imgElement;
+    } else if (category === 'flooring') {
+        currentFlooring = imgElement;
+    } else {
+        currentBackground = imgElement;
+    }
+}
+
+function loadWallpaperFlooring() {
+    const container = document.getElementById('AllWallpaperFlooring');
+    container.innerHTML = '';
+
+    // Clear the filter sets
+    categoriesWallpaperFlooring.clear();
+    collectionsWallpaperFlooring.clear();
+    colorsWallpaperFlooring.clear();
+
+    fetch('wallfloor.json')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(item => {
+          // Create outer catalog-item div
+          const itemContainer = document.createElement('div');
+          itemContainer.classList.add('catalog-item');
+          itemContainer.dataset.category = item.category;
+          itemContainer.dataset.collection = JSON.stringify((item.collection || []).map(c => c.toLowerCase()));
+          itemContainer.dataset.colors = JSON.stringify((item.colors || []).map(color => color.toLowerCase()));
+          itemContainer.dataset.fixedLocationLeft = item.fixedLocationLeft;
+          itemContainer.dataset.fixedLocationTop = item.fixedLocationTop;
+
+          // Populate filter sets
+          categoriesWallpaperFlooring.add(item.category.toLowerCase());
+          (item.collection || []).forEach(col => collectionsWallpaperFlooring.add(col.toLowerCase()));
+          (item.colors || []).forEach(color => colorsWallpaperFlooring.add(color.toLowerCase()));
+
+          // Create image
+          const img = document.createElement('img');
+          img.src = `images/wallfloor/${item.catalogImage}`;
+          img.alt = item.name;
+          img.draggable = true;
+          img.dataset.dropImage = `images/wallfloor/${item.views[2]}`;
+          img.dataset.fixedLocationLeft = item.fixedLocationLeft;
+          img.dataset.fixedLocationTop = item.fixedLocationTop;
+          img.dataset.source = 'catalog';
+          img.dataset.category = item.category;
+          img.ondragstart = drag;
+          img.onclick = () => setBackground(img);
+
+          // Create label div
+          const label = document.createElement('div');
+          label.classList.add('item-label');
+          label.textContent = item.name;
+
+          // Append elements
+          itemContainer.appendChild(img);
+          itemContainer.appendChild(label);
+          container.appendChild(itemContainer);
+        });
+
+        // NOW LOAD THE FILTERS
+        loadCategoriesWallpaperFlooring([...categoriesWallpaperFlooring]);
+        loadCollectionsWallpaperFlooring([...collectionsWallpaperFlooring]);
+        loadColorsWallpaperFlooring([...colorsWallpaperFlooring]);
+
+        // Apply initial filters
+        filterItemsWallpaperFlooring && filterItemsWallpaperFlooring();
+      })
+      .catch(error => console.error('Error fetching wallfloor.json:', error));
+}
+
+function loadCategoriesWallpaperFlooring(categories) {
+    const categoryButtonsContainer = document.getElementById('categoriesDropdownWallpaperFlooring');
+    categoryButtonsContainer.innerHTML = '';
+
+    const sortedCategories = Array.from(categories).sort();
+
+    sortedCategories.forEach(category => {
+        if (category.trim() === '') return;
+        const icon = `assets/icons/wallpaper&flooring/category/${category.toLowerCase()}.png`;
+        const capitalizedCategory = capitalizeWords(category);
+        const button = document.createElement('div');
+        button.className = 'category-button';
+        button.innerHTML = `<img src="${icon}" alt="${capitalizedCategory} Icon" class="filter-icon"><span>${capitalizedCategory}</span>`;
+        button.onclick = () => {
+            const isActive = !button.classList.contains('active');
+            setActiveCategoryWallpaperFlooring(category, isActive);
+        };
+        // Add double-click functionality
+        button.ondblclick = () => {
+            setExclusiveCategoryWallpaperFlooring(category);
+        };
+        categoryButtonsContainer.appendChild(button);
+    });
+}
+
+function loadCollectionsWallpaperFlooring(collections) {
+    const collectionButtonsContainer = document.getElementById('collectionsDropdownWallpaperFlooring');
+    collectionButtonsContainer.innerHTML = '';
+
+    const order = ["Default", "Solid", "Pattern", "Wooden", "Tiled", "Floral", "Garden", "Nature", "Water", "Winter", "Spring", "Summer", "Fall", "Valentine", "Halloween", "Christmas"];
+    const collectionsArray = Array.from(collections);
+
+    order.forEach(collection => {
+        if (collectionsArray.includes(collection.toLowerCase())) {
+            const icon = `assets/icons/wallpaper&flooring/collections/${collection.toLowerCase()}.png`;
+            const capitalizedCollection = capitalizeWords(collection);
+            const button = document.createElement('div');
+            button.className = 'collection-button';
+            button.innerHTML = `<img src="${icon}" alt="${capitalizedCollection} Icon" class="filter-icon"><span>${capitalizedCollection}</span>`;
+            button.onclick = () => {
+                const isActive = !button.classList.contains('active');
+                setActiveCollectionWallpaperFlooring(collection, isActive);
+            };
+            // Add double-click functionality
+            button.ondblclick = () => {
+                setExclusiveCollectionWallpaperFlooring(collection);
+            };
+            collectionButtonsContainer.appendChild(button);
+        }
+    });
+}
+
+function loadColorsWallpaperFlooring(colors) {
+    const colorButtonsContainer = document.getElementById('colorsDropdownWallpaperFlooring');
+    colorButtonsContainer.innerHTML = '';
+
+    const order = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Brown", "Gray", "Black", "White", "Gold", "Rainbow"];
+    const colorsArray = Array.from(colors);
+
+    order.forEach(color => {
+        if (colorsArray.includes(color.toLowerCase())) {
+            const icon = `assets/icons/wallpaper&flooring/colors/${color.toLowerCase()}.png`;
+            const capitalizedColor = capitalizeWords(color);
+            const button = document.createElement('div');
+            button.className = 'color-button';
+            button.innerHTML = `<img src="${icon}" alt="${capitalizedColor} Icon" class="filter-icon"><span>${capitalizedColor}</span>`;
+            button.onclick = () => {
+                const isActive = !button.classList.contains('active');
+                setActiveColorWallpaperFlooring(color, isActive);
+            };
+            // Add double-click functionality
+            button.ondblclick = () => {
+                setExclusiveColorWallpaperFlooring(color);
+            };
+            colorButtonsContainer.appendChild(button);
+        }
+    });
+}
+
+function setExclusiveCategoryWallpaperFlooring(category) {
+    // Clear all categories first
+    activeCategoriesWallpaperFlooring.clear();
+    document.querySelectorAll('#categoriesDropdownWallpaperFlooring .category-button').forEach(btn => btn.classList.remove('active'));
+    
+    // Set only the double-clicked category
+    activeCategoriesWallpaperFlooring.add(category.toLowerCase());
+    const categoryButton = [...document.querySelectorAll('#categoriesDropdownWallpaperFlooring .category-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === category.toLowerCase()
+    );
+    if (categoryButton) {
+        categoryButton.classList.add('active');
+    }
+
+    // Update button text
+    const categoriesButton = document.getElementById('categoriesButtonWallpaperFlooring');
+    categoriesButton.textContent = `Category: ${capitalizeWords(category)}`;
+
+    filterItemsWallpaperFlooring();
+}
+
+function setExclusiveCollectionWallpaperFlooring(collection) {
+    // Clear all collections first
+    activeCollectionsWallpaperFlooring.clear();
+    document.querySelectorAll('#collectionsDropdownWallpaperFlooring .collection-button').forEach(btn => btn.classList.remove('active'));
+    
+    // Set only the double-clicked collection
+    activeCollectionsWallpaperFlooring.add(collection.toLowerCase());
+    const collectionButton = [...document.querySelectorAll('#collectionsDropdownWallpaperFlooring .collection-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === collection.toLowerCase()
+    );
+    if (collectionButton) {
+        collectionButton.classList.add('active');
+    }
+
+    // Update button text
+    const collectionsButton = document.getElementById('collectionsButtonWallpaperFlooring');
+    collectionsButton.textContent = `Collections: ${capitalizeWords(collection)}`;
+
+    filterItemsWallpaperFlooring();
+}
+
+function setExclusiveColorWallpaperFlooring(color) {
+    // Clear all colors first
+    activeColorsWallpaperFlooring.clear();
+    document.querySelectorAll('#colorsDropdownWallpaperFlooring .color-button').forEach(btn => btn.classList.remove('active'));
+    
+    // Set only the double-clicked color
+    activeColorsWallpaperFlooring.add(color.toLowerCase());
+    const colorButton = [...document.querySelectorAll('#colorsDropdownWallpaperFlooring .color-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === color.toLowerCase()
+    );
+    if (colorButton) {
+        colorButton.classList.add('active');
+    }
+
+    // Update button text
+    const colorsButton = document.getElementById('colorsButtonWallpaperFlooring');
+    colorsButton.textContent = `Colors: ${capitalizeWords(color)}`;
+
+    filterItemsWallpaperFlooring();
+}
+
+function setActiveCategoryWallpaperFlooring(category, isActive) {
+    const categoryButton = [...document.getElementsByClassName('category-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === category.toLowerCase()
+    );
+    if (!categoryButton) {
+        console.error(`Category button for "${category}" not found`);
+        return;
+    }
+
+    if (isActive) {
+        activeCategoriesWallpaperFlooring.add(category.toLowerCase());
+        categoryButton.classList.add('active');
+    } else {
+        activeCategoriesWallpaperFlooring.delete(category.toLowerCase());
+        categoryButton.classList.remove('active');
+    }
+
+    const categoriesButton = document.getElementById('categoriesButtonWallpaperFlooring');
+    if (activeCategoriesWallpaperFlooring.size === 0) {
+        categoriesButton.textContent = 'Category';
+    } else {
+        categoriesButton.textContent = `Category: ${[...activeCategoriesWallpaperFlooring].map(c => capitalizeWords(c)).join(', ')}`;
+    }
+
+    filterItemsWallpaperFlooring();
+}
+
+function setActiveCollectionWallpaperFlooring(collection, isActive) {
+    const collectionButton = [...document.getElementsByClassName('collection-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === collection.toLowerCase()
+    );
+    if (!collectionButton) {
+        console.error(`Collection button for "${collection}" not found`);
+        return;
+    }
+
+    if (isActive) {
+        activeCollectionsWallpaperFlooring.add(collection.toLowerCase());
+        collectionButton.classList.add('active');
+    } else {
+        activeCollectionsWallpaperFlooring.delete(collection.toLowerCase());
+        collectionButton.classList.remove('active');
+    }
+
+    const collectionsButton = document.getElementById('collectionsButtonWallpaperFlooring');
+    if (activeCollectionsWallpaperFlooring.size === 0) {
+        collectionsButton.textContent = 'Collections';
+    } else {
+        collectionsButton.textContent = `Collections: ${[...activeCollectionsWallpaperFlooring].map(c => capitalizeWords(c)).join(', ')}`;
+    }
+
+    filterItemsWallpaperFlooring();
+}
+
+function setActiveColorWallpaperFlooring(color, isActive) {
+    const colorButton = [...document.querySelectorAll('#colorsDropdownWallpaperFlooring .color-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === color.toLowerCase()
+    );
+    if (!colorButton) {
+        console.error(`Color button for "${color}" not found`);
+        return;
+    }
+
+    if (isActive) {
+        activeColorsWallpaperFlooring.add(color.toLowerCase());
+        colorButton.classList.add('active');
+    } else {
+        activeColorsWallpaperFlooring.delete(color.toLowerCase());
+        colorButton.classList.remove('active');
+    }
+
+    const colorsButton = document.getElementById('colorsButtonWallpaperFlooring');
+    if (activeColorsWallpaperFlooring.size === 0) {
+        colorsButton.textContent = 'Colors';
+    } else {
+        colorsButton.textContent = `Colors: ${[...activeColorsWallpaperFlooring].map(c => capitalizeWords(c)).join(', ')}`;
+    }
+
+    filterItemsWallpaperFlooring();
+}
+
+function resetAllFiltersWallpaperFlooring() {
+    activeCollectionsWallpaperFlooring.clear();
+    activeColorsWallpaperFlooring.clear();
+    activeCategoriesWallpaperFlooring.clear();
+    document.getElementById('collectionsButtonWallpaperFlooring').textContent = 'Collections';
+    document.getElementById('colorsButtonWallpaperFlooring').textContent = 'Colors';
+    document.getElementById('categoriesButtonWallpaperFlooring').textContent = 'Category';
+
+    // Remove the highlight from filter options
+    const buttons = document.querySelectorAll('#filterContainerWallpaperFlooring .collection-button, #filterContainerWallpaperFlooring .color-button, #filterContainerWallpaperFlooring .category-button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Close all dropdowns
+    const dropdowns = document.querySelectorAll('#filterContainerWallpaperFlooring .dropdown-content');
+    dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+
+    filterItemsWallpaperFlooring(); // Reapply filter
+}
+
+function filterItemsWallpaperFlooring() {
+    const items = document.querySelectorAll('#AllWallpaperFlooring .catalog-item');
+    items.forEach(item => {
+        const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors) : [];
+        const itemCollections = item.dataset.collection ? JSON.parse(item.dataset.collection) : [];
+        const itemCategory = item.dataset.category ? item.dataset.category.toLowerCase() : '';
+
+        const matchesCollection = activeCollectionsWallpaperFlooring.size === 0 || itemCollections.some(collection => activeCollectionsWallpaperFlooring.has(collection.toLowerCase()));
+        const matchesColor = activeColorsWallpaperFlooring.size === 0 || itemColors.some(color => activeColorsWallpaperFlooring.has(color.toLowerCase()));
+        const matchesCategory = activeCategoriesWallpaperFlooring.size === 0 || activeCategoriesWallpaperFlooring.has(itemCategory);
+
+        if (matchesCollection && matchesColor && matchesCategory) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+function searchItemsWallpaperFlooring() {
+    const searchTerm = document.getElementById('searchInputWallpaperFlooring').value.toLowerCase().trim();
+    const items = Array.from(document.querySelectorAll('#AllWallpaperFlooring .catalog-item'));
+    
+    // If search is empty, just apply filters without search
+    if (!searchTerm) {
+        items.forEach(item => {
+            // Get item properties for filtering
+            const itemCollections = item.dataset.collection ? JSON.parse(item.dataset.collection).map(col => col.toLowerCase()) : [];
+            const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors).map(color => color.toLowerCase()) : [];
+            const itemCategory = item.dataset.category ? item.dataset.category.toLowerCase() : '';
+
+            // Check active filters
+            const matchesCollection = activeCollectionsWallpaperFlooring.size === 0 || 
+                itemCollections.some(collection => activeCollectionsWallpaperFlooring.has(collection));
+            const matchesColor = activeColorsWallpaperFlooring.size === 0 || 
+                itemColors.some(color => activeColorsWallpaperFlooring.has(color));
+            const matchesCategory = activeCategoriesWallpaperFlooring.size === 0 || 
+                activeCategoriesWallpaperFlooring.has(itemCategory);
+
+            // Show/hide based on filters only
+            item.style.display = (matchesCollection && matchesColor && matchesCategory) ? 'block' : 'none';
+        });
+        return;
+    }
+
+    // Arrays to categorize matches
+    const exactFullMatches = [];
+    const exactWordMatches = [];
+    const substringMatches = [];
+    const fuzzyMatches = [];
+
+    items.forEach(item => {
+        // Get item name
+        const itemName = item.querySelector('.item-label')?.textContent?.trim() || '';
+        const itemNameLower = itemName.toLowerCase();
+        const itemWords = itemNameLower.split(/\s+/);
+        
+        // Get item properties for filtering
+        const itemCollections = item.dataset.collection ? JSON.parse(item.dataset.collection).map(col => col.toLowerCase()) : [];
+        const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors).map(color => color.toLowerCase()) : [];
+        const itemCategory = item.dataset.category ? item.dataset.category.toLowerCase() : '';
+
+        // Check active filters
+        const matchesCollection = activeCollectionsWallpaperFlooring.size === 0 || 
+            itemCollections.some(collection => activeCollectionsWallpaperFlooring.has(collection));
+        const matchesColor = activeColorsWallpaperFlooring.size === 0 || 
+            itemColors.some(color => activeColorsWallpaperFlooring.has(color));
+        const matchesCategory = activeCategoriesWallpaperFlooring.size === 0 || 
+            activeCategoriesWallpaperFlooring.has(itemCategory);
+
+        // Skip if doesn't match filters
+        if (!matchesCollection || !matchesColor || !matchesCategory) {
+            item.style.display = 'none';
+            return;
+        }
+
+        // Check match type
+        if (itemNameLower === searchTerm) {
+            // Priority 1: Exact full name match
+            exactFullMatches.push({ item, name: itemName });
+        } else if (itemWords.includes(searchTerm)) {
+            // Priority 2: Exact word match
+            exactWordMatches.push({ item, name: itemName });
+        } else if (itemNameLower.includes(searchTerm)) {
+            // Priority 3: Substring match
+            const index = itemNameLower.indexOf(searchTerm);
+            substringMatches.push({ 
+                item, 
+                name: itemName, 
+                index: index,
+                startsWord: index === 0 || itemNameLower[index - 1] === ' '
+            });
+        } else {
+            // Priority 4: Fuzzy match (only if very close)
+            let minDistance = Infinity;
+            
+            // Check each word
+            for (const word of itemWords) {
+                const distance = levenshteinDistance(searchTerm, word);
+                minDistance = Math.min(minDistance, distance);
+            }
+            
+            // Only include if very close match (max 1 character different)
+            if (minDistance === 1) {
+                fuzzyMatches.push({ item, name: itemName, distance: minDistance });
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    });
+
+    // Hide all items first
+    items.forEach(item => item.style.display = 'none');
+
+    // Sort substring matches (words that start with search term come first)
+    substringMatches.sort((a, b) => {
+        if (a.startsWord !== b.startsWord) return b.startsWord ? 1 : -1;
+        return a.index - b.index;
+    });
+
+    // Combine all results in priority order (NO alphabetical sorting)
+    const allResults = [
+        ...exactFullMatches,
+        ...exactWordMatches,
+        ...substringMatches,
+        ...fuzzyMatches
+    ];
+
+    // Get the parent container
+    const container = document.getElementById('AllWallpaperFlooring');
+    
+    // Display results in order by moving them to the end of the container
+    allResults.forEach((result, index) => {
+        result.item.style.display = 'block';
+        // Move the item to the end of the container to maintain our custom order
+        container.appendChild(result.item);
+    });
+
+    // Debug logging
+    console.log(`Wallpaper/Flooring search for "${searchTerm}":`);
+    console.log(`- Exact full matches: ${exactFullMatches.length}`, exactFullMatches.map(m => m.name));
+    console.log(`- Exact word matches: ${exactWordMatches.length}`, exactWordMatches.slice(0, 5).map(m => m.name));
+    console.log(`- Substring matches: ${substringMatches.length}`, substringMatches.slice(0, 5).map(m => m.name));
+    console.log(`- Fuzzy matches: ${fuzzyMatches.length}`, fuzzyMatches.map(m => m.name));
+}
+
+function loadBackgrounds() {
+    const container = document.getElementById('AllBackgrounds');
+    container.innerHTML = '';
+
+    // Clear the filter sets
+    collectionsBackgrounds.clear();
+    colorsBackgrounds.clear();
+
+    fetch('backgrounds.json')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(item => {
+          // Create outer catalog-item div
+          const itemContainer = document.createElement('div');
+          itemContainer.classList.add('catalog-item');
+          itemContainer.dataset.collection = JSON.stringify((item.collection || []).map(c => c.toLowerCase()));
+          itemContainer.dataset.colors = JSON.stringify((item.colors || []).map(color => color.toLowerCase()));
+
+          // Populate filter sets
+          (item.collection || []).forEach(col => collectionsBackgrounds.add(col.toLowerCase()));
+          (item.colors || []).forEach(color => colorsBackgrounds.add(color.toLowerCase()));
+
+          // Create image
+          const img = document.createElement('img');
+          img.src = `images/backgrounds/${item.catalogImage}`;
+          img.alt = item.name;
+          img.draggable = true;
+          img.dataset.dropImage = `images/backgrounds/${item.dropImage}`;
+          img.dataset.source = 'catalog';
+          img.ondragstart = drag;
+          img.onclick = () => setBackground(img);
+
+          // Create label div
+          const label = document.createElement('div');
+          label.classList.add('item-label');
+          label.textContent = item.name;
+
+          // Append elements
+          itemContainer.appendChild(img);
+          itemContainer.appendChild(label);
+          container.appendChild(itemContainer);
+        });
+
+        // NOW LOAD THE FILTERS
+        loadCollectionsBackgrounds([...collectionsBackgrounds]);
+        loadColorsBackgrounds([...colorsBackgrounds]);
+
+        // Apply initial filters
+        filterItemsBackgrounds && filterItemsBackgrounds();
+      })
+      .catch(error => console.error('Error fetching backgrounds.json:', error));
+}
+
+function loadCollectionsBackgrounds(collections) {
+    const collectionButtonsContainer = document.getElementById('collectionsDropdownBackgrounds');
+    collectionButtonsContainer.innerHTML = '';
+
+    const order = ["Default", "Pattern", "Nature", "Fall"];
+    const collectionsArray = Array.from(collections);
+
+    order.forEach(collection => {
+        if (collectionsArray.includes(collection.toLowerCase())) {
+            const icon = `assets/icons/backgrounds/collections/${collection.toLowerCase()}.png`;
+            const capitalizedCollection = capitalizeWords(collection);
+            const button = document.createElement('div');
+            button.className = 'collection-button';
+            button.innerHTML = `<img src="${icon}" alt="${capitalizedCollection} Icon" class="filter-icon"><span>${capitalizedCollection}</span>`;
+            button.onclick = () => {
+                const isActive = !button.classList.contains('active');
+                setActiveCollectionBackgrounds(collection, isActive);
+            };
+            // Add double-click functionality
+            button.ondblclick = () => {
+                setExclusiveCollectionBackgrounds(collection);
+            };
+            collectionButtonsContainer.appendChild(button);
+        }
+    });
+}
+
+function loadColorsBackgrounds(colors) {
+    const colorButtonsContainer = document.getElementById('colorsDropdownBackgrounds');
+    colorButtonsContainer.innerHTML = '';
+
+    const order = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Brown", "Gray", "Black", "White", "Gold", "Rainbow"];
+    const colorsArray = Array.from(colors);
+
+    order.forEach(color => {
+        if (colorsArray.includes(color.toLowerCase())) {
+            const capitalizedColor = capitalizeWords(color);
+            const button = document.createElement('div');
+            button.className = 'color-button';
+            button.innerHTML = `
+                <div class="color-icon" style="background-image: url('assets/icons/backgrounds/colors/${color.toLowerCase()}.png');"></div>
+                <span>${capitalizedColor}</span>
+            `;
+            button.onclick = () => {
+                const isActive = !button.classList.contains('active');
+                setActiveColorBackgrounds(color, isActive);
+            };
+            // Add double-click functionality
+            button.ondblclick = () => {
+                setExclusiveColorBackgrounds(color);
+            };
+            colorButtonsContainer.appendChild(button);
+        }
+    });
+}
+
+function setExclusiveCollectionBackgrounds(collection) {
+    // Clear all collections first
+    activeCollectionsBackgrounds.clear();
+    document.querySelectorAll('#collectionsDropdownBackgrounds .collection-button').forEach(btn => btn.classList.remove('active'));
+    
+    // Set only the double-clicked collection
+    activeCollectionsBackgrounds.add(collection.toLowerCase());
+    const collectionButton = [...document.querySelectorAll('#collectionsDropdownBackgrounds .collection-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === collection.toLowerCase()
+    );
+    if (collectionButton) {
+        collectionButton.classList.add('active');
+    }
+
+    // Update button text
+    const collectionsButton = document.getElementById('collectionsButtonBackgrounds');
+    collectionsButton.textContent = `Collections: ${capitalizeWords(collection)}`;
+
+    filterItemsBackgrounds();
+}
+
+function setExclusiveColorBackgrounds(color) {
+    // Clear all colors first
+    activeColorsBackgrounds.clear();
+    document.querySelectorAll('#colorsDropdownBackgrounds .color-button').forEach(btn => btn.classList.remove('active'));
+    
+    // Set only the double-clicked color
+    activeColorsBackgrounds.add(color.toLowerCase());
+    const colorButton = [...document.querySelectorAll('#colorsDropdownBackgrounds .color-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === color.toLowerCase()
+    );
+    if (colorButton) {
+        colorButton.classList.add('active');
+    }
+
+    // Update button text
+    const colorsButton = document.getElementById('colorsButtonBackgrounds');
+    colorsButton.textContent = `Colors: ${capitalizeWords(color)}`;
+
+    filterItemsBackgrounds();
+}
+
+function setActiveCollectionBackgrounds(collection, isActive) {
+    const collectionButton = [...document.querySelectorAll('#collectionsDropdownBackgrounds .collection-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === collection.toLowerCase()
+    );
+    if (!collectionButton) {
+        console.error(`Collection button for "${collection}" not found`);
+        return;
+    }
+
+    if (isActive) {
+        activeCollectionsBackgrounds.add(collection.toLowerCase());
+        collectionButton.classList.add('active');
+    } else {
+        activeCollectionsBackgrounds.delete(collection.toLowerCase());
+        collectionButton.classList.remove('active');
+    }
+
+    const collectionsButton = document.getElementById('collectionsButtonBackgrounds');
+    if (activeCollectionsBackgrounds.size === 0) {
+        collectionsButton.textContent = 'Collections';
+    } else {
+        collectionsButton.textContent = `Collections: ${[...activeCollectionsBackgrounds].map(c => capitalizeWords(c)).join(', ')}`;
+    }
+
+    filterItemsBackgrounds();
+}
+
+function setActiveColorBackgrounds(color, isActive) {
+    const colorButton = [...document.querySelectorAll('#colorsDropdownBackgrounds .color-button')].find(button =>
+        button.querySelector('span').textContent.trim().toLowerCase() === color.toLowerCase()
+    );
+    if (!colorButton) {
+        console.error(`Color button for "${color}" not found`);
+        return;
+    }
+
+    if (isActive) {
+        activeColorsBackgrounds.add(color.toLowerCase());
+        colorButton.classList.add('active');
+    } else {
+        activeColorsBackgrounds.delete(color.toLowerCase());
+        colorButton.classList.remove('active');
+    }
+
+    const colorsButton = document.getElementById('colorsButtonBackgrounds');
+    if (activeColorsBackgrounds.size === 0) {
+        colorsButton.textContent = 'Colors';
+    } else {
+        colorsButton.textContent = `Colors: ${[...activeColorsBackgrounds].map(c => capitalizeWords(c)).join(', ')}`;
+    }
+
+    filterItemsBackgrounds();
+}
+
+function filterItemsBackgrounds() {
+    const items = document.querySelectorAll('#AllBackgrounds .catalog-item');
+    items.forEach(item => {
+        const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors) : [];
+        const itemCollections = item.dataset.collection ? JSON.parse(item.dataset.collection) : [];
+
+        const matchesCollection = activeCollectionsBackgrounds.size === 0 || 
+            itemCollections.some(collection => activeCollectionsBackgrounds.has(collection.toLowerCase()));
+        const matchesColor = activeColorsBackgrounds.size === 0 || 
+            itemColors.some(color => activeColorsBackgrounds.has(color.toLowerCase()));
+
+        if (matchesCollection && matchesColor) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+function resetAllFiltersBackgrounds() {
+    activeCollectionsBackgrounds.clear();
+    activeColorsBackgrounds.clear();
+    document.getElementById('collectionsButtonBackgrounds').textContent = 'Collections';
+    document.getElementById('colorsButtonBackgrounds').textContent = 'Colors';
+
+    // Remove the highlight from filter options
+    const buttons = document.querySelectorAll('#filterContainerBackgrounds .collection-button, #filterContainerBackgrounds .color-button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Close all dropdowns
+    const dropdowns = document.querySelectorAll('#filterContainerBackgrounds .dropdown-content');
+    dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+
+    filterItemsBackgrounds(); // Reapply filter
+}
+
+function searchItemsBackgrounds() {
+    const searchTerm = document.getElementById('searchInputBackgrounds').value.toLowerCase().trim();
+    const items = Array.from(document.querySelectorAll('#AllBackgrounds .catalog-item'));
+    
+    // If search is empty, just apply filters without search
+    if (!searchTerm) {
+        items.forEach(item => {
+            // Get item properties for filtering
+            const itemCollections = item.dataset.collection ? JSON.parse(item.dataset.collection).map(col => col.toLowerCase()) : [];
+            const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors).map(color => color.toLowerCase()) : [];
+
+            // Check active filters
+            const matchesCollection = activeCollectionsBackgrounds.size === 0 || 
+                itemCollections.some(collection => activeCollectionsBackgrounds.has(collection));
+            const matchesColor = activeColorsBackgrounds.size === 0 || 
+                itemColors.some(color => activeColorsBackgrounds.has(color));
+
+            // Show/hide based on filters only
+            item.style.display = (matchesCollection && matchesColor) ? 'block' : 'none';
+        });
+        return;
+    }
+
+    // Arrays to categorize matches
+    const exactFullMatches = [];
+    const exactWordMatches = [];
+    const substringMatches = [];
+    const fuzzyMatches = [];
+
+    items.forEach(item => {
+        // Get item name
+        const itemName = item.querySelector('.item-label')?.textContent?.trim() || '';
+        const itemNameLower = itemName.toLowerCase();
+        const itemWords = itemNameLower.split(/\s+/);
+        
+        // Get item properties for filtering
+        const itemCollections = item.dataset.collection ? JSON.parse(item.dataset.collection).map(col => col.toLowerCase()) : [];
+        const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors).map(color => color.toLowerCase()) : [];
+
+        // Check active filters
+        const matchesCollection = activeCollectionsBackgrounds.size === 0 || 
+            itemCollections.some(collection => activeCollectionsBackgrounds.has(collection));
+        const matchesColor = activeColorsBackgrounds.size === 0 || 
+            itemColors.some(color => activeColorsBackgrounds.has(color));
+
+        // Skip if doesn't match filters
+        if (!matchesCollection || !matchesColor) {
+            item.style.display = 'none';
+            return;
+        }
+
+        // Check match type
+        if (itemNameLower === searchTerm) {
+            // Priority 1: Exact full name match
+            exactFullMatches.push({ item, name: itemName });
+        } else if (itemWords.includes(searchTerm)) {
+            // Priority 2: Exact word match
+            exactWordMatches.push({ item, name: itemName });
+        } else if (itemNameLower.includes(searchTerm)) {
+            // Priority 3: Substring match
+            const index = itemNameLower.indexOf(searchTerm);
+            substringMatches.push({ 
+                item, 
+                name: itemName, 
+                index: index,
+                startsWord: index === 0 || itemNameLower[index - 1] === ' '
+            });
+        } else {
+            // Priority 4: Fuzzy match (only if very close)
+            let minDistance = Infinity;
+            
+            // Check each word
+            for (const word of itemWords) {
+                const distance = levenshteinDistance(searchTerm, word);
+                minDistance = Math.min(minDistance, distance);
+            }
+            
+            // Only include if very close match (max 1 character different)
+            if (minDistance === 1) {
+                fuzzyMatches.push({ item, name: itemName, distance: minDistance });
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    });
+
+    // Hide all items first
+    items.forEach(item => item.style.display = 'none');
+
+    // Sort substring matches (words that start with search term come first)
+    substringMatches.sort((a, b) => {
+        if (a.startsWord !== b.startsWord) return b.startsWord ? 1 : -1;
+        return a.index - b.index;
+    });
+
+    // Combine all results in priority order (NO alphabetical sorting)
+    const allResults = [
+        ...exactFullMatches,
+        ...exactWordMatches,
+        ...substringMatches,
+        ...fuzzyMatches
+    ];
+
+    // Get the parent container
+    const container = document.getElementById('AllBackgrounds');
+    
+    // Display results in order by moving them to the end of the container
+    allResults.forEach((result, index) => {
+        result.item.style.display = 'block';
+        // Move the item to the end of the container to maintain our custom order
+        container.appendChild(result.item);
+    });
+
+    // Debug logging
+    console.log(`Backgrounds search for "${searchTerm}":`);
+    console.log(`- Exact full matches: ${exactFullMatches.length}`, exactFullMatches.map(m => m.name));
+    console.log(`- Exact word matches: ${exactWordMatches.length}`, exactWordMatches.slice(0, 5).map(m => m.name));
+    console.log(`- Substring matches: ${substringMatches.length}`, substringMatches.slice(0, 5).map(m => m.name));
+    console.log(`- Fuzzy matches: ${fuzzyMatches.length}`, fuzzyMatches.map(m => m.name));
+}
+
+function openPopup(item) {
+    const overlay = document.getElementById('popupOverlay');
+    const itemName = document.getElementById('popupItemName');
+    const category = document.getElementById('popupCategory');
+    const collection = document.getElementById('popupCollection');
+    const colors = document.getElementById('popupColors');
+    const footprint = document.getElementById('popupFootprint');
+    const mainImage = document.getElementById('popupMainImage');
+    const viewsContainer = document.getElementById('popupViewsContainer');
+
+    // Set item name
+    itemName.textContent = item.alt || item.id;
+
+    // Set category with icon
+    const categoryValue = item.dataset.category || 'N/A';
+    const categoryIconMap = {
+        'Furniture': 'assets/icons/items/category/furniture.png',
+        'Object': 'assets/icons/items/category/object.png',
+        'Wall Item': 'assets/icons/items/category/wallitem.png',
+        'Tile, Rug': 'assets/icons/items/category/tilerug.png'
+    };
+    
+    const categoryIcon = categoryIconMap[categoryValue];
+    if (categoryIcon) {
+        category.innerHTML = `<div class="single-item"><img src="${categoryIcon}" alt="${categoryValue}" class="info-icon">${categoryValue}</div>`;
+    } else {
+        category.innerHTML = `<div class="single-item">${categoryValue}</div>`;
+    }
+
+    // Set collection with icon
+    let collectionsArray = item.dataset.collection ? JSON.parse(item.dataset.collection) : [];
+    const collectionValue = collectionsArray.join(', ') || 'N/A';
+    
+    if (collectionsArray.length > 0 && collectionsArray[0] !== '') {
+        const firstCollection = collectionsArray[0];
+        const normalizedCollection = firstCollection.split(/,\s*/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(', ');
+        
+        const collectionIconMap = {
+            'Bags & Baskets': 'assets/icons/items/collections/bags&baskets.png',
+            'Decorative Food': 'assets/icons/items/collections/decorativefood.png',
+            'Ponds & Lakes': 'assets/icons/items/collections/ponds&lakes.png',
+            'Room Dividers': 'assets/icons/items/collections/roomdividers.png',
+            'Windows & Doors': 'assets/icons/items/collections/windows&doors.png',
+            'Wishing Wells': 'assets/icons/items/collections/wishingwells.png'
+        };
+        
+        const collectionIcon = collectionIconMap[normalizedCollection] || `assets/icons/items/collections/${normalizedCollection.replace(/ /g, '').toLowerCase()}.png`;
+        collection.innerHTML = `<div class="single-item"><img src="${collectionIcon}" alt="${normalizedCollection}" class="info-icon">${collectionValue}</div>`;
+    } else {
+        collection.innerHTML = `<div class="single-item">${collectionValue}</div>`;
+    }
+
+    // Set colors with stacked layout
+    let colorsArray = item.dataset.colors ? JSON.parse(item.dataset.colors) : [];
+    
+    if (colorsArray.length > 0) {
+        let colorItemsHTML = '';
+        colorsArray.forEach(color => {
+            const colorIcon = `assets/icons/items/colors/${color.toLowerCase()}.png`;
+            const capitalizedColor = color.charAt(0).toUpperCase() + color.slice(1).toLowerCase();
+            colorItemsHTML += `<div class="color-item"><div class="color-icon-small" style="background-image: url('${colorIcon}');"></div>${capitalizedColor}</div>`;
+        });
+        colors.innerHTML = colorItemsHTML;
+    } else {
+        colors.innerHTML = `<div class="single-item">N/A</div>`;
+    }
+
+    // Set footprint (no icon, just text)
+    const footprintValue = item.dataset.footprint || 'N/A';
+    footprint.innerHTML = `<div class="single-item">${footprintValue}</div>`;
+
+    // Set up views
+    let viewsArray = item.dataset.views ? JSON.parse(item.dataset.views) : [];
+    
+    // Wrap the main image in an image container if it doesn't exist
+    if (!mainImage.parentElement.classList.contains('image-container')) {
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'image-container';
+        mainImage.parentElement.insertBefore(imageContainer, mainImage);
+        imageContainer.appendChild(mainImage);
+    }
+    
+    // Set main image (first view) and apply smart sizing
+    if (viewsArray.length > 0) {
+        mainImage.src = viewsArray[0];
+        mainImage.alt = item.alt || item.id;
+        
+        // Make the preview image draggable
+        mainImage.draggable = true;
+        mainImage.dataset.views = JSON.stringify(viewsArray);
+        mainImage.dataset.currentViewIndex = "0";
+        mainImage.dataset.source = 'popup';
+        mainImage.dataset.category = item.dataset.category;
+        mainImage.dataset.collection = item.dataset.collection;
+        mainImage.dataset.colors = item.dataset.colors;
+        mainImage.dataset.footprint = item.dataset.footprint;
+        
+        // Add drag event listener
+        mainImage.addEventListener('dragstart', handlePopupDrag);
+        
+        // Apply smart sizing after image loads
+        setSmartImageSize(mainImage, mainImage.closest('.popup-preview'));
+    }
+
+    // Clear and populate views grid
+    viewsContainer.innerHTML = '';
+    
+    // Get references to views section elements
+    const viewsSection = document.querySelector('.popup-views');
+    const viewsGrid = document.querySelector('.views-grid');
+    
+    // Reset classes first
+    viewsSection.classList.remove('expanded');
+    viewsGrid.classList.remove('expanded');
+    
+    // Determine if we need expanded layout
+    const needsExpansion = viewsArray.length > 4;
+    
+    if (needsExpansion) {
+        viewsSection.classList.add('expanded');
+        viewsGrid.classList.add('expanded');
+    }
+    
+    viewsArray.forEach((viewSrc, index) => {
+        const viewThumb = document.createElement('div');
+        viewThumb.className = 'view-thumbnail';
+        
+        // Add compact class if we have more than 4 views
+        if (needsExpansion) {
+            viewThumb.classList.add('compact');
+        }
+        
+        if (index === 0) viewThumb.classList.add('active');
+        
+        const thumbImg = document.createElement('img');
+        thumbImg.src = viewSrc;
+        thumbImg.alt = `View ${index + 1}`;
+        
+        viewThumb.appendChild(thumbImg);
+        
+        // Add click handler to change main image
+        viewThumb.addEventListener('click', () => {
+            mainImage.src = viewSrc;
+    
+            // UPDATE: Also update the main image's currentViewIndex dataset
+             mainImage.dataset.currentViewIndex = index.toString();
+    
+            // Re-apply smart sizing for the new image
+            setSmartImageSize(mainImage, mainImage.closest('.popup-preview'));
+    
+            // Update active thumbnail
+            document.querySelectorAll('.view-thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+    viewThumb.classList.add('active');
+});
+        
+        viewsContainer.appendChild(viewThumb);
+    });
+
+    // Show the popup
+    overlay.style.display = 'flex';
+    
+    // Prevent body scrolling when popup is open
+    document.body.style.overflow = 'hidden';
+}
+
+function handlePopupDrag(event) {
+    // Store the item data for drop handling
+    event.dataTransfer.setData("text/plain", "popup-preview-item");
+    
+    // Get the current view index from the preview image
+    const currentViewIndex = parseInt(event.target.dataset.currentViewIndex) || 0;
+    const previewImg = event.target;
+    
+    // Get preview image dimensions
+    const previewWidth = previewImg.offsetWidth;
+    const previewHeight = previewImg.offsetHeight;
+    const previewNaturalWidth = previewImg.naturalWidth;
+    const previewNaturalHeight = previewImg.naturalHeight;
+    
+    // Calculate scale factors (how much bigger the preview is than natural size)
+    const scaleX = previewNaturalWidth / previewWidth;
+    const scaleY = previewNaturalHeight / previewHeight;
+    
+    // Calculate the adjusted offset (scale down the click position)
+    const adjustedOffsetX = event.offsetX * scaleX;
+    const adjustedOffsetY = event.offsetY * scaleY;
+    
+    console.log(`Preview: ${previewWidth}x${previewHeight}, Natural: ${previewNaturalWidth}x${previewNaturalHeight}`);
+    console.log(`Scale: ${scaleX.toFixed(2)}x${scaleY.toFixed(2)}, Original offset: ${event.offsetX},${event.offsetY}, Adjusted: ${adjustedOffsetX.toFixed(1)},${adjustedOffsetY.toFixed(1)}`);
+    
+    // Store all the item data in global variables for the drop handler
+    window.popupDragData = {
+        views: JSON.parse(event.target.dataset.views),
+        currentViewIndex: currentViewIndex,
+        alt: event.target.alt,
+        category: event.target.dataset.category,
+        collection: event.target.dataset.collection,
+        colors: event.target.dataset.colors,
+        footprint: event.target.dataset.footprint,
+        adjustedOffsetX: adjustedOffsetX,
+        adjustedOffsetY: adjustedOffsetY
+    };
+
+    // Create drag image from current view at natural size for better visual feedback
+    const views = JSON.parse(event.target.dataset.views);
+    const dragImage = document.createElement('img');
+    dragImage.src = views[currentViewIndex];
+    dragImage.style.opacity = '0.75';
+    dragImage.style.position = 'absolute';
+    dragImage.style.left = '-99999px';
+    // Set drag image to natural size
+    dragImage.style.width = previewNaturalWidth + 'px';
+    dragImage.style.height = previewNaturalHeight + 'px';
+    document.body.appendChild(dragImage);
+    
+    // Use the adjusted offset for the drag image
+    event.dataTransfer.setDragImage(dragImage, adjustedOffsetX, adjustedOffsetY);
+
+    // Store the adjusted offsets for drop positioning
+    offsetX = adjustedOffsetX;
+    offsetY = adjustedOffsetY;
+
+    // Close popup after a short delay to allow drag to start
+    setTimeout(() => {
+        closePopup();
+        document.body.removeChild(dragImage);
+    }, 100);
+}
+
+function setSmartImageSize(imgElement, containerElement) {
+    // Wait for image to load to get natural dimensions
+    imgElement.onload = function() {
+        const naturalWidth = this.naturalWidth;
+        const naturalHeight = this.naturalHeight;
+        
+        // Get the image container (not the full popup-preview container)
+        const imageContainer = this.parentElement;
+        const containerRect = imageContainer.getBoundingClientRect();
+        
+        // Calculate available space (accounting for padding and hover scaling)
+        const availableWidth = containerRect.width - 80; // 40px padding + 20px for hover scaling
+        const availableHeight = containerRect.height - 80;
+        
+        // Calculate maximum allowed dimensions (3x native size)
+        const maxAllowedWidth = naturalWidth * 3;
+        const maxAllowedHeight = naturalHeight * 3;
+        
+        // Calculate scale to fit available space
+        const scaleToFitWidth = availableWidth / naturalWidth;
+        const scaleToFitHeight = availableHeight / naturalHeight;
+        const scaleToFit = Math.min(scaleToFitWidth, scaleToFitHeight);
+        
+        // Use the smaller of: 3x native size OR scale to fit container
+        const finalScale = Math.min(3, scaleToFit);
+        
+        // Ensure minimum scale of 1 (never smaller than native)
+        const appliedScale = Math.max(1, finalScale);
+        
+        // Apply the calculated dimensions
+        const finalWidth = naturalWidth * appliedScale;
+        const finalHeight = naturalHeight * appliedScale;
+        
+        this.style.width = finalWidth + 'px';
+        this.style.height = finalHeight + 'px';
+        
+        console.log(`Image: ${naturalWidth}x${naturalHeight}, Available: ${availableWidth}x${availableHeight}, Scale: ${appliedScale.toFixed(2)}x, Final: ${finalWidth}x${finalHeight}`);
+    };
+    
+    // Trigger load event if image is already cached
+    if (imgElement.complete) {
+        imgElement.onload();
+    }
+}
+
+function closePopup() {
+    const overlay = document.getElementById('popupOverlay');
+    overlay.style.display = 'none';
+    
+    // Restore body scrolling
+    document.body.style.overflow = 'auto';
+}
+
+let autoZAxisEnabled = false;

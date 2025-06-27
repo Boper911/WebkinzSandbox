@@ -1,0 +1,7920 @@
+[
+  {
+    "name": "Amaryllis",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Amaryllis.png",
+    "views": [
+      "Amaryllissw.png"
+    ],
+    "colors": [
+      "Red",
+      "Green"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Amplifier Stove",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Amplifierstove.png",
+    "views": [
+      "Amplifierstovesw.png",
+      "Amplifierstovese.png",
+      "Amplifierstovene.png",
+      "Amplifierstovenw.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Ancient Monkey Mask",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Ancientmonkeymask.png",
+    "views": [
+      "Ancientmonkeymasksw.png",
+      "Ancientmonkeymaskse.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Displays"
+  },
+  {
+    "name": "Ancient Pyramid Lamp",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Ancientpyramidlamp.png",
+    "views": [
+      "Ancientpyramidlampsw.png",
+      "Ancientpyramidlampse.png",
+      "Ancientpyramidlampne.png",
+      "Ancientpyramidlampnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Apple Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Applechair.png",
+    "views": [
+      "Applechairsw.png",
+      "Applechairse.png",
+      "Applechairne.png",
+      "Applechairnw.png"
+    ],
+    "colors": [
+      "Red",
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Autumn Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Autumncounter.png",
+    "views": [
+      "Autumncountersw.png",
+      "Autumncounterse.png",
+      "Autumncounterne.png",
+      "Autumncounternw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Autumn Counter with Cupboard",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Autumncounterwithcupboard.png",
+    "views": [
+      "Autumncounterwithcupboardsw.png",
+      "Autumncounterwithcupboardse.png",
+      "Autumncounterwithcupboardne.png",
+      "Autumncounterwithcupboardnw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Autumn Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Autumncounterwithdrawers.png",
+    "views": [
+      "Autumncounterwithdrawerssw.png",
+      "Autumncounterwithdrawersse.png",
+      "Autumncounterwithdrawersne.png",
+      "Autumncounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Autumn Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Autumncupboardsink.png",
+    "views": [
+      "Autumncupboardsinksw.png",
+      "Autumncupboardsinkse.png",
+      "Autumncupboardsinkne.png",
+      "Autumncupboardsinknw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Autumn Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Autumnsink.png",
+    "views": [
+      "Autumnsinksw.png",
+      "Autumnsinkse.png",
+      "Autumnsinkne.png",
+      "Autumnsinknw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Ballerina Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Ballerinabed.png",
+    "views": [
+      "Ballerinabedsw.png",
+      "Ballerinabedse.png",
+      "Ballerinabedne.png",
+      "Ballerinabednw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Ballerina Dresser",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Ballerinadresser.png",
+    "views": [
+      "Ballerinadressersw.png",
+      "Ballerinadresserse.png",
+      "Ballerinadresserne.png",
+      "Ballerinadressernw.png"
+    ],
+    "colors": [
+      "Pink",
+      "White"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Ballerina Piano",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Ballerinapiano.png",
+    "views": [
+      "Ballerinapianosw.png",
+      "Ballerinapianose.png",
+      "Ballerinapianone.png",
+      "Ballerinapianonw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Musical"
+  },
+  {
+    "name": "Ballerina Poster - Bear",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Ballerinaposterbear.png",
+    "views": [
+      "Ballerinaposterbearsw.png",
+      "Ballerinaposterbearse.png"
+    ],
+    "colors": [
+      "Pink",
+      "Yellow"
+    ],
+    "collection": "Posters"
+  },
+  {
+    "name": "Ballerina Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Ballerinasidetable.png",
+    "views": [
+      "Ballerinasidetablesw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Ballerina Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Ballerinasofa.png",
+    "views": [
+      "Ballerinasofasw.png",
+      "Ballerinasofase.png",
+      "Ballerinasofane.png",
+      "Ballerinasofanw.png"
+    ],
+    "colors": [
+      "White",
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Ballerina Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Ballerinatelevision.png",
+    "views": [
+      "Ballerinatelevisionsw.png",
+      "Ballerinatelevisionse.png",
+      "Ballerinatelevisionne.png",
+      "Ballerinatelevisionnw.png",
+      "Ballerinatelevisionsw-on.png",
+      "Ballerinatelevisionse-on.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Ballerina Toy Box",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Ballerinatoybox.png",
+    "views": [
+      "Ballerinatoyboxsw.png",
+      "Ballerinatoyboxse.png",
+      "Ballerinatoyboxne.png",
+      "Ballerinatoyboxnw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Ballerina Wall Mirror",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Ballerinawallmirror.png",
+    "views": [
+      "Ballerinawallmirrorsw.png",
+      "Ballerinawallmirrorse.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Mirrors"
+  },
+  {
+    "name": "Ballet Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Balletchair.png",
+    "views": [
+      "Balletchairsw.png",
+      "Balletchairse.png",
+      "Balletchairne.png",
+      "Balletchairnw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Ballet Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Balletcoffeetable.png",
+    "views": [
+      "Balletcoffeetablesw.png",
+      "Balletcoffeetablese.png",
+      "Balletcoffeetablene.png",
+      "Balletcoffeetablenw.png"
+    ],
+    "colors": [
+      "White",
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Ballet Dining Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Balletdiningtable.png",
+    "views": [
+      "Balletdiningtablesw.png",
+      "Balletdiningtablese.png",
+      "Balletdiningtablene.png",
+      "Balletdiningtablenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Ballet Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Balletlamp.png",
+    "views": [
+      "Balletlampsw.png",
+      "Balletlampse.png",
+      "Balletlampne.png",
+      "Balletlampnw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Ballet Study Desk",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Balletstudydesk.png",
+    "views": [
+      "Balletstudydesksw.png",
+      "Balletstudydeskse.png",
+      "Balletstudydeskne.png",
+      "Balletstudydesknw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Ballet Swan Floor Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Balletswanfloorlamp.png",
+    "views": [
+      "Balletswanfloorlampsw.png",
+      "Balletswanfloorlampse.png",
+      "Balletswanfloorlampne.png",
+      "Balletswanfloorlampnw.png"
+    ],
+    "colors": [
+      "Pink",
+      "Blue"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Ballet Vanity Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Balletvanitychair.png",
+    "views": [
+      "Balletvanitychairsw.png",
+      "Balletvanitychairse.png",
+      "Balletvanitychairne.png",
+      "Balletvanitychairnw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Ballet Vanity Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Balletvanitytable.png",
+    "views": [
+      "Balletvanitytablesw.png",
+      "Balletvanitytablese.png",
+      "Balletvanitytablene.png",
+      "Balletvanitytablenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Vanities"
+  },
+  {
+    "name": "Bamboo Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Bamboobed.png",
+    "views": [
+      "Bamboobedsw.png",
+      "Bamboobedse.png",
+      "Bamboobedne.png",
+      "Bamboobednw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Bamboo Desk",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Bamboodesk.png",
+    "views": [
+      "Bamboodesksw.png",
+      "Bamboodeskse.png",
+      "Bamboodeskne.png",
+      "Bamboodesknw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Bamboo Dining Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Bamboodiningchair.png",
+    "views": [
+      "Bamboodiningchairsw.png",
+      "Bamboodiningchairse.png",
+      "Bamboodiningchairne.png",
+      "Bamboodiningchairnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Bamboo Dining Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Bamboodiningtable.png",
+    "views": [
+      "Bamboodiningtablesw.png",
+      "Bamboodiningtablese.png",
+      "Bamboodiningtablene.png",
+      "Bamboodiningtablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Bamboo Shelving",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Bambooshelving.png",
+    "views": [
+      "Bambooshelvingsw.png",
+      "Bambooshelvingse.png",
+      "Bambooshelvingne.png",
+      "Bambooshelvingnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Bamboo Study Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Bamboostudychair.png",
+    "views": [
+      "Bamboostudychairsw.png",
+      "Bamboostudychairse.png",
+      "Bamboostudychairne.png",
+      "Bamboostudychairnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Bamboo Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Bambootree.png",
+    "views": [
+      "Bambootreesw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Barbeque",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Barbeque.png",
+    "views": [
+      "Barbequesw.png",
+      "Barbequese.png",
+      "Barbequene.png",
+      "Barbequenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Orange",
+      "Red"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Barrel Cactus",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Barrelcactus.png",
+    "views": [
+      "Barrelcactussw.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Baseball",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Baseball.png",
+    "views": [
+      "Baseballsw.png"
+    ],
+    "colors": [
+      "White",
+      "Red"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Baseball Beanbag Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Baseballbeanbagchair.png",
+    "views": [
+      "Baseballbeanbagchairsw.png",
+      "Baseballbeanbagchairse.png",
+      "Baseballbeanbagchairne.png",
+      "Baseballbeanbagchairnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Baseball Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Baseballbed.png",
+    "views": [
+      "Baseballbedsw.png",
+      "Baseballbedse.png",
+      "Baseballbedne.png",
+      "Baseballbednw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Baseball Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Baseballchair.png",
+    "views": [
+      "Baseballchairsw.png",
+      "Baseballchairse.png",
+      "Baseballchairne.png",
+      "Baseballchairnw.png"
+    ],
+    "colors": [
+      "White",
+      "Red"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Baseball Desk",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Baseballdesk.png",
+    "views": [
+      "Baseballdesksw.png",
+      "Baseballdeskse.png",
+      "Baseballdeskne.png",
+      "Baseballdesknw.png"
+    ],
+    "colors": [
+      "White",
+      "Red"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Baseball Dresser",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Baseballdresser.png",
+    "views": [
+      "Baseballdressersw.png",
+      "Baseballdresserse.png",
+      "Baseballdresserne.png",
+      "Baseballdressernw.png"
+    ],
+    "colors": [
+      "White",
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Baseball Glove",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Baseballglove.png",
+    "views": [
+      "Baseballglovesw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Baseball Hat",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Baseballhat.png",
+    "views": [
+      "Baseballhatsw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Baseball Locker",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Baseballlocker.png",
+    "views": [
+      "Baseballlockersw.png",
+      "Baseballlockerse.png",
+      "Baseballlockerne.png",
+      "Baseballlockernw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Baseball Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Baseballsidetable.png",
+    "views": [
+      "Baseballsidetablesw.png",
+      "Baseballsidetablese.png",
+      "Baseballsidetablene.png",
+      "Baseballsidetablenw.png"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Baseball Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Baseballsofa.png",
+    "views": [
+      "Baseballsofasw.png",
+      "Baseballsofase.png",
+      "Baseballsofane.png",
+      "Baseballsofanw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Baseball Stool",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Baseballstool.png",
+    "views": [
+      "Baseballstoolsw.png",
+      "Baseballstoolse.png",
+      "Baseballstoolne.png",
+      "Baseballstoolnw.png"
+    ],
+    "colors": [
+      "White",
+      "Red",
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Baseball Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Baseballtable.png",
+    "views": [
+      "Baseballtablesw.png",
+      "Baseballtablese.png",
+      "Baseballtablenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Red",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Baseball Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Baseballtelevision.png",
+    "views": [
+      "Baseballtelevisionsw.png",
+      "Baseballtelevisionse.png",
+      "Baseballtelevisionne.png",
+      "Baseballtelevisionnw.png",
+      "Baseballtelevisionsw-on.png",
+      "Baseballtelevisionse-on.png"
+    ],
+    "colors": [
+      "White",
+      "Blue"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Baseball Toy Box",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Baseballtoybox.png",
+    "views": [
+      "Baseballtoyboxsw.png",
+      "Baseballtoyboxse.png",
+      "Baseballtoyboxne.png",
+      "Baseballtoyboxnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Red"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Baseball Wall Shelf",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Baseballwallshelf.png",
+    "views": [
+      "Baseballwallshelfsw.png",
+      "Baseballwallshelfse.png"
+    ],
+    "colors": [
+      "Blue",
+      "Brown"
+    ],
+    "collection": "Displays"
+  },
+  {
+    "name": "Basketball",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Basketball.png",
+    "views": [
+      "Basketballsw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Bed of the Pharaoh",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Bedofthepharaoh.png",
+    "views": [
+      "Bedofthepharaohsw.png",
+      "Bedofthepharaohse.png",
+      "Bedofthepharaohne.png",
+      "Bedofthepharaohnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Brown"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Bejeweled Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Bejeweledcoffeetable.png",
+    "views": [
+      "Bejeweledcoffeetablesw.png",
+      "Bejeweledcoffeetablese.png",
+      "Bejeweledcoffeetablene.png",
+      "Bejeweledcoffeetablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Big Top Go-Cart",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Bigtopgocart.png",
+    "views": [
+      "Bigtopgocartsw.png",
+      "Bigtopgocartse.png",
+      "Bigtopgocartne.png",
+      "Bigtopgocartnw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Yellow"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Blue Dragster",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Bluedragster.png",
+    "views": [
+      "Bluedragstersw.png",
+      "Bluedragsterse.png",
+      "Bluedragsterne.png",
+      "Bluedragsternw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Red"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Blue Petunias",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Bluepetunias.png",
+    "views": [
+      "Bluepetuniassw.png",
+      "Bluepetuniasse.png",
+      "Bluepetuniasne.png",
+      "Bluepetuniasnw.png"
+    ],
+    "colors": [
+      "White",
+      "Blue"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Blue Skies Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Blueskiesbed.png",
+    "views": [
+      "Blueskiesbedsw.png",
+      "Blueskiesbedse.png",
+      "Blueskiesbedne.png",
+      "Blueskiesbednw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Blue Skies Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Blueskiescounter.png",
+    "views": [
+      "Blueskiescountersw.png",
+      "Blueskiescounterse.png",
+      "Blueskiescounterne.png",
+      "Blueskiescounternw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Blue Skies Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Blueskiescounterwithdrawers.png",
+    "views": [
+      "Blueskiescounterwithdrawerssw.png",
+      "Blueskiescounterwithdrawersse.png",
+      "Blueskiescounterwithdrawersne.png",
+      "Blueskiescounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Blue Skies Kitchen Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Blueskieskitchensink.png",
+    "views": [
+      "Blueskieskitchensinksw.png",
+      "Blueskieskitchensinkse.png",
+      "Blueskieskitchensinkne.png",
+      "Blueskieskitchensinknw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Blue Wagon",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Bluewagon.png",
+    "views": [
+      "Bluewagonsw.png",
+      "Bluewagonse.png",
+      "Bluewagonne.png",
+      "Bluewagonnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Blue Welcome Balloon",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Bluewelcomeballoon.png",
+    "views": [
+      "Bluewelcomeballoonsw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Blustery Day Vanity",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Blusterydayvanity.png",
+    "views": [
+      "Blusterydayvanitysw.png",
+      "Blusterydayvanityse.png",
+      "Blusterydayvanityne.png",
+      "Blusterydayvanitynw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Vanities"
+  },
+  {
+    "name": "Bone Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Bonecoffeetable.png",
+    "views": [
+      "Bonecoffeetablesw.png",
+      "Bonecoffeetablese.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Bone Couch",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Bonecouch.png",
+    "views": [
+      "Bonecouchsw.png",
+      "Bonecouchse.png",
+      "Bonecouchne.png",
+      "Bonecouchnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Bone Lounger",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Bonelounger.png",
+    "views": [
+      "Boneloungersw.png",
+      "Boneloungerse.png",
+      "Boneloungerne.png",
+      "Boneloungernw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Bone Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Bonesidetable.png",
+    "views": [
+      "Bonesidetablesw.png",
+      "Bonesidetablese.png",
+      "Bonesidetablene.png",
+      "Bonesidetablenw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Boomin' Black Couch",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Boominblackcouch.png",
+    "views": [
+      "Boominblackcouchsw.png",
+      "Boominblackcouchse.png",
+      "Boominblackcouchne.png",
+      "Boominblackcouchnw.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Boomin' Black Lounge Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Boominblackloungechair.png",
+    "views": [
+      "Boominblackloungechairsw.png",
+      "Boominblackloungechairse.png",
+      "Boominblackloungechairne.png",
+      "Boominblackloungechairnw.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Bounce n' Burst Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Bouncenbursttrophy.png",
+    "views": [
+      "Bouncenbursttrophysw.png",
+      "Bouncenbursttrophyse.png",
+      "Bouncenbursttrophyne.png",
+      "Bouncenbursttrophynw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Bowling Ball",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Bowlingball.png",
+    "views": [
+      "Bowlingballsw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Bowling Pins",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Bowlingpins.png",
+    "views": [
+      "Bowlingpinssw.png",
+      "Bowlingpinsse.png",
+      "Bowlingpinsne.png",
+      "Bowlingpinsnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Bunny Clown",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Bunnyclown.png",
+    "views": [
+      "Bunnyclownsw.png",
+      "Bunnyclownse.png",
+      "Bunnyclownne.png",
+      "Bunnyclownnw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Purple",
+      "Red"
+    ],
+    "collection": "Plushies"
+  },
+  {
+    "name": "Buried Bone Fridge",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Buriedbonefridge.png",
+    "views": [
+      "Buriedbonefridgesw.png",
+      "Buriedbonefridgese.png",
+      "Buriedbonefridgene.png",
+      "Buriedbonefridgenw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Butterfly Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Butterflychair.png",
+    "views": [
+      "Butterflychairsw.png",
+      "Butterflychairse.png",
+      "Butterflychairne.png",
+      "Butterflychairnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Buzzy Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Buzzycoffeetable.png",
+    "views": [
+      "Buzzycoffeetablesw.png",
+      "Buzzycoffeetablese.png",
+      "Buzzycoffeetablene.png",
+      "Buzzycoffeetablenw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Cabbage Patch",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Cabbagepatch.png",
+    "views": [
+      "Cabbagepatchsw.png",
+      "Cabbagepatchse.png",
+      "Cabbagepatchne.png",
+      "Cabbagepatchnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Candy Bash Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Candybashtrophy.png",
+    "views": [
+      "Candybashtrophysw.png"
+    ],
+    "colors": [
+      "White",
+      "Red",
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Carrot Garden",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Carrotgarden.png",
+    "views": [
+      "Carrotgardensw.png",
+      "Carrotgardense.png",
+      "Carrotgardenne.png",
+      "Carrotgardennw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Orange"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Cash Cow Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Cashcowtrophy.png",
+    "views": [
+      "Cashcowtrophysw.png",
+      "Cashcowtrophyse.png",
+      "Cashcowtrophyne.png",
+      "Cashcowtrophynw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Cat Ottoman",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Catottoman.png",
+    "views": [
+      "Catottomansw.png",
+      "Catottomanse.png",
+      "Catottomanne.png",
+      "Catottomannw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Cat Playground",
+    "category": "Furniture",
+    "footprint": "1x3",
+    "catalogImage": "Catplayground.png",
+    "views": [
+      "Catplaygroundsw.png",
+      "Catplaygroundse.png",
+      "Catplaygroundne.png",
+      "Catplaygroundnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Cat Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Catsofa.png",
+    "views": [
+      "Catsofasw.png",
+      "Catsofase.png",
+      "Catsofane.png",
+      "Catsofanw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Cat Street Post",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Catstreetpost.png",
+    "views": [
+      "Catstreetpostsw.png",
+      "Catstreetpostse.png",
+      "Catstreetpostne.png",
+      "Catstreetpostnw.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Signs"
+  },
+  {
+    "name": "Cat Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Cattelevision.png",
+    "views": [
+      "Cattelevisionsw.png",
+      "Cattelevisionse.png",
+      "Cattelevisionne.png",
+      "Cattelevisionnw.png",
+      "Cattelevisionsw-on.png",
+      "Cattelevisionse-on.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Cat Trick Trampoline ",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Cattricktrampoline.png",
+    "views": [
+      "Cattricktrampolinesw.png",
+      "Cattricktrampolinese.png",
+      "Cattricktrampolinene.png",
+      "Cattricktrampolinenw.png"
+    ],
+    "colors": [
+      "White",
+      "Gray"
+    ],
+    "collection": "Trampolines"
+  },
+  {
+    "name": "Cat Tunnel",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Cattunnel.png",
+    "views": [
+      "Cattunnelsw.png",
+      "Cattunnelse.png",
+      "Cattunnelne.png",
+      "Cattunnelnw.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Cat Window",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Catwindow.png",
+    "views": [
+      "Catwindowsw.png",
+      "Catwindowse.png"
+    ],
+    "colors": [
+      "Brown",
+      "Gray"
+    ],
+    "collection": "Windows & Doors"
+  },
+  {
+    "name": "Cattails Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Cattailslamp.png",
+    "views": [
+      "Cattailslampsw.png",
+      "Cattailslampse.png",
+      "Cattailslampne.png",
+      "Cattailslampnw.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown",
+      "Yellow"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Cauldron",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Cauldron.png",
+    "views": [
+      "Cauldronsw.png",
+      "Cauldronse.png",
+      "Cauldronne.png",
+      "Cauldronnw.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Cave Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Cavebed.png",
+    "views": [
+      "Cavebedsw.png",
+      "Cavebedse.png",
+      "Cavebedne.png",
+      "Cavebednw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Red"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Checkers",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Checkers.png",
+    "views": [
+      "Checkerssw.png",
+      "Checkersse.png",
+      "Checkersne.png",
+      "Checkersnw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Cheeky Cat Range",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Cheekycatrange.png",
+    "views": [
+      "Cheekycatrangesw.png",
+      "Cheekycatrangese.png",
+      "Cheekycatrangene.png",
+      "Cheekycatrangenw.png"
+    ],
+    "colors": [
+      "Orange",
+      "White"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Cheeky Dog Grill",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Cheekydoggrill.png",
+    "views": [
+      "Cheekydoggrillsw.png",
+      "Cheekydoggrillse.png",
+      "Cheekydoggrillne.png",
+      "Cheekydoggrillnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Chic Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Chiccounter.png",
+    "views": [
+      "Chiccountersw.png",
+      "Chiccounterse.png",
+      "Chiccounterne.png",
+      "Chiccounternw.png"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Chic Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Chiccounterwithdrawers.png",
+    "views": [
+      "Chiccounterwithdrawerssw.png",
+      "Chiccounterwithdrawersse.png",
+      "Chiccounterwithdrawersne.png",
+      "Chiccounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Chic Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Chiccupboardsink.png",
+    "views": [
+      "Chiccupboardsinksw.png",
+      "Chiccupboardsinkse.png",
+      "Chiccupboardsinkne.png",
+      "Chiccupboardsinknw.png"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Clam Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Clamsofa.png",
+    "views": [
+      "Clamsofasw.png",
+      "Clamsofase.png",
+      "Clamsofane.png",
+      "Clamsofanw.png"
+    ],
+    "colors": [
+      "White",
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Classic Christmas Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Classicchristmastree.png",
+    "views": [
+      "Classicchristmastreesw.png",
+      "Classicchristmastreese.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Clawfoot Bathtub",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Clawfootbathtub.png",
+    "views": [
+      "Clawfootbathtubsw.png",
+      "Clawfootbathtubse.png",
+      "Clawfootbathtubne.png",
+      "Clawfootbathtubnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Bathtubs"
+  },
+  {
+    "name": "Cloud Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Cloudchair.png",
+    "views": [
+      "Cloudchairsw.png",
+      "Cloudchairse.png",
+      "Cloudchairne.png",
+      "Cloudchairnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Cloud Couch",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Cloudcouch.png",
+    "views": [
+      "Cloudcouchsw.png",
+      "Cloudcouchse.png",
+      "Cloudcouchne.png",
+      "Cloudcouchnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Cloudy Day Dresser",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Cloudydaydresser.png",
+    "views": [
+      "Cloudydaydressersw.png",
+      "Cloudydaydresserse.png",
+      "Cloudydaydresserne.png",
+      "Cloudydaydressernw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Coffee Table Tomb",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Coffeetabletomb.png",
+    "views": [
+      "Coffeetabletombsw.png",
+      "Coffeetabletombse.png",
+      "Coffeetabletombne.png",
+      "Coffeetabletombnw.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Comfy Plush Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Comfyplushchair.png",
+    "views": [
+      "Comfyplushchairsw.png",
+      "Comfyplushchairse.png",
+      "Comfyplushchairne.png",
+      "Comfyplushchairnw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Cool Blues Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Coolbluescounter.png",
+    "views": [
+      "Coolbluescountersw.png",
+      "Coolbluescounterse.png",
+      "Coolbluescounterne.png",
+      "Coolbluescounternw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Cool Blues Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Coolbluescounterwithdrawers.png",
+    "views": [
+      "Coolbluescounterwithdrawerssw.png",
+      "Coolbluescounterwithdrawersse.png",
+      "Coolbluescounterwithdrawersne.png",
+      "Coolbluescounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Cool Blues Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Coolbluescupboardsink.png",
+    "views": [
+      "Coolbluescupboardsinksw.png",
+      "Coolbluescupboardsinkse.png",
+      "Coolbluescupboardsinkne.png",
+      "Coolbluescupboardsinknw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Cool Breeze Fridge",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Coolbreezefridge.png",
+    "views": [
+      "Coolbreezefridgesw.png",
+      "Coolbreezefridgese.png",
+      "Coolbreezefridgene.png",
+      "Coolbreezefridgenw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Corinthian Trophy Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Corinthiantrophypedestal.png",
+    "views": [
+      "Corinthiantrophypedestalsw.png",
+      "Corinthiantrophypedestalse.png",
+      "Corinthiantrophypedestalne.png",
+      "Corinthiantrophypedestalnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Corn Stalk",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Cornstalk.png",
+    "views": [
+      "Cornstalksw.png",
+      "Cornstalkse.png",
+      "Cornstalkne.png",
+      "Cornstalknw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Country Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Countrybed.png",
+    "views": [
+      "Countrybedsw.png",
+      "Countrybedse.png",
+      "Countrybedne.png",
+      "Countrybednw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Country Cabinet",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Countrycabinet.png",
+    "views": [
+      "Countrycabinetsw.png",
+      "Countrycabinetse.png",
+      "Countrycabinetne.png",
+      "Countrycabinetnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Cow Bank",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Cowbank.png",
+    "views": [
+      "Cowbanksw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Crayons",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Crayons.png",
+    "views": [
+      "Crayonssw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Green"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Creepy Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Creepybed.png",
+    "views": [
+      "Creepybedsw.png",
+      "Creepybedse.png",
+      "Creepybedne.png",
+      "Creepybednw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Orange"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Crystal Advisor Ball",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Crystaladvisorball.png",
+    "views": [
+      "Crystaladvisorballsw.png",
+      "Crystaladvisorballse.png",
+      "Crystaladvisorballne.png",
+      "Crystaladvisorballnw.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Cukoo Cat Clock",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Cukoocatclock.png",
+    "views": [
+      "Cukoocatclocksw.png",
+      "Cukoocatclockse.png"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "collection": "Clocks"
+  },
+  {
+    "name": "Day and Night Throne",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Dayandnightthrone.png",
+    "views": [
+      "Dayandnightthronesw.png",
+      "Dayandnightthronese.png",
+      "Dayandnightthronene.png",
+      "Dayandnightthronenw.png",
+      "Dayandnightthronesw-on.png",
+      "Dayandnightthronese-on.png",
+      "Dayandnightthronene-on.png",
+      "Dayandnightthronenw-on.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Daydreamer's Stool",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Daydreamersstool.png",
+    "views": [
+      "Daydreamersstoolsw.png",
+      "Daydreamersstoolse.png",
+      "Daydreamersstoolne.png",
+      "Daydreamersstoolnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Deep Jungle Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Deepjungletelevision.png",
+    "views": [
+      "Deepjungletelevisionsw.png",
+      "Deepjungletelevisionse.png",
+      "Deepjungletelevisionne.png",
+      "Deepjungletelevisionnw.png",
+      "Deepjungletelevisionsw-on.png",
+      "Deepjungletelevisionse-on.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Delicate Swan Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Delicateswanbed.png",
+    "views": [
+      "Delicateswanbedsw.png",
+      "Delicateswanbedse.png",
+      "Delicateswanbedne.png",
+      "Delicateswanbednw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Detective Desk",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Detectivedesk.png",
+    "views": [
+      "Detectivedesksw.png",
+      "Detectivedeskse.png",
+      "Detectivedeskne.png",
+      "Detectivedesknw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Dog Gym",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Doggym.png",
+    "views": [
+      "Doggymsw.png",
+      "Doggymse.png",
+      "Doggymne.png",
+      "Doggymnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Gray"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Dog Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Doglamp.png",
+    "views": [
+      "Doglampsw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Dog Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Dogsidetable.png",
+    "views": [
+      "Dogsidetablesw.png",
+      "Dogsidetablenw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Doghouse Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Doghousebed.png",
+    "views": [
+      "Doghousebedsw.png",
+      "Doghousebedse.png",
+      "Doghousebedne.png",
+      "Doghousebednw.png"
+    ],
+    "colors": [
+      "Brown",
+      "White"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Doll House",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Dollhouse.png",
+    "views": [
+      "Dollhousesw.png",
+      "Dollhousese.png",
+      "Dollhousene.png",
+      "Dollhousenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Dragonfly Dining Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Dragonflydiningtable.png",
+    "views": [
+      "Dragonflydiningtablesw.png",
+      "Dragonflydiningtablese.png",
+      "Dragonflydiningtablene.png",
+      "Dragonflydiningtablenw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Earth Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Earthtable.png",
+    "views": [
+      "Earthtablesw.png",
+      "Earthtablese.png",
+      "Earthtablene.png",
+      "Earthtablenw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Egyptian Vanity Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Egyptianvanitychair.png",
+    "views": [
+      "Egyptianvanitychairsw.png",
+      "Egyptianvanitychairse.png",
+      "Egyptianvanitychairne.png",
+      "Egyptianvanitychairnw.png"
+    ],
+    "colors": [
+      "Gold",
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Egyptian Vase",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Egyptianvase.png",
+    "views": [
+      "Egyptianvasesw.png",
+      "Egyptianvasese.png",
+      "Egyptianvasene.png",
+      "Egyptianvasenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Gold"
+    ],
+    "collection": ""
+  },
+  {
+    "name": "Electric Green Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Electricgreenchair.png",
+    "views": [
+      "Electricgreenchairsw.png",
+      "Electricgreenchairse.png",
+      "Electricgreenchairne.png",
+      "Electricgreenchairnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Elegant Egyptian Vanity",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Elegantegyptianvanity.png",
+    "views": [
+      "Elegantegyptianvanitysw.png",
+      "Elegantegyptianvanityse.png",
+      "Elegantegyptianvanityne.png",
+      "Elegantegyptianvanitynw.png"
+    ],
+    "colors": [
+      "Gold",
+      "Brown"
+    ],
+    "collection": "Vanities"
+  },
+  {
+    "name": "Elegant Swan Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Elegantswansink.png",
+    "views": [
+      "Elegantswansinksw.png",
+      "Elegantswansinkse.png",
+      "Elegantswansinkne.png",
+      "Elegantswansinknw.png"
+    ],
+    "colors": [
+      "White",
+      "Gold"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Elm Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Elmtree.png",
+    "views": [
+      "Elmtreesw.png",
+      "Elmtreese.png",
+      "Elmtreene.png",
+      "Elmtreenw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Exquisite Egyptian Obelisk",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Exquisiteegyptianobelisk.png",
+    "views": [
+      "Exquisiteegyptianobelisksw.png",
+      "Exquisiteegyptianobeliskse.png",
+      "Exquisiteegyptianobeliskne.png",
+      "Exquisiteegyptianobelisknw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": ""
+  },
+  {
+    "name": "Fabled Grand Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Fabledgrandtable.png",
+    "views": [
+      "Fabledgrandtablesw.png",
+      "Fabledgrandtablese.png",
+      "Fabledgrandtablene.png",
+      "Fabledgrandtablenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Fancy Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Fancytable.png",
+    "views": [
+      "Fancytablesw.png",
+      "Fancytablenw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Fancy Tea Service",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Fancyteaservice.png",
+    "views": [
+      "Fancyteaservicesw.png",
+      "Fancyteaservicese.png",
+      "Fancyteaservicene.png",
+      "Fancyteaservicenw.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Decorative Food"
+  },
+  {
+    "name": "Fantasy Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Fantasycoffeetable.png",
+    "views": [
+      "Fantasycoffeetablesw.png",
+      "Fantasycoffeetablese.png",
+      "Fantasycoffeetablene.png",
+      "Fantasycoffeetablenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Fantasy Dresser",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Fantasydresser.png",
+    "views": [
+      "Fantasydressersw.png",
+      "Fantasydresserse.png",
+      "Fantasydresserne.png",
+      "Fantasydressernw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Figure Skates",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Figureskates.png",
+    "views": [
+      "Figureskatessw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Fir Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Firtree.png",
+    "views": [
+      "Firtreesw.png",
+      "Firtreese.png",
+      "Firtreene.png",
+      "Firtreenw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Fishy Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Fishylamp.png",
+    "views": [
+      "Fishylampsw.png",
+      "Fishylampse.png",
+      "Fishylampne.png",
+      "Fishylampnw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Flower Garden",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Flowergarden.png",
+    "views": [
+      "Flowergardensw.png",
+      "Flowergardense.png",
+      "Flowergardenne.png",
+      "Flowergardennw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Red"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Flying High Lamp",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Flyinghighlamp.png",
+    "views": [
+      "Flyinghighlampsw.png",
+      "Flyinghighlampse.png",
+      "Flyinghighlampne.png",
+      "Flyinghighlampnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Football",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Football.png",
+    "views": [
+      "Footballsw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Football Banner",
+    "category": "Wall Item",
+    "footprint": "1x2",
+    "catalogImage": "Footballbanner.png",
+    "views": [
+      "Footballbannersw.png",
+      "Footballbannerse.png"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "collection": "Posters"
+  },
+  {
+    "name": "Football Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Footballbed.png",
+    "views": [
+      "Footballbedsw.png",
+      "Footballbedse.png",
+      "Footballbedne.png",
+      "Footballbednw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Green"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Football Bleacher Seat",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballbleacherseat.png",
+    "views": [
+      "Footballbleacherseatsw.png",
+      "Footballbleacherseatse.png",
+      "Footballbleacherseatne.png",
+      "Footballbleacherseatnw.png",
+      "Footballbleacherseatsw-on.png",
+      "Footballbleacherseatse-on.png",
+      "Footballbleacherseatne-on.png",
+      "Footballbleacherseatnw-on.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Football Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballchair.png",
+    "views": [
+      "Footballchairsw.png",
+      "Footballchairse.png",
+      "Footballchairne.png",
+      "Footballchairnw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Red"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Football Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Footballcoffeetable.png",
+    "views": [
+      "Footballcoffeetablesw.png",
+      "Footballcoffeetablese.png",
+      "Footballcoffeetablene.png",
+      "Footballcoffeetablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Football Cooler Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballcoolersidetable.png",
+    "views": [
+      "Footballcoolersidetablesw.png",
+      "Footballcoolersidetablese.png",
+      "Footballcoolersidetablene.png",
+      "Footballcoolersidetablenw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Yellow"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Football Dining Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballdiningchair.png",
+    "views": [
+      "Footballdiningchairsw.png",
+      "Footballdiningchairse.png",
+      "Footballdiningchairne.png",
+      "Footballdiningchairnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Red"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Football Dining Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Footballdiningtable.png",
+    "views": [
+      "Footballdiningtablesw.png",
+      "Footballdiningtablese.png",
+      "Footballdiningtablene.png",
+      "Footballdiningtablenw.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Football Fridge",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballfridge.png",
+    "views": [
+      "Footballfridgesw.png",
+      "Footballfridgese.png",
+      "Footballfridgene.png",
+      "Footballfridgenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Football Grill",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballgrill.png",
+    "views": [
+      "Footballgrillsw.png",
+      "Footballgrillse.png",
+      "Footballgrillne.png",
+      "Footballgrillnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Football Jersey Decoration",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Footballjerseydecoration.png",
+    "views": [
+      "Footballjerseydecorationsw.png",
+      "Footballjerseydecorationse.png"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "collection": "Displays"
+  },
+  {
+    "name": "Football Locker",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballlocker.png",
+    "views": [
+      "Footballlockersw.png",
+      "Footballlockerse.png",
+      "Footballlockerne.png",
+      "Footballlockernw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Football Room Divider",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Footballroomdivider.png",
+    "views": [
+      "Footballroomdividersw.png",
+      "Footballroomdividerse.png",
+      "Footballroomdividerne.png",
+      "Footballroomdividernw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Room Dividers"
+  },
+  {
+    "name": "Football Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Footballsofa.png",
+    "views": [
+      "Footballsofasw.png",
+      "Footballsofase.png",
+      "Footballsofane.png",
+      "Footballsofanw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Football Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Footballtelevision.png",
+    "views": [
+      "Footballtelevisionsw.png",
+      "Footballtelevisionse.png",
+      "Footballtelevisionne.png",
+      "Footballtelevisionnw.png",
+      "Footballtelevisionsw-on.png",
+      "Footballtelevisionse-on.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Football Toy Box",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Footballtoybox.png",
+    "views": [
+      "Footballtoyboxsw.png",
+      "Footballtoyboxse.png",
+      "Footballtoyboxne.png",
+      "Footballtoyboxnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Football Trophy Stand",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballtrophystand.png",
+    "views": [
+      "Footballtrophystandsw.png",
+      "Footballtrophystandse.png",
+      "Footballtrophystandne.png",
+      "Footballtrophystandnw.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue"
+    ],
+    "collection": "Displays"
+  },
+  {
+    "name": "Football Tub",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Footballtub.png",
+    "views": [
+      "Footballtubsw.png",
+      "Footballtubse.png",
+      "Footballtubne.png",
+      "Footballtubnw.png",
+      "Footballtubsw-on.png",
+      "Footballtubse-on.png",
+      "Footballtubne-on.png",
+      "Footballtubnw-on.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Bathtubs"
+  },
+  {
+    "name": "Football Water Cooler",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Footballwatercooler.png",
+    "views": [
+      "Footballwatercoolersw.png",
+      "Footballwatercoolerse.png",
+      "Footballwatercoolerne.png",
+      "Footballwatercoolernw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Appliances"
+  },
+  {
+    "name": "Fortune Telling Pig Statue",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Fortunetellingpigstatue.png",
+    "views": [
+      "Fortunetellingpigstatuesw.png",
+      "Fortunetellingpigstatuese.png",
+      "Fortunetellingpigstatuene.png",
+      "Fortunetellingpigstatuenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Funky Boy Band Poster",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Funkyboybandposter.png",
+    "views": [
+      "Funkyboybandpostersw.png",
+      "Funkyboybandposterse.png"
+    ],
+    "colors": [
+      "Brown",
+      "Purple"
+    ],
+    "collection": "Posters"
+  },
+  {
+    "name": "Funky Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkychair.png",
+    "views": [
+      "Funkychairsw.png",
+      "Funkychairse.png",
+      "Funkychairne.png",
+      "Funkychairnw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Purple"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Funky Girl Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Funkygirlbed.png",
+    "views": [
+      "Funkygirlbedsw.png",
+      "Funkygirlbedse.png",
+      "Funkygirlbedne.png",
+      "Funkygirlbednw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Funky Girl Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirlchair.png",
+    "views": [
+      "Funkygirlchairsw.png",
+      "Funkygirlchairse.png",
+      "Funkygirlchairne.png",
+      "Funkygirlchairnw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Funky Girl Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Funkygirlcoffeetable.png",
+    "views": [
+      "Funkygirlcoffeetablesw.png",
+      "Funkygirlcoffeetablese.png",
+      "Funkygirlcoffeetablene.png",
+      "Funkygirlcoffeetablenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Funky Girl Dining Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirldiningtable.png",
+    "views": [
+      "Funkygirldiningtablesw.png",
+      "Funkygirldiningtablese.png",
+      "Funkygirldiningtablene.png",
+      "Funkygirldiningtablenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Funky Girl Dresser",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Funkygirldresser.png",
+    "views": [
+      "Funkygirldressersw.png",
+      "Funkygirldresserse.png",
+      "Funkygirldresserne.png",
+      "Funkygirldressernw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Funky Girl Karaoke Machine",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirlkaraokemachine.png",
+    "views": [
+      "Funkygirlkaraokemachinesw.png",
+      "Funkygirlkaraokemachinese.png",
+      "Funkygirlkaraokemachinene.png",
+      "Funkygirlkaraokemachinenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Musical"
+  },
+  {
+    "name": "Funky Girl Kitchen Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirlkitchencounter.png",
+    "views": [
+      "Funkygirlkitchencountersw.png",
+      "Funkygirlkitchencounterse.png",
+      "Funkygirlkitchencounterne.png",
+      "Funkygirlkitchencounternw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Funky Girl Kitchen Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirlkitchensink.png",
+    "views": [
+      "Funkygirlkitchensinksw.png",
+      "Funkygirlkitchensinkse.png",
+      "Funkygirlkitchensinkne.png",
+      "Funkygirlkitchensinknw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Funky Girl Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirllamp.png",
+    "views": [
+      "Funkygirllampsw.png"
+    ],
+    "colors": [
+      "Pink",
+      "Green",
+      "Yellow"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Funky Girl Lounger",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirllounger.png",
+    "views": [
+      "Funkygirlloungersw.png",
+      "Funkygirlloungerse.png",
+      "Funkygirlloungerne.png",
+      "Funkygirlloungernw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Funky Girl Makeup Vanity",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirlmakeupvanity.png",
+    "views": [
+      "Funkygirlmakeupvanitysw.png",
+      "Funkygirlmakeupvanityse.png",
+      "Funkygirlmakeupvanityne.png",
+      "Funkygirlmakeupvanitynw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Vanities"
+  },
+  {
+    "name": "Funky Girl Refrigerator",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirlrefrigerator.png",
+    "views": [
+      "Funkygirlrefrigeratorsw.png",
+      "Funkygirlrefrigeratorse.png",
+      "Funkygirlrefrigeratorne.png",
+      "Funkygirlrefrigeratornw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Funky Girl Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirlsidetable.png",
+    "views": [
+      "Funkygirlsidetablesw.png",
+      "Funkygirlsidetablese.png",
+      "Funkygirlsidetablene.png",
+      "Funkygirlsidetablenw.png"
+    ],
+    "colors": [
+      "Pink",
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Funky Girl Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Funkygirlsofa.png",
+    "views": [
+      "Funkygirlsofasw.png",
+      "Funkygirlsofase.png",
+      "Funkygirlsofane.png",
+      "Funkygirlsofanw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Funky Girl Stereo",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Funkygirlstereo.png",
+    "views": [
+      "Funkygirlstereosw.png",
+      "Funkygirlstereose.png",
+      "Funkygirlstereone.png",
+      "Funkygirlstereonw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Musical"
+  },
+  {
+    "name": "Funky Girl Stove",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkygirlstove.png",
+    "views": [
+      "Funkygirlstovesw.png",
+      "Funkygirlstovese.png",
+      "Funkygirlstovene.png",
+      "Funkygirlstovenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Funky Girl Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Funkygirltelevision.png",
+    "views": [
+      "Funkygirltelevisionsw.png",
+      "Funkygirltelevisionse.png",
+      "Funkygirltelevisionne.png",
+      "Funkygirltelevisionnw.png",
+      "Funkygirltelevisionsw-on.png",
+      "Funkygirltelevisionse-on.png"
+    ],
+    "colors": [
+      "Pink",
+      "Yellow",
+      "Green"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Funky Girl Wardrobe",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Funkygirlwardrobe.png",
+    "views": [
+      "Funkygirlwardrobesw.png",
+      "Funkygirlwardrobese.png",
+      "Funkygirlwardrobene.png",
+      "Funkygirlwardrobenw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Funky Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Funkytable.png",
+    "views": [
+      "Funkytablesw.png",
+      "Funkytablese.png",
+      "Funkytablene.png",
+      "Funkytablenw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Orange"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Garden Zingoz",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Gardenzingoz.png",
+    "views": [
+      "Gardenzingozsw.png",
+      "Gardenzingozse.png",
+      "Gardenzingozne.png",
+      "Gardenzingoznw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow"
+    ],
+    "collection": ""
+  },
+  {
+    "name": "Gargoyle Book Shelf",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Gargoylebookshelf.png",
+    "views": [
+      "Gargoylebookshelfsw.png",
+      "Gargoylebookshelfse.png",
+      "Gargoylebookshelfne.png",
+      "Gargoylebookshelfnw.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Bookshelves"
+  },
+  {
+    "name": "Gargoyle Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Gargoylechair.png",
+    "views": [
+      "Gargoylechairsw.png",
+      "Gargoylechairse.png",
+      "Gargoylechairne.png",
+      "Gargoylechairnw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Gray"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Gargoyle Desk",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Gargoyledesk.png",
+    "views": [
+      "Gargoyledesksw.png",
+      "Gargoyledeskse.png",
+      "Gargoyledeskne.png",
+      "Gargoyledesknw.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Gargoyle Lamp",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Gargoylelamp.png",
+    "views": [
+      "Gargoylelampsw.png",
+      "Gargoylelampse.png",
+      "Gargoylelampne.png",
+      "Gargoylelampnw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Orange"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Gargoyle Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Gargoylesofa.png",
+    "views": [
+      "Gargoylesofasw.png",
+      "Gargoylesofase.png",
+      "Gargoylesofane.png",
+      "Gargoylesofanw.png",
+      "Gargoylesofasw-on.png",
+      "Gargoylesofase-on.png",
+      "Gargoylesofane-on.png",
+      "Gargoylesofanw-on.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Ghostly Urn",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Ghostlyurn.png",
+    "views": [
+      "Ghostlyurnsw.png",
+      "Ghostlyurnse.png",
+      "Ghostlyurnne.png",
+      "Ghostlyurnnw.png",
+      "Ghostlyurnsw-on.png",
+      "Ghostlyurnse-on.png",
+      "Ghostlyurnne-on.png",
+      "Ghostlyurnnw-on.png"
+    ],
+    "colors": [
+      "Purple",
+      "Gray"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Giant Pumpkin Patch",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Giantpumpkinpatch.png",
+    "views": [
+      "Giantpumpkinpatchsw.png",
+      "Giantpumpkinpatchse.png",
+      "Giantpumpkinpatchne.png",
+      "Giantpumpkinpatchnw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Giant Spider Dining Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Giantspiderdiningtable.png",
+    "views": [
+      "Giantspiderdiningtablesw.png",
+      "Giantspiderdiningtablese.png",
+      "Giantspiderdiningtablene.png",
+      "Giantspiderdiningtablenw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Orange"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Giant Spider Web",
+    "category": "Wall Item",
+    "footprint": "1x2",
+    "catalogImage": "Giantspiderweb.png",
+    "views": [
+      "Giantspiderwebsw.png",
+      "Giantspiderwebse.png"
+    ],
+    "colors": [
+      "White",
+      "Purple"
+    ],
+    "collection": ""
+  },
+  {
+    "name": "Giant Venus Flytrap",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Giantvenusflytrap.png",
+    "views": [
+      "Giantvenusflytrapsw.png",
+      "Giantvenusflytrapse.png",
+      "Giantvenusflytrapne.png",
+      "Giantvenusflytrapnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Glass Table with Flower",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Glasstablewithflower.png",
+    "views": [
+      "Glasstablewithflowersw.png",
+      "Glasstablewithflowerse.png",
+      "Glasstablewithflowerne.png",
+      "Glasstablewithflowernw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Go Fish Card Game",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Gofishcardgame.png",
+    "views": [
+      "Gofishcardgamesw.png",
+      "Gofishcardgamese.png",
+      "Gofishcardgamene.png",
+      "Gofishcardgamenw.png"
+    ],
+    "colors": [
+      "Purple",
+      "White",
+      "Orange"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Goalie Mask Shelf",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Goaliemaskshelf.png",
+    "views": [
+      "Goaliemaskshelfsw.png",
+      "Goaliemaskshelfse.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Displays"
+  },
+  {
+    "name": "Gold Safe",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Goldsafe.png",
+    "views": [
+      "Goldsafesw.png",
+      "Goldsafese.png",
+      "Goldsafene.png",
+      "Goldsafenw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Gold Zingoz Pop Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Goldzingozpoptrophy.png",
+    "views": [
+      "Goldzingozpoptrophysw.png",
+      "Goldzingozpoptrophyse.png",
+      "Goldzingozpoptrophyne.png",
+      "Goldzingozpoptrophynw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Golden Rose Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Goldenrosebed.png",
+    "views": [
+      "Goldenrosebedsw.png",
+      "Goldenrosebedse.png",
+      "Goldenrosebedne.png",
+      "Goldenrosebednw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Golf Cart",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Golfcart.png",
+    "views": [
+      "Golfcartsw.png",
+      "Golfcartse.png",
+      "Golfcartne.png",
+      "Golfcartnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Goober's Lab Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Gooberslabtrophy.png",
+    "views": [
+      "Gooberslabtrophysw.png",
+      "Gooberslabtrophyse.png",
+      "Gooberslabtrophyne.png",
+      "Gooberslabtrophynw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Gothic Window",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Gothicwindow.png",
+    "views": [
+      "Gothicwindowsw.png",
+      "Gothicwindowse.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Windows & Doors"
+  },
+  {
+    "name": "Grand Christmas Tree",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Grandchristmastree.png",
+    "views": [
+      "Grandchristmastreesw.png",
+      "Grandchristmastreese.png",
+      "Grandchristmastreene.png",
+      "Grandchristmastreenw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Grand Egyptian Column",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Grandegyptiancolumn.png",
+    "views": [
+      "Grandegyptiancolumnsw.png",
+      "Grandegyptiancolumnse.png",
+      "Grandegyptiancolumnne.png",
+      "Grandegyptiancolumnnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Columns"
+  },
+  {
+    "name": "Grandfather Clock",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Grandfatherclock.png",
+    "views": [
+      "Grandfatherclocksw.png",
+      "Grandfatherclockse.png",
+      "Grandfatherclockne.png",
+      "Grandfatherclocknw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "collection": "Clocks"
+  },
+  {
+    "name": "Green Apple Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Greenapplecounter.png",
+    "views": [
+      "Greenapplecountersw.png",
+      "Greenapplecounterse.png",
+      "Greenapplecounterne.png",
+      "Greenapplecounternw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Green Apple Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Greenapplecounterwithdrawers.png",
+    "views": [
+      "Greenapplecounterwithdrawerssw.png",
+      "Greenapplecounterwithdrawersse.png",
+      "Greenapplecounterwithdrawersne.png",
+      "Greenapplecounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Green Apple Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Greenapplecupboardsink.png",
+    "views": [
+      "Greenapplecupboardsinksw.png",
+      "Greenapplecupboardsinkse.png",
+      "Greenapplecupboardsinkne.png",
+      "Greenapplecupboardsinknw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Green Welcome Balloon",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Greenwelcomeballoon.png",
+    "views": [
+      "Greenwelcomeballoonsw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Guitar Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Guitarchair.png",
+    "views": [
+      "Guitarchairsw.png",
+      "Guitarchairse.png",
+      "Guitarchairne.png",
+      "Guitarchairnw.png"
+    ],
+    "colors": [
+      "Black",
+      "Red"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Gumball Machine",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Gumballmachine.png",
+    "views": [
+      "Gumballmachinesw.png",
+      "Gumballmachinese.png",
+      "Gumballmachinene.png",
+      "Gumballmachinenw.png"
+    ],
+    "colors": [
+      "Rainbow"
+    ],
+    "collection": "Appliances"
+  },
+  {
+    "name": "Hammock",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Hammock.png",
+    "views": [
+      "Hammocksw.png",
+      "Hammockse.png",
+      "Hammockne.png",
+      "Hammocknw.png"
+    ],
+    "colors": [
+      "White",
+      "Blue"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Hand-Carved Lion Statue",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Handcarvedlionstatue.png",
+    "views": [
+      "Handcarvedlionstatuesw.png",
+      "Handcarvedlionstatuese.png",
+      "Handcarvedlionstatuene.png",
+      "Handcarvedlionstatuenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Statues"
+  },
+  {
+    "name": "Haunted Organ",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hauntedorgan.png",
+    "views": [
+      "Hauntedorgansw.png",
+      "Hauntedorganse.png",
+      "Hauntedorganne.png",
+      "Hauntedorgannw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Gold"
+    ],
+    "collection": "Musical"
+  },
+  {
+    "name": "Haunted Refrigerator",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hauntedrefrigerator.png",
+    "views": [
+      "Hauntedrefrigeratorsw.png",
+      "Hauntedrefrigeratorse.png",
+      "Hauntedrefrigeratorne.png",
+      "Hauntedrefrigeratornw.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Head in the Clouds Desk",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Headinthecloudsdesk.png",
+    "views": [
+      "Headinthecloudsdesksw.png",
+      "Headinthecloudsdeskse.png",
+      "Headinthecloudsdeskne.png",
+      "Headinthecloudsdesknw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Helmet Lamp",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Helmetlamp.png",
+    "views": [
+      "Helmetlampsw.png",
+      "Helmetlampse.png",
+      "Helmetlampne.png",
+      "Helmetlampnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Hibiscus Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hibiscustree.png",
+    "views": [
+      "Hibiscustreesw.png"
+    ],
+    "colors": [
+      "Red",
+      "Green",
+      "Brown"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Hippo Topiary",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hippotopiary.png",
+    "views": [
+      "Hippotopiarysw.png",
+      "Hippotopiaryse.png",
+      "Hippotopiaryne.png",
+      "Hippotopiarynw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Hockey Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Hockeybed.png",
+    "views": [
+      "Hockeybedsw.png",
+      "Hockeybedse.png",
+      "Hockeybedne.png",
+      "Hockeybednw.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Hockey Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hockeychair.png",
+    "views": [
+      "Hockeychairsw.png",
+      "Hockeychairse.png",
+      "Hockeychairne.png",
+      "Hockeychairnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Hockey Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Hockeycoffeetable.png",
+    "views": [
+      "Hockeycoffeetablesw.png",
+      "Hockeycoffeetablese.png",
+      "Hockeycoffeetablene.png",
+      "Hockeycoffeetablenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Hockey Couch",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Hockeycouch.png",
+    "views": [
+      "Hockeycouchsw.png",
+      "Hockeycouchse.png",
+      "Hockeycouchne.png",
+      "Hockeycouchnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Hockey Cushion",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hockeycushion.png",
+    "views": [
+      "Hockeycushionsw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Hockey Desk Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hockeydeskchair.png",
+    "views": [
+      "Hockeydeskchairsw.png",
+      "Hockeydeskchairse.png",
+      "Hockeydeskchairne.png",
+      "Hockeydeskchairnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Hockey Dining Table",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Hockeydiningtable.png",
+    "views": [
+      "Hockeydiningtablesw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Hockey Locker",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hockeylocker.png",
+    "views": [
+      "Hockeylockersw.png",
+      "Hockeylockerse.png",
+      "Hockeylockerne.png",
+      "Hockeylockernw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Hockey Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hockeysidetable.png",
+    "views": [
+      "Hockeysidetablesw.png",
+      "Hockeysidetablese.png",
+      "Hockeysidetablene.png",
+      "Hockeysidetablenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Hockey Skates",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Hockeyskates.png",
+    "views": [
+      "Hockeyskatessw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Hockey Study Desk",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Hockeystudydesk.png",
+    "views": [
+      "Hockeystudydesksw.png",
+      "Hockeystudydeskse.png",
+      "Hockeystudydeskne.png",
+      "Hockeystudydesknw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Hockey Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hockeytable.png",
+    "views": [
+      "Hockeytablesw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Holiday Tubby Tummies Bear",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Holidaytubbytummiesbear.png",
+    "views": [
+      "Holidaytubbytummiesbearsw.png",
+      "Holidaytubbytummiesbearse.png",
+      "Holidaytubbytummiesbearne.png",
+      "Holidaytubbytummiesbearnw.png"
+    ],
+    "colors": [
+      "White",
+      "Red"
+    ],
+    "collection": "Plushies"
+  },
+  {
+    "name": "Hoppity Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Hoppitysofa.png",
+    "views": [
+      "Hoppitysofasw.png",
+      "Hoppitysofase.png",
+      "Hoppitysofane.png",
+      "Hoppitysofanw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Hot Air Balloon",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hotairballoon.png",
+    "views": [
+      "Hotairballoonsw.png",
+      "Hotairballoonse.png",
+      "Hotairballoonne.png",
+      "Hotairballoonnw.png"
+    ],
+    "colors": [
+      "Rainbow"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Humvee Toy SUV",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Humveetoysuv.png",
+    "views": [
+      "Humveetoysuvsw.png",
+      "Humveetoysuvse.png",
+      "Humveetoysuvne.png",
+      "Humveetoysuvnw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Black"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Hydrant",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Hydrant.png",
+    "views": [
+      "Hydrantsw.png",
+      "Hydrantse.png",
+      "Hydrantne.png",
+      "Hydrantnw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Red"
+    ],
+    "collection": ""
+  },
+  {
+    "name": "Ice Cream Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Icecreamtree.png",
+    "views": [
+      "Icecreamtreesw.png",
+      "Icecreamtreese.png",
+      "Icecreamtreene.png",
+      "Icecreamtreenw.png"
+    ],
+    "colors": [
+      "White",
+      "Brown",
+      "Red",
+      "Rainbow"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Imperial Head Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Imperialheadchair.png",
+    "views": [
+      "Imperialheadchairsw.png",
+      "Imperialheadchairse.png",
+      "Imperialheadchairne.png",
+      "Imperialheadchairnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Ionic Trophy Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Ionictrophypedestal.png",
+    "views": [
+      "Ionictrophypedestalsw.png",
+      "Ionictrophypedestalse.png",
+      "Ionictrophypedestalne.png",
+      "Ionictrophypedestalnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Iris Garden",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Irisgarden.png",
+    "views": [
+      "Irisgardensw.png",
+      "Irisgardense.png",
+      "Irisgardenne.png",
+      "Irisgardennw.png"
+    ],
+    "colors": [
+      "Green",
+      "Purple"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Jack O'Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Jackosidetable.png",
+    "views": [
+      "Jackosidetablesw.png",
+      "Jackosidetablese.png",
+      "Jackosidetablene.png",
+      "Jackosidetablenw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Jelly Lollipop Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Jellylollipoptree.png",
+    "views": [
+      "Jellylollipoptreesw.png",
+      "Jellylollipoptreese.png",
+      "Jellylollipoptreene.png",
+      "Jellylollipoptreenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Red"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Jumping Frog",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Jumpingfrog.png",
+    "views": [
+      "Jumpingfrogsw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Jungle Sun Lamp",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Junglesunlamp.png",
+    "views": [
+      "Junglesunlampsw.png",
+      "Junglesunlampse.png",
+      "Junglesunlampne.png",
+      "Junglesunlampnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Jungle Trophy Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Jungletrophypedestal.png",
+    "views": [
+      "Jungletrophypedestalsw.png",
+      "Jungletrophypedestalse.png",
+      "Jungletrophypedestalne.png",
+      "Jungletrophypedestalnw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Juniper Bonsai Tree",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Juniperbonsaitree.png",
+    "views": [
+      "Juniperbonsaitreesw.png"
+    ],
+    "colors": [
+      "Green",
+      "Orange"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Kid Wall Shelf",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Kidwallshelf.png",
+    "views": [
+      "Kidwallshelfsw.png",
+      "Kidwallshelfse.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Bookshelves"
+  },
+  {
+    "name": "Kid's Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Kidsbed.png",
+    "views": [
+      "Kidsbedsw.png",
+      "Kidsbedse.png",
+      "Kidsbedne.png",
+      "Kidsbednw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Kid's Boombox ",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Kidsboombox.png",
+    "views": [
+      "Kidsboomboxsw.png",
+      "Kidsboomboxse.png",
+      "Kidsboomboxne.png",
+      "Kidsboomboxnw.png",
+      "Kidsboomboxsw-on.png",
+      "Kidsboomboxse-on.png",
+      "Kidsboomboxne-on.png",
+      "Kidsboomboxnw-on.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue"
+    ],
+    "collection": "Musical"
+  },
+  {
+    "name": "Kid's Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kidschair.png",
+    "views": [
+      "Kidschairsw.png",
+      "Kidschairse.png",
+      "Kidschairne.png",
+      "Kidschairnw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Red",
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Kid's Coffee Table ",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Kidscoffeetable.png",
+    "views": [
+      "Kidscoffeetablesw.png",
+      "Kidscoffeetablese.png",
+      "Kidscoffeetablene.png",
+      "Kidscoffeetablenw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Kid's Dining Table ",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kidsdiningtable.png",
+    "views": [
+      "Kidsdiningtablesw.png",
+      "Kidsdiningtablese.png",
+      "Kidsdiningtablene.png",
+      "Kidsdiningtablenw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue",
+      "Red"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Kid's Dresser ",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kidsdresser.png",
+    "views": [
+      "Kidsdressersw.png",
+      "Kidsdresserse.png",
+      "Kidsdresserne.png",
+      "Kidsdressernw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Kid's Refrigerator ",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kidsrefrigerator.png",
+    "views": [
+      "Kidsrefrigeratorsw.png",
+      "Kidsrefrigeratorse.png",
+      "Kidsrefrigeratorne.png",
+      "Kidsrefrigeratornw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Kid's Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kidssidetable.png",
+    "views": [
+      "Kidssidetablesw.png",
+      "Kidssidetablese.png",
+      "Kidssidetablene.png",
+      "Kidssidetablenw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue",
+      "Red"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Kid's Sofa ",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Kidssofa.png",
+    "views": [
+      "Kidssofasw.png",
+      "Kidssofase.png",
+      "Kidssofane.png",
+      "Kidssofanw.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Kid's Standing Floor Lamp ",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kidsstandingfloorlamp.png",
+    "views": [
+      "Kidsstandingfloorlampsw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Kid's Stove",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kidsstove.png",
+    "views": [
+      "Kidsstovesw.png",
+      "Kidsstovese.png",
+      "Kidsstovene.png",
+      "Kidsstovenw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Kid's Study Desk ",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Kidsstudydesk.png",
+    "views": [
+      "Kidsstudydesksw.png",
+      "Kidsstudydeskse.png",
+      "Kidsstudydeskne.png",
+      "Kidsstudydesknw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Kid's Toy Box",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Kidstoybox.png",
+    "views": [
+      "Kidstoyboxsw.png",
+      "Kidstoyboxse.png",
+      "Kidstoyboxne.png",
+      "Kidstoyboxnw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Kid's TV ",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Kidstv.png",
+    "views": [
+      "Kidstvsw.png",
+      "Kidstvse.png",
+      "Kidstvne.png",
+      "Kidstvnw.png",
+      "Kidstvsw-on.png",
+      "Kidstvse-on.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Kids Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kidscupboardsink.png",
+    "views": [
+      "Kidscupboardsinksw.png",
+      "Kidscupboardsinkse.png",
+      "Kidscupboardsinkne.png",
+      "Kidscupboardsinknw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "King of the Jungle Throne",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Kingofthejunglethrone.png",
+    "views": [
+      "Kingofthejunglethronesw.png",
+      "Kingofthejunglethronese.png",
+      "Kingofthejunglethronene.png",
+      "Kingofthejunglethronenw.png"
+    ],
+    "colors": [
+      "Red",
+      "Gray"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Large Pane Window",
+    "category": "Wall Item",
+    "footprint": "1x2",
+    "catalogImage": "Largepanewindow.png",
+    "views": [
+      "Largepanewindowsw.png",
+      "Largepanewindowse.png"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "collection": "Windows & Doors"
+  },
+  {
+    "name": "Lavender Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Lavendercounter.png",
+    "views": [
+      "Lavendercountersw.png",
+      "Lavendercounterse.png",
+      "Lavendercounterne.png",
+      "Lavendercounternw.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Lavender Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Lavendercounterwithdrawers.png",
+    "views": [
+      "Lavendercounterwithdrawerssw.png",
+      "Lavendercounterwithdrawersse.png",
+      "Lavendercounterwithdrawersne.png",
+      "Lavendercounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Lavender Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Lavendercupboardsink.png",
+    "views": [
+      "Lavendercupboardsinksw.png",
+      "Lavendercupboardsinkse.png",
+      "Lavendercupboardsinkne.png",
+      "Lavendercupboardsinknw.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Lawn Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Lawnchair.png",
+    "views": [
+      "Lawnchairsw.png",
+      "Lawnchairse.png",
+      "Lawnchairne.png",
+      "Lawnchairnw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Lawn Lounger",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Lawnlounger.png",
+    "views": [
+      "Lawnloungersw.png",
+      "Lawnloungerse.png",
+      "Lawnloungerne.png",
+      "Lawnloungernw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Lemon Lime Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Lemonlimecounter.png",
+    "views": [
+      "Lemonlimecountersw.png",
+      "Lemonlimecounterse.png",
+      "Lemonlimecounterne.png",
+      "Lemonlimecounternw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Lemon Lime Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Lemonlimecounterwithdrawers.png",
+    "views": [
+      "Lemonlimecounterwithdrawerssw.png",
+      "Lemonlimecounterwithdrawersse.png",
+      "Lemonlimecounterwithdrawersne.png",
+      "Lemonlimecounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Lemon Lime Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Lemonlimecupboardsink.png",
+    "views": [
+      "Lemonlimecupboardsinksw.png",
+      "Lemonlimecupboardsinkse.png",
+      "Lemonlimecupboardsinkne.png",
+      "Lemonlimecupboardsinknw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Lily Pad Water Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Lilypadwaterbed.png",
+    "views": [
+      "Lilypadwaterbedsw.png",
+      "Lilypadwaterbedse.png",
+      "Lilypadwaterbedne.png",
+      "Lilypadwaterbednw.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown",
+      "White"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Lime Desk Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Limedeskchair.png",
+    "views": [
+      "Limedeskchairsw.png",
+      "Limedeskchairse.png",
+      "Limedeskchairne.png",
+      "Limedeskchairnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Link'D",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Linkd.png",
+    "views": [
+      "Linkdsw.png",
+      "Linkdse.png",
+      "Linkdne.png",
+      "Linkdnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Locker",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Locker.png",
+    "views": [
+      "Lockersw.png",
+      "Lockerse.png",
+      "Lockerne.png",
+      "Lockernw.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Magic Mirror",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Magicmirror.png",
+    "views": [
+      "Magicmirrorsw.png",
+      "Magicmirrorse.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Mirrors"
+  },
+  {
+    "name": "Magic Mirror Vanity",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Magicmirrorvanity.png",
+    "views": [
+      "Magicmirrorvanitysw.png",
+      "Magicmirrorvanityse.png",
+      "Magicmirrorvanityne.png",
+      "Magicmirrorvanitynw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "collection": "Vanities"
+  },
+  {
+    "name": "Magic W Snowglobe",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Magicwsnowglobe.png",
+    "views": [
+      "Magicwsnowglobesw.png",
+      "Magicwsnowglobese.png"
+    ],
+    "colors": [
+      "White",
+      "Blue",
+      "Red"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Magical Lantern",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Magicallantern.png",
+    "views": [
+      "Magicallanternsw.png",
+      "Magicallanternse.png",
+      "Magicallanternne.png",
+      "Magicallanternnw.png"
+    ],
+    "colors": [
+      "White",
+      "Yellow",
+      "Pink"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Magical Meadow Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Magicalmeadowbed.png",
+    "views": [
+      "Magicalmeadowbedsw.png",
+      "Magicalmeadowbedse.png",
+      "Magicalmeadowbedne.png",
+      "Magicalmeadowbednw.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Majestic Dining Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Majesticdiningchair.png",
+    "views": [
+      "Majesticdiningchairsw.png",
+      "Majesticdiningchairse.png",
+      "Majesticdiningchairne.png",
+      "Majesticdiningchairnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Majestic Throne",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Majesticthrone.png",
+    "views": [
+      "Majesticthronesw.png",
+      "Majesticthronese.png",
+      "Majesticthronene.png",
+      "Majesticthronenw.png"
+    ],
+    "colors": [
+      "Gold",
+      "Orange"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Markers",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Markers.png",
+    "views": [
+      "Markerssw.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue",
+      "Purple"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Mauna Loa Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Maunaloalamp.png",
+    "views": [
+      "Maunaloalampsw.png",
+      "Maunaloalampse.png",
+      "Maunaloalampne.png",
+      "Maunaloalampnw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Mausoleum Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Mausoleumtelevision.png",
+    "views": [
+      "Mausoleumtelevisionsw.png",
+      "Mausoleumtelevisionse.png",
+      "Mausoleumtelevisionne.png",
+      "Mausoleumtelevisionnw.png",
+      "Mausoleumtelevisionsw-on.png",
+      "Mausoleumtelevisionse-on.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Milk Carton Fridge",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Milkcartonfridge.png",
+    "views": [
+      "Milkcartonfridgesw.png",
+      "Milkcartonfridgese.png",
+      "Milkcartonfridgene.png",
+      "Milkcartonfridgenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Milk Truck",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Milktruck.png",
+    "views": [
+      "Milktrucksw.png",
+      "Milktruckse.png",
+      "Milktruckne.png",
+      "Milktrucknw.png"
+    ],
+    "colors": [
+      "White",
+      "Pink"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Miniature Orange Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Miniatureorangetree.png",
+    "views": [
+      "Miniatureorangetreesw.png"
+    ],
+    "colors": [
+      "Green",
+      "Orange"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Modern Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Modernlamp.png",
+    "views": [
+      "Modernlampsw.png",
+      "Modernlampse.png",
+      "Modernlampne.png",
+      "Modernlampnw.png"
+    ],
+    "colors": [
+      "Green",
+      "Orange"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Modern Lounger",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Modernlounger.png",
+    "views": [
+      "Modernloungersw.png",
+      "Modernloungerse.png",
+      "Modernloungerne.png",
+      "Modernloungernw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Modern Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Moderntelevision.png",
+    "views": [
+      "Moderntelevisionsw.png",
+      "Moderntelevisionse.png",
+      "Moderntelevisionne.png",
+      "Moderntelevisionnw.png",
+      "Moderntelevisionsw-on.png",
+      "Moderntelevisionse-on.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Monkey & Monkey Dummy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Monkey&monkeydummy.png",
+    "views": [
+      "Monkey&monkeydummysw.png",
+      "Monkey&monkeydummyse.png",
+      "Monkey&monkeydummyne.png",
+      "Monkey&monkeydummynw.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Plushies"
+  },
+  {
+    "name": "Monkey Business Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Monkeybusinesssofa.png",
+    "views": [
+      "Monkeybusinesssofasw.png",
+      "Monkeybusinesssofase.png",
+      "Monkeybusinesssofane.png",
+      "Monkeybusinesssofanw.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Monster's Lair Gate",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Monsterslairgate.png",
+    "views": [
+      "Monsterslairgatesw.png",
+      "Monsterslairgatese.png"
+    ],
+    "colors": [
+      "Gray",
+      "Black"
+    ],
+    "collection": "Windows & Doors"
+  },
+  {
+    "name": "Moon Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Moonlamp.png",
+    "views": [
+      "Moonlampsw.png",
+      "Moonlampse.png",
+      "Moonlampne.png",
+      "Moonlampnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Moonlight Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Moonlightcounter.png",
+    "views": [
+      "Moonlightcountersw.png",
+      "Moonlightcounterse.png",
+      "Moonlightcounterne.png",
+      "Moonlightcounternw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Moonlight Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Moonlightcounterwithdrawers.png",
+    "views": [
+      "Moonlightcounterwithdrawerssw.png",
+      "Moonlightcounterwithdrawersse.png",
+      "Moonlightcounterwithdrawersne.png",
+      "Moonlightcounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Pink"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Moonlight Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Moonlightcupboardsink.png",
+    "views": [
+      "Moonlightcupboardsinksw.png",
+      "Moonlightcupboardsinkse.png",
+      "Moonlightcupboardsinkne.png",
+      "Moonlightcupboardsinknw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Pink"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Mushroom Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Mushroomlamp.png",
+    "views": [
+      "Mushroomlampsw.png",
+      "Mushroomlampse.png",
+      "Mushroomlampne.png",
+      "Mushroomlampnw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Muskoka Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Muskokachair.png",
+    "views": [
+      "Muskokachairsw.png",
+      "Muskokachairse.png",
+      "Muskokachairne.png",
+      "Muskokachairnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Mystical Ottoman",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Mysticalottoman.png",
+    "views": [
+      "Mysticalottomansw.png",
+      "Mysticalottomanse.png",
+      "Mysticalottomanne.png",
+      "Mysticalottomannw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Night Stand",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Nightstand.png",
+    "views": [
+      "Nightstandsw.png",
+      "Nightstandse.png",
+      "Nightstandne.png",
+      "Nightstandnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Nutcracker",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Nutcracker.png",
+    "views": [
+      "Nutcrackersw.png",
+      "Nutcrackerse.png",
+      "Nutcrackerne.png",
+      "Nutcrackernw.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue",
+      "Black"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Orange Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Orangetable.png",
+    "views": [
+      "Orangetablesw.png",
+      "Orangetablese.png",
+      "Orangetablene.png",
+      "Orangetablenw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Orchid",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Orchid.png",
+    "views": [
+      "Orchidsw.png"
+    ],
+    "colors": [
+      "Pink",
+      "Blue"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Ornate Egyptian Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Ornateegyptiansidetable.png",
+    "views": [
+      "Ornateegyptiansidetablesw.png",
+      "Ornateegyptiansidetablese.png",
+      "Ornateegyptiansidetablene.png",
+      "Ornateegyptiansidetablenw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Gold"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Palm Tree",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Palmtree.png",
+    "views": [
+      "Palmtreesw.png",
+      "Palmtreese.png",
+      "Palmtreene.png",
+      "Palmtreenw.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Pandora's Toy Box",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Pandorastoybox.png",
+    "views": [
+      "Pandorastoyboxsw.png",
+      "Pandorastoyboxse.png",
+      "Pandorastoyboxne.png",
+      "Pandorastoyboxnw.png"
+    ],
+    "colors": [
+      "Pink",
+      "Yellow"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Park Bench",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Parkbench.png",
+    "views": [
+      "Parkbenchsw.png",
+      "Parkbenchse.png",
+      "Parkbenchne.png",
+      "Parkbenchnw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Green"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Phantom Trophy Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Phantomtrophypedestal.png",
+    "views": [
+      "Phantomtrophypedestalsw.png",
+      "Phantomtrophypedestalse.png",
+      "Phantomtrophypedestalne.png",
+      "Phantomtrophypedestalnw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Orange"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Picnic Bench",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Picnicbench.png",
+    "views": [
+      "Picnicbenchsw.png",
+      "Picnicbenchse.png",
+      "Picnicbenchne.png",
+      "Picnicbenchnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Picnic Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Picnictable.png",
+    "views": [
+      "Picnictablesw.png",
+      "Picnictablese.png",
+      "Picnictablene.png",
+      "Picnictablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Pie in the Sky Stove",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Pieintheskystove.png",
+    "views": [
+      "Pieintheskystovesw.png",
+      "Pieintheskystovese.png",
+      "Pieintheskystovene.png",
+      "Pieintheskystovenw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Piggy Bank",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Piggybank.png",
+    "views": [
+      "Piggybanksw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Pineapple Lamp",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Pineapplelamp.png",
+    "views": [
+      "Pineapplelampsw.png",
+      "Pineapplelampse.png",
+      "Pineapplelampne.png",
+      "Pineapplelampnw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Blue"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Pink Petunias",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Pinkpetunias.png",
+    "views": [
+      "Pinkpetuniassw.png",
+      "Pinkpetuniasse.png",
+      "Pinkpetuniasne.png",
+      "Pinkpetuniasnw.png"
+    ],
+    "colors": [
+      "Pink",
+      "Black"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Pink Plush Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Pinkplushchair.png",
+    "views": [
+      "Pinkplushchairsw.png",
+      "Pinkplushchairse.png",
+      "Pinkplushchairne.png",
+      "Pinkplushchairnw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Poinsettia Curtains",
+    "category": "Wall Item",
+    "footprint": "1x2",
+    "catalogImage": "Poinsettiacurtains.png",
+    "views": [
+      "Poinsettiacurtainssw.png",
+      "Poinsettiacurtainsse.png",
+      "Poinsettiacurtainssw-on.png",
+      "Poinsettiacurtainsse-on.png"
+    ],
+    "colors": [
+      "Red",
+      "White",
+      "Green"
+    ],
+    "collection": "Windows & Doors"
+  },
+  {
+    "name": "Ponytail Palm",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Ponytailpalm.png",
+    "views": [
+      "Ponytailpalmsw.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown",
+      "Blue"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Pool",
+    "category": "Furniture",
+    "footprint": "3x3",
+    "catalogImage": "Pool.png",
+    "views": [
+      "Poolsw.png",
+      "Poolse.png",
+      "Poolne.png",
+      "Poolnw.png"
+    ],
+    "colors": [
+      "Pink",
+      "Blue"
+    ],
+    "collection": "Pools"
+  },
+  {
+    "name": "Porcelain Bathtub",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Porcelainbathtub.png",
+    "views": [
+      "Porcelainbathtubsw.png",
+      "Porcelainbathtubse.png",
+      "Porcelainbathtubne.png",
+      "Porcelainbathtubnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Bathtubs"
+  },
+  {
+    "name": "Porcelain Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Porcelainsink.png",
+    "views": [
+      "Porcelainsinksw.png",
+      "Porcelainsinkse.png",
+      "Porcelainsinkne.png",
+      "Porcelainsinknw.png"
+    ],
+    "colors": [
+      "White",
+      "Gold"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Porcelain Tea Set",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Porcelainteaset.png",
+    "views": [
+      "Porcelainteasetsw.png",
+      "Porcelainteasetse.png",
+      "Porcelainteasetne.png",
+      "Porcelainteasetnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Decorative Food"
+  },
+  {
+    "name": "Porcelain Toilet",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Porcelaintoilet.png",
+    "views": [
+      "Porcelaintoiletsw.png",
+      "Porcelaintoiletse.png",
+      "Porcelaintoiletne.png",
+      "Porcelaintoiletnw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Toilets"
+  },
+  {
+    "name": "Pretty Poodle Vanity",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Prettypoodlevanity.png",
+    "views": [
+      "Prettypoodlevanitysw.png",
+      "Prettypoodlevanityse.png",
+      "Prettypoodlevanityne.png",
+      "Prettypoodlevanitynw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Vanities"
+  },
+  {
+    "name": "Princess Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Princessbed.png",
+    "views": [
+      "Princessbedsw.png",
+      "Princessbedse.png",
+      "Princessbedne.png",
+      "Princessbednw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Princess Couch",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Princesscouch.png",
+    "views": [
+      "Princesscouchsw.png",
+      "Princesscouchse.png",
+      "Princesscouchne.png",
+      "Princesscouchnw.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Princess Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Princesstelevision.png",
+    "views": [
+      "Princesstelevisionsw.png",
+      "Princesstelevisionse.png",
+      "Princesstelevisionne.png",
+      "Princesstelevisionnw.png",
+      "Princesstelevisionsw-on.png",
+      "Princesstelevisionse-on.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Pumpkin Patch",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Pumpkinpatch.png",
+    "views": [
+      "Pumpkinpatchsw.png",
+      "Pumpkinpatchse.png",
+      "Pumpkinpatchne.png",
+      "Pumpkinpatchnw.png"
+    ],
+    "colors": [
+      "Green",
+      "Orange"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Ra's Golden Bureau",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Rasgoldenbureau.png",
+    "views": [
+      "Rasgoldenbureausw.png",
+      "Rasgoldenbureause.png",
+      "Rasgoldenbureaune.png",
+      "Rasgoldenbureaunw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Rabbit Eared Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Rabbitearedtelevision.png",
+    "views": [
+      "Rabbitearedtelevisionsw.png",
+      "Rabbitearedtelevisionse.png",
+      "Rabbitearedtelevisionne.png",
+      "Rabbitearedtelevisionnw.png",
+      "Rabbitearedtelevisionsw-on.png",
+      "Rabbitearedtelevisionse-on.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Rainbow Flowers",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Rainbowflowers.png",
+    "views": [
+      "Rainbowflowerssw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow",
+      "Pink"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Rainbow Jelly Cactus",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Rainbowjellycactus.png",
+    "views": [
+      "Rainbowjellycactussw.png",
+      "Rainbowjellycactusse.png",
+      "Rainbowjellycactusne.png",
+      "Rainbowjellycactusnw.png"
+    ],
+    "colors": [
+      "Rainbow"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Rattan Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Rattancoffeetable.png",
+    "views": [
+      "Rattancoffeetablesw.png",
+      "Rattancoffeetablese.png",
+      "Rattancoffeetablene.png",
+      "Rattancoffeetablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Rattan Toy Box",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Rattantoybox.png",
+    "views": [
+      "Rattantoyboxsw.png",
+      "Rattantoyboxse.png",
+      "Rattantoyboxne.png",
+      "Rattantoyboxnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Red Roses",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Redroses.png",
+    "views": [
+      "Redrosessw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Red Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Redsidetable.png",
+    "views": [
+      "Redsidetablesw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Red Welcome Balloon",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Redwelcomeballoon.png",
+    "views": [
+      "Redwelcomeballoonsw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Refrigerator",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Refrigerator.png",
+    "views": [
+      "Refrigeratorsw.png",
+      "Refrigeratorse.png",
+      "Refrigeratorne.png",
+      "Refrigeratornw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Retriever Treadmill",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Retrievertreadmill.png",
+    "views": [
+      "Retrievertreadmillsw.png",
+      "Retrievertreadmillse.png",
+      "Retrievertreadmillne.png",
+      "Retrievertreadmillnw.png",
+      "Retrievertreadmillsw-on.png",
+      "Retrievertreadmillse-on.png",
+      "Retrievertreadmillne-on.png",
+      "Retrievertreadmillnw-on.png"
+    ],
+    "colors": [
+      "Blue",
+      "White",
+      "Gray"
+    ],
+    "collection": "Treadmills"
+  },
+  {
+    "name": "Ribbity Reed Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Ribbityreedtelevision.png",
+    "views": [
+      "Ribbityreedtelevisionsw.png",
+      "Ribbityreedtelevisionse.png",
+      "Ribbityreedtelevisionne.png",
+      "Ribbityreedtelevisionnw.png",
+      "Ribbityreedtelevisionsw-on.png",
+      "Ribbityreedtelevisionse-on.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Rock & Roll Trophy Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Rock&rolltrophypedestal.png",
+    "views": [
+      "Rock&rolltrophypedestalsw.png",
+      "Rock&rolltrophypedestalse.png",
+      "Rock&rolltrophypedestalne.png",
+      "Rock&rolltrophypedestalnw.png"
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Rock Star Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Rockstarbed.png",
+    "views": [
+      "Rockstarbedsw.png",
+      "Rockstarbedse.png",
+      "Rockstarbedne.png",
+      "Rockstarbednw.png"
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Rocket Ship Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Rocketshipbed.png",
+    "views": [
+      "Rocketshipbedsw.png",
+      "Rocketshipbedse.png",
+      "Rocketshipbedne.png",
+      "Rocketshipbednw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Rockin' Red Couch",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Rockinredcouch.png",
+    "views": [
+      "Rockinredcouchsw.png",
+      "Rockinredcouchse.png",
+      "Rockinredcouchne.png",
+      "Rockinredcouchnw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Rockin' Red Lounge Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Rockinredloungechair.png",
+    "views": [
+      "Rockinredloungechairsw.png",
+      "Rockinredloungechairse.png",
+      "Rockinredloungechairne.png",
+      "Rockinredloungechairnw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Room Design Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Roomdesigntrophy.png",
+    "views": [
+      "Roomdesigntrophysw.png",
+      "Roomdesigntrophyse.png",
+      "Roomdesigntrophyne.png",
+      "Roomdesigntrophynw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Room Design Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Roomdesigntrophy2.png",
+    "views": [
+      "Roomdesigntrophy2sw.png",
+      "Roomdesigntrophy2se.png",
+      "Roomdesigntrophy2ne.png",
+      "Roomdesigntrophy2nw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Rose Bush",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Rosebush.png",
+    "views": [
+      "Rosebushsw.png",
+      "Rosebushse.png",
+      "Rosebushne.png",
+      "Rosebushnw.png"
+    ],
+    "colors": [
+      "Green",
+      "Red"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Round Hedge",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Roundhedge.png",
+    "views": [
+      "Roundhedgesw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Royal Banquet Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Royalbanquetchair.png",
+    "views": [
+      "Royalbanquetchairsw.png",
+      "Royalbanquetchairse.png",
+      "Royalbanquetchairne.png",
+      "Royalbanquetchairnw.png"
+    ],
+    "colors": [
+      "Gold",
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Royal Banquet Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Royalbanquettable.png",
+    "views": [
+      "Royalbanquettablesw.png",
+      "Royalbanquettablese.png",
+      "Royalbanquettablene.png",
+      "Royalbanquettablenw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Gold"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Royal Cat Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Royalcatbed.png",
+    "views": [
+      "Royalcatbedsw.png",
+      "Royalcatbedse.png",
+      "Royalcatbedne.png",
+      "Royalcatbednw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Royal Cat Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Royalcatchair.png",
+    "views": [
+      "Royalcatchairsw.png",
+      "Royalcatchairse.png",
+      "Royalcatchairne.png",
+      "Royalcatchairnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Saguaro Cactus",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Saguarocactus.png",
+    "views": [
+      "Saguarocactussw.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Sandstone Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Sandstonepedestal.png",
+    "views": [
+      "Sandstonepedestalsw.png",
+      "Sandstonepedestalse.png",
+      "Sandstonepedestalne.png",
+      "Sandstonepedestalnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Scarecrow",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Scarecrow.png",
+    "views": [
+      "Scarecrowsw.png",
+      "Scarecrowse.png",
+      "Scarecrowne.png",
+      "Scarecrownw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Pink"
+    ],
+    "collection": ""
+  },
+  {
+    "name": "Scientific Trophy Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Scientifictrophypedestal.png",
+    "views": [
+      "Scientifictrophypedestalsw.png",
+      "Scientifictrophypedestalse.png",
+      "Scientifictrophypedestalne.png",
+      "Scientifictrophypedestalnw.png"
+    ],
+    "colors": [
+      "Gray",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Scoreboard Television",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Scoreboardtelevision.png",
+    "views": [
+      "Scoreboardtelevisionsw.png",
+      "Scoreboardtelevisionse.png",
+      "Scoreboardtelevisionne.png",
+      "Scoreboardtelevisionnw.png",
+      "Scoreboardtelevisionsw-on.png",
+      "Scoreboardtelevisionse-on.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Ship Wheel Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Shipwheeltable.png",
+    "views": [
+      "Shipwheeltablesw.png",
+      "Shipwheeltablese.png",
+      "Shipwheeltablene.png",
+      "Shipwheeltablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Silver Christmas Tree",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Silverchristmastree.png",
+    "views": [
+      "Silverchristmastreesw.png"
+    ],
+    "colors": [
+      "Gray",
+      "Blue"
+    ],
+    "collection": "Trees"
+  },
+  {
+    "name": "Silver Menorah",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Silvermenorah.png",
+    "views": [
+      "Silvermenorahsw.png",
+      "Silvermenorahse.png",
+      "Silvermenorahne.png",
+      "Silvermenorahnw.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Candles"
+  },
+  {
+    "name": "Silver Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Silversofa.png",
+    "views": [
+      "Silversofasw.png",
+      "Silversofase.png",
+      "Silversofane.png",
+      "Silversofanw.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Silver Zingoz Pop Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Silverzingozpoptrophy.png",
+    "views": [
+      "Silverzingozpoptrophysw.png",
+      "Silverzingozpoptrophyse.png",
+      "Silverzingozpoptrophyne.png",
+      "Silverzingozpoptrophynw.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Simply Delicious Cookbook",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Simplydeliciouscookbook.png",
+    "views": [
+      "Simplydeliciouscookbooksw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Books"
+  },
+  {
+    "name": "Skateboard",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Skateboard.png",
+    "views": [
+      "Skateboardsw.png",
+      "Skateboardse.png",
+      "Skateboardne.png",
+      "Skateboardnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Skater Kat's Skateboard",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Skaterkatsskateboard.png",
+    "views": [
+      "Skaterkatsskateboardsw.png",
+      "Skaterkatsskateboardse.png",
+      "Skaterkatsskateboardne.png",
+      "Skaterkatsskateboardnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Red",
+      "Green"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Ski Lodge Fireplace",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Skilodgefireplace.png",
+    "views": [
+      "Skilodgefireplacesw.png",
+      "Skilodgefireplacese.png",
+      "Skilodgefireplacene.png",
+      "Skilodgefireplacenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Fireplaces"
+  },
+  {
+    "name": "Skunksweeper",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Skunksweeper.png",
+    "views": [
+      "Skunksweepersw.png",
+      "Skunksweeperse.png",
+      "Skunksweeperne.png",
+      "Skunksweepernw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Sky Blue Book Box",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Skybluebookbox.png",
+    "views": [
+      "Skybluebookboxsw.png",
+      "Skybluebookboxse.png",
+      "Skybluebookboxne.png",
+      "Skybluebookboxnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Sky High Dresser",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Skyhighdresser.png",
+    "views": [
+      "Skyhighdressersw.png",
+      "Skyhighdresserse.png",
+      "Skyhighdresserne.png",
+      "Skyhighdressernw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Sky-Vision",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Skyvision.png",
+    "views": [
+      "Skyvisionsw.png",
+      "Skyvisionse.png",
+      "Skyvisionne.png",
+      "Skyvisionnw.png",
+      "Skyvisionsw-on.png",
+      "Skyvisionse-on.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Sleepy Bog Bed",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Sleepybogbed.png",
+    "views": [
+      "Sleepybogbedsw.png",
+      "Sleepybogbedse.png",
+      "Sleepybogbedne.png",
+      "Sleepybogbednw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Beds"
+  },
+  {
+    "name": "Snare Sidetable",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Snaresidetable.png",
+    "views": [
+      "Snaresidetablesw.png",
+      "Snaresidetablese.png",
+      "Snaresidetablene.png",
+      "Snaresidetablenw.png"
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Snowcat Snowglobe",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Snowcatsnowglobe.png",
+    "views": [
+      "Snowcatsnowglobesw.png",
+      "Snowcatsnowglobese.png",
+      "Snowcatsnowglobene.png",
+      "Snowcatsnowglobenw.png",
+      "Snowcatsnowglobesw-on.png",
+      "Snowcatsnowglobese-on.png",
+      "Snowcatsnowglobene-on.png",
+      "Snowcatsnowglobenw-on.png"
+    ],
+    "colors": [
+      "White",
+      "Blue",
+      "Red"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "So-Mod Moped Scooter",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Somodmopedscooter.png",
+    "views": [
+      "Somodmopedscootersw.png",
+      "Somodmopedscooterse.png",
+      "Somodmopedscooterne.png",
+      "Somodmopedscooternw.png"
+    ],
+    "colors": [
+      "Red",
+      "Yellow"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Soccer Ball",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Soccerball.png",
+    "views": [
+      "Soccerballsw.png"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Soccer Pennant",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Soccerpennant.png",
+    "views": [
+      "Soccerpennantsw.png",
+      "Soccerpennantse.png"
+    ],
+    "colors": [
+      "Pink",
+      "Red"
+    ],
+    "collection": "Posters"
+  },
+  {
+    "name": "Sofa of the Nile",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Sofaofthenile.png",
+    "views": [
+      "Sofaofthenilesw.png",
+      "Sofaofthenilese.png",
+      "Sofaofthenilene.png",
+      "Sofaofthenilenw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Space Book Holder",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Spacebookholder.png",
+    "views": [
+      "Spacebookholdersw.png",
+      "Spacebookholderse.png",
+      "Spacebookholderne.png",
+      "Spacebookholdernw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Red"
+    ],
+    "collection": "Bookshelves"
+  },
+  {
+    "name": "Space Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Spacechair.png",
+    "views": [
+      "Spacechairsw.png",
+      "Spacechairse.png",
+      "Spacechairne.png",
+      "Spacechairnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Space Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Spacecoffeetable.png",
+    "views": [
+      "Spacecoffeetablesw.png",
+      "Spacecoffeetablese.png",
+      "Spacecoffeetablene.png",
+      "Spacecoffeetablenw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Gray"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Space Dining Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Spacediningchair.png",
+    "views": [
+      "Spacediningchairsw.png",
+      "Spacediningchairse.png",
+      "Spacediningchairne.png",
+      "Spacediningchairnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Space Dresser",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Spacedresser.png",
+    "views": [
+      "Spacedressersw.png",
+      "Spacedresserse.png",
+      "Spacedresserne.png",
+      "Spacedressernw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Blue",
+      "Red"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Space Jukebox",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Spacejukebox.png",
+    "views": [
+      "Spacejukeboxsw.png",
+      "Spacejukeboxse.png",
+      "Spacejukeboxne.png",
+      "Spacejukeboxnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Space Light Projector",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Spacelightprojector.png",
+    "views": [
+      "Spacelightprojectorsw.png",
+      "Spacelightprojectorse.png",
+      "Spacelightprojectorne.png",
+      "Spacelightprojectornw.png"
+    ],
+    "colors": [
+      "Red",
+      "Gray"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Space Poster",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Spaceposter.png",
+    "views": [
+      "Spacepostersw.png",
+      "Spaceposterse.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Posters"
+  },
+  {
+    "name": "Space Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Spacesidetable.png",
+    "views": [
+      "Spacesidetablesw.png",
+      "Spacesidetablese.png",
+      "Spacesidetablene.png",
+      "Spacesidetablenw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Space Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Spacesofa.png",
+    "views": [
+      "Spacesofasw.png",
+      "Spacesofase.png",
+      "Spacesofane.png",
+      "Spacesofanw.png"
+    ],
+    "colors": [
+      "Red",
+      "Orange"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Space Study Console",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Spacestudyconsole.png",
+    "views": [
+      "Spacestudyconsolesw.png",
+      "Spacestudyconsolese.png",
+      "Spacestudyconsolene.png",
+      "Spacestudyconsolenw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Space Toy Box",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Spacetoybox.png",
+    "views": [
+      "Spacetoyboxsw.png",
+      "Spacetoyboxse.png",
+      "Spacetoyboxne.png",
+      "Spacetoyboxnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Space Trophy Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Spacetrophypedestal.png",
+    "views": [
+      "Spacetrophypedestalsw.png",
+      "Spacetrophypedestalse.png",
+      "Spacetrophypedestalne.png",
+      "Spacetrophypedestalnw.png"
+    ],
+    "colors": [
+      "White",
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Space Viewing Screen",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Spaceviewingscreen.png",
+    "views": [
+      "Spaceviewingscreensw.png",
+      "Spaceviewingscreense.png",
+      "Spaceviewingscreenne.png",
+      "Spaceviewingscreennw.png",
+      "Spaceviewingscreensw-on.png",
+      "Spaceviewingscreense-on.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Televisions"
+  },
+  {
+    "name": "Speaker Fridge",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Speakerfridge.png",
+    "views": [
+      "Speakerfridgesw.png",
+      "Speakerfridgese.png",
+      "Speakerfridgene.png",
+      "Speakerfridgenw.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collection": "Refrigerators"
+  },
+  {
+    "name": "Spider Plant",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Spiderplant.png",
+    "views": [
+      "Spiderplantsw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Spider's Web Window",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Spiderswebwindow.png",
+    "views": [
+      "Spiderswebwindowsw.png",
+      "Spiderswebwindowse.png"
+    ],
+    "colors": [
+      "Green",
+      "Orange",
+      "Purple"
+    ],
+    "collection": "Windows & Doors"
+  },
+  {
+    "name": "Spiral Bush",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Spiralbush.png",
+    "views": [
+      "Spiralbushsw.png",
+      "Spiralbushse.png",
+      "Spiralbushne.png",
+      "Spiralbushnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Sports Bag",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Sportsbag.png",
+    "views": [
+      "Sportsbagsw.png",
+      "Sportsbagse.png",
+      "Sportsbagne.png",
+      "Sportsbagnw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Bags & Baskets"
+  },
+  {
+    "name": "Springy Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Springysidetable.png",
+    "views": [
+      "Springysidetablesw.png",
+      "Springysidetablese.png",
+      "Springysidetablene.png",
+      "Springysidetablenw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Square Hedge",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Squarehedge.png",
+    "views": [
+      "Squarehedgesw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Squishy Swamp Dresser",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Squishyswampdresser.png",
+    "views": [
+      "Squishyswampdressersw.png",
+      "Squishyswampdresserse.png",
+      "Squishyswampdresserne.png",
+      "Squishyswampdressernw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Stadium Lighting Lamp",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Stadiumlightinglamp.png",
+    "views": [
+      "Stadiumlightinglampsw.png",
+      "Stadiumlightinglampse.png",
+      "Stadiumlightinglampne.png",
+      "Stadiumlightinglampnw.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Stage Light",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Stagelight.png",
+    "views": [
+      "Stagelightsw.png",
+      "Stagelightse.png",
+      "Stagelightne.png",
+      "Stagelightnw.png"
+    ],
+    "colors": [
+      "Black",
+      "Yellow"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Stone Elephant Statue",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Stoneelephantstatue.png",
+    "views": [
+      "Stoneelephantstatuesw.png",
+      "Stoneelephantstatuese.png",
+      "Stoneelephantstatuene.png",
+      "Stoneelephantstatuenw.png"
+    ],
+    "colors": [
+      "Gray"
+    ],
+    "collection": "Statues"
+  },
+  {
+    "name": "Stone Sundial",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Stonesundial.png",
+    "views": [
+      "Stonesundialsw.png",
+      "Stonesundialse.png",
+      "Stonesundialne.png",
+      "Stonesundialnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Clocks"
+  },
+  {
+    "name": "Stoplight Lamp",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Stoplightlamp.png",
+    "views": [
+      "Stoplightlampsw.png",
+      "Stoplightlampse.png",
+      "Stoplightlampne.png",
+      "Stoplightlampnw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Green"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Stove",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Stove.png",
+    "views": [
+      "Stovesw.png",
+      "Stovese.png",
+      "Stovene.png",
+      "Stovenw.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Studded Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Studdedcoffeetable.png",
+    "views": [
+      "Studdedcoffeetablesw.png",
+      "Studdedcoffeetablese.png",
+      "Studdedcoffeetablene.png",
+      "Studdedcoffeetablenw.png"
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Stylish Stone Pond",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Stylishstonepond.png",
+    "views": [
+      "Stylishstonepondsw.png",
+      "Stylishstonepondse.png",
+      "Stylishstonepondne.png",
+      "Stylishstonepondnw.png"
+    ],
+    "colors": [
+      "Green",
+      "Gray"
+    ],
+    "collection": "Ponds & Lakes"
+  },
+  {
+    "name": "Sunflower",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Sunflower.png",
+    "views": [
+      "Sunflowersw.png",
+      "Sunflowerse.png",
+      "Sunflowerne.png",
+      "Sunflowernw.png"
+    ],
+    "colors": [
+      "Green",
+      "Yellow"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Sunflowers",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Sunflowers.png",
+    "views": [
+      "Sunflowerssw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Brown"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Swamp Runner Fan Boat",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Swamprunnerfanboat.png",
+    "views": [
+      "Swamprunnerfanboatsw.png",
+      "Swamprunnerfanboatse.png",
+      "Swamprunnerfanboatne.png",
+      "Swamprunnerfanboatnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Swan Chest of Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Swanchestofdrawers.png",
+    "views": [
+      "Swanchestofdrawerssw.png",
+      "Swanchestofdrawersse.png",
+      "Swanchestofdrawersne.png",
+      "Swanchestofdrawersnw.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Taddypole Study Desk",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Taddypolestudydesk.png",
+    "views": [
+      "Taddypolestudydesksw.png",
+      "Taddypolestudydeskse.png",
+      "Taddypolestudydeskne.png",
+      "Taddypolestudydesknw.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Tamborine Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Tamborinechair.png",
+    "views": [
+      "Tamborinechairsw.png",
+      "Tamborinechairse.png",
+      "Tamborinechairne.png",
+      "Tamborinechairnw.png"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Tangerine Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Tangerinecounter.png",
+    "views": [
+      "Tangerinecountersw.png",
+      "Tangerinecounterse.png",
+      "Tangerinecounterne.png",
+      "Tangerinecounternw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Tangerine Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Tangerinecounterwithdrawers.png",
+    "views": [
+      "Tangerinecounterwithdrawerssw.png",
+      "Tangerinecounterwithdrawersse.png",
+      "Tangerinecounterwithdrawersne.png",
+      "Tangerinecounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Tangerine Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Tangerinecupboardsink.png",
+    "views": [
+      "Tangerinecupboardsinksw.png",
+      "Tangerinecupboardsinkse.png",
+      "Tangerinecupboardsinkne.png",
+      "Tangerinecupboardsinknw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Tiger Print Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Tigerprintsofa.png",
+    "views": [
+      "Tigerprintsofasw.png",
+      "Tigerprintsofase.png",
+      "Tigerprintsofane.png",
+      "Tigerprintsofanw.png"
+    ],
+    "colors": [
+      "Orange",
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Tiger Stripe Convertible",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Tigerstripeconvertible.png",
+    "views": [
+      "Tigerstripeconvertiblesw.png",
+      "Tigerstripeconvertiblese.png",
+      "Tigerstripeconvertiblene.png",
+      "Tigerstripeconvertiblenw.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Toadstool Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Toadstoolchair.png",
+    "views": [
+      "Toadstoolchairsw.png",
+      "Toadstoolchairse.png",
+      "Toadstoolchairne.png",
+      "Toadstoolchairnw.png"
+    ],
+    "colors": [
+      "Red",
+      "Green",
+      "Yellow"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Toadstool Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Toadstooltable.png",
+    "views": [
+      "Toadstooltablesw.png"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Tomato Garden",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Tomatogarden.png",
+    "views": [
+      "Tomatogardensw.png",
+      "Tomatogardense.png",
+      "Tomatogardenne.png",
+      "Tomatogardennw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Red"
+    ],
+    "collection": "Plants"
+  },
+  {
+    "name": "Tombstone Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Tombstonechair.png",
+    "views": [
+      "Tombstonechairsw.png",
+      "Tombstonechairse.png",
+      "Tombstonechairne.png",
+      "Tombstonechairnw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Gray"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Toy Bulldozer",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Toybulldozer.png",
+    "views": [
+      "Toybulldozersw.png",
+      "Toybulldozerse.png",
+      "Toybulldozerne.png",
+      "Toybulldozernw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Toy Cell Phone",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Toycellphone.png",
+    "views": [
+      "Toycellphonesw.png",
+      "Toycellphonese.png",
+      "Toycellphonene.png",
+      "Toycellphonenw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Devices"
+  },
+  {
+    "name": "Toy Digger",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Toydigger.png",
+    "views": [
+      "Toydiggersw.png",
+      "Toydiggerse.png",
+      "Toydiggerne.png",
+      "Toydiggernw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Toy Dump Truck",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Toydumptruck.png",
+    "views": [
+      "Toydumptrucksw.png",
+      "Toydumptruckse.png",
+      "Toydumptruckne.png",
+      "Toydumptrucknw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Toy Fire Engine",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Toyfireengine.png",
+    "views": [
+      "Toyfireenginesw.png",
+      "Toyfireenginese.png",
+      "Toyfireenginene.png",
+      "Toyfireenginenw.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Toy Guitar",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Toyguitar.png",
+    "views": [
+      "Toyguitarsw.png",
+      "Toyguitarse.png",
+      "Toyguitarne.png",
+      "Toyguitarnw.png"
+    ],
+    "colors": [
+      "Red",
+      "Blue"
+    ],
+    "collection": "Musical"
+  },
+  {
+    "name": "Toy Purse",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Toypurse.png",
+    "views": [
+      "Toypursesw.png"
+    ],
+    "colors": [
+      "Pink",
+      "Green"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Toy Tool Belt",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Toytoolbelt.png",
+    "views": [
+      "Toytoolbeltsw.png",
+      "Toytoolbeltse.png",
+      "Toytoolbeltne.png",
+      "Toytoolbeltnw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Yellow"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Trampoline",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Trampoline.png",
+    "views": [
+      "Trampolinesw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "collection": "Trampolines"
+  },
+  {
+    "name": "Treadmill",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Treadmill.png",
+    "views": [
+      "Treadmillsw.png",
+      "Treadmillse.png",
+      "Treadmillne.png",
+      "Treadmillnw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Gray"
+    ],
+    "collection": "Treadmills"
+  },
+  {
+    "name": "Treasure Chest",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Treasurechest.png",
+    "views": [
+      "Treasurechestsw.png",
+      "Treasurechestse.png",
+      "Treasurechestne.png",
+      "Treasurechestnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Storage"
+  },
+  {
+    "name": "Tree Stump Side Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Treestumpsidetable.png",
+    "views": [
+      "Treestumpsidetablesw.png",
+      "Treestumpsidetablese.png",
+      "Treestumpsidetablene.png",
+      "Treestumpsidetablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Tubby Tummies Brown Bear",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Tubbytummiesbrownbear.png",
+    "views": [
+      "Tubbytummiesbrownbearsw.png",
+      "Tubbytummiesbrownbearse.png",
+      "Tubbytummiesbrownbearne.png",
+      "Tubbytummiesbrownbearnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Plushies"
+  },
+  {
+    "name": "Tubby Tummies Tan Bear",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Tubbytummiestanbear.png",
+    "views": [
+      "Tubbytummiestanbearsw.png",
+      "Tubbytummiestanbearse.png",
+      "Tubbytummiestanbearne.png",
+      "Tubbytummiestanbearnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Plushies"
+  },
+  {
+    "name": "Tulip Planter",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Tulipplanter.png",
+    "views": [
+      "Tulipplantersw.png",
+      "Tulipplanterse.png"
+    ],
+    "colors": [
+      "Pink",
+      "Yellow",
+      "Orange"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "Undersea Porthole",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Underseaporthole.png",
+    "views": [
+      "Underseaportholesw.png",
+      "Underseaportholese.png",
+      "Underseaportholene.png",
+      "Underseaportholenw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Windows & Doors"
+  },
+  {
+    "name": "Wacky Zingoz 600 Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Wackyzingoz600trophy.png",
+    "views": [
+      "Wackyzingoz600trophysw.png",
+      "Wackyzingoz600trophyse.png",
+      "Wackyzingoz600trophyne.png",
+      "Wackyzingoz600trophynw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Wagon Wheel Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Wagonwheelsofa.png",
+    "views": [
+      "Wagonwheelsofasw.png",
+      "Wagonwheelsofase.png",
+      "Wagonwheelsofane.png",
+      "Wagonwheelsofanw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Wagon Wheel Table",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Wagonwheeltable.png",
+    "views": [
+      "Wagonwheeltablesw.png",
+      "Wagonwheeltablese.png",
+      "Wagonwheeltablene.png",
+      "Wagonwheeltablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Wallowing Tub",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Wallowingtub.png",
+    "views": [
+      "Wallowingtubsw.png",
+      "Wallowingtubse.png",
+      "Wallowingtubne.png",
+      "Wallowingtubnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Bathtubs"
+  },
+  {
+    "name": "Webkinz Dragster",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Webkinzdragster.png",
+    "views": [
+      "Webkinzdragstersw.png",
+      "Webkinzdragsterse.png",
+      "Webkinzdragsterne.png",
+      "Webkinzdragsternw.png"
+    ],
+    "colors": [
+      "Red",
+      "Orange",
+      "Yellow"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Webkinz Totem Pole",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Webkinztotempole.png",
+    "views": [
+      "Webkinztotempolesw.png",
+      "Webkinztotempolese.png",
+      "Webkinztotempolene.png",
+      "Webkinztotempolenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": ""
+  },
+  {
+    "name": "Webkinz W Pond",
+    "category": "Furniture",
+    "footprint": "2x2",
+    "catalogImage": "Webkinzwpond.png",
+    "views": [
+      "Webkinzwpondsw.png",
+      "Webkinzwpondse.png",
+      "Webkinzwpondne.png",
+      "Webkinzwpondnw.png"
+    ],
+    "colors": [
+      "Gray",
+      "Green"
+    ],
+    "collection": "Ponds & Lakes"
+  },
+  {
+    "name": "Webkinz Wishing Well",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Webkinzwishingwell.png",
+    "views": [
+      "Webkinzwishingwellsw.png",
+      "Webkinzwishingwellse.png",
+      "Webkinzwishingwellne.png",
+      "Webkinzwishingwellnw.png"
+    ],
+    "colors": [
+      "Rainbow"
+    ],
+    "collection": "Wishing Wells"
+  },
+  {
+    "name": "Webkinz World Guide",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Webkinzworldguide.png",
+    "views": [
+      "Webkinzworldguidesw.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collection": "Books"
+  },
+  {
+    "name": "White Daisies",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Whitedaisies.png",
+    "views": [
+      "Whitedaisiessw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Flowers"
+  },
+  {
+    "name": "White Picket Fence",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Whitepicketfence.png",
+    "views": [
+      "Whitepicketfencesw.png",
+      "Whitepicketfencese.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collection": "Fences"
+  },
+  {
+    "name": "Wild Safari Print Screen",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Wildsafariprintscreen.png",
+    "views": [
+      "Wildsafariprintscreensw.png",
+      "Wildsafariprintscreense.png",
+      "Wildsafariprintscreenne.png",
+      "Wildsafariprintscreennw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Room Dividers"
+  },
+  {
+    "name": "Will 'O the Wisp Floor Lamp",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Willothewispfloorlamp.png",
+    "views": [
+      "Willothewispfloorlampsw.png",
+      "Willothewispfloorlampse.png",
+      "Willothewispfloorlampne.png",
+      "Willothewispfloorlampnw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Lamps"
+  },
+  {
+    "name": "Windmill",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Windmill.png",
+    "views": [
+      "Windmillsw.png",
+      "Windmillse.png",
+      "Windmillne.png",
+      "Windmillnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Windmills"
+  },
+  {
+    "name": "Windy Day Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Windydaycoffeetable.png",
+    "views": [
+      "Windydaycoffeetablesw.png",
+      "Windydaycoffeetablese.png",
+      "Windydaycoffeetablene.png",
+      "Windydaycoffeetablenw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Winged Throne",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Wingedthrone.png",
+    "views": [
+      "Wingedthronesw.png",
+      "Wingedthronese.png",
+      "Wingedthronene.png",
+      "Wingedthronenw.png"
+    ],
+    "colors": [
+      "Yellow",
+      "White"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Winter Counter",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Wintercounter.png",
+    "views": [
+      "Wintercountersw.png",
+      "Wintercounterse.png",
+      "Wintercounterne.png",
+      "Wintercounternw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Winter Counter with Drawers",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Wintercounterwithdrawers.png",
+    "views": [
+      "Wintercounterwithdrawerssw.png",
+      "Wintercounterwithdrawersse.png",
+      "Wintercounterwithdrawersne.png",
+      "Wintercounterwithdrawersnw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Winter Cupboard Sink",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Wintercupboardsink.png",
+    "views": [
+      "Wintercupboardsinksw.png",
+      "Wintercupboardsinkse.png",
+      "Wintercupboardsinkne.png",
+      "Wintercupboardsinknw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Sinks"
+  },
+  {
+    "name": "Witch's Brew Stove",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Witchsbrewstove.png",
+    "views": [
+      "Witchsbrewstovesw.png",
+      "Witchsbrewstovese.png",
+      "Witchsbrewstovene.png",
+      "Witchsbrewstovenw.png"
+    ],
+    "colors": [
+      "Purple",
+      "Gray"
+    ],
+    "collection": "Stoves"
+  },
+  {
+    "name": "Wonder Scooter",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Wonderscooter.png",
+    "views": [
+      "Wonderscootersw.png",
+      "Wonderscooterse.png",
+      "Wonderscooterne.png",
+      "Wonderscooternw.png"
+    ],
+    "colors": [
+      "Green",
+      "Orange"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Wooden Chair",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Woodenchair.png",
+    "views": [
+      "Woodenchairsw.png",
+      "Woodenchairse.png",
+      "Woodenchairne.png",
+      "Woodenchairnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Wooden Coffee Table",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Woodencoffeetable.png",
+    "views": [
+      "Woodencoffeetablesw.png",
+      "Woodencoffeetablese.png",
+      "Woodencoffeetablene.png",
+      "Woodencoffeetablenw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Wooden Stool",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Woodenstool.png",
+    "views": [
+      "Woodenstoolsw.png",
+      "Woodenstoolse.png",
+      "Woodenstoolne.png",
+      "Woodenstoolnw.png"
+    ],
+    "colors": [
+      "Brown",
+      "Purple"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Wooden Trophy Pedestal",
+    "category": "Furniture",
+    "footprint": "1x1",
+    "catalogImage": "Woodentrophypedestal.png",
+    "views": [
+      "Woodentrophypedestalsw.png",
+      "Woodentrophypedestalse.png",
+      "Woodentrophypedestalne.png",
+      "Woodentrophypedestalnw.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collection": "Tables"
+  },
+  {
+    "name": "Writing Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Writingtrophy.png",
+    "views": [
+      "Writingtrophysw.png",
+      "Writingtrophyse.png",
+      "Writingtrophyne.png",
+      "Writingtrophynw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Writing Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Writingtrophy2.png",
+    "views": [
+      "Writingtrophy2sw.png",
+      "Writingtrophy2se.png",
+      "Writingtrophy2ne.png",
+      "Writingtrophy2nw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Writing Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Writingtrophy3.png",
+    "views": [
+      "Writingtrophy3sw.png",
+      "Writingtrophy3se.png",
+      "Writingtrophy3ne.png",
+      "Writingtrophy3nw.png"
+    ],
+    "colors": [
+      "Blue",
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Writing Trophy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Writingtrophy4.png",
+    "views": [
+      "Writingtrophy4sw.png",
+      "Writingtrophy4se.png",
+      "Writingtrophy4ne.png",
+      "Writingtrophy4nw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Wrought Iron Fence",
+    "category": "Wall Item",
+    "footprint": "1x1",
+    "catalogImage": "Wroughtironfence.png",
+    "views": [
+      "Wroughtironfencesw.png",
+      "Wroughtironfencese.png"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collection": "Fences"
+  },
+  {
+    "name": "YangYin Blossom",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Yangyinblossom.png",
+    "views": [
+      "Yangyinblossomsw.png",
+      "Yangyinblossomse.png",
+      "Yangyinblossomne.png"
+    ],
+    "colors": [
+      "Green",
+      "Pink",
+      "Blue"
+    ],
+    "collection": "Vehicles"
+  },
+  {
+    "name": "Yarn Ball Sofa",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Yarnballsofa.png",
+    "views": [
+      "Yarnballsofasw.png",
+      "Yarnballsofase.png",
+      "Yarnballsofane.png",
+      "Yarnballsofanw.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Yellow Welcome Balloon",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Yellowwelcomeballoon.png",
+    "views": [
+      "Yellowwelcomeballoonsw.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Zacky's Quest Statue",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Zackysqueststatue.png",
+    "views": [
+      "Zackysqueststatuesw.png",
+      "Zackysqueststatuese.png",
+      "Zackysqueststatuene.png",
+      "Zackysqueststatuenw.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "collection": "Trophies"
+  },
+  {
+    "name": "Zangoz Plush Toy",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Zangozplushtoy.png",
+    "views": [
+      "Zangozplushtoysw.png",
+      "Zangozplushtoyse.png",
+      "Zangozplushtoyne.png",
+      "Zangozplushtoynw.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "collection": "Plushies"
+  },
+  {
+    "name": "Zebra Print Lounger",
+    "category": "Furniture",
+    "footprint": "1x2",
+    "catalogImage": "Zebraprintlounger.png",
+    "views": [
+      "Zebraprintloungersw.png",
+      "Zebraprintloungerse.png",
+      "Zebraprintloungerne.png",
+      "Zebraprintloungernw.png"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "collection": "Seating"
+  },
+  {
+    "name": "Zingoz Switcherooz",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Zingozswitcherooz.png",
+    "views": [
+      "Zingozswitcheroozsw.png",
+      "Zingozswitcheroozse.png",
+      "Zingozswitcheroozne.png",
+      "Zingozswitcherooznw.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collection": "Toys"
+  },
+  {
+    "name": "Zingoz-in-a-Box",
+    "category": "Object",
+    "footprint": "1x1",
+    "catalogImage": "Zingozinabox.png",
+    "views": [
+      "Zingozinaboxsw.png",
+      "Zingozinaboxse.png",
+      "Zingozinaboxnw.png",
+      "Zingozinaboxsw-on.png",
+      "Zingozinaboxse-on.png"
+    ],
+    "colors": [
+      "Green",
+      "Yellow",
+      "Blue"
+    ],
+    "collection": "Toys"
+  }
+]

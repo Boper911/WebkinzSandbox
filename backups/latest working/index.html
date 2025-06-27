@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Room Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="leftCatalogContainer">
+            <div class="tab">
+                <button class="tablinks" onclick="openLeftTab(event, 'AllItems')">All Items</button>
+            </div>
+            <input type="text" id="searchInputLeft" placeholder="Search items..." onkeyup="searchItemsLeft()">
+            <button id="collectionsButton" onclick="toggleCollectionsPopup()">Collections</button>
+            <button id="colorsButton" onclick="toggleColorsPopup()">Colors</button>
+            <div id="collectionsPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('collectionsPopup')">&times;</span>
+                    <h3>Select Collections</h3>
+                    <div id="collectionButtons"></div>
+                    <button class="filter-button" onclick="resetCollections()">Reset</button>
+                    <button class="filter-button" onclick="saveCollections()">Save</button>
+                </div>
+            </div>
+            <div id="colorsPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('colorsPopup')">&times;</span>
+                    <h3>Select Colors</h3>
+                    <div id="colorButtons"></div>
+                    <button class="filter-button" onclick="resetColors()">Reset</button>
+                    <button class="filter-button" onclick="saveColors()">Save</button>
+                </div>
+            </div>
+            <div id="AllItems" class="tabcontent"></div>
+        </div>
+
+        <div id="dropZoneContainer">
+            <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img id="wallpaper" class="background">
+                <img id="flooring" class="background">
+                <img id="background" class="background">
+                <img id="gridWallpaper" class="grid" src="images/grid/Grid_wallpaper.png">
+                <img id="gridFlooring" class="grid" src="images/grid/Grid_flooring.png">
+            </div>
+            <div id="checkboxContainer">
+                <label>
+                    <input type="checkbox" id="checkboxGridWallpaper">
+                    <span>Wallpaper Grid</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="checkboxGridFlooring">
+                    <span>Flooring Grid</span>
+                </label>
+            </div>
+        </div>
+
+        <div id="rightCatalogContainer">
+            <div class="tab">
+                <button class="tablinks" onclick="openRightTab(event, 'Flooring')">Flooring</button>
+                <button class="tablinks" onclick="openRightTab(event, 'Wallpaper')">Wallpaper</button>
+                <button class="tablinks" onclick="openRightTab(event, 'Background')">Background</button>
+            </div>
+            <input type="text" id="searchInputRight" placeholder="Search items..." onkeyup="searchItemsRight()">
+            <div id="Flooring" class="tabcontent"></div>
+            <div id="Wallpaper" class="tabcontent"></div>
+            <div id="Background" class="tabcontent"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

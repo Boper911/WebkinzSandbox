@@ -1,0 +1,247 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+  gap: 20px; /* Add gap between the left catalog and the drop zone */
+}
+
+#leftCatalogContainer {
+  display: flex;
+  flex-direction: row;
+  height: 1500px; /* Match height of the drop zone */
+}
+
+#leftTabs {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  border-right: 1px solid #ccc;
+  padding-right: 10px; /* Add padding between tabs and catalog box */
+}
+
+#leftTabs .tablinks {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 20px 0;
+  font-size: 24px; /* Increase font size */
+  writing-mode: vertical-rl;
+  text-orientation: sideways; /* Rotate text 90 degrees */
+  transform: rotate(180deg); /* Flip the text to read upwards */
+  transition: 0.3s;
+  text-align: center;
+  height: 25%;
+}
+
+#leftTabs .tablinks:hover {
+  background-color: #ddd;
+}
+
+#leftTabs .tablinks.active {
+  background-color: #ccc;
+}
+
+#leftCatalogContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px; /* Add padding to the left of the catalog content */
+  height: 1500px; /* Match height of the drop zone */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+.leftTabContent {
+  display: none;
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#searchFiltersContainer,
+#searchFiltersContainerWallpaperFlooring,
+#searchFiltersContainerBackgrounds {
+  margin-bottom: 15px; /* Add padding between the search bar and the objects below it */
+}
+
+#AllWallpaperFlooring,
+#AllItems,
+#AllBackgrounds {
+  overflow-y: auto; /* Enable vertical scroll within the items section */
+  flex: 1; /* Allow the items section to take remaining space */
+  padding-right: 10px; /* Optional: add padding to prevent content from hiding under the scrollbar */
+}
+
+.catalog-item {
+  text-align: center;
+  margin-bottom: 20px; /* Add space between items */
+  font-size: 20px;
+}
+
+.catalog-item img {
+  display: block;
+  margin: 0 auto; /* Center image */
+}
+
+#searchInputLeft,
+#searchInputWallpaperFlooring,
+#searchInputBackgrounds {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 100%; /* Span the entire width */
+  height: 50px; /* Set height to 50px */
+  font-size: 24px; /* Increase font size for readability */
+  padding: 10px; /* Add padding for better appearance */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+#resetAllFiltersButton,
+#resetAllFiltersButtonWallpaperFlooring,
+#collectionsButton,
+#collectionsButtonWallpaperFlooring,
+#colorsButton,
+#colorsButtonWallpaperFlooring,
+#categoriesButton,
+#categoriesButtonWallpaperFlooring,
+#footprintButton {
+  padding: 10px;
+  font-size: 24px; /* Increase font size for readability */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left; /* Align text to the left */
+  margin-bottom: 5px;
+  width: 100%; /* Make the button span the full width of its container */
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Break words if necessary */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+#collectionsButton.active,
+#collectionsButtonWallpaperFlooring.active,
+#colorsButton.active,
+#colorsButtonWallpaperFlooring.active,
+#categoriesButton.active,
+#categoriesButtonWallpaperFlooring.active,
+#footprintButton.active {
+  background-color: #0056b3;
+}
+
+#filtersContainer,
+#filtersContainerWallpaperFlooring {
+  display: flex;
+  flex-direction: column; /* Stack filters on top of each other */
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 100%; /* Span the entire width */
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+.dropdown-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px; /* Increased font size */
+}
+
+#dropZoneContainer {
+  position: relative;
+}
+
+#dropZone {
+  width: 2000px;
+  height: 1500px;
+  border: 2px dashed #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -3;
+}
+
+#background {
+  z-index: -4;
+}
+
+.grid {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  display: none; /* Initially hidden */
+}
+
+#gridFlooring {
+  left: 300px;
+  top: 590px;
+}
+
+#gridWallpaper {
+  left: 295px;
+  top: 230px;
+}
+
+#toggleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.toggle-button {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 25px;
+  border: none;
+  position: relative;
+  margin: 0 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.toggle-button:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-button.active {
+  background-color: #4caf50;
+}
+
+.toggle-button.active:before {
+  transform: translateX(50px);
+}

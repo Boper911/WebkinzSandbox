@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Room Designer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="leftTabs">
+      <button class="tablinks" onclick="openLeftTab(event, 'Items')">
+        <img src="assets/icons/tabs/items.png" alt="Items Icon" class="tab-icon">
+        Items
+      </button>
+      <button class="tablinks" onclick="openLeftTab(event, 'WallpaperFlooring')">
+        <img src="assets/icons/tabs/wallpaper&flooring.png" alt="Wallpaper & Flooring Icon" class="tab-icon">
+        Wallpaper & Flooring
+      </button>
+      <button class="tablinks" onclick="openLeftTab(event, 'Backgrounds')">
+        <img src="assets/icons/tabs/backgrounds.png" alt="Backgrounds Icon" class="tab-icon">
+        Backgrounds
+      </button>
+      <button class="tablinks" onclick="openLeftTab(event, 'Settings')">
+        <img src="assets/icons/tabs/settings.png" alt="Settings Icon" class="tab-icon">
+        Settings
+      </button>
+    </div>
+    <div id="filterContainer">
+      <button id="resetAllFiltersButton" onclick="resetAllFilters()">Reset All Filters</button>
+      <button id="categoriesButton" class="dropdown-button" onclick="toggleDropdown('categoriesDropdown')">Category</button>
+      <div id="categoriesDropdown" class="dropdown-content"></div>
+      <button id="collectionsButton" class="dropdown-button" onclick="toggleDropdown('collectionsDropdown')">Collections</button>
+      <div id="collectionsDropdown" class="dropdown-content"></div>
+      <button id="colorsButton" class="dropdown-button" onclick="toggleDropdown('colorsDropdown')">Colors</button>
+      <div id="colorsDropdown" class="dropdown-content"></div>
+      <button id="footprintButton" class="dropdown-button" onclick="toggleDropdown('footprintDropdown')">Footprint</button>
+      <div id="footprintDropdown" class="dropdown-content">
+        <img class="footprint-checkbox checkbox_off" src="assets/icons/items/footprint/checkbox_off.png" alt="Checkbox Off">
+        <img class="footprint-checkbox checkbox_off" src="assets/icons/items/footprint/checkbox_off.png" alt="Checkbox Off">
+      </div>
+    </div>
+    <div id="filterContainerWallpaperFlooring" style="display: none;">
+      <button id="resetAllFiltersButtonWallpaperFlooring" onclick="resetAllFiltersWallpaperFlooring()">Reset All Filters</button>
+      <button id="categoriesButtonWallpaperFlooring" class="dropdown-button" onclick="toggleDropdown('categoriesDropdownWallpaperFlooring')">Category</button>
+      <div id="categoriesDropdownWallpaperFlooring" class="dropdown-content"></div>
+      <button id="collectionsButtonWallpaperFlooring" class="dropdown-button" onclick="toggleDropdown('collectionsDropdownWallpaperFlooring')">Collections</button>
+      <div id="collectionsDropdownWallpaperFlooring" class="dropdown-content"></div>
+      <button id="colorsButtonWallpaperFlooring" class="dropdown-button" onclick="toggleDropdown('colorsDropdownWallpaperFlooring')">Colors</button>
+      <div id="colorsDropdownWallpaperFlooring" class="dropdown-content"></div>
+    </div>
+    <div id="filterContainerBackgrounds" style="display: none;">
+      <button id="resetAllFiltersButtonBackgrounds" onclick="resetAllFiltersBackgrounds()">Reset All Filters</button>
+      <button id="collectionsButtonBackgrounds" class="dropdown-button" onclick="toggleDropdown('collectionsDropdownBackgrounds')">Collections</button>
+      <div id="collectionsDropdownBackgrounds" class="dropdown-content"></div>
+      <button id="colorsButtonBackgrounds" class="dropdown-button" onclick="toggleDropdown('colorsDropdownBackgrounds')">Colors</button>
+      <div id="colorsDropdownBackgrounds" class="dropdown-content"></div>
+    </div>
+    <div id="leftCatalogContent">
+      <div id="Items" class="leftTabContent">
+        <input type="text" id="searchInputLeft" placeholder="Search items..." onkeyup="searchItemsLeft()">
+        <div id="AllItems" class="itemsContainer"></div>
+      </div>
+      <div id="WallpaperFlooring" class="leftTabContent">
+        <input type="text" id="searchInputWallpaperFlooring" placeholder="Search walls & floors..." onkeyup="searchItemsWallpaperFlooring()">
+        <div id="AllWallpaperFlooring" class="itemsContainer"></div>
+      </div>
+      <div id="Backgrounds" class="leftTabContent">
+        <input type="text" id="searchInputBackgrounds" placeholder="Search backgrounds..." onkeyup="searchItemsBackgrounds()">
+        <div id="AllBackgrounds" class="itemsContainer"></div>
+      </div>
+      <div id="Settings" class="leftTabContent">
+        <div id="settingsContainer">
+            <label class="toggle-label">
+                <input type="checkbox" id="autoZAxisToggle">
+                <span class="toggle-slider"></span>
+            </label>
+            <p>Enable Auto Z-Axis</p>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+  <div id="dropZoneContainer">
+    <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img id="background" class="background" src="">
+    </div>
+  </div>
+
+  <!-- Popup structure -->
+  <div id="popupOverlay" class="popup-overlay" onclick="closePopup()" style="display: none;">
+    <div class="popup-modal" onclick="event.stopPropagation()">
+      <button class="popup-close" onclick="closePopup()">×</button>
+      
+      <div class="popup-header">
+        <h2 id="popupItemName"></h2>
+      </div>
+      
+      <div class="popup-body">
+        <div class="popup-left">
+          <div class="popup-info">
+            <div class="info-item">
+              <span class="info-label">Category</span>
+              <span id="popupCategory" class="info-value"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Collection</span>
+              <span id="popupCollection" class="info-value"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Colors</span>
+              <span id="popupColors" class="info-value"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Footprint</span>
+              <span id="popupFootprint" class="info-value"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="popup-right">
+          <div class="popup-preview">
+            <div class="image-container">
+              <img id="popupMainImage" src="" alt="Item Preview">
+            </div>
+          </div>
+          
+          <div class="popup-views">
+            <h3>Views</h3>
+            <div id="popupViewsContainer" class="views-grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

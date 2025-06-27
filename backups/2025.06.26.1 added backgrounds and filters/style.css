@@ -1,0 +1,905 @@
+/* Modern UI Improvements */
+
+/* 1. IMPROVED COLOR SCHEME & GRADIENTS */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* 2. MODERN CARD-BASED LAYOUT */
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 30px;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* 3. SLEEK TAB NAVIGATION */
+#leftTabs {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 1500px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#leftTabs .tablinks {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 36px;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  width: 100%;
+  height: 25%;
+  padding: 20px 0px;
+  justify-content: center;
+  border-radius: 12px;
+  margin-bottom: 5px;
+  color: #666;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+#leftTabs .tablinks .tab-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  transform: rotate(90deg);
+  /* Removed grayscale filter to show original colors */
+  transition: all 0.3s ease;
+}
+
+#leftTabs .tablinks:hover {
+  background: rgba(103, 126, 234, 0.15);
+  color: #667eea;
+  transform: rotate(180deg) scale(1.02);
+  box-shadow: 0 4px 12px rgba(103, 126, 234, 0.2);
+}
+
+#leftTabs .tablinks:hover .tab-icon {
+  /* Removed grayscale(0%) - icons will keep their original colors */
+  transform: rotate(90deg) scale(1.1);
+}
+
+#leftTabs .tablinks.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#leftTabs .tablinks.active .tab-icon {
+  /* Changed from brightness(0) invert(1) to maintain original colors */
+  /* You can add a subtle glow effect instead if desired */
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
+}
+
+/* 4. MODERN FILTER CONTAINERS */
+#filterContainer, 
+#filterContainerWallpaperFlooring, 
+#filterContainerBackgrounds {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  margin-right: 0px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#filterContainer button, 
+#filterContainerWallpaperFlooring button, 
+#filterContainerBackgrounds button {
+  padding: 7px;
+  font-size: 36px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.2);
+}
+
+#filterContainer button:hover,
+#filterContainerWallpaperFlooring button:hover,
+#filterContainerBackgrounds button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(103, 126, 234, 0.3);
+}
+
+/* 5. ENHANCED DROPDOWN ANIMATIONS */
+.dropdown-button span:after {
+  content: '▼';
+  font-size: 14px;
+  position: absolute;
+  opacity: 0.7;
+  top: 0;
+  right: -20px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-button:hover span:after {
+  opacity: 1;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* 6. IMPROVED DROPDOWN CONTENT */
+#filterContainer .dropdown-content,
+#filterContainerWallpaperFlooring .dropdown-content,
+#filterContainerBackgrounds .dropdown-content {
+  display: none;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  z-index: 1000;
+  max-height: 800px;
+  overflow-y: scroll; /* Changed from 'auto' to 'scroll' */
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 5px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 7. MODERN SEARCH INPUT - FULL WIDTH */
+.leftTabContent input[type="text"] {
+  flex-shrink: 0;
+  width: 400px; /* Back to full width */
+  height: 50px;
+  font-size: 36px;
+  padding: 0px 0px 0px 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 2px solid rgba(103, 126, 234, 0.2);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.leftTabContent input[type="text"]::placeholder {
+  width: 100%;
+  box-sizing: border-box;
+  color: #999;
+  font-weight: 400;
+}
+
+.leftTabContent input[type="text"]:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+  background: white;
+}
+
+/* 8. ENHANCED CATALOG ITEMS - FULL WIDTH TO MATCH SEARCH BAR */
+.catalog-item {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.catalog-item img {
+  display: block;
+  margin: 20px auto 10px auto; /* top padding 20px, bottom padding 10px */
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+.catalog-item img[draggable="true"] {
+    cursor: grab;
+}
+
+.catalog-item img[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+.catalog-item .item-label {
+  padding: 0 16px 12px; /* left-right padding 16px, bottom padding 12px */
+  font-size: 30px;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.catalog-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.catalog-item img:hover {
+  transform: scale(1.1);
+}
+
+/* 9. MODERN FILTER BUTTONS */
+.collection-button, 
+.color-button, 
+.category-button, 
+.footprint-button {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  font-size: 36px;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  text-align: left;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  border: 2px solid transparent;
+}
+
+.collection-button:hover, 
+.color-button:hover, 
+.category-button:hover, 
+.footprint-button:hover {
+  background: rgba(103, 126, 234, 0.1);
+  border-color: rgba(103, 126, 234, 0.3);
+  transform: translateX(5px);
+}
+
+.collection-button.active, 
+.color-button.active, 
+.category-button.active, 
+.footprint-button.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
+}
+
+/* 10. MODERN CONTENT AREA */
+#leftCatalogContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  height: 1500px;
+  box-sizing: border-box;
+}
+
+#AllItems, #AllWallpaperFlooring, #AllBackgrounds {
+  overflow-y: scroll; /* Changed from 'auto' to 'scroll' */
+  width: 400px;
+  flex: 1;
+  padding: 20px;
+  padding-right: 15px;
+  max-height: 1440px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 11. IMPROVED SCROLLBAR - LARGER AND MORE VISIBLE */
+#AllItems::-webkit-scrollbar,
+#AllWallpaperFlooring::-webkit-scrollbar,
+#AllBackgrounds::-webkit-scrollbar,
+.dropdown-content::-webkit-scrollbar {
+  width: 18px; /* Increased from 8px */
+}
+
+#AllItems::-webkit-scrollbar-track,
+#AllWallpaperFlooring::-webkit-scrollbar-track,
+#AllBackgrounds::-webkit-scrollbar-track,
+.dropdown-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  border: 2px solid rgba(103, 126, 234, 0.1);
+}
+
+#AllItems::-webkit-scrollbar-thumb,
+#AllWallpaperFlooring::-webkit-scrollbar-thumb,
+#AllBackgrounds::-webkit-scrollbar-thumb,
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#AllItems::-webkit-scrollbar-thumb:hover,
+#AllWallpaperFlooring::-webkit-scrollbar-thumb:hover,
+#AllBackgrounds::-webkit-scrollbar-thumb:hover,
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add scrollbar corner styling */
+#AllItems::-webkit-scrollbar-corner,
+#AllWallpaperFlooring::-webkit-scrollbar-corner,
+#AllBackgrounds::-webkit-scrollbar-corner,
+.dropdown-content::-webkit-scrollbar-corner {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* 12. MODERN DROP ZONE */
+#dropZone {
+  width: 2000px;
+  height: 1500px;
+  border: 3px dashed rgba(103, 126, 234, 0.3);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+#dropZone:hover {
+  border-color: rgba(103, 126, 234, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#dropZone img[draggable="true"] {
+    cursor: grab;
+}
+
+#dropZone img[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+/* RESTORED ICON SIZING FROM PREVIOUS VERSION */
+
+/* Show grabby hand cursor when hovering over draggable items */
+[draggable="true"] {
+    cursor: grab;
+}
+
+/* Show grabbing hand cursor when actively dragging */
+[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+/* Icon Sizing - Items Section */
+.collection-button .icon,
+.category-button .icon {
+  width: 75px;
+  height: 75px;
+  margin-right: 15px;
+}
+
+.color-button .color-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  background-size: cover;
+}
+
+.footprint-button .checkbox-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+/* Icon Sizing - Wallpaper & Flooring and Backgrounds Sections */
+/* Category and Collection icons - larger size */
+.collection-button .filter-icon{
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.category-button .filter-icon {
+  width: 75px;
+  height: 75px;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+/* Color icons in Wallpaper & Flooring - if using img.filter-icon */
+#filterContainerWallpaperFlooring .color-button .filter-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+/* Color icons in Wallpaper & Flooring and Backgrounds - if using div.color-icon */
+#filterContainerWallpaperFlooring .color-button .color-icon,
+#filterContainerBackgrounds .color-button .color-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  background-size: cover;
+}
+
+/* Ensure color buttons have proper padding */
+#filterContainerWallpaperFlooring .color-button,
+#filterContainerBackgrounds .color-button {
+  padding: 12px 7px;
+}
+
+/* Checkbox States */
+.checkbox_off {
+  background-image: url('assets/icons/items/footprint/checkbox_off.png');
+  width: 50px;
+  height: 50px;
+}
+
+.checkbox_on {
+  background-image: url('assets/icons/items/footprint/checkbox_on.png');
+  width: 50px;
+  height: 50px;
+}
+
+/* Popup Overlay Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1px);
+  z-index: 10000;
+  display: flex;
+  justify-content: flex-start; /* Changed from center */
+  align-items: flex-start; /* Changed from center */
+  animation: fadeIn 0.1s ease;
+  padding-top: 50px; /* Align with catalog top */
+  padding-left: 1450px; /* Position to the right of catalog (adjust as needed) */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Popup Modal */
+.popup-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Close Button */
+.popup-close {
+  position: absolute;
+  top: 30px; /* Moved up from 40px */
+  right: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px; /* Increased from 40px */
+  height: 50px; /* Increased from 40px */
+  font-size: 28px; /* Increased from 24px */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
+}
+
+.popup-close:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
+}
+
+/* Header */
+.popup-header {
+  padding: 30px 30px 20px 30px;
+  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
+}
+
+.popup-header h2 {
+  margin: 0;
+  font-size: 42px; /* Increased from 32px */
+  color: #333;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Body */
+.popup-body {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* Left Section - Info */
+.popup-left {
+  flex: 1;
+  min-width: 300px;
+  display: flex; /* Add this */
+  flex-direction: column; /* Add this */
+}
+
+.popup-info {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* REMOVE justify-content: space-around; - this was causing the downward push */
+}
+
+.info-item .info-value .single-item {
+  grid-column: 1 / -1; /* Span all columns */
+  justify-self: center;
+  text-align: center; /* NEW: Ensure text is centered */
+  width: 100%; /* NEW: Take full width for proper centering */
+  display: flex; /* NEW: Use flex to center icon and text together */
+  align-items: center; /* NEW: Vertically center icon and text */
+  justify-content: center; /* NEW: Horizontally center the content */
+  gap: 12px; /* NEW: Maintain gap between icon and text */
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0; /* Remove margin to prevent visual imbalance */
+  padding: 25px 0; /* Increase padding for more even whitespace distribution */
+  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
+  flex: 1;
+  min-height: 120px; /* Add minimum height for consistent sizing */
+}
+
+/* Add special styling for first and last items to balance whitespace */
+.info-item:first-child {
+  padding-top: 15px; /* Reduce top padding to match internal spacing */
+}
+
+.info-item:last-child {
+  padding-bottom: 15px; /* Reduce bottom padding to match internal spacing */
+}
+
+.info-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 34px; /* Increased from 28px */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Info Values - Increase content font size */
+.info-value {
+  color: #333;
+  font-size: 30px; /* Increased from 26px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 0;
+}
+
+/* Special layout for colors - create two-column grid */
+.info-item .info-value {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px; /* row gap 8px, column gap 16px */
+  justify-items: center;
+  width: 100%;
+}
+
+/* Single item (non-color) should span full width and center */
+.info-item .info-value .single-item {
+  grid-column: 1 / -1; /* Span all columns */
+  justify-self: center;
+}
+
+/* Single color should span both columns and center */
+.info-item .info-value .color-item:only-child {
+  grid-column: 1 / -1; /* Span both columns */
+  justify-self: center;
+}
+
+/* Update icon sizes */
+.info-icon {
+  width: 60px; /* Increased from 40px (50% increase) */
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.color-icon-small {
+  width: 32px; /* Increased from 24px */
+  height: 32px;
+  background-size: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* New styles for color items and single items */
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px; /* Increased from 24px */
+  margin: 4px 0;
+}
+
+.single-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 30px; /* Increased from 26px */
+}
+
+/* Right Section - Preview */
+.popup-right {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%; /* Ensure full height usage */
+}
+
+.popup-preview::before {
+  content: "Preview";
+  display: block;
+  margin: 0 0 20px 0; /* Add bottom margin for spacing */
+  font-size: 34px;
+  color: #667eea;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Update popup-preview to accommodate the pseudo-element header */
+.popup-preview {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  min-height: 500px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.popup-preview img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  object-fit: contain;
+  /* Remove fixed dimensions - will be set by JavaScript */
+  max-width: none;
+  max-height: none;
+  /* Add smooth scaling for better quality */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Make it clear this is draggable */
+  cursor: grab;
+}
+
+.popup-preview img:active {
+  cursor: grabbing;
+}
+
+.popup-preview img:hover {
+  transform: scale(1.05);
+}
+
+/* Update image container for proper vertical centering */
+.popup-preview .image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px; /* Padding for hover scaling space */
+  box-sizing: border-box;
+}
+
+/* Views Section */
+.popup-views {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  flex-shrink: 0;
+  max-height: 180px; /* For 4 or fewer views */
+}
+
+/* Expanded Views section for 5-8 views */
+.popup-views.expanded {
+  max-height: 280px; /* Increased height for more views */
+  padding: 20px; /* Slightly more padding for larger content */
+}
+
+.popup-views h3 {
+  margin: 0 0 15px 0;
+  font-size: 34px; /* Match Preview font size */
+  padding: 0; /* Remove the 20px padding */
+  text-align: center;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.views-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  justify-content: center; /* NEW: Center the grid items */
+}
+
+.views-grid:has(.view-thumbnail:nth-child(1):nth-last-child(1)) {
+  display: flex; /* NEW: Use flex instead of grid */
+  justify-content: center;
+  gap: 8px;
+}
+
+.views-grid:has(.view-thumbnail:nth-child(2):nth-last-child(1)) {
+  display: flex; /* NEW: Use flex instead of grid */
+  justify-content: center;
+  gap: 8px;
+}
+
+.views-grid:has(.view-thumbnail:nth-child(3):nth-last-child(1)) {
+  display: flex; /* NEW: Use flex instead of grid */
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Expanded grid - 4 columns, 2 rows for 5-8 views */
+.views-grid.expanded {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px; /* Slightly more gap for better spacing */
+}
+
+.view-thumbnail {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  min-width: 80px; /* NEW: Set consistent width for all thumbnails */
+}
+
+/* Slightly smaller thumbnails when expanded to fit better */
+.view-thumbnail.compact {
+  min-height: 55px;
+  padding: 5px;
+}
+
+.view-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: rgba(103, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.2);
+}
+
+.view-thumbnail.active {
+  border-color: #667eea;
+  background: rgba(103, 126, 234, 0.1);
+}
+
+.view-thumbnail img {
+  max-width: 100%;
+  max-height: 50px;
+  border-radius: 4px;
+}
+
+/* Slightly smaller images in compact mode */
+.view-thumbnail.compact img {
+  max-height: 45px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .popup-modal {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .popup-body {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .views-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Show grabbing cursor during drag operations globally */
+.dragging {
+    cursor: grabbing !important;
+}
+
+/* Apply grabbing cursor to the entire body during drag operations */
+body.dragging,
+body.dragging * {
+    cursor: grabbing !important;
+}

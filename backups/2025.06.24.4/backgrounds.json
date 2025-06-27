@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Default",
+    "catalogImage": "Defaultbackground.png",
+    "dropImage": "Defaultbackgroundlarge.png",
+    "collection": [
+      "Pattern"
+    ],
+    "colors": [
+      "Blue"
+    ]
+  },
+  {
+    "name": "Daytime",
+    "catalogImage": "Daytimebackground.png",
+    "dropImage": "Daytimebackgroundlarge.png",
+    "collection": [
+      "Nature"
+    ],
+    "colors": [
+      "Blue"
+    ]
+  },
+  {
+    "name": "Fall Forest",
+    "catalogImage": "Fallforestbackground.png",
+    "dropImage": "Fallforestbackgroundlarge.png",
+    "collection": [
+      "Nature",
+      "Fall"
+    ],
+    "colors": [
+      "Blue",
+      "Green",
+      "Orange"
+    ]
+  },
+  {
+    "name": "Nighttime",
+    "catalogImage": "Nighttimebackground.png",
+    "dropImage": "Nighttimebackgroundlarge.png",
+    "collection": [
+      "Nature"
+    ],
+    "colors": [
+      "Blue"
+    ]
+  },
+  {
+    "name": "Sunrise",
+    "catalogImage": "Sunrisebackground.png",
+    "dropImage": "Sunrisebackgroundlarge.png",
+    "collection": [
+      "Nature"
+    ],
+    "colors": [
+      "Blue",
+      "Yellow"
+    ]
+  },
+  {
+    "name": "Sunset",
+    "catalogImage": "Sunsetbackground.png",
+    "dropImage": "Sunsetbackgroundlarge.png",
+    "collection": [
+      "Nature"
+    ],
+    "colors": [
+      "Purple",
+      "Yellow"
+    ]
+  }
+]

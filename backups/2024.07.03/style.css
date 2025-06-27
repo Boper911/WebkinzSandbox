@@ -1,0 +1,282 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+#catalog, #backgroundCatalog {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: 1px solid #ccc;
+  height: 1500px; /* Match the height of the drop zone */
+}
+
+#catalog {
+  margin-right: 20px;
+}
+
+#backgroundCatalog {
+  margin-left: 20px;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.filter-button {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  transition: 0.3s;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.filter-button:hover {
+  background-color: #ddd;
+}
+
+.filter-button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  overflow-y: auto; /* Enable vertical scroll within the tab content */
+  overflow-x: hidden; /* Hide horizontal scroll */
+  height: calc(100vh - 150px); /* Adjust height to fit within the screen */
+}
+
+.catalog-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.catalog-item img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 5px; /* Reduce margin-bottom to bring text closer */
+}
+
+.catalog-item p {
+  font-size: 24px;
+  word-wrap: break-word;
+  max-width: 400px;
+  margin-top: 0; /* Remove top margin */
+  text-align: center; /* Center the text beneath the image */
+}
+
+#dropZoneContainer {
+  position: relative;
+}
+
+#dropZone {
+  width: 2000px;
+  height: 1500px;
+  border: 2px dashed #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -3;
+}
+
+#background {
+  z-index: -4;
+}
+
+.grid {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  display: none; /* Initially hidden */
+}
+
+#gridFlooring {
+  left: 297px;
+  top: 578px;
+}
+
+#gridWallpaper {
+  left: 293px;
+  top: 223px;
+}
+
+#toggleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.toggle-button {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 25px;
+  border: none;
+  position: relative;
+  margin: 0 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.toggle-button:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-button.active {
+  background-color: #4caf50;
+}
+
+.toggle-button.active:before {
+  transform: translateX(50px);
+}
+
+#leftCatalogContainer {
+  width: 450px; /* Increase width to avoid horizontal scroll */
+  overflow-x: hidden; /* Hide horizontal scroll */
+  overflow-y: hidden; /* Remove external vertical scroll */
+  height: 1500px; /* Match height of the drop zone */
+  display: flex;
+  flex-direction: column;
+}
+
+#rightCatalogContainer {
+  width: 400px; /* Maintain width for right catalog */
+  overflow: hidden; /* Remove external scroll wheels */
+  height: 1500px; /* Match height of the drop zone */
+}
+
+#rightCatalogContainer .tabcontent {
+  overflow-y: auto; /* Enable vertical scroll inside tab content */
+}
+
+#filtersContainer {
+  display: flex;
+  flex-direction: column; /* Stack filters on top of each other */
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 100%; /* Span the entire width */
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  padding: 10px;
+}
+
+.dropdown-content label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#searchInputLeft {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 100%; /* Span the entire width */
+  height: 50px; /* Set height to 50px */
+  font-size: 24px; /* Increase font size for readability */
+  padding: 10px; /* Add padding for better appearance */
+  margin-bottom: 20px; /* Add margin to separate from the reset button */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+#resetAllFiltersButton {
+  margin-bottom: 5px; /* Reduce margin-bottom */
+  padding: 10px;
+  font-size: 24px; /* Increase font size for readability */
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%; /* Span the entire width */
+  height: 50px; /* Set height to 50px */
+  text-align: center; /* Center text */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+#collectionsButton,
+#colorsButton,
+#categoriesButton,
+#footprintButton {
+  padding: 10px;
+  font-size: 24px; /* Increase font size for readability */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center; /* Center text */
+  margin-bottom: 5px;
+  width: 100%; /* Span the entire width */
+  height: 50px; /* Set height to 50px */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+#collectionsButton.active,
+#colorsButton.active,
+#categoriesButton.active,
+#footprintButton.active {
+  background-color: #0056b3;
+}

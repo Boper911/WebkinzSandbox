@@ -1,0 +1,927 @@
+[
+  {
+    "name": "Default Wallpaper",
+    "catalogImage": "Defaultwallpaper.png",
+    "views": [
+      "Defaultwallpapersmall.png",
+      "Defaultwallpapermedium.png",
+      "Defaultwallpaperlarge.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "fixedLocationLeft": "270px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Default"
+  },
+  {
+    "name": "Default Flooring",
+    "catalogImage": "Defaultflooring.png",
+    "views": [
+      "Defaultflooringsmall.png",
+      "Defaultflooringmedium.png",
+      "Defaultflooringlarge.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Default"
+  },
+  {
+    "name": "Ballerina Wallpaper",
+    "catalogImage": "Ballerinawallpaper.png",
+    "views": [
+      "Ballerinawallpapersmall.png",
+      "Ballerinawallpapermedium.png",
+      "Ballerinawallpaperlarge.png"
+    ],
+    "colors": [
+      "White",
+      "Pink"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Pattern"
+  },
+  {
+    "name": "Baseball Flooring",
+    "catalogImage": "Baseballflooring.png",
+    "views": [
+      "Baseballflooringsmall.png",
+      "Baseballflooringmedium.png",
+      "Baseballflooringlarge.png"
+    ],
+    "colors": [
+      "Green",
+      "Brown"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": ""
+  },
+  {
+    "name": "Baseball Wallpaper",
+    "catalogImage": "Baseballwallpaper.png",
+    "views": [
+      "Baseballwallpapersmall.png",
+      "Baseballwallpapermedium.png",
+      "Baseballwallpaperlarge.png"
+    ],
+    "colors": [
+      "Blue",
+      "Red"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": ""
+  },
+  {
+    "name": "Beach Flooring",
+    "catalogImage": "Beachflooring.png",
+    "views": [
+      "Beachflooringsmall.png",
+      "Beachflooringmedium.png",
+      "Beachflooringlarge.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Nature"
+  },
+  {
+    "name": "Beach Wallpaper",
+    "catalogImage": "Beachwallpaper.png",
+    "views": [
+      "Beachwallpapersmall.png",
+      "Beachwallpapermedium.png",
+      "Beachwallpaperlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Water"
+  },
+  {
+    "name": "Black and White Tile Flooring",
+    "catalogImage": "Blackandwhitetileflooring.png",
+    "views": [
+      "Blackandwhitetileflooringsmall.png",
+      "Blackandwhitetileflooringmedium.png",
+      "Blackandwhitetileflooringlarge.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Tiled"
+  },
+  {
+    "name": "Blue Flooring",
+    "catalogImage": "Blueflooring.png",
+    "views": [
+      "Blueflooringsmall.png",
+      "Blueflooringmedium.png",
+      "Blueflooringlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Blue Sky Wallpaper",
+    "catalogImage": "Blueskywallpaper.png",
+    "views": [
+      "Blueskywallpapersmall.png",
+      "Blueskywallpapermedium.png",
+      "Blueskywallpaperlarge.png"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Nature"
+  },
+  {
+    "name": "Blue Wall Paint",
+    "catalogImage": "Bluewallpaint.png",
+    "views": [
+      "Bluewallpaintsmall.png",
+      "Bluewallpaintmedium.png",
+      "Bluewallpaintlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Solid"
+  },
+  {
+    "name": "Brown Flooring",
+    "catalogImage": "Brownflooring.png",
+    "views": [
+      "Brownflooringsmall.png",
+      "Brownflooringmedium.png",
+      "Brownflooringlarge.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Brown Wall Paint",
+    "catalogImage": "Brownwallpaint.png",
+    "views": [
+      "Brownwallpaintsmall.png",
+      "Brownwallpaintmedium.png",
+      "Brownwallpaintlarge.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Solid"
+  },
+  {
+    "name": "Conservatory Wallpaper",
+    "catalogImage": "Conservatorywallpaper.png",
+    "views": [
+      "Conservatorywallpapersmall.png",
+      "Conservatorywallpapermedium.png",
+      "Conservatorywallpaperlarge.png"
+    ],
+    "colors": [
+      "Brown",
+      "Green"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Garden"
+  },
+  {
+    "name": "Egyptian Wallpaper",
+    "catalogImage": "Egyptianwallpaper.png",
+    "views": [
+      "Egyptianwallpapersmall.png",
+      "Egyptianwallpapermedium.png",
+      "Egyptianwallpaperlarge.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Pattern"
+  },
+  {
+    "name": "Fantastic Fantasy Flooring",
+    "catalogImage": "Fantasticfantasyflooring.png",
+    "views": [
+      "Fantasticfantasyflooringsmall.png",
+      "Fantasticfantasyflooringmedium.png",
+      "Fantasticfantasyflooringlarge.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Tiled"
+  },
+  {
+    "name": "Fantasy Flooring",
+    "catalogImage": "Fantasyflooring.png",
+    "views": [
+      "Fantasyflooringsmall.png",
+      "Fantasyflooringmedium.png",
+      "Fantasyflooringlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Fantasy Wallpaper",
+    "catalogImage": "Fantasywallpaper.png",
+    "views": [
+      "Fantasywallpapersmall.png",
+      "Fantasywallpapermedium.png",
+      "Fantasywallpaperlarge.png"
+    ],
+    "colors": [
+      "Rainbow"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": ""
+  },
+  {
+    "name": "Farm Flooring",
+    "catalogImage": "Farmflooring.png",
+    "views": [
+      "Farmflooringsmall.png",
+      "Farmflooringmedium.png",
+      "Farmflooringlarge.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Farm Wallpaper",
+    "catalogImage": "Farmwallpaper.png",
+    "views": [
+      "Farmwallpapersmall.png",
+      "Farmwallpapermedium.png",
+      "Farmwallpaperlarge.png"
+    ],
+    "colors": [
+      "Green",
+      "Blue"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Nature"
+  },
+  {
+    "name": "Football Flooring",
+    "catalogImage": "Footballflooring.png",
+    "views": [
+      "Footballflooringsmall.png",
+      "Footballflooringmedium.png",
+      "Footballflooringlarge.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": ""
+  },
+  {
+    "name": "Football Wallpaper",
+    "catalogImage": "Footballwallpaper.png",
+    "views": [
+      "Footballwallpapersmall.png",
+      "Footballwallpapermedium.png",
+      "Footballwallpaperlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": ""
+  },
+  {
+    "name": "Funky Girl Wallpaper",
+    "catalogImage": "Funkygirlwallpaper.png",
+    "views": [
+      "Funkygirlwallpapersmall.png",
+      "Funkygirlwallpapermedium.png",
+      "Funkygirlwallpaperlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Pattern"
+  },
+  {
+    "name": "Funky Parquet Flooring ",
+    "catalogImage": "Funkyparquetflooring.png",
+    "views": [
+      "Funkyparquetflooringsmall.png",
+      "Funkyparquetflooringmedium.png",
+      "Funkyparquetflooringlarge.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Wooden"
+  },
+  {
+    "name": "Golden Hardwood Flooring ",
+    "catalogImage": "Goldenhardwoodflooring.png",
+    "views": [
+      "Goldenhardwoodflooringsmall.png",
+      "Goldenhardwoodflooringmedium.png",
+      "Goldenhardwoodflooringlarge.png"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Wooden"
+  },
+  {
+    "name": "Green Flooring",
+    "catalogImage": "Greenflooring.png",
+    "views": [
+      "Greenflooringsmall.png",
+      "Greenflooringmedium.png",
+      "Greenflooringlarge.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Green Wall Paint",
+    "catalogImage": "Greenwallpaint.png",
+    "views": [
+      "Greenwallpaintsmall.png",
+      "Greenwallpaintmedium.png",
+      "Greenwallpaintlarge.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Solid"
+  },
+  {
+    "name": "Haunted House Flooring",
+    "catalogImage": "Hauntedhouseflooring.png",
+    "views": [
+      "Hauntedhouseflooringsmall.png",
+      "Hauntedhouseflooringmedium.png",
+      "Hauntedhouseflooringlarge.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "580px",
+    "category": "Flooring",
+    "collection": "Halloween"
+  },
+  {
+    "name": "Haunted House Wallpaper",
+    "catalogImage": "Hauntedhousewallpaper.png",
+    "views": [
+      "Hauntedhousewallpapersmall.png",
+      "Hauntedhousewallpapermedium.png",
+      "Hauntedhousewallpaperlarge.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Halloween"
+  },
+  {
+    "name": "Hockey Flooring",
+    "catalogImage": "Hockeyflooring.png",
+    "views": [
+      "Hockeyflooringsmall.png",
+      "Hockeyflooringmedium.png",
+      "Hockeyflooringlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": ""
+  },
+  {
+    "name": "Hockey Wallpaper",
+    "catalogImage": "Hockeywallpaper.png",
+    "views": [
+      "Hockeywallpapersmall.png",
+      "Hockeywallpapermedium.png",
+      "Hockeywallpaperlarge.png"
+    ],
+    "colors": [
+      "Blue",
+      "Red"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": ""
+  },
+  {
+    "name": "Jungle Flooring",
+    "catalogImage": "Jungleflooring.png",
+    "views": [
+      "Jungleflooringsmall.png",
+      "Jungleflooringmedium.png",
+      "Jungleflooringlarge.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Jungle Wallpaper",
+    "catalogImage": "Junglewallpaper.png",
+    "views": [
+      "Junglewallpapersmall.png",
+      "Junglewallpapermedium.png",
+      "Junglewallpaperlarge.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Nature"
+  },
+  {
+    "name": "Lily Pad Flooring",
+    "catalogImage": "Lilypadflooring.png",
+    "views": [
+      "Lilypadflooringsmall.png",
+      "Lilypadflooringmedium.png",
+      "Lilypadflooringlarge.png"
+    ],
+    "colors": [
+      "Green",
+      "Pink",
+      "White"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Floral"
+  },
+  {
+    "name": "Lily Pad Wallpaper",
+    "catalogImage": "Lilypadwallpaper.png",
+    "views": [
+      "Lilypadwallpapersmall.png",
+      "Lilypadwallpapermedium.png",
+      "Lilypadwallpaperlarge.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Nature"
+  },
+  {
+    "name": "Magenta Flooring",
+    "catalogImage": "Magentaflooring.png",
+    "views": [
+      "Magentaflooringsmall.png",
+      "Magentaflooringmedium.png",
+      "Magentaflooringlarge.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Magenta Wall Paint",
+    "catalogImage": "Magentawallpaint.png",
+    "views": [
+      "Magentawallpaintsmall.png",
+      "Magentawallpaintmedium.png",
+      "Magentawallpaintlarge.png"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Solid"
+  },
+  {
+    "name": "New Jungle Wallpaper",
+    "catalogImage": "Newjunglewallpaper.png",
+    "views": [
+      "Newjunglewallpapersmall.png",
+      "Newjunglewallpapermedium.png",
+      "Newjunglewallpaperlarge.png"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Nature"
+  },
+  {
+    "name": "Orange Flooring",
+    "catalogImage": "Orangeflooring.png",
+    "views": [
+      "Orangeflooringsmall.png",
+      "Orangeflooringmedium.png",
+      "Orangeflooringlarge.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Orange Wall Paint",
+    "catalogImage": "Orangewallpaint.png",
+    "views": [
+      "Orangewallpaintsmall.png",
+      "Orangewallpaintmedium.png",
+      "Orangewallpaintlarge.png"
+    ],
+    "colors": [
+      "Orange"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Solid"
+  },
+  {
+    "name": "Purple Flooring",
+    "catalogImage": "Purpleflooring.png",
+    "views": [
+      "Purpleflooringsmall.png",
+      "Purpleflooringmedium.png",
+      "Purpleflooringlarge.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Purple Wall Paint",
+    "catalogImage": "Purplewallpaint.png",
+    "views": [
+      "Purplewallpaintsmall.png",
+      "Purplewallpaintmedium.png",
+      "Purplewallpaintlarge.png"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Solid"
+  },
+  {
+    "name": "Red Flooring",
+    "catalogImage": "Redflooring.png",
+    "views": [
+      "Redflooringsmall.png",
+      "Redflooringmedium.png",
+      "Redflooringlarge.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Red Wall Paint",
+    "catalogImage": "Redwallpaint.png",
+    "views": [
+      "Redwallpaintsmall.png",
+      "Redwallpaintmedium.png",
+      "Redwallpaintlarge.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Solid"
+  },
+  {
+    "name": "Rock & Roll Flooring",
+    "catalogImage": "Rock&rollflooring.png",
+    "views": [
+      "Rock&rollflooringsmall.png",
+      "Rock&rollflooringmedium.png",
+      "Rock&rollflooringlarge.png"
+    ],
+    "colors": [
+      "Red",
+      "Orange"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Pattern"
+  },
+  {
+    "name": "Rock & Roll Wallpaper",
+    "catalogImage": "Rock&rollwallpaper.png",
+    "views": [
+      "Rock&rollwallpapersmall.png",
+      "Rock&rollwallpapermedium.png",
+      "Rock&rollwallpaperlarge.png"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": ""
+  },
+  {
+    "name": "Rocket Ship Flooring",
+    "catalogImage": "Rocketshipflooring.png",
+    "views": [
+      "Rocketshipflooringsmall.png",
+      "Rocketshipflooringmedium.png",
+      "Rocketshipflooringlarge.png"
+    ],
+    "colors": [
+      "White"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Tiled"
+  },
+  {
+    "name": "Rocket Ship Wallpaper",
+    "catalogImage": "Rocketshipwallpaper.png",
+    "views": [
+      "Rocketshipwallpapersmall.png",
+      "Rocketshipwallpapermedium.png",
+      "Rocketshipwallpaperlarge.png"
+    ],
+    "colors": [
+      "Gray",
+      "Purple"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": ""
+  },
+  {
+    "name": "Sacred Pyramid Flooring",
+    "catalogImage": "Sacredpyramidflooring.png",
+    "views": [
+      "Sacredpyramidflooringsmall.png",
+      "Sacredpyramidflooringmedium.png",
+      "Sacredpyramidflooringlarge.png"
+    ],
+    "colors": [
+      "Gold"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Tiled"
+  },
+  {
+    "name": "Space Flooring",
+    "catalogImage": "Spaceflooring.png",
+    "views": [
+      "Spaceflooringsmall.png",
+      "Spaceflooringmedium.png",
+      "Spaceflooringlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Space Wallpaper",
+    "catalogImage": "Spacewallpaper.png",
+    "views": [
+      "Spacewallpapersmall.png",
+      "Spacewallpapermedium.png",
+      "Spacewallpaperlarge.png"
+    ],
+    "colors": [
+      "Brown",
+      "Blue"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Nature"
+  },
+  {
+    "name": "Spring Flooring",
+    "catalogImage": "Springflooring.png",
+    "views": [
+      "Springflooringsmall.png",
+      "Springflooringmedium.png",
+      "Springflooringlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Spring Wallpaper",
+    "catalogImage": "Springwallpaper.png",
+    "views": [
+      "Springwallpapersmall.png",
+      "Springwallpapermedium.png",
+      "Springwallpaperlarge.png"
+    ],
+    "colors": [
+      "Blue",
+      "Green"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Spring"
+  },
+  {
+    "name": "Undersea Flooring",
+    "catalogImage": "Underseaflooring.png",
+    "views": [
+      "Underseaflooringsmall.png",
+      "Underseaflooringmedium.png",
+      "Underseaflooringlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Undersea Wallpaper",
+    "catalogImage": "Underseawallpaper.png",
+    "views": [
+      "Underseawallpapersmall.png",
+      "Underseawallpapermedium.png",
+      "Underseawallpaperlarge.png"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Water"
+  },
+  {
+    "name": "Yellow Flooring",
+    "catalogImage": "Yellowflooring.png",
+    "views": [
+      "Yellowflooringsmall.png",
+      "Yellowflooringmedium.png",
+      "Yellowflooringlarge.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "fixedLocationLeft": "300px",
+    "fixedLocationTop": "590px",
+    "category": "Flooring",
+    "collection": "Solid"
+  },
+  {
+    "name": "Yellow Wall Paint",
+    "catalogImage": "Yellowwallpaint.png",
+    "views": [
+      "Yellowwallpaintsmall.png",
+      "Yellowwallpaintmedium.png",
+      "Yellowwallpaintlarge.png"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "fixedLocationLeft": "260px",
+    "fixedLocationTop": "200px",
+    "category": "Wallpaper",
+    "collection": "Solid"
+  }
+]

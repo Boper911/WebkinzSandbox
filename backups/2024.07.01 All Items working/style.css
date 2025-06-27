@@ -1,0 +1,172 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+#catalog, #backgroundCatalog {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ccc;
+  height: 1500px; /* Match the height of the drop zone */
+}
+
+#catalog {
+  margin-right: 20px;
+}
+
+#backgroundCatalog {
+  margin-left: 20px;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+  height: calc(100% - 40px); /* Full height minus the tab height */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+
+.catalog-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.catalog-item img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.catalog-item p {
+  font-size: 24px;
+  word-wrap: break-word;
+  max-width: 200px;
+}
+
+#dropZoneContainer {
+  position: relative;
+}
+
+#dropZone {
+  width: 2000px;
+  height: 1500px;
+  border: 2px dashed #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -3;
+}
+
+#background {
+  z-index: -4;
+}
+
+.grid {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  display: none; /* Initially hidden */
+}
+
+#gridFlooring {
+  left: 297px; 
+  top: 578px; 
+}
+
+#gridWallpaper {
+  left: 293px; 
+  top: 223px; 
+}
+
+#toggleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.toggle-button {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 25px;
+  border: none;
+  position: relative;
+  margin: 0 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.toggle-button:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-button.active {
+  background-color: #4caf50;
+}
+
+.toggle-button.active:before {
+  transform: translateX(50px);
+}
+
+#leftCatalogContainer, #rightCatalogContainer {
+  width: 250px;
+  overflow-y: auto;
+  height: 1500px;
+}

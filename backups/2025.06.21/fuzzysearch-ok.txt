@@ -1,0 +1,148 @@
+function searchItemsLeft() {
+    const searchTerm = document.getElementById('searchInputLeft').value.toLowerCase().trim();
+    const items = Array.from(document.querySelectorAll('#AllItems .catalog-item'));
+    
+    // If search is empty, just apply filters without search
+    if (!searchTerm) {
+        items.forEach(item => {
+            // Get item properties for filtering
+            const itemCategory = item.dataset.category ? item.dataset.category.toLowerCase() : '';
+            const itemCollection = item.dataset.collection ? item.dataset.collection.toLowerCase() : '';
+            const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors).map(c => c.toLowerCase()) : [];
+            const itemFootprint = item.dataset.footprint ? item.dataset.footprint.toLowerCase() : '';
+
+            // Check active filters
+            const matchesCategory = activeCategories.size === 0 || 
+                [...activeCategories].some(cat => itemCategory.includes(cat.toLowerCase()));
+            const matchesCollection = activeCollections.size === 0 || 
+                [...activeCollections].some(col => itemCollection.includes(col.toLowerCase()));
+            const matchesColor = activeColors.size === 0 || 
+                [...activeColors].some(color => itemColors.includes(color.toLowerCase()));
+            const matchesFootprint = activeFootprints.size === 0 || 
+                [...activeFootprints].some(fp => itemFootprint.includes(fp.toLowerCase()));
+
+            // Show/hide based on filters only
+            item.style.display = (matchesCollection && matchesColor && matchesCategory && matchesFootprint) ? 'block' : 'none';
+        });
+        return;
+    }
+
+    // Arrays to categorize matches
+    const exactFullMatches = [];
+    const exactWordMatches = [];
+    const substringMatches = [];
+    const fuzzyMatches = [];
+
+    items.forEach(item => {
+        // Get item name
+        const itemName = item.querySelector('p')?.textContent?.trim() || '';
+        const itemNameLower = itemName.toLowerCase();
+        const itemWords = itemNameLower.split(/\s+/);
+        
+        // Get item properties for filtering
+        const itemCategory = item.dataset.category ? item.dataset.category.toLowerCase() : '';
+        const itemCollection = item.dataset.collection ? item.dataset.collection.toLowerCase() : '';
+        const itemColors = item.dataset.colors ? JSON.parse(item.dataset.colors).map(c => c.toLowerCase()) : [];
+        const itemFootprint = item.dataset.footprint ? item.dataset.footprint.toLowerCase() : '';
+
+        // Check active filters
+        const matchesCategory = activeCategories.size === 0 || 
+            [...activeCategories].some(cat => itemCategory.includes(cat.toLowerCase()));
+        const matchesCollection = activeCollections.size === 0 || 
+            [...activeCollections].some(col => itemCollection.includes(col.toLowerCase()));
+        const matchesColor = activeColors.size === 0 || 
+            [...activeColors].some(color => itemColors.includes(color.toLowerCase()));
+        const matchesFootprint = activeFootprints.size === 0 || 
+            [...activeFootprints].some(fp => itemFootprint.includes(fp.toLowerCase()));
+
+        // Skip if doesn't match filters
+        if (!matchesCollection || !matchesColor || !matchesCategory || !matchesFootprint) {
+            item.style.display = 'none';
+            return;
+        }
+
+        // Check match type
+        if (itemNameLower === searchTerm) {
+            // Priority 1: Exact full name match
+            exactFullMatches.push({ item, name: itemName });
+        } else if (itemWords.includes(searchTerm)) {
+            // Priority 2: Exact word match
+            exactWordMatches.push({ item, name: itemName });
+        } else if (itemNameLower.includes(searchTerm)) {
+            // Priority 3: Substring match
+            const index = itemNameLower.indexOf(searchTerm);
+            substringMatches.push({ 
+                item, 
+                name: itemName, 
+                index: index,
+                startsWord: index === 0 || itemNameLower[index - 1] === ' '
+            });
+        } else {
+            // Priority 4: Fuzzy match (only if very close)
+            let minDistance = Infinity;
+            
+            // Check each word
+            for (const word of itemWords) {
+                const distance = levenshteinDistance(searchTerm, word);
+                minDistance = Math.min(minDistance, distance);
+            }
+            
+            // Only include if very close match (max 1 character different)
+            if (minDistance === 1) {
+                fuzzyMatches.push({ item, name: itemName, distance: minDistance });
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    });
+
+    // Hide all items first
+    items.forEach(item => item.style.display = 'none');
+
+    // Sort substring matches (words that start with search term come first)
+    substringMatches.sort((a, b) => {
+        if (a.startsWord !== b.startsWord) return b.startsWord ? 1 : -1;
+        return a.index - b.index;
+    });
+
+    // Combine all results in priority order (NO alphabetical sorting)
+    const allResults = [
+        ...exactFullMatches,
+        ...exactWordMatches,
+        ...substringMatches,
+        ...fuzzyMatches
+    ];
+
+    // Display results in order
+    allResults.forEach(result => {
+        result.item.style.display = 'block';
+    });
+
+    // Debug logging
+    console.log(`Search for "${searchTerm}":`);
+    console.log(`- Exact full matches: ${exactFullMatches.length}`, exactFullMatches.map(m => m.name));
+    console.log(`- Exact word matches: ${exactWordMatches.length}`, exactWordMatches.slice(0, 5).map(m => m.name));
+    console.log(`- Substring matches: ${substringMatches.length}`, substringMatches.slice(0, 5).map(m => m.name));
+    console.log(`- Fuzzy matches: ${fuzzyMatches.length}`, fuzzyMatches.map(m => m.name));
+}
+
+// Helper function for fuzzy matching
+function levenshteinDistance(str1, str2) {
+    const matrix = Array(str2.length + 1).fill(null).map(() => Array(str1.length + 1).fill(null));
+    
+    for (let i = 0; i <= str1.length; i++) matrix[0][i] = i;
+    for (let j = 0; j <= str2.length; j++) matrix[j][0] = j;
+    
+    for (let j = 1; j <= str2.length; j++) {
+        for (let i = 1; i <= str1.length; i++) {
+            const substitutionCost = str1[i - 1] === str2[j - 1] ? 0 : 1;
+            matrix[j][i] = Math.min(
+                matrix[j][i - 1] + 1, // deletion
+                matrix[j - 1][i] + 1, // insertion
+                matrix[j - 1][i - 1] + substitutionCost // substitution
+            );
+        }
+    }
+    
+    return matrix[str2.length][str1.length];
+}

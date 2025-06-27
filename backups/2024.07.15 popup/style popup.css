@@ -1,0 +1,444 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+#leftTabs {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 1500px; /* Ensure the total height is 1500px */
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+#leftTabs .tablinks {
+  display: flex;
+  align-items: center;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 24px;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  transition: 0.3s;
+  text-align: center;
+  width: 100%;
+  height: 25%; /* Each tab takes up 25% of the height */
+  padding: 20px 10px; /* Add some padding for better spacing */
+  justify-content: center;
+}
+
+#leftTabs .tablinks .tab-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px; /* Adjust the spacing between the icon and text */
+  margin-bottom: 20px;
+  transform: rotate(90deg); /* Rotate the icon back to its normal orientation */
+}
+
+#leftTabs .tablinks:hover {
+  background-color: #ddd;
+}
+
+#leftTabs .tablinks.active {
+  background-color: #ccc;
+}
+
+#filterContainer, #filterContainerWallpaperFlooring {
+  display: flex;
+  flex-direction: column;
+  width: 400px; /* Increase width of filter container */
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#filterContainer button, #filterContainerWallpaperFlooring button {
+  padding: 10px;
+  font-size: 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#filterContainer .dropdown-content, #filterContainerWallpaperFlooring .dropdown-content {
+  display: none;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  z-index: 1;
+  max-height: 1000px; /* Set maximum height of dropdowns */
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%; /* Ensure dropdown width matches button width */
+}
+
+#filterContainer .dropdown-content {
+  left: 10px; /* Align left side of dropdown with button */
+  right: 10px; /* Ensure scrollbar aligns with right side of button */
+}
+
+#filterContainerWallpaperFlooring .dropdown-content {
+  left: 10px; /* Align left side of dropdown with button */
+  right: 10px; /* Ensure scrollbar aligns with right side of button */
+}
+
+#leftCatalogContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  height: 1500px;
+  box-sizing: border-box;
+}
+
+.leftTabContent {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+}
+
+.leftTabContent input[type="text"] {
+  flex-shrink: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px; /* Adding padding beneath the search bar */
+}
+
+#AllItems, #AllWallpaperFlooring, #AllBackgrounds {
+  overflow-y: auto;
+  width: 400px;
+  flex: 1;
+  padding-right: 15px; /* Add padding to prevent content from being hidden behind the scrollbar */
+  max-height: 1440px; /* 1500px - 50px (search bar height) - 10px (padding) */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+}
+
+.catalog-item {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.catalog-item img {
+  display: block;
+  margin: 0 auto;
+}
+
+#dropZoneContainer {
+  position: relative;
+  top: 50px; /* Add 50px margin to the top */
+  padding-left: 20px; /* Add padding to the left side */
+}
+
+#dropZone {
+  width: 2000px;
+  height: 1500px;
+  border: 2px dashed #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -3;
+}
+
+#background {
+  z-index: -4;
+}
+
+.grid {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  display: none;
+}
+
+#gridFlooring {
+  left: 300px;
+  top: 590px;
+}
+
+#gridWallpaper {
+  left: 295px;
+  top: 230px;
+}
+
+#toggleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.toggle-button {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 25px;
+  border: none;
+  position: relative;
+  margin: 0 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.toggle-button:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-button.active {
+  background-color: #4caf50;
+}
+
+.toggle-button.active:before {
+  transform: translateX(50px);
+}
+
+.collection-button, .color-button, .category-button, .footprint-button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 24px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+  text-align: left; /* Left align filter options */
+}
+
+.collection-button .icon, .color-button .icon, .category-button .icon, .footprint-button .icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+.color-button .color-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-size: cover;
+}
+
+.footprint-button .checkbox-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.collection-button.active, .color-button.active, .category-button.active, .footprint-button.active {
+  background-color: #a6a6a6;
+  color: white;
+}
+
+.dropdown-content.show {
+  display: block !important;
+}
+
+.checkbox_off {
+  background-image: url('assets/icons/items/footprint/checkbox_off.png');
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox_on {
+  background-image: url('assets/icons/items/footprint/checkbox_on.png');
+  width: 20px;
+  height: 20px;
+}
+
+#categoriesDropdownWallpaperFlooring .category-button input, 
+#collectionsDropdownWallpaperFlooring .collection-button input, 
+#colorsDropdownWallpaperFlooring .color-button input {
+  margin-left: auto;
+}
+
+.filter-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px; /* Increased the spacing between the icon and text */
+  vertical-align: middle; /* Align the icon vertically with the text */
+}
+
+.collection-button img.filter-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.color-button.active {
+  background-color: #a6a6a6;
+  color: white;
+}
+
+#filterContainerBackgrounds {
+  display: flex;
+  flex-direction: column;
+  width: 400px; /* Ensure width matches other filter containers */
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#filterContainerBackgrounds button {
+  padding: 10px;
+  font-size: 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#filterContainerBackgrounds .dropdown-content {
+  display: none;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  z-index: 1;
+  max-height: 1000px; /* Set maximum height of dropdowns */
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%; /* Ensure dropdown width matches button width */
+}
+
+#settingsContainer {
+  width: calc(400px + 400px + 20px); /* Width of filter container + width of items container */
+  height: 100%; /* Full height */
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/* style.css */
+
+/* Add this at the end of the file */
+.popup {
+  position: absolute;
+  top: 150px; /* 50px default + 100px */
+  left: calc(50% + 200px); /* Move 200px to the right */
+  transform: translate(-50%, 0);
+  width: 80%;
+  max-width: 1200px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  padding: 20px;
+}
+
+.popup-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.popup-left, .popup-right {
+  flex: 1;
+  margin: 10px;
+}
+
+.popup-left img {
+  max-width: 100%;
+  max-height: 100px;
+}
+
+.preview-box {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.preview-box img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.popup-views {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.views-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.views-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.views-container div {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  margin: 5px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}

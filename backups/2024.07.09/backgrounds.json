@@ -1,0 +1,84 @@
+[
+    {
+      "name": "Default Wallpaper",
+      "filepath": "images/wallpaper/",
+      "catalogImage": "Defaultwallpaper.png",
+      "dropImage": "Defaultwallpaperlarge.png",
+      "fixedLocation": {
+        "left": "260px",
+        "top": "200px"
+      }
+    },
+    {
+      "name": "Default Flooring",
+      "filepath": "images/flooring/",
+      "catalogImage": "Defaultflooring.png",
+      "dropImage": "Defaultflooringlarge.png",
+      "fixedLocation": {
+        "left": "290px",
+        "top": "575px"
+      }
+    },
+    {
+      "name": "Default Background",
+      "filepath": "images/backgrounds/",
+      "catalogImage": "Defaultbackground.png",
+      "dropImage": "Defaultbackgroundlarge.png",
+      "fixedLocation": {
+        "left": "0px",
+        "top": "0px"
+      }
+    },
+    {
+      "name": "Sunset",
+      "filepath": "images/backgrounds/",
+      "catalogImage": "Sunsetbackground.png",
+      "dropImage": "Sunsetbackgroundlarge.png",
+      "fixedLocation": {
+        "left": "0px",
+        "top": "0px"
+      }
+    },
+    {
+      "name": "Nighttime",
+      "filepath": "images/backgrounds/",
+      "catalogImage": "Nighttimebackground.png",
+      "dropImage": "Nighttimebackgroundlarge.png",
+      "fixedLocation": {
+        "left": "0px",
+        "top": "0px"
+      }
+    },
+    {
+      "name": "Daytime",
+      "filepath": "images/backgrounds/",
+      "catalogImage": "Daytimebackground.png",
+      "dropImage": "Daytimebackgroundlarge.png",
+      "fixedLocation": {
+        "left": "0px",
+        "top": "0px"
+      }
+    },
+    {
+      "name": "Sunrise",
+      "filepath": "images/backgrounds/",
+      "catalogImage": "Sunrisebackground.png",
+      "dropImage": "Sunrisebackgroundlarge.png",
+      "fixedLocation": {
+        "left": "0px",
+        "top": "0px"
+      }
+    }
+    ,
+    {
+      "name": "Fall Forest",
+      "filepath": "images/backgrounds/",
+      "catalogImage": "Fallforestbackground.png",
+      "dropImage": "Fallforestbackgroundlarge.png",
+      "fixedLocation": {
+        "left": "0px",
+        "top": "0px"
+      }
+    }
+  ]
+  

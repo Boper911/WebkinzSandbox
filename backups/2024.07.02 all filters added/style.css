@@ -1,0 +1,221 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+#leftCatalogContainer, #rightCatalogContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: 1px solid #ccc;
+  height: 1500px; /* Match the height of the drop zone */
+}
+
+#leftCatalogContainer {
+  margin-right: 20px;
+  width: 400px; /* Increase width to avoid scroll wheels */
+  overflow-y: hidden;
+}
+
+#rightCatalogContainer {
+  margin-left: 20px;
+  width: 400px; /* Maintain width for right catalog */
+  overflow: hidden; /* Remove external scroll wheels */
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.filter-button {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  transition: 0.3s;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.filter-button:hover {
+  background-color: #ddd;
+}
+
+.filter-button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+  height: calc(100% - 70px); /* Full height minus the tab height and filter buttons */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+
+.catalog-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.catalog-item img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 5px; /* Reduce margin-bottom to bring text closer */
+}
+
+.catalog-item p {
+  font-size: 24px;
+  word-wrap: break-word;
+  max-width: 400px;
+  margin-top: 0; /* Remove top margin */
+  text-align: center; /* Center the text beneath the image */
+}
+
+#dropZoneContainer {
+  position: relative;
+}
+
+#dropZone {
+  width: 2000px;
+  height: 1500px;
+  border: 2px dashed #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -3;
+}
+
+#background {
+  z-index: -4;
+}
+
+.grid {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  display: none; /* Initially hidden */
+}
+
+#gridFlooring {
+  left: 297px; 
+  top: 578px; 
+}
+
+#gridWallpaper {
+  left: 293px; 
+  top: 223px; 
+}
+
+#toggleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#filtersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.popup h3 {
+  margin-top: 0;
+}
+
+.popup button {
+  margin-top: 10px;
+}
+
+#categoriesPopup, #footprintPopup {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  display: none;
+}
+
+.popup .popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.popup .popup-save {
+  margin-top: 20px;
+}
+
+.popup .popup-reset {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+#searchInputLeft, #searchInputRight {
+  width: 90%;
+  padding: 10px;
+  font-size: 20px;
+  margin: 10px auto;
+  display: block;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Room Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="leftCatalogContainer">
+            <div class="tab">
+                <button class="tablinks" onclick="openLeftTab(event, 'AllItems')">All Items</button>
+            </div>
+            <input type="text" id="searchInputLeft" onkeyup="searchItemsLeft()" placeholder="Search items...">
+            <div id="filtersContainer">
+                <button id="collectionsButton" onclick="toggleCollectionsPopup()">Collections</button>
+                <button id="colorsButton" onclick="toggleColorsPopup()">Colors</button>
+                <button id="categoriesButton" onclick="toggleCategoriesPopup()">Category</button>
+                <button id="footprintButton" onclick="toggleFootprintPopup()">Footprint</button>
+            </div>
+            <div id="AllItems" class="tabcontent"></div>
+        </div>
+
+        <div id="dropZoneContainer">
+            <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img id="background" class="background">
+                <img id="wallpaper" class="background">
+                <img id="flooring" class="background">
+                <img id="gridWallpaper" class="grid" src="images/grid/Grid_wallpaper.png">
+                <img id="gridFlooring" class="grid" src="images/grid/Grid_flooring.png">
+            </div>
+            <div id="toggleContainer">
+                <label><input type="checkbox" id="checkboxGridWallpaper"> Wallpaper Grid</label>
+                <label><input type="checkbox" id="checkboxGridFlooring"> Flooring Grid</label>
+            </div>
+        </div>
+
+        <div id="rightCatalogContainer">
+            <div class="tab">
+                <button class="tablinks" onclick="openRightTab(event, 'Flooring')">Flooring</button>
+                <button class="tablinks" onclick="openRightTab(event, 'Wallpaper')">Wallpaper</button>
+                <button class="tablinks" onclick="openRightTab(event, 'Background')">Background</button>
+            </div>
+            <input type="text" id="searchInputRight" onkeyup="searchItemsRight()" placeholder="Search...">
+            <div id="Flooring" class="tabcontent"></div>
+            <div id="Wallpaper" class="tabcontent"></div>
+            <div id="Background" class="tabcontent"></div>
+        </div>
+    </div>
+
+    <div id="collectionsPopup" class="popup">
+        <h3>Collections</h3>
+        <div id="collectionButtons"></div>
+        <button class="popup-reset" onclick="resetCollections()">Reset</button>
+        <button class="popup-save" onclick="saveCollections()">Save</button>
+        <button class="popup-close" onclick="closePopup('collectionsPopup')">x</button>
+    </div>
+
+    <div id="colorsPopup" class="popup">
+        <h3>Colors</h3>
+        <div id="colorButtons"></div>
+        <button class="popup-reset" onclick="resetColors()">Reset</button>
+        <button class="popup-save" onclick="saveColors()">Save</button>
+        <button class="popup-close" onclick="closePopup('colorsPopup')">x</button>
+    </div>
+
+    <div id="categoriesPopup" class="popup">
+        <h3>Category</h3>
+        <div id="categoryButtons"></div>
+        <button class="popup-reset" onclick="resetCategories()">Reset</button>
+        <button class="popup-save" onclick="saveCategories()">Save</button>
+        <button class="popup-close" onclick="closePopup('categoriesPopup')">x</button>
+    </div>
+
+    <div id="footprintPopup" class="popup">
+        <h3>Footprint</h3>
+        <div id="footprintButtons"></div>
+        <button class="popup-reset" onclick="resetFootprint()">Reset</button>
+        <button class="popup-save" onclick="saveFootprint()">Save</button>
+        <button class="popup-close" onclick="closePopup('footprintPopup')">x</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
