@@ -194,542 +194,538 @@
       </div>
     </div>
   </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
   
+  <!-- Firebase Authentication & Firestore Script -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { 
+      getAuth, 
+      signInWithPopup, 
+      GoogleAuthProvider, 
+      signOut, 
+      onAuthStateChanged,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      getDocs,
+      doc,
+      updateDoc,
+      deleteDoc,
+      query,
+      where
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
-<!-- Firebase Authentication & Firestore Script -->
-<!-- Firebase Authentication & Firestore Script -->
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-  import { 
-    getAuth, 
-    signInWithPopup, 
-    GoogleAuthProvider, 
-    signOut, 
-    onAuthStateChanged,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
-  } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-  import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    doc,
-    updateDoc,
-    deleteDoc,
-    query,
-    where
-  } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAPKjpaByXu8u67dzXkdaJOqKDsTzws9AY",
+      authDomain: "webkinzsandbox.firebaseapp.com",
+      projectId: "webkinzsandbox",
+      storageBucket: "webkinzsandbox.firebasestorage.app",
+      messagingSenderId: "695345467024",
+      appId: "1:695345467024:web:9cc2f5a8ebdce96fc41215"
+    };
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAPKjpaByXu8u67dzXkdaJOqKDsTzws9AY",
-    authDomain: "webkinzsandbox.firebaseapp.com",
-    projectId: "webkinzsandbox",
-    storageBucket: "webkinzsandbox.firebasestorage.app",
-    messagingSenderId: "695345467024",
-    appId: "1:695345467024:web:9cc2f5a8ebdce96fc41215"
-  };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const googleProvider = new GoogleAuthProvider();
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-  const googleProvider = new GoogleAuthProvider();
+    // Global variables
+    let currentUser = null;
+    let firebaseReady = false;
+    let userRoomDesigns = [];
 
-  // Current user state
-  let currentUser = null;
-  let firebaseReady = false;
-  let userRoomDesigns = [];
-
-  // Auth state listener
-  onAuthStateChanged(auth, async (user) => {
-    currentUser = user;
-    firebaseReady = true;
-    updateUI();
-    
-    if (user) {
-      console.log('User signed in:', user.email);
-      await loadUserRoomDesigns();
-    } else {
-      console.log('User signed out');
-      userRoomDesigns = [];
-    }
-  });
-
-  // ===================
-  // AUTHENTICATION FUNCTIONS
-  // ===================
-
-  async function signInWithGoogle() {
-    if (!firebaseReady) {
-      alert('Please wait, loading...');
-      return;
-    }
-    
-    try {
-      console.log('Attempting Google sign in...');
-      const result = await signInWithPopup(auth, googleProvider);
-      console.log('User signed in:', result.user.displayName);
-    } catch (error) {
-      console.error('Error signing in:', error);
-      if (error.code === 'auth/unauthorized-domain') {
-        alert('This domain is not authorized. Please check Firebase console settings.');
-      } else if (error.code === 'auth/popup-blocked') {
-        alert('Popup was blocked. Please allow popups for this site.');
+    // Auth state listener
+    onAuthStateChanged(auth, async (user) => {
+      currentUser = user;
+      firebaseReady = true;
+      updateUI();
+      
+      if (user) {
+        console.log('User signed in:', user.email);
+        await loadUserRoomDesigns();
       } else {
-        alert('Error signing in: ' + error.message);
-      }
-    }
-  }
-
-  async function signInWithEmail(email, password) {
-    if (!firebaseReady) {
-      alert('Please wait, loading...');
-      return;
-    }
-    
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      console.error('Error signing in:', error);
-      alert('Error signing in: ' + error.message);
-    }
-  }
-
-  async function createAccount(email, password) {
-    if (!firebaseReady) {
-      alert('Please wait, loading...');
-      return;
-    }
-    
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      console.error('Error creating account:', error);
-      alert('Error creating account: ' + error.message);
-    }
-  }
-
-  async function signOutUser() {
-    try {
-      await signOut(auth);
-      console.log('User signed out');
-    } catch (error) {
-      console.error('Error signing out:', error);
-    }
-  }
-
-  // ===================
-  // ROOM DESIGN FUNCTIONS
-  // ===================
-
-  // Get current room state from the drop zone
-  function getCurrentRoomState() {
-    const dropZone = document.getElementById('dropZone');
-    const items = [];
-    
-    // Get all items in the drop zone (excluding background/wallpaper/flooring)
-    const dropZoneItems = dropZone.querySelectorAll('img:not(.background)');
-    dropZoneItems.forEach(item => {
-      if (item.id !== 'background' && item.id !== 'wallpaper' && item.id !== 'flooring') {
-        items.push({
-          id: item.id,
-          src: item.src,
-          alt: item.alt,
-          left: item.style.left,
-          top: item.style.top,
-          zIndex: item.style.zIndex,
-          views: item.dataset.views ? JSON.parse(item.dataset.views) : [],
-          currentViewIndex: item.dataset.currentViewIndex || '0',
-          category: item.dataset.category,
-          collection: item.dataset.collection,
-          colors: item.dataset.colors,
-          footprint: item.dataset.footprint
-        });
+        console.log('User signed out');
+        userRoomDesigns = [];
       }
     });
 
-    // Get background/wallpaper/flooring
-    const background = document.getElementById('background');
-    const wallpaper = document.getElementById('wallpaper');
-    const flooring = document.getElementById('flooring');
+    // ===================
+    // AUTHENTICATION FUNCTIONS
+    // ===================
 
-    return {
-      items: items,
-      background: background ? {
-        src: background.src,
-        left: background.style.left,
-        top: background.style.top
-      } : null,
-      wallpaper: wallpaper ? {
-        src: wallpaper.src,
-        left: wallpaper.style.left,
-        top: wallpaper.style.top
-      } : null,
-      flooring: flooring ? {
-        src: flooring.src,
-        left: flooring.style.left,
-        top: flooring.style.top
-      } : null
-    };
-  }
-
-  // Save room design to Firestore
-  async function saveRoomDesign(designName) {
-    if (!currentUser) {
-      alert('Please sign in to save room designs');
-      return;
+    async function signInWithGoogle() {
+      if (!firebaseReady) {
+        alert('Please wait, loading...');
+        return;
+      }
+      
+      try {
+        console.log('Attempting Google sign in...');
+        const result = await signInWithPopup(auth, googleProvider);
+        console.log('User signed in:', result.user.displayName);
+      } catch (error) {
+        console.error('Error signing in:', error);
+        if (error.code === 'auth/unauthorized-domain') {
+          alert('This domain is not authorized. Please check Firebase console settings.');
+        } else if (error.code === 'auth/popup-blocked') {
+          alert('Popup was blocked. Please allow popups for this site.');
+        } else {
+          alert('Error signing in: ' + error.message);
+        }
+      }
     }
 
-    if (!designName || designName.trim() === '') {
-      alert('Please enter a name for your room design');
-      return;
+    async function signInWithEmail(email, password) {
+      if (!firebaseReady) {
+        alert('Please wait, loading...');
+        return;
+      }
+      
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        console.error('Error signing in:', error);
+        alert('Error signing in: ' + error.message);
+      }
     }
 
-    try {
-      const roomState = getCurrentRoomState();
-      const now = new Date();
+    async function createAccount(email, password) {
+      if (!firebaseReady) {
+        alert('Please wait, loading...');
+        return;
+      }
       
-      const roomDesign = {
-        userId: currentUser.uid,
-        designName: designName.trim(),
-        roomData: roomState,
-        createdAt: now,
-        updatedAt: now
-      };
-
-      const docRef = await addDoc(collection(db, 'roomDesigns'), roomDesign);
-      console.log('Room design saved with ID:', docRef.id);
-      
-      alert(`Room design "${designName}" saved successfully!`);
-      await loadUserRoomDesigns(); // Refresh the list
-      updateSaveLoadUI();
-      
-    } catch (error) {
-      console.error('Error saving room design:', error);
-      alert('Error saving room design. Please try again.');
-    }
-  }
-
-  // Load user's room designs from Firestore
-  async function loadUserRoomDesigns() {
-    if (!currentUser) {
-      userRoomDesigns = [];
-      return;
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        console.error('Error creating account:', error);
+        alert('Error creating account: ' + error.message);
+      }
     }
 
-    try {
-      // Simplified query without orderBy to avoid index requirement
-      const q = query(
-        collection(db, 'roomDesigns'),
-        where('userId', '==', currentUser.uid)
-      );
-      
-      const querySnapshot = await getDocs(q);
-      userRoomDesigns = [];
-      
-      querySnapshot.forEach((doc) => {
-        userRoomDesigns.push({
-          id: doc.id,
-          ...doc.data()
-        });
-      });
-      
-      // Sort in JavaScript instead of Firestore
-      userRoomDesigns.sort((a, b) => {
-        const aTime = a.updatedAt?.getTime?.() || a.updatedAt?.seconds * 1000 || 0;
-        const bTime = b.updatedAt?.getTime?.() || b.updatedAt?.seconds * 1000 || 0;
-        return bTime - aTime; // Most recent first
-      });
-      
-      console.log(`Loaded ${userRoomDesigns.length} room designs`);
-      updateSaveLoadUI();
-      
-    } catch (error) {
-      console.error('Error loading room designs:', error);
-    }
-  }
-
-  // Load a specific room design
-  async function loadRoomDesign(designId) {
-    const design = userRoomDesigns.find(d => d.id === designId);
-    if (!design) {
-      alert('Room design not found');
-      return;
+    async function signOutUser() {
+      try {
+        await signOut(auth);
+        console.log('User signed out');
+      } catch (error) {
+        console.error('Error signing out:', error);
+      }
     }
 
-    try {
+    // ===================
+    // ROOM DESIGN FUNCTIONS
+    // ===================
+
+    function getCurrentRoomState() {
       const dropZone = document.getElementById('dropZone');
+      const items = [];
       
-      // Clear current items (except backgrounds)
-      const existingItems = dropZone.querySelectorAll('img:not(.background)');
-      existingItems.forEach(item => {
+      // Get all items in the drop zone (excluding background/wallpaper/flooring)
+      const dropZoneItems = dropZone.querySelectorAll('img:not(.background)');
+      dropZoneItems.forEach(item => {
         if (item.id !== 'background' && item.id !== 'wallpaper' && item.id !== 'flooring') {
-          item.remove();
+          items.push({
+            id: item.id,
+            src: item.src,
+            alt: item.alt,
+            left: item.style.left,
+            top: item.style.top,
+            zIndex: item.style.zIndex,
+            views: item.dataset.views ? JSON.parse(item.dataset.views) : [],
+            currentViewIndex: item.dataset.currentViewIndex || '0',
+            category: item.dataset.category,
+            collection: item.dataset.collection,
+            colors: item.dataset.colors,
+            footprint: item.dataset.footprint
+          });
         }
       });
 
-      const roomData = design.roomData;
+      // Get background/wallpaper/flooring
+      const background = document.getElementById('background');
+      const wallpaper = document.getElementById('wallpaper');
+      const flooring = document.getElementById('flooring');
 
-      // Load background
-      if (roomData.background) {
-        const bgElement = document.getElementById('background');
-        if (bgElement) {
-          bgElement.src = roomData.background.src;
-          bgElement.style.left = roomData.background.left;
-          bgElement.style.top = roomData.background.top;
-        }
-      }
+      return {
+        items: items,
+        background: background ? {
+          src: background.src,
+          left: background.style.left,
+          top: background.style.top
+        } : null,
+        wallpaper: wallpaper ? {
+          src: wallpaper.src,
+          left: wallpaper.style.left,
+          top: wallpaper.style.top
+        } : null,
+        flooring: flooring ? {
+          src: flooring.src,
+          left: flooring.style.left,
+          top: flooring.style.top
+        } : null
+      };
+    }
 
-      // Load wallpaper
-      if (roomData.wallpaper) {
-        let wallpaperElement = document.getElementById('wallpaper');
-        if (!wallpaperElement) {
-          wallpaperElement = document.createElement('img');
-          wallpaperElement.id = 'wallpaper';
-          wallpaperElement.classList.add('background');
-          dropZone.appendChild(wallpaperElement);
-        }
-        wallpaperElement.src = roomData.wallpaper.src;
-        wallpaperElement.style.position = 'absolute';
-        wallpaperElement.style.left = roomData.wallpaper.left;
-        wallpaperElement.style.top = roomData.wallpaper.top;
-      }
-
-      // Load flooring
-      if (roomData.flooring) {
-        let flooringElement = document.getElementById('flooring');
-        if (!flooringElement) {
-          flooringElement = document.createElement('img');
-          flooringElement.id = 'flooring';
-          flooringElement.classList.add('background');
-          dropZone.appendChild(flooringElement);
-        }
-        flooringElement.src = roomData.flooring.src;
-        flooringElement.style.position = 'absolute';
-        flooringElement.style.left = roomData.flooring.left;
-        flooringElement.style.top = roomData.flooring.top;
-      }
-
-      // Load items
-      roomData.items.forEach(itemData => {
-        const item = document.createElement('img');
-        item.id = itemData.id;
-        item.src = itemData.src;
-        item.alt = itemData.alt;
-        item.style.position = 'absolute';
-        item.style.left = itemData.left;
-        item.style.top = itemData.top;
-        item.style.zIndex = itemData.zIndex;
-        item.draggable = true;
-        item.setAttribute('tabindex', '0');
-        
-        // Restore dataset properties
-        if (itemData.views) item.dataset.views = JSON.stringify(itemData.views);
-        if (itemData.currentViewIndex) item.dataset.currentViewIndex = itemData.currentViewIndex;
-        if (itemData.category) item.dataset.category = itemData.category;
-        if (itemData.collection) item.dataset.collection = itemData.collection;
-        if (itemData.colors) item.dataset.colors = itemData.colors;
-        if (itemData.footprint) item.dataset.footprint = itemData.footprint;
-        item.dataset.source = 'dropZone';
-
-        // Add event listeners (from your existing script.js)
-        item.addEventListener('dragstart', drag);
-        item.addEventListener('keydown', function(event) {
-          handleArrowKeys(event, item);
-        });
-        item.addEventListener('click', function() {
-          bringToFront(item);
-        });
-        item.addEventListener('dblclick', function() {
-          changeView(item);
-        });
-
-        dropZone.appendChild(item);
-      });
-
-      alert(`Room design "${design.designName}" loaded successfully!`);
+    async function saveRoomDesign(designName) {
+      console.log('saveRoomDesign called with:', designName); // Debug log
       
-    } catch (error) {
-      console.error('Error loading room design:', error);
-      alert('Error loading room design. Please try again.');
+      if (!currentUser) {
+        alert('Please sign in to save room designs');
+        return;
+      }
+
+      if (!designName || designName.trim() === '') {
+        alert('Please enter a name for your room design');
+        return;
+      }
+
+      try {
+        const roomState = getCurrentRoomState();
+        console.log('Room state:', roomState); // Debug log
+        
+        const now = new Date();
+        
+        const roomDesign = {
+          userId: currentUser.uid,
+          designName: designName.trim(),
+          roomData: roomState,
+          createdAt: now,
+          updatedAt: now
+        };
+
+        console.log('Saving room design:', roomDesign); // Debug log
+        const docRef = await addDoc(collection(db, 'roomDesigns'), roomDesign);
+        console.log('Room design saved with ID:', docRef.id);
+        
+        alert(`Room design "${designName}" saved successfully!`);
+        await loadUserRoomDesigns();
+        updateSaveLoadUI();
+        
+      } catch (error) {
+        console.error('Error saving room design:', error);
+        alert('Error saving room design: ' + error.message);
+      }
     }
-  }
 
-  // Delete a room design
-  async function deleteRoomDesign(designId) {
-    const design = userRoomDesigns.find(d => d.id === designId);
-    if (!design) return;
+    async function loadUserRoomDesigns() {
+      if (!currentUser) {
+        userRoomDesigns = [];
+        return;
+      }
 
-    if (!confirm(`Are you sure you want to delete "${design.designName}"?`)) {
-      return;
+      try {
+        const q = query(
+          collection(db, 'roomDesigns'),
+          where('userId', '==', currentUser.uid)
+        );
+        
+        const querySnapshot = await getDocs(q);
+        userRoomDesigns = [];
+        
+        querySnapshot.forEach((doc) => {
+          userRoomDesigns.push({
+            id: doc.id,
+            ...doc.data()
+          });
+        });
+        
+        // Sort by date
+        userRoomDesigns.sort((a, b) => {
+          const aTime = a.updatedAt?.getTime?.() || a.updatedAt?.seconds * 1000 || 0;
+          const bTime = b.updatedAt?.getTime?.() || b.updatedAt?.seconds * 1000 || 0;
+          return bTime - aTime;
+        });
+        
+        console.log(`Loaded ${userRoomDesigns.length} room designs`);
+        updateSaveLoadUI();
+        
+      } catch (error) {
+        console.error('Error loading room designs:', error);
+      }
     }
 
-    try {
-      await deleteDoc(doc(db, 'roomDesigns', designId));
-      alert(`Room design "${design.designName}" deleted successfully!`);
-      await loadUserRoomDesigns(); // Refresh the list
+    async function loadRoomDesign(designId) {
+      const design = userRoomDesigns.find(d => d.id === designId);
+      if (!design) {
+        alert('Room design not found');
+        return;
+      }
+
+      try {
+        const dropZone = document.getElementById('dropZone');
+        
+        // Clear current items (except backgrounds)
+        const existingItems = dropZone.querySelectorAll('img:not(.background)');
+        existingItems.forEach(item => {
+          if (item.id !== 'background' && item.id !== 'wallpaper' && item.id !== 'flooring') {
+            item.remove();
+          }
+        });
+
+        const roomData = design.roomData;
+
+        // Load background/wallpaper/flooring
+        if (roomData.background) {
+          const bgElement = document.getElementById('background');
+          if (bgElement) {
+            bgElement.src = roomData.background.src;
+            bgElement.style.left = roomData.background.left;
+            bgElement.style.top = roomData.background.top;
+          }
+        }
+
+        if (roomData.wallpaper) {
+          let wallpaperElement = document.getElementById('wallpaper');
+          if (!wallpaperElement) {
+            wallpaperElement = document.createElement('img');
+            wallpaperElement.id = 'wallpaper';
+            wallpaperElement.classList.add('background');
+            dropZone.appendChild(wallpaperElement);
+          }
+          wallpaperElement.src = roomData.wallpaper.src;
+          wallpaperElement.style.position = 'absolute';
+          wallpaperElement.style.left = roomData.wallpaper.left;
+          wallpaperElement.style.top = roomData.wallpaper.top;
+        }
+
+        if (roomData.flooring) {
+          let flooringElement = document.getElementById('flooring');
+          if (!flooringElement) {
+            flooringElement = document.createElement('img');
+            flooringElement.id = 'flooring';
+            flooringElement.classList.add('background');
+            dropZone.appendChild(flooringElement);
+          }
+          flooringElement.src = roomData.flooring.src;
+          flooringElement.style.position = 'absolute';
+          flooringElement.style.left = roomData.flooring.left;
+          flooringElement.style.top = roomData.flooring.top;
+        }
+
+        // Load items
+        roomData.items.forEach(itemData => {
+          const item = document.createElement('img');
+          item.id = itemData.id;
+          item.src = itemData.src;
+          item.alt = itemData.alt;
+          item.style.position = 'absolute';
+          item.style.left = itemData.left;
+          item.style.top = itemData.top;
+          item.style.zIndex = itemData.zIndex;
+          item.draggable = true;
+          item.setAttribute('tabindex', '0');
+          
+          // Restore dataset properties
+          if (itemData.views) item.dataset.views = JSON.stringify(itemData.views);
+          if (itemData.currentViewIndex) item.dataset.currentViewIndex = itemData.currentViewIndex;
+          if (itemData.category) item.dataset.category = itemData.category;
+          if (itemData.collection) item.dataset.collection = itemData.collection;
+          if (itemData.colors) item.dataset.colors = itemData.colors;
+          if (itemData.footprint) item.dataset.footprint = itemData.footprint;
+          item.dataset.source = 'dropZone';
+
+          // Add event listeners
+          item.addEventListener('dragstart', drag);
+          item.addEventListener('keydown', function(event) {
+            handleArrowKeys(event, item);
+          });
+          item.addEventListener('click', function() {
+            bringToFront(item);
+          });
+          item.addEventListener('dblclick', function() {
+            changeView(item);
+          });
+
+          dropZone.appendChild(item);
+        });
+
+        alert(`Room design "${design.designName}" loaded successfully!`);
+        closeSaveLoadModal();
+        
+      } catch (error) {
+        console.error('Error loading room design:', error);
+        alert('Error loading room design: ' + error.message);
+      }
+    }
+
+    async function deleteRoomDesign(designId) {
+      const design = userRoomDesigns.find(d => d.id === designId);
+      if (!design) return;
+
+      if (!confirm(`Are you sure you want to delete "${design.designName}"?`)) {
+        return;
+      }
+
+      try {
+        await deleteDoc(doc(db, 'roomDesigns', designId));
+        alert(`Room design "${design.designName}" deleted successfully!`);
+        await loadUserRoomDesigns();
+        updateSaveLoadUI();
+      } catch (error) {
+        console.error('Error deleting room design:', error);
+        alert('Error deleting room design: ' + error.message);
+      }
+    }
+
+    // ===================
+    // UI FUNCTIONS
+    // ===================
+
+    function updateUI() {
+      const authContainer = document.getElementById('authContainer');
+      const mainApp = document.querySelector('.container');
+      const userInfo = document.getElementById('userInfo');
+      
+      const googleBtn = document.querySelector('.google-btn');
+      if (googleBtn && !firebaseReady) {
+        googleBtn.innerHTML = '<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"> Loading...';
+        googleBtn.disabled = true;
+      } else if (googleBtn && firebaseReady) {
+        googleBtn.innerHTML = '<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"> Continue with Google';
+        googleBtn.disabled = false;
+      }
+      
+      if (currentUser) {
+        if (authContainer) authContainer.style.display = 'none';
+        if (mainApp) mainApp.style.display = 'flex';
+        if (userInfo) {
+          userInfo.innerHTML = `
+            <div class="user-profile">
+              <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
+              <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
+              <button onclick="showSaveLoadModal()" class="save-load-btn">Save/Load</button>
+              <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
+            </div>
+          `;
+        }
+      } else {
+        if (authContainer) authContainer.style.display = 'flex';
+        if (mainApp) mainApp.style.display = 'none';
+        if (userInfo) userInfo.innerHTML = '';
+      }
+      
       updateSaveLoadUI();
-    } catch (error) {
-      console.error('Error deleting room design:', error);
-      alert('Error deleting room design. Please try again.');
     }
-  }
 
-  // ===================
-  // UI UPDATE FUNCTIONS
-  // ===================
-
-  function updateUI() {
-    const authContainer = document.getElementById('authContainer');
-    const mainApp = document.querySelector('.container');
-    const userInfo = document.getElementById('userInfo');
-    
-    // Update button text to show loading state
-    const googleBtn = document.querySelector('.google-btn');
-    if (googleBtn && !firebaseReady) {
-      googleBtn.innerHTML = '<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"> Loading...';
-      googleBtn.disabled = true;
-    } else if (googleBtn && firebaseReady) {
-      googleBtn.innerHTML = '<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"> Continue with Google';
-      googleBtn.disabled = false;
+    function updateSaveLoadUI() {
+      const modal = document.getElementById('saveLoadModal');
+      if (modal && currentUser) {
+        updateSaveLoadModal();
+      }
     }
-    
-    if (currentUser) {
-      // User is signed in
-      if (authContainer) authContainer.style.display = 'none';
-      if (mainApp) mainApp.style.display = 'flex';
-      if (userInfo) {
-        userInfo.innerHTML = `
-          <div class="user-profile">
-            <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
-            <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
-            <button onclick="showSaveLoadModal()" class="save-load-btn">Save/Load</button>
-            <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
+
+    function updateSaveLoadModal() {
+      const designsList = document.getElementById('savedDesignsList');
+      if (!designsList) return;
+
+      if (userRoomDesigns.length === 0) {
+        designsList.innerHTML = '<p class="no-designs">No saved room designs yet. Create your first design!</p>';
+        return;
+      }
+
+      designsList.innerHTML = userRoomDesigns.map(design => {
+        const updatedDate = design.updatedAt?.toLocaleDateString?.() || 
+                           (design.updatedAt?.seconds ? new Date(design.updatedAt.seconds * 1000).toLocaleDateString() : 'Unknown');
+        
+        return `
+          <div class="design-item">
+            <div class="design-info">
+              <h4>${design.designName}</h4>
+              <small>Last updated: ${updatedDate}</small>
+            </div>
+            <div class="design-actions">
+              <button onclick="loadRoomDesign('${design.id}')" class="load-btn">Load</button>
+              <button onclick="deleteRoomDesign('${design.id}')" class="delete-btn">Delete</button>
+            </div>
           </div>
         `;
-      }
-    } else {
-      // User is signed out
-      if (authContainer) authContainer.style.display = 'flex';
-      if (mainApp) mainApp.style.display = 'none';
-      if (userInfo) userInfo.innerHTML = '';
-    }
-    
-    updateSaveLoadUI();
-  }
-
-  function updateSaveLoadUI() {
-    // This will be called to update the save/load modal
-    const modal = document.getElementById('saveLoadModal');
-    if (modal && currentUser) {
-      updateSaveLoadModal();
-    }
-  }
-
-  function updateSaveLoadModal() {
-    const designsList = document.getElementById('savedDesignsList');
-    if (!designsList) return;
-
-    if (userRoomDesigns.length === 0) {
-      designsList.innerHTML = '<p class="no-designs">No saved room designs yet. Create your first design!</p>';
-      return;
+      }).join('');
     }
 
-    designsList.innerHTML = userRoomDesigns.map(design => {
-      const updatedDate = design.updatedAt?.toLocaleDateString?.() || 
-                         (design.updatedAt?.seconds ? new Date(design.updatedAt.seconds * 1000).toLocaleDateString() : 'Unknown');
+    function showSaveLoadModal() {
+      console.log('showSaveLoadModal called'); // Debug log
       
-      return `
-        <div class="design-item">
-          <div class="design-info">
-            <h4>${design.designName}</h4>
-            <small>Last updated: ${updatedDate}</small>
-          </div>
-          <div class="design-actions">
-            <button onclick="loadRoomDesign('${design.id}')" class="load-btn">Load</button>
-            <button onclick="deleteRoomDesign('${design.id}')" class="delete-btn">Delete</button>
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
+      if (!currentUser) {
+        alert('Please sign in to save/load room designs');
+        return;
+      }
 
-  // Show save/load modal
-  function showSaveLoadModal() {
-    if (!currentUser) {
-      alert('Please sign in to save/load room designs');
-      return;
+      let modal = document.getElementById('saveLoadModal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'saveLoadModal';
+        modal.className = 'save-load-modal';
+        modal.innerHTML = `
+          <div class="modal-content">
+            <span class="close-modal" onclick="closeSaveLoadModal()">&times;</span>
+            <h2>Save & Load Room Designs</h2>
+            
+            <div class="save-section">
+              <h3>Save Current Design</h3>
+              <input type="text" id="designNameInput" placeholder="Enter design name..." maxlength="50">
+              <button onclick="saveCurrentDesign()" class="save-btn">Save Design</button>
+            </div>
+            
+            <div class="load-section">
+              <h3>Your Saved Designs (${userRoomDesigns.length})</h3>
+              <div id="savedDesignsList"></div>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+      }
+
+      updateSaveLoadModal();
+      modal.style.display = 'flex';
     }
 
-    // Create modal if it doesn't exist
-    let modal = document.getElementById('saveLoadModal');
-    if (!modal) {
-      modal = document.createElement('div');
-      modal.id = 'saveLoadModal';
-      modal.className = 'save-load-modal';
-      modal.innerHTML = `
-        <div class="modal-content">
-          <span class="close-modal" onclick="closeSaveLoadModal()">&times;</span>
-          <h2>Save & Load Room Designs</h2>
-          
-          <div class="save-section">
-            <h3>Save Current Design</h3>
-            <input type="text" id="designNameInput" placeholder="Enter design name..." maxlength="50">
-            <button onclick="saveCurrentDesign()" class="save-btn">Save Design</button>
-          </div>
-          
-          <div class="load-section">
-            <h3>Your Saved Designs (${userRoomDesigns.length})</h3>
-            <div id="savedDesignsList"></div>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(modal);
+    function closeSaveLoadModal() {
+      const modal = document.getElementById('saveLoadModal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
     }
 
-    updateSaveLoadModal();
-    modal.style.display = 'flex';
-  }
+    function saveCurrentDesign() {
+      console.log('saveCurrentDesign called'); // Debug log
+      
+      const designNameInput = document.getElementById('designNameInput');
+      const designName = designNameInput.value.trim();
+      
+      if (!designName) {
+        alert('Please enter a name for your design');
+        return;
+      }
 
-  function closeSaveLoadModal() {
-    const modal = document.getElementById('saveLoadModal');
-    if (modal) {
-      modal.style.display = 'none';
+      saveRoomDesign(designName);
+      designNameInput.value = '';
     }
-  }
 
-  function saveCurrentDesign() {
-    const designNameInput = document.getElementById('designNameInput');
-    const designName = designNameInput.value.trim();
+    // Make ALL functions available globally
+    window.signInWithGoogle = signInWithGoogle;
+    window.signInWithEmail = signInWithEmail;
+    window.createAccount = createAccount;
+    window.signOutUser = signOutUser;
+    window.saveRoomDesign = saveRoomDesign;
+    window.loadRoomDesign = loadRoomDesign;
+    window.deleteRoomDesign = deleteRoomDesign;
+    window.showSaveLoadModal = showSaveLoadModal;
+    window.closeSaveLoadModal = closeSaveLoadModal;
+    window.saveCurrentDesign = saveCurrentDesign;
+
+    // Initial UI update
+    updateUI();
     
-    if (!designName) {
-      alert('Please enter a name for your design');
-      return;
-    }
-
-    saveRoomDesign(designName);
-    designNameInput.value = ''; // Clear input
-  }
-
-  // Make functions available globally
-  window.signInWithGoogle = signInWithGoogle;
-  window.signInWithEmail = signInWithEmail;
-  window.createAccount = createAccount;
-  window.signOutUser = signOutUser;
-  window.saveRoomDesign = saveRoomDesign;
-  window.loadRoomDesign = loadRoomDesign;
-  window.deleteRoomDesign = deleteRoomDesign;
-  window.showSaveLoadModal = showSaveLoadModal;
-  window.closeSaveLoadModal = closeSaveLoadModal;
-  window.saveCurrentDesign = saveCurrentDesign;
-
-  // Initial UI update
-  updateUI();
-</script>
+    console.log('Firebase script loaded successfully'); // Debug log
+  </script>
+  
 </body>
 </html>
