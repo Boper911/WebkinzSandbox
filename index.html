@@ -324,7 +324,64 @@
     // ROOM DESIGN FUNCTIONS
     // ===================
 
-    function getCurrentRoomState() {
+      function getCurrentRoomState() {
+        const dropZone = document.getElementById('dropZone');
+        const items = [];
+        
+        // Get all items in the drop zone (excluding background/wallpaper/flooring)
+        const dropZoneItems = dropZone.querySelectorAll('img:not(.background)');
+        dropZoneItems.forEach(item => {
+          if (item.id !== 'background' && item.id !== 'wallpaper' && item.id !== 'flooring') {
+            // Parse views safely
+            let views = [];
+            try {
+              views = item.dataset.views ? JSON.parse(item.dataset.views) : [];
+            } catch (e) {
+              console.warn('Could not parse views for item:', item.id);
+              views = [];
+            }
+            
+            items.push({
+              id: item.id || `item-${Date.now()}-${Math.random()}`,
+              src: item.src || '',
+              alt: item.alt || '',
+              left: item.style.left || '0px',
+              top: item.style.top || '0px',
+              zIndex: item.style.zIndex || '1',
+              views: views,
+              currentViewIndex: item.dataset.currentViewIndex || '0',
+              category: item.dataset.category || '',
+              collection: item.dataset.collection || '',
+              colors: item.dataset.colors || '',
+              footprint: item.dataset.footprint || ''
+            });
+          }
+        });
+
+        // Get background/wallpaper/flooring safely
+        const background = document.getElementById('background');
+        const wallpaper = document.getElementById('wallpaper');
+        const flooring = document.getElementById('flooring');
+
+        return {
+          items: items,
+          background: background && background.src ? {
+            src: background.src,
+            left: background.style.left || '0px',
+            top: background.style.top || '0px'
+          } : null,
+          wallpaper: wallpaper && wallpaper.src ? {
+            src: wallpaper.src,
+            left: wallpaper.style.left || '0px',
+            top: wallpaper.style.top || '0px'
+          } : null,
+          flooring: flooring && flooring.src ? {
+            src: flooring.src,
+            left: flooring.style.left || '0px',
+            top: flooring.style.top || '0px'
+          } : null
+        };
+      }
       const dropZone = document.getElementById('dropZone');
       const items = [];
       
@@ -375,7 +432,7 @@
     }
 
     async function saveRoomDesign(designName) {
-      console.log('saveRoomDesign called with:', designName); // Debug log
+      console.log('saveRoomDesign called with:', designName);
       
       if (!currentUser) {
         alert('Please sign in to save room designs');
@@ -389,19 +446,54 @@
 
       try {
         const roomState = getCurrentRoomState();
-        console.log('Room state:', roomState); // Debug log
+        console.log('Raw room state:', roomState);
+        
+        // Clean the data to remove undefined values
+        const cleanedRoomState = {
+          items: roomState.items.map(item => ({
+            id: item.id || '',
+            src: item.src || '',
+            alt: item.alt || '',
+            left: item.left || '0px',
+            top: item.top || '0px',
+            zIndex: item.zIndex || '1',
+            views: item.views || [],
+            currentViewIndex: item.currentViewIndex || '0',
+            category: item.category || '',
+            collection: item.collection || '',
+            colors: item.colors || '',
+            footprint: item.footprint || ''
+          })),
+          background: roomState.background ? {
+            src: roomState.background.src || '',
+            left: roomState.background.left || '0px',
+            top: roomState.background.top || '0px'
+          } : null,
+          wallpaper: roomState.wallpaper ? {
+            src: roomState.wallpaper.src || '',
+            left: roomState.wallpaper.left || '0px',
+            top: roomState.wallpaper.top || '0px'
+          } : null,
+          flooring: roomState.flooring ? {
+            src: roomState.flooring.src || '',
+            left: roomState.flooring.left || '0px',
+            top: roomState.flooring.top || '0px'
+          } : null
+        };
+        
+        console.log('Cleaned room state:', cleanedRoomState);
         
         const now = new Date();
         
         const roomDesign = {
           userId: currentUser.uid,
           designName: designName.trim(),
-          roomData: roomState,
+          roomData: cleanedRoomState,
           createdAt: now,
           updatedAt: now
         };
 
-        console.log('Saving room design:', roomDesign); // Debug log
+        console.log('Final room design to save:', roomDesign);
         const docRef = await addDoc(collection(db, 'roomDesigns'), roomDesign);
         console.log('Room design saved with ID:', docRef.id);
         
