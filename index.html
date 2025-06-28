@@ -199,6 +199,7 @@
   
 
 <!-- Firebase Authentication & Firestore Script -->
+<!-- Firebase Authentication & Firestore Script -->
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
@@ -220,9 +221,7 @@
     updateDoc,
     deleteDoc,
     query,
-    where,
-    orderBy,
-    serverTimestamp
+    where
   } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
   // Your web app's Firebase configuration
@@ -393,13 +392,14 @@
 
     try {
       const roomState = getCurrentRoomState();
+      const now = new Date();
       
       const roomDesign = {
         userId: currentUser.uid,
         designName: designName.trim(),
         roomData: roomState,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp()
+        createdAt: now,
+        updatedAt: now
       };
 
       const docRef = await addDoc(collection(db, 'roomDesigns'), roomDesign);
@@ -423,10 +423,10 @@
     }
 
     try {
+      // Simplified query without orderBy to avoid index requirement
       const q = query(
         collection(db, 'roomDesigns'),
-        where('userId', '==', currentUser.uid),
-        orderBy('updatedAt', 'desc')
+        where('userId', '==', currentUser.uid)
       );
       
       const querySnapshot = await getDocs(q);
@@ -437,6 +437,13 @@
           id: doc.id,
           ...doc.data()
         });
+      });
+      
+      // Sort in JavaScript instead of Firestore
+      userRoomDesigns.sort((a, b) => {
+        const aTime = a.updatedAt?.getTime?.() || a.updatedAt?.seconds * 1000 || 0;
+        const bTime = b.updatedAt?.getTime?.() || b.updatedAt?.seconds * 1000 || 0;
+        return bTime - aTime; // Most recent first
       });
       
       console.log(`Loaded ${userRoomDesigns.length} room designs`);
@@ -633,18 +640,23 @@
       return;
     }
 
-    designsList.innerHTML = userRoomDesigns.map(design => `
-      <div class="design-item">
-        <div class="design-info">
-          <h4>${design.designName}</h4>
-          <small>Last updated: ${design.updatedAt ? new Date(design.updatedAt.seconds * 1000).toLocaleDateString() : 'Unknown'}</small>
+    designsList.innerHTML = userRoomDesigns.map(design => {
+      const updatedDate = design.updatedAt?.toLocaleDateString?.() || 
+                         (design.updatedAt?.seconds ? new Date(design.updatedAt.seconds * 1000).toLocaleDateString() : 'Unknown');
+      
+      return `
+        <div class="design-item">
+          <div class="design-info">
+            <h4>${design.designName}</h4>
+            <small>Last updated: ${updatedDate}</small>
+          </div>
+          <div class="design-actions">
+            <button onclick="loadRoomDesign('${design.id}')" class="load-btn">Load</button>
+            <button onclick="deleteRoomDesign('${design.id}')" class="delete-btn">Delete</button>
+          </div>
         </div>
-        <div class="design-actions">
-          <button onclick="loadRoomDesign('${design.id}')" class="load-btn">Load</button>
-          <button onclick="deleteRoomDesign('${design.id}')" class="delete-btn">Delete</button>
-        </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   // Show save/load modal
