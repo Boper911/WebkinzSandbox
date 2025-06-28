@@ -1,4 +1,3 @@
-/* Modern UI Improvements */
 /* ===================
    RESPONSIVE LAYOUT SYSTEM
    =================== */
@@ -8,7 +7,6 @@
   box-sizing: border-box;
 }
 
-/* 1. IMPROVED COLOR SCHEME & GRADIENTS */
 body {
   margin: 0;
   padding: 0;
@@ -22,17 +20,52 @@ body {
   flex-direction: column;
 }
 
-
-/* 2. MODERN CARD-BASED LAYOUT */
-.container {
+/* User info bar - fixed height */
+.user-info-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(103, 126, 234, 0.2);
+  padding: 0.5vh 2vw;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 8vh; /* Fixed height as percentage of viewport */
   display: flex;
-  align-items: flex-start;
-  margin-top: 30px;
-  gap: 20px;
-  padding: 0 20px;
+  align-items: center;
 }
 
-/* 3. SLEEK TAB NAVIGATION */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1vw;
+  font-size: clamp(14px, 2vw, 24px);
+  color: #333;
+  width: 100%;
+}
+
+.profile-pic {
+  width: clamp(30px, 4vh, 50px);
+  height: clamp(30px, 4vh, 50px);
+  border-radius: 50%;
+  border: 2px solid #667eea;
+}
+
+/* Main app container - responsive grid */
+.main-app-container {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  width: 100vw;
+  padding: 8vh 1vw 1vh 1vw;
+  gap: 1vw;
+}
+
+/* Left tabs - responsive */
 #leftTabs {
   display: flex;
   flex-direction: column;
@@ -88,7 +121,6 @@ body {
 }
 
 #leftTabs .tablinks:hover .tab-icon {
-  /* Removed grayscale(0%) - icons will keep their original colors */
   transform: rotate(90deg) scale(1.1);
 }
 
@@ -100,12 +132,14 @@ body {
 }
 
 #leftTabs .tablinks.active .tab-icon {
-  /* Changed from brightness(0) invert(1) to maintain original colors */
-  /* You can add a subtle glow effect instead if desired */
   filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
 }
 
-/* 4. MODERN FILTER CONTAINERS */
+/* Filter containers - responsive */
+.filter-containers {
+  display: contents;
+}
+
 #filterContainer, 
 #filterContainerWallpaperFlooring, 
 #filterContainerBackgrounds {
@@ -147,88 +181,26 @@ body {
   box-shadow: 0 8px 25px rgba(103, 126, 234, 0.3);
 }
 
-/* 5. ENHANCED DROPDOWN ANIMATIONS */
-.dropdown-button span:after {
-  content: '▼';
-  font-size: 14px;
-  position: absolute;
-  opacity: 0.7;
-  top: 0;
-  right: -20px;
-  transition: all 0.3s ease;
+/* Content area - responsive */
+#leftCatalogContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
-.dropdown-button:hover span:after {
-  opacity: 1;
-  right: 0;
-  transform: rotate(180deg);
-}
-
-/* 6. IMPROVED DROPDOWN CONTENT */
-
-.dropdown-content {
-  display: none;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  z-index: 1000;
-  max-height: 40vh;
+#AllItems, #AllWallpaperFlooring, #AllBackgrounds {
   overflow-y: auto;
-  padding: 1vh;
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: 0.5vh;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-}
-
-.dropdown-content::-webkit-scrollbar,
-#AllItems::-webkit-scrollbar,
-#AllWallpaperFlooring::-webkit-scrollbar,
-#AllBackgrounds::-webkit-scrollbar {
-  width: clamp(8px, 1vw, 18px);
-}
-
-.dropdown-content::-webkit-scrollbar-thumb,
-#AllItems::-webkit-scrollbar-thumb,
-#AllWallpaperFlooring::-webkit-scrollbar-thumb,
-#AllBackgrounds::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-#filterContainer .dropdown-content,
-#filterContainerWallpaperFlooring .dropdown-content,
-#filterContainerBackgrounds .dropdown-content {
-  display: none;
-  background: rgba(255, 255, 255, 0.98);
+  flex: 1;
+  padding: 1vh 1vw;
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  z-index: 1000;
-  max-height: 800px;
-  overflow-y: scroll; /* Changed from 'auto' to 'scroll' */
-  padding: 15px;
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: 5px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  animation: slideDown 0.3s ease;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 7. MODERN SEARCH INPUT - FULL WIDTH */
+/* Search inputs - responsive */
 .leftTabContent input[type="text"] {
   width: 100%;
   height: clamp(35px, 5vh, 60px);
@@ -245,8 +217,6 @@ body {
 }
 
 .leftTabContent input[type="text"]::placeholder {
-  width: 100%;
-  box-sizing: border-box;
   color: #999;
   font-weight: 400;
 }
@@ -257,7 +227,7 @@ body {
   background: white;
 }
 
-/* 8. ENHANCED CATALOG ITEMS - FULL WIDTH TO MATCH SEARCH BAR */
+/* Catalog items - responsive */
 .catalog-item {
   padding: 1vh 1vw;
   background: rgba(255, 255, 255, 0.7);
@@ -305,7 +275,56 @@ body {
   transform: scale(1.1);
 }
 
-/* 9. MODERN FILTER BUTTONS */
+/* Drop zone - responsive and maintains aspect ratio */
+#dropZoneContainer {
+  grid-column: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+#dropZone {
+  width: min(85vh * 1.33, 45vw); /* Maintain 4:3 aspect ratio, fit height or width */
+  height: min(85vh, 45vw * 0.75);
+  border: 3px dashed rgba(103, 126, 234, 0.3);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+#dropZone:hover {
+  border-color: rgba(103, 126, 234, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#dropZone img[draggable="true"] {
+    cursor: grab;
+}
+
+#dropZone img[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+/* Settings container */
+#settingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh;
+  gap: 1vh;
+}
+
+#settingsContainer p {
+  font-size: clamp(16px, 2vw, 28px);
+  margin: 0;
+}
+
+/* Filter buttons - responsive */
 .collection-button, 
 .color-button, 
 .category-button, 
@@ -344,130 +363,7 @@ body {
   box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
 }
 
-/* 10. MODERN CONTENT AREA */
-#leftCatalogContent {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: hidden;
-}
-
-#AllItems, #AllWallpaperFlooring, #AllBackgrounds {
-  overflow-y: auto;
-  flex: 1;
-  padding: 1vh 1vw;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-/* 11. IMPROVED SCROLLBAR - LARGER AND MORE VISIBLE */
-#AllItems::-webkit-scrollbar,
-#AllWallpaperFlooring::-webkit-scrollbar,
-#AllBackgrounds::-webkit-scrollbar,
-.dropdown-content::-webkit-scrollbar {
-  width: 18px; /* Increased from 8px */
-}
-
-#AllItems::-webkit-scrollbar-track,
-#AllWallpaperFlooring::-webkit-scrollbar-track,
-#AllBackgrounds::-webkit-scrollbar-track,
-.dropdown-content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  border: 2px solid rgba(103, 126, 234, 0.1);
-}
-
-#AllItems::-webkit-scrollbar-thumb,
-#AllWallpaperFlooring::-webkit-scrollbar-thumb,
-#AllBackgrounds::-webkit-scrollbar-thumb,
-.dropdown-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 6px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#AllItems::-webkit-scrollbar-thumb:hover,
-#AllWallpaperFlooring::-webkit-scrollbar-thumb:hover,
-#AllBackgrounds::-webkit-scrollbar-thumb:hover,
-.dropdown-content::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5a67d8, #6b46c1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Add scrollbar corner styling */
-#AllItems::-webkit-scrollbar-corner,
-#AllWallpaperFlooring::-webkit-scrollbar-corner,
-#AllBackgrounds::-webkit-scrollbar-corner,
-.dropdown-content::-webkit-scrollbar-corner {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-/* 12. MODERN DROP ZONE */
-#dropZoneContainer {
-  grid-column: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-
-#dropZone {
-  width: min(85vh * 1.33, 45vw); /* Maintain 4:3 aspect ratio, fit height or width */
-  height: min(85vh, 45vw * 0.75);
-  border: 3px dashed rgba(103, 126, 234, 0.3);
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-}
-
-#dropZone:hover {
-  border-color: rgba(103, 126, 234, 0.6);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-#dropZone img[draggable="true"] {
-    cursor: grab;
-}
-
-#dropZone img[draggable="true"]:active {
-    cursor: grabbing;
-}
-
-#settingsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2vh;
-  gap: 1vh;
-}
-
-#settingsContainer p {
-  font-size: clamp(16px, 2vw, 28px);
-  margin: 0;
-}
-
-
-/* RESTORED ICON SIZING FROM PREVIOUS VERSION */
-
-/* Show grabby hand cursor when hovering over draggable items */
-[draggable="true"] {
-    cursor: grab;
-}
-
-/* Show grabbing hand cursor when actively dragging */
-[draggable="true"]:active {
-    cursor: grabbing;
-}
-
-/* Icon Sizing - Items Section */
+/* Icon sizing - responsive */
 .collection-button .icon,
 .category-button .icon {
   width: clamp(40px, 4vw, 75px);
@@ -488,8 +384,87 @@ body {
   margin-right: 1vw;
 }
 
-/* Icon Sizing - Wallpaper & Flooring and Backgrounds Sections */
-/* Category and Collection icons - larger size */
+/* Filter dropdown content - responsive */
+.dropdown-content {
+  display: none;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  z-index: 1000;
+  max-height: 40vh;
+  overflow-y: auto;
+  padding: 1vh;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0.5vh;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive scrollbars */
+.dropdown-content::-webkit-scrollbar,
+#AllItems::-webkit-scrollbar,
+#AllWallpaperFlooring::-webkit-scrollbar,
+#AllBackgrounds::-webkit-scrollbar {
+  width: clamp(8px, 1vw, 18px);
+}
+
+.dropdown-content::-webkit-scrollbar-track,
+#AllItems::-webkit-scrollbar-track,
+#AllWallpaperFlooring::-webkit-scrollbar-track,
+#AllBackgrounds::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  border: 2px solid rgba(103, 126, 234, 0.1);
+}
+
+.dropdown-content::-webkit-scrollbar-thumb,
+#AllItems::-webkit-scrollbar-thumb,
+#AllWallpaperFlooring::-webkit-scrollbar-thumb,
+#AllBackgrounds::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover,
+#AllItems::-webkit-scrollbar-thumb:hover,
+#AllWallpaperFlooring::-webkit-scrollbar-thumb:hover,
+#AllBackgrounds::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content::-webkit-scrollbar-corner,
+#AllItems::-webkit-scrollbar-corner,
+#AllWallpaperFlooring::-webkit-scrollbar-corner,
+#AllBackgrounds::-webkit-scrollbar-corner {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Show grabby hand cursor when hovering over draggable items */
+[draggable="true"] {
+    cursor: grab;
+}
+
+[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+/* Wallpaper & Flooring and Backgrounds icon sizing */
 .collection-button .filter-icon{
   width: 100px;
   height: 100px;
@@ -504,14 +479,12 @@ body {
   vertical-align: middle;
 }
 
-/* Color icons in Wallpaper & Flooring - if using img.filter-icon */
 #filterContainerWallpaperFlooring .color-button .filter-icon {
   width: 50px;
   height: 50px;
   margin-right: 15px;
 }
 
-/* Color icons in Wallpaper & Flooring and Backgrounds - if using div.color-icon */
 #filterContainerWallpaperFlooring .color-button .color-icon,
 #filterContainerBackgrounds .color-button .color-icon {
   width: 50px;
@@ -520,7 +493,6 @@ body {
   background-size: cover;
 }
 
-/* Ensure color buttons have proper padding */
 #filterContainerWallpaperFlooring .color-button,
 #filterContainerBackgrounds .color-button {
   padding: 12px 7px;
@@ -539,550 +511,7 @@ body {
   height: 50px;
 }
 
-/* Popup Overlay Styles */
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(1px);
-  z-index: 10000;
-  display: flex;
-  justify-content: flex-start; /* Changed from center */
-  align-items: flex-start; /* Changed from center */
-  animation: fadeIn 0.1s ease;
-  padding-top: 50px; /* Align with catalog top */
-  padding-left: 1300px; /* Position to the right of catalog (adjust as needed) */
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Popup Modal */
-.popup-modal {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 90%;
-  max-width: 1000px;
-  max-height: 90vh;
-  overflow: hidden;
-  position: relative;
-  animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Close Button */
-.popup-close {
-  position: absolute;
-  top: 30px; /* Moved up from 40px */
-  right: 20px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px; /* Increased from 40px */
-  height: 50px; /* Increased from 40px */
-  font-size: 28px; /* Increased from 24px */
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10001;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
-}
-
-.popup-close:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
-}
-
-/* Header */
-.popup-header {
-  padding: 30px 30px 20px 30px;
-  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
-}
-
-.popup-header h2 {
-  margin: 0;
-  font-size: 42px; /* Increased from 32px */
-  color: #333;
-  font-weight: 600;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Body */
-.popup-body {
-  display: flex;
-  gap: 30px;
-  padding: 30px;
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
-/* Left Section - Info */
-.popup-left {
-  flex: 1;
-  min-width: 300px;
-  display: flex; /* Add this */
-  flex-direction: column; /* Add this */
-}
-
-.popup-info {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
-  padding: 25px;
-  border: 1px solid rgba(103, 126, 234, 0.2);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  /* REMOVE justify-content: space-around; - this was causing the downward push */
-}
-
-.info-item .info-value .single-item {
-  grid-column: 1 / -1; /* Span all columns */
-  justify-self: center;
-  text-align: center; /* NEW: Ensure text is centered */
-  width: 100%; /* NEW: Take full width for proper centering */
-  display: flex; /* NEW: Use flex to center icon and text together */
-  align-items: center; /* NEW: Vertically center icon and text */
-  justify-content: center; /* NEW: Horizontally center the content */
-  gap: 12px; /* NEW: Maintain gap between icon and text */
-}
-
-.info-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0; /* Remove margin to prevent visual imbalance */
-  padding: 25px 0; /* Increase padding for more even whitespace distribution */
-  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
-  flex: 1;
-  min-height: 120px; /* Add minimum height for consistent sizing */
-}
-
-/* Add special styling for first and last items to balance whitespace */
-.info-item:first-child {
-  padding-top: 15px; /* Reduce top padding to match internal spacing */
-}
-
-.info-item:last-child {
-  padding-bottom: 15px; /* Reduce bottom padding to match internal spacing */
-}
-
-.info-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.info-label {
-  font-weight: 600;
-  color: #667eea;
-  font-size: 34px; /* Increased from 28px */
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-/* Info Values - Increase content font size */
-.info-value {
-  color: #333;
-  font-size: 30px; /* Increased from 26px */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  margin-top: 0;
-}
-
-/* Special layout for colors - create two-column grid */
-.info-item .info-value {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 16px; /* row gap 8px, column gap 16px */
-  justify-items: center;
-  width: 100%;
-}
-
-/* Single item (non-color) should span full width and center */
-.info-item .info-value .single-item {
-  grid-column: 1 / -1; /* Span all columns */
-  justify-self: center;
-}
-
-/* Single color should span both columns and center */
-.info-item .info-value .color-item:only-child {
-  grid-column: 1 / -1; /* Span both columns */
-  justify-self: center;
-}
-
-/* Collection items styling for multiple collections - display in rows */
-.collection-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 28px; /* Match color-item font size */
-  margin: 4px 0;
-  grid-column: 1 / -1; /* Force each collection to span full width (new row) */
-  justify-self: center;
-}
-
-.collection-item .info-icon {
-  width: 60px; /* Match the existing info-icon size */
-  height: 60px;
-  flex-shrink: 0;
-}
-
-/* Override the grid layout specifically for collection items to stack vertically */
-.info-value:has(.collection-item) {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 8px !important;
-}
-
-/* Update the grid layout for collections to handle multiple rows */
-.info-item .info-value {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 16px; /* row gap 8px, column gap 16px */
-  justify-items: center;
-  width: 100%;
-}
-
-/* Collection items should also follow the two-column layout */
-.info-item .info-value .collection-item:only-child {
-  grid-column: 1 / -1; /* Single collection spans both columns */
-  justify-self: center;
-}
-
-/* Update icon sizes */
-.info-icon {
-  width: 60px; /* Increased from 40px (50% increase) */
-  height: 60px;
-  flex-shrink: 0;
-}
-
-.color-icon-small {
-  width: 32px; /* Increased from 24px */
-  height: 32px;
-  background-size: cover;
-  border-radius: 4px;
-  flex-shrink: 0;
-}
-
-/* New styles for color items and single items */
-.color-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 28px; /* Increased from 24px */
-  margin: 4px 0;
-}
-
-.color-item .filter-icon.color-icon-small {
-  width: 32px;
-  height: 32px;
-  margin-right: 10px;
-}
-
-.single-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 30px; /* Increased from 26px */
-}
-
-/* Right Section - Preview */
-.popup-right {
-  flex: 1.5;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 100%; /* Ensure full height usage */
-}
-
-.popup-preview::before {
-  content: "Preview";
-  display: block;
-  margin: 0 0 20px 0; /* Add bottom margin for spacing */
-  font-size: 34px;
-  color: #667eea;
-  font-weight: 600;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-/* Update popup-preview to accommodate the pseudo-element header */
-.popup-preview {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  border: 1px solid rgba(103, 126, 234, 0.2);
-  min-height: 500px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.popup-preview img {
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  object-fit: contain;
-  /* Remove fixed dimensions - will be set by JavaScript */
-  max-width: none;
-  max-height: none;
-  /* Add smooth scaling for better quality */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  /* Make it clear this is draggable */
-  cursor: grab;
-}
-
-.popup-preview img:active {
-  cursor: grabbing;
-}
-
-.popup-preview img:hover {
-  transform: scale(1.05);
-}
-
-/* Update image container for proper vertical centering */
-.popup-preview .image-container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 20px; /* Padding for hover scaling space */
-  box-sizing: border-box;
-}
-
-/* Views Section */
-.popup-views {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
-  padding: 15px;
-  border: 1px solid rgba(103, 126, 234, 0.2);
-  flex-shrink: 0;
-  max-height: 180px; /* For 4 or fewer views */
-}
-
-/* Expanded Views section for 5-8 views */
-.popup-views.expanded {
-  max-height: 280px; /* Increased height for more views */
-  padding: 20px; /* Slightly more padding for larger content */
-}
-
-.popup-views h3 {
-  margin: 0 0 15px 0;
-  font-size: 34px; /* Match Preview font size */
-  padding: 0; /* Remove the 20px padding */
-  text-align: center;
-  color: #667eea;
-  font-weight: 600;
-}
-
-.views-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  justify-content: center; /* NEW: Center the grid items */
-}
-
-.views-grid:has(.view-thumbnail:nth-child(1):nth-last-child(1)) {
-  display: flex; /* NEW: Use flex instead of grid */
-  justify-content: center;
-  gap: 8px;
-}
-
-.views-grid:has(.view-thumbnail:nth-child(2):nth-last-child(1)) {
-  display: flex; /* NEW: Use flex instead of grid */
-  justify-content: center;
-  gap: 8px;
-}
-
-.views-grid:has(.view-thumbnail:nth-child(3):nth-last-child(1)) {
-  display: flex; /* NEW: Use flex instead of grid */
-  justify-content: center;
-  gap: 8px;
-}
-
-/* Expanded grid - 4 columns, 2 rows for 5-8 views */
-.views-grid.expanded {
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px; /* Slightly more gap for better spacing */
-}
-
-.view-thumbnail {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  padding: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60px;
-  min-width: 80px; /* NEW: Set consistent width for all thumbnails */
-}
-
-/* Slightly smaller thumbnails when expanded to fit better */
-.view-thumbnail.compact {
-  min-height: 55px;
-  padding: 5px;
-}
-
-.view-thumbnail:hover {
-  transform: scale(1.05);
-  border-color: rgba(103, 126, 234, 0.3);
-  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.2);
-}
-
-.view-thumbnail.active {
-  border-color: #667eea;
-  background: rgba(103, 126, 234, 0.1);
-}
-
-.view-thumbnail img {
-  max-width: 100%;
-  max-height: 50px;
-  border-radius: 4px;
-}
-
-/* Slightly smaller images in compact mode */
-.view-thumbnail.compact img {
-  max-height: 45px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .main-app-container {
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto 1fr;
-    gap: 0.5vw;
-  }
-  
-  #filterContainer, 
-  #filterContainerWallpaperFlooring, 
-  #filterContainerBackgrounds {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    width: 100%;
-    height: auto;
-    max-height: 25vh;
-  }
-  
-  #leftCatalogContent {
-    grid-row: 2;
-  }
-  
-  #dropZoneContainer {
-    grid-column: 3;
-    grid-row: 1 / -1;
-  }
-  
-  #dropZone {
-    width: min(30vw, 40vh);
-    height: min(30vw * 0.75, 30vh);
-  }
-}
-
-@media (max-width: 480px) {
-  .main-app-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
-    padding: 8vh 0.5vw 1vh 0.5vw;
-  }
-  
-  #leftTabs {
-    grid-row: 1;
-    flex-direction: row;
-    width: 100%;
-    height: auto;
-  }
-  
-  #leftTabs .tablinks {
-    height: 60px;
-    writing-mode: initial;
-    text-orientation: initial;
-    transform: none;
-    font-size: clamp(12px, 3vw, 16px);
-  }
-  
-  #leftTabs .tablinks .tab-icon {
-    transform: none;
-    margin: 0 0.5vw 0 0;
-  }
-  
-  #filterContainer, 
-  #filterContainerWallpaperFlooring, 
-  #filterContainerBackgrounds {
-    grid-row: 2;
-    height: auto;
-    max-height: 20vh;
-  }
-  
-  #leftCatalogContent {
-    grid-row: 3;
-  }
-  
-  #dropZoneContainer {
-    position: fixed;
-    bottom: 1vh;
-    right: 1vw;
-    width: 40vw;
-    height: 30vh;
-    z-index: 100;
-  }
-  
-  #dropZone {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-/* Show grabbing cursor during drag operations globally */
-.dragging {
-    cursor: grabbing !important;
-}
-
-/* Apply grabbing cursor to the entire body during drag operations */
-body.dragging,
-body.dragging * {
-    cursor: grabbing !important;
-}
-
-/* Authentication Styles */
+/* Authentication styles - responsive */
 .auth-container {
   position: fixed;
   top: 0;
@@ -1207,78 +636,7 @@ body.dragging * {
   color: #764ba2;
 }
 
-/* User Info Bar */
-.user-info-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(103, 126, 234, 0.2);
-  padding: 0.5vh 2vw;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  height: 8vh; /* Fixed height as percentage of viewport */
-  display: flex;
-  align-items: center;
-}
-
-.user-profile {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1vw;
-  font-size: clamp(14px, 2vw, 24px);
-  color: #333;
-  width: 100%;
-}
-
-.profile-pic {
-  width: clamp(30px, 4vh, 50px);
-  height: clamp(30px, 4vh, 50px);
-  border-radius: 50%;
-  border: 2px solid #667eea;
-}
-
-/* Main app container - responsive grid */
-.main-app-container {
-  display: grid;
-  grid-template-columns: auto auto 1fr auto;
-  grid-template-rows: 1fr;
-  height: 100vh;
-  width: 100vw;
-  padding-top: 8vh; /* Account for user info bar */
-  gap: 1vw;
-  padding: 8vh 1vw 1vh 1vw;
-}
-
-.container {
-  display: contents; /* Let children participate in the main grid */
-}
-
-.sign-out-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  font-size: 28px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.sign-out-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(103, 126, 234, 0.3);
-}
-
-/* Adjust main container when user is logged in */
-body:has(.user-info-bar:not(:empty)) .container {
-  margin-top: 110px; /* Add space for user info bar */
-}
-
-/* Save/Load Modal Styles */
+/* Save/Load Modal - responsive */
 .save-load-modal {
   position: fixed;
   top: 0;
@@ -1405,6 +763,16 @@ body:has(.user-info-bar:not(:empty)) .container {
   box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
 }
 
+.sign-out-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.sign-out-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(103, 126, 234, 0.3);
+}
+
 #savedDesignsList {
   max-height: 400px;
   overflow-y: auto;
@@ -1453,17 +821,6 @@ body:has(.user-info-bar:not(:empty)) .container {
   font-style: italic;
 }
 
-/* Update user profile to include save/load button */
-.user-profile {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 15px;
-  font-size: 32px;
-  color: #333;
-}
-
-/* Scrollbar for saved designs list */
 #savedDesignsList::-webkit-scrollbar {
   width: 12px;
 }
@@ -1480,4 +837,598 @@ body:has(.user-info-bar:not(:empty)) .container {
 
 #savedDesignsList::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #5a67d8, #6b46c1);
+}
+
+/* Popup Overlay Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1px);
+  z-index: 10000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  animation: fadeIn 0.1s ease;
+  padding-top: 50px;
+  padding-left: 1300px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.popup-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
+}
+
+.popup-close:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
+}
+
+.popup-header {
+  padding: 30px 30px 20px 30px;
+  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
+}
+
+.popup-header h2 {
+  margin: 0;
+  font-size: 42px;
+  color: #333;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.popup-body {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.popup-left {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-info {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  padding: 25px 0;
+  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
+  flex: 1;
+  min-height: 120px;
+}
+
+.info-item:first-child {
+  padding-top: 15px;
+}
+
+.info-item:last-child {
+  padding-bottom: 15px;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.info-value {
+  color: #333;
+  font-size: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  justify-items: center;
+  width: 100%;
+  margin-top: 0;
+}
+
+.info-item .info-value .single-item {
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.info-item .info-value .color-item:only-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.collection-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  margin: 4px 0;
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.collection-item .info-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.info-value:has(.collection-item) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.info-item .info-value .collection-item:only-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.info-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.color-icon-small {
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  margin: 4px 0;
+}
+
+.color-item .filter-icon.color-icon-small {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.single-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 30px;
+}
+
+.popup-right {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.popup-preview::before {
+  content: "Preview";
+  display: block;
+  margin: 0 0 20px 0;
+  font-size: 34px;
+  color: #667eea;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.popup-preview {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  min-height: 500px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.popup-preview img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  object-fit: contain;
+  max-width: none;
+  max-height: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  cursor: grab;
+}
+
+.popup-preview img:active {
+  cursor: grabbing;
+}
+
+.popup-preview img:hover {
+  transform: scale(1.05);
+}
+
+.popup-preview .image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.popup-views {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  flex-shrink: 0;
+  max-height: 180px;
+}
+
+.popup-views.expanded {
+  max-height: 280px;
+  padding: 20px;
+}
+
+.popup-views h3 {
+  margin: 0 0 15px 0;
+  font-size: 34px;
+  padding: 0;
+  text-align: center;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.views-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  justify-content: center;
+}
+
+.views-grid:has(.view-thumbnail:nth-child(1):nth-last-child(1)) {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.views-grid:has(.view-thumbnail:nth-child(2):nth-last-child(1)) {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.views-grid:has(.view-thumbnail:nth-child(3):nth-last-child(1)) {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.views-grid.expanded {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.view-thumbnail {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  min-width: 80px;
+}
+
+.view-thumbnail.compact {
+  min-height: 55px;
+  padding: 5px;
+}
+
+.view-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: rgba(103, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.2);
+}
+
+.view-thumbnail.active {
+  border-color: #667eea;
+  background: rgba(103, 126, 234, 0.1);
+}
+
+.view-thumbnail img {
+  max-width: 100%;
+  max-height: 50px;
+  border-radius: 4px;
+}
+
+.view-thumbnail.compact img {
+  max-height: 45px;
+}
+
+/* Show grabbing cursor during drag operations globally */
+.dragging {
+    cursor: grabbing !important;
+}
+
+body.dragging,
+body.dragging * {
+    cursor: grabbing !important;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .main-app-container {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr;
+    gap: 0.5vw;
+  }
+  
+  #filterContainer, 
+  #filterContainerWallpaperFlooring, 
+  #filterContainerBackgrounds {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    height: auto;
+    max-height: 25vh;
+  }
+  
+  #leftCatalogContent {
+    grid-row: 2;
+  }
+  
+  #dropZoneContainer {
+    grid-column: 3;
+    grid-row: 1 / -1;
+  }
+  
+  #dropZone {
+    width: min(30vw, 40vh);
+    height: min(30vw * 0.75, 30vh);
+  }
+
+  .popup-modal {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .popup-body {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .views-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-app-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    padding: 8vh 0.5vw 1vh 0.5vw;
+  }
+  
+  #leftTabs {
+    grid-row: 1;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  }
+  
+  #leftTabs .tablinks {
+    height: 60px;
+    writing-mode: initial;
+    text-orientation: initial;
+    transform: none;
+    font-size: clamp(12px, 3vw, 16px);
+  }
+  
+  #leftTabs .tablinks .tab-icon {
+    transform: none;
+    margin: 0 0.5vw 0 0;
+  }
+  
+  #filterContainer, 
+  #filterContainerWallpaperFlooring, 
+  #filterContainerBackgrounds {
+    grid-row: 2;
+    height: auto;
+    max-height: 20vh;
+  }
+  
+  #leftCatalogContent {
+    grid-row: 3;
+  }
+  
+  #dropZoneContainer {
+    position: fixed;
+    bottom: 1vh;
+    right: 1vw;
+    width: 40vw;
+    height: 30vh;
+    z-index: 100;
+  }
+  
+  #dropZone {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Additional utility classes */
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
+/* Tab content visibility */
+.leftTabContent {
+  display: none;
+  height: 100%;
+  flex-direction: column;
+}
+
+.leftTabContent.active {
+  display: flex;
+}
+
+/* Ensure proper stacking context for modals */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #667eea;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Smooth transitions for better UX */
+* {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+.tablinks:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .auth-container,
+  .save-load-modal,
+  .popup-overlay,
+  .user-info-bar {
+    display: none !important;
+  }
+  
+  .main-app-container {
+    padding: 0;
+    height: auto;
+  }
+  
+  #dropZone {
+    border: 1px solid #000;
+    background: white;
+  }
 }
