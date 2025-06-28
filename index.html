@@ -622,10 +622,9 @@
     // ===================
     // UI FUNCTIONS
     // ===================
-
     function updateUI() {
       const authContainer = document.getElementById('authContainer');
-      const mainApp = document.querySelector('.container');
+      const mainApp = document.querySelector('.main-app-container');
       const userInfo = document.getElementById('userInfo');
       
       const googleBtn = document.querySelector('.google-btn');
@@ -639,7 +638,7 @@
       
       if (currentUser) {
         if (authContainer) authContainer.style.display = 'none';
-        if (mainApp) mainApp.style.display = 'flex';
+        if (mainApp) mainApp.style.display = 'grid'; // Changed from 'flex' to 'grid'
         if (userInfo) {
           userInfo.innerHTML = `
             <div class="user-profile">
@@ -658,6 +657,7 @@
       
       updateSaveLoadUI();
     }
+    
 
     function updateSaveLoadUI() {
       const modal = document.getElementById('saveLoadModal');
