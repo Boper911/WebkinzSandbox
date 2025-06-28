@@ -324,64 +324,7 @@
     // ROOM DESIGN FUNCTIONS
     // ===================
 
-      function getCurrentRoomState() {
-        const dropZone = document.getElementById('dropZone');
-        const items = [];
-        
-        // Get all items in the drop zone (excluding background/wallpaper/flooring)
-        const dropZoneItems = dropZone.querySelectorAll('img:not(.background)');
-        dropZoneItems.forEach(item => {
-          if (item.id !== 'background' && item.id !== 'wallpaper' && item.id !== 'flooring') {
-            // Parse views safely
-            let views = [];
-            try {
-              views = item.dataset.views ? JSON.parse(item.dataset.views) : [];
-            } catch (e) {
-              console.warn('Could not parse views for item:', item.id);
-              views = [];
-            }
-            
-            items.push({
-              id: item.id || `item-${Date.now()}-${Math.random()}`,
-              src: item.src || '',
-              alt: item.alt || '',
-              left: item.style.left || '0px',
-              top: item.style.top || '0px',
-              zIndex: item.style.zIndex || '1',
-              views: views,
-              currentViewIndex: item.dataset.currentViewIndex || '0',
-              category: item.dataset.category || '',
-              collection: item.dataset.collection || '',
-              colors: item.dataset.colors || '',
-              footprint: item.dataset.footprint || ''
-            });
-          }
-        });
-
-        // Get background/wallpaper/flooring safely
-        const background = document.getElementById('background');
-        const wallpaper = document.getElementById('wallpaper');
-        const flooring = document.getElementById('flooring');
-
-        return {
-          items: items,
-          background: background && background.src ? {
-            src: background.src,
-            left: background.style.left || '0px',
-            top: background.style.top || '0px'
-          } : null,
-          wallpaper: wallpaper && wallpaper.src ? {
-            src: wallpaper.src,
-            left: wallpaper.style.left || '0px',
-            top: wallpaper.style.top || '0px'
-          } : null,
-          flooring: flooring && flooring.src ? {
-            src: flooring.src,
-            left: flooring.style.left || '0px',
-            top: flooring.style.top || '0px'
-          } : null
-        };
-      }
+    function getCurrentRoomState() {
       const dropZone = document.getElementById('dropZone');
       const items = [];
       
@@ -389,48 +332,57 @@
       const dropZoneItems = dropZone.querySelectorAll('img:not(.background)');
       dropZoneItems.forEach(item => {
         if (item.id !== 'background' && item.id !== 'wallpaper' && item.id !== 'flooring') {
+          // Parse views safely
+          let views = [];
+          try {
+            views = item.dataset.views ? JSON.parse(item.dataset.views) : [];
+          } catch (e) {
+            console.warn('Could not parse views for item:', item.id);
+            views = [];
+          }
+          
           items.push({
-            id: item.id,
-            src: item.src,
-            alt: item.alt,
-            left: item.style.left,
-            top: item.style.top,
-            zIndex: item.style.zIndex,
-            views: item.dataset.views ? JSON.parse(item.dataset.views) : [],
+            id: item.id || `item-${Date.now()}-${Math.random()}`,
+            src: item.src || '',
+            alt: item.alt || '',
+            left: item.style.left || '0px',
+            top: item.style.top || '0px',
+            zIndex: item.style.zIndex || '1',
+            views: views,
             currentViewIndex: item.dataset.currentViewIndex || '0',
-            category: item.dataset.category,
-            collection: item.dataset.collection,
-            colors: item.dataset.colors,
-            footprint: item.dataset.footprint
+            category: item.dataset.category || '',
+            collection: item.dataset.collection || '',
+            colors: item.dataset.colors || '',
+            footprint: item.dataset.footprint || ''
           });
         }
       });
 
-      // Get background/wallpaper/flooring
+      // Get background/wallpaper/flooring safely
       const background = document.getElementById('background');
       const wallpaper = document.getElementById('wallpaper');
       const flooring = document.getElementById('flooring');
 
       return {
         items: items,
-        background: background ? {
+        background: background && background.src ? {
           src: background.src,
-          left: background.style.left,
-          top: background.style.top
+          left: background.style.left || '0px',
+          top: background.style.top || '0px'
         } : null,
-        wallpaper: wallpaper ? {
+        wallpaper: wallpaper && wallpaper.src ? {
           src: wallpaper.src,
-          left: wallpaper.style.left,
-          top: wallpaper.style.top
+          left: wallpaper.style.left || '0px',
+          top: wallpaper.style.top || '0px'
         } : null,
-        flooring: flooring ? {
+        flooring: flooring && flooring.src ? {
           src: flooring.src,
-          left: flooring.style.left,
-          top: flooring.style.top
+          left: flooring.style.left || '0px',
+          top: flooring.style.top || '0px'
         } : null
       };
     }
-
+     
     async function saveRoomDesign(designName) {
       console.log('saveRoomDesign called with:', designName);
       
