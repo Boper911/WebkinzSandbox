@@ -24,6 +24,7 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* User info bar - fixed height */
 .user-info-bar {
   position: fixed;
@@ -42,6 +43,11 @@ body {
 /* 2. MODERN CARD-BASED LAYOUT */
 .container {
 >>>>>>> parent of c2880c8 (updated UI for browsers)
+=======
+
+/* 2. MODERN CARD-BASED LAYOUT */
+.container {
+>>>>>>> parent of c2880c8 (updated UI for browsers)
   display: flex;
   align-items: flex-start;
   margin-top: 30px;
@@ -49,6 +55,7 @@ body {
   padding: 0 20px;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .user-profile {
   display: flex;
@@ -81,6 +88,9 @@ body {
 }
 
 /* Left tabs - full height */
+=======
+/* 3. SLEEK TAB NAVIGATION */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
 =======
 /* 3. SLEEK TAB NAVIGATION */
 >>>>>>> parent of c2880c8 (updated UI for browsers)
@@ -157,6 +167,7 @@ body {
   filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* Filters - separate column, full height */
 .filter-containers {
