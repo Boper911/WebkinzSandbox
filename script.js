@@ -2736,3 +2736,409 @@ function handleBackgroundsPopupDrag(event) {
 }
 
 let autoZAxisEnabled = false;
+
+// Drop Zone Scaling System - Always show full room
+
+// ORIGINAL ROOM DIMENSIONS (these represent the full room as it should appear)
+const ORIGINAL_ROOM_WIDTH = 1000;   // Full room width in original game coordinates
+const ORIGINAL_ROOM_HEIGHT = 750;   // Full room height in original game coordinates
+
+// ORIGINAL ELEMENT POSITIONS (from the game)
+const ORIGINAL_WALLPAPER_LEFT = 270;
+const ORIGINAL_WALLPAPER_TOP = 205;
+const ORIGINAL_FLOORING_LEFT = 300;
+const ORIGINAL_FLOORING_TOP = 590;
+
+// Track current scale factor
+let roomScale = 1;
+
+// Function to calculate scale to fit the entire room in the drop zone
+function calculateRoomScale() {
+    const dropZone = document.getElementById('dropZone');
+    if (!dropZone) return 1;
+    
+    // Get current drop zone dimensions
+    const dropZoneWidth = dropZone.offsetWidth;
+    const dropZoneHeight = dropZone.offsetHeight;
+    
+    // Calculate scale to fit entire room in drop zone (with some padding)
+    const scaleX = (dropZoneWidth - 20) / ORIGINAL_ROOM_WIDTH;   // 20px padding
+    const scaleY = (dropZoneHeight - 20) / ORIGINAL_ROOM_HEIGHT; // 20px padding
+    
+    // Use the smaller scale to ensure everything fits
+    roomScale = Math.min(scaleX, scaleY, 1); // Never scale larger than original
+    
+    console.log(`Room scale: ${roomScale.toFixed(3)}x (DropZone: ${dropZoneWidth}x${dropZoneHeight}, Room: ${ORIGINAL_ROOM_WIDTH}x${ORIGINAL_ROOM_HEIGHT})`);
+    
+    return roomScale;
+}
+
+// Function to scale and position all room content to show full room
+function scaleRoomToFit() {
+    const dropZone = document.getElementById('dropZone');
+    if (!dropZone) return;
+    
+    calculateRoomScale();
+    
+    // Center the scaled room in the drop zone
+    const dropZoneWidth = dropZone.offsetWidth;
+    const dropZoneHeight = dropZone.offsetHeight;
+    const scaledRoomWidth = ORIGINAL_ROOM_WIDTH * roomScale;
+    const scaledRoomHeight = ORIGINAL_ROOM_HEIGHT * roomScale;
+    
+    const offsetX = (dropZoneWidth - scaledRoomWidth) / 2;
+    const offsetY = (dropZoneHeight - scaledRoomHeight) / 2;
+    
+    // Apply room transformation to a container
+    let roomContainer = dropZone.querySelector('.room-container');
+    if (!roomContainer) {
+        roomContainer = document.createElement('div');
+        roomContainer.className = 'room-container';
+        roomContainer.style.position = 'absolute';
+        roomContainer.style.top = '0';
+        roomContainer.style.left = '0';
+        roomContainer.style.width = ORIGINAL_ROOM_WIDTH + 'px';
+        roomContainer.style.height = ORIGINAL_ROOM_HEIGHT + 'px';
+        roomContainer.style.transformOrigin = 'top left';
+        
+        // Move all existing content to the container
+        const children = Array.from(dropZone.children);
+        children.forEach(child => {
+            if (!child.classList.contains('room-container')) {
+                roomContainer.appendChild(child);
+            }
+        });
+        
+        dropZone.appendChild(roomContainer);
+    }
+    
+    // Scale and center the room container
+    roomContainer.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${roomScale})`;
+    
+    // Ensure backgrounds fill the room container
+    const background = roomContainer.querySelector('#background');
+    if (background) {
+        background.style.width = ORIGINAL_ROOM_WIDTH + 'px';
+        background.style.height = ORIGINAL_ROOM_HEIGHT + 'px';
+        background.style.position = 'absolute';
+        background.style.top = '0px';
+        background.style.left = '0px';
+        background.style.objectFit = 'cover';
+    }
+    
+    // Position wallpaper at original coordinates
+    const wallpaper = roomContainer.querySelector('#wallpaper');
+    if (wallpaper) {
+        wallpaper.style.position = 'absolute';
+        wallpaper.style.left = ORIGINAL_WALLPAPER_LEFT + 'px';
+        wallpaper.style.top = ORIGINAL_WALLPAPER_TOP + 'px';
+        // Remove any transform scaling, let the container handle it
+        wallpaper.style.transform = 'none';
+    }
+    
+    // Position flooring at original coordinates  
+    const flooring = roomContainer.querySelector('#flooring');
+    if (flooring) {
+        flooring.style.position = 'absolute';
+        flooring.style.left = ORIGINAL_FLOORING_LEFT + 'px';
+        flooring.style.top = ORIGINAL_FLOORING_TOP + 'px';
+        // Remove any transform scaling, let the container handle it
+        flooring.style.transform = 'none';
+    }
+    
+    // Scale all furniture items within the room coordinate system
+    const items = roomContainer.querySelectorAll('img:not(.background):not(#background):not(#wallpaper):not(#flooring)');
+    items.forEach(item => {
+        // Store original position in room coordinates if not already stored
+        if (!item.dataset.roomLeft) {
+            const currentLeft = parseInt(item.style.left) || 0;
+            const currentTop = parseInt(item.style.top) || 0;
+            item.dataset.roomLeft = currentLeft + 'px';
+            item.dataset.roomTop = currentTop + 'px';
+        }
+        
+        // Position item at room coordinates (container scaling handles the rest)
+        const roomLeft = parseInt(item.dataset.roomLeft) || 0;
+        const roomTop = parseInt(item.dataset.roomTop) || 0;
+        
+        item.style.position = 'absolute';
+        item.style.left = roomLeft + 'px';
+        item.style.top = roomTop + 'px';
+        item.style.transform = 'none'; // Let container handle scaling
+    });
+}
+
+// Modified drop function to work with room coordinate system
+function dropWithRoomCoords(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    const dropZone = document.getElementById('dropZone');
+    let roomContainer = dropZone.querySelector('.room-container');
+
+    // Ensure room container exists
+    if (!roomContainer) {
+        scaleRoomToFit(); // This will create the container
+        roomContainer = dropZone.querySelector('.room-container');
+    }
+
+    // Handle popup drags first (existing logic)
+    if (data === "popup-wallpaper-flooring-item") {
+        if (window.popupDragData) {
+            setWallpaperOrFlooringFromPopup(window.popupDragData);
+            window.popupDragData = null;
+            scaleRoomToFit(); // Rescale after adding
+            return;
+        }
+    }
+
+    if (data === "popup-background-item") {
+        if (window.popupDragData) {
+            setBackgroundFromPopup(window.popupDragData);
+            window.popupDragData = null;
+            scaleRoomToFit(); // Rescale after adding
+            return;
+        }
+    }
+
+    if (data === "popup-preview-item") {
+        if (window.popupDragData) {
+            const dragData = window.popupDragData;
+            
+            // Calculate position in room coordinates
+            const dropRect = dropZone.getBoundingClientRect();
+            const containerRect = roomContainer.getBoundingClientRect();
+            
+            // Convert screen coordinates to room coordinates
+            const roomX = (event.clientX - containerRect.left) / roomScale - dragData.adjustedOffsetX / roomScale;
+            const roomY = (event.clientY - containerRect.top) / roomScale - dragData.adjustedOffsetY / roomScale;
+            
+            const clonedElement = document.createElement('img');
+            clonedElement.src = dragData.views[dragData.currentViewIndex];
+            clonedElement.alt = dragData.alt;
+            clonedElement.style.position = 'absolute';
+            clonedElement.id = `cloned-popup-${Date.now()}`;
+            clonedElement.dataset.views = JSON.stringify(dragData.views);
+            clonedElement.dataset.currentViewIndex = dragData.currentViewIndex.toString();
+            clonedElement.dataset.source = 'dropZone';
+            clonedElement.dataset.category = dragData.category;
+            clonedElement.dataset.collection = dragData.collection;
+            clonedElement.dataset.colors = dragData.colors;
+            clonedElement.dataset.footprint = dragData.footprint;
+            
+            // Store room coordinates
+            clonedElement.dataset.roomLeft = roomX + 'px';
+            clonedElement.dataset.roomTop = roomY + 'px';
+            clonedElement.style.left = roomX + 'px';
+            clonedElement.style.top = roomY + 'px';
+
+            clonedElement.style.zIndex = ++highestZIndex;
+            clonedElement.draggable = true;
+
+            // Add event listeners
+            clonedElement.addEventListener('dragstart', drag);
+            clonedElement.addEventListener('keydown', function(event) {
+                handleArrowKeysRoom(event, clonedElement);
+            });
+            clonedElement.addEventListener('click', function() {
+                bringToFront(clonedElement);
+            });
+            clonedElement.addEventListener('dblclick', function() {
+                changeView(clonedElement);
+            });
+
+            roomContainer.appendChild(clonedElement);
+            
+            window.popupDragData = null;
+            return;
+        }
+    }
+
+    // Handle catalog drops (existing logic)
+    const draggedElement = document.getElementById(data);
+    if (draggedElement && draggedElement.dataset.source === 'catalog') {
+        if (draggedElement.closest('#AllWallpaperFlooring') || draggedElement.closest('#AllBackgrounds')) {
+            if (draggedElement.closest('#AllWallpaperFlooring')) {
+                setWallpaperOrFlooring(draggedElement);
+            } else if (draggedElement.closest('#AllBackgrounds')) {
+                setBackgroundFromCatalog(draggedElement);
+            }
+            scaleRoomToFit(); // Rescale after adding
+            return;
+        }
+    }
+
+    // Calculate drop position in room coordinates
+    const dropRect = dropZone.getBoundingClientRect();
+    const containerRect = roomContainer.getBoundingClientRect();
+    
+    const roomX = (event.clientX - containerRect.left) / roomScale - offsetX / roomScale;
+    const roomY = (event.clientY - containerRect.top) / roomScale - offsetY / roomScale;
+
+    if (!draggedElement) {
+        return;
+    }
+
+    if (event.shiftKey) {
+        const clonedElement = createClonedElementRoom(draggedElement, roomX, roomY);
+        roomContainer.appendChild(clonedElement);
+    } else if (draggedElement.dataset.source === 'catalog') {
+        const views = JSON.parse(draggedElement.dataset.views);
+        const clonedElement = document.createElement('img');
+        clonedElement.src = views[0];
+        clonedElement.alt = draggedElement.alt;
+        clonedElement.style.position = 'absolute';
+        clonedElement.setAttribute('tabindex', '0');
+        clonedElement.id = `cloned-${data}-${Date.now()}`;
+        clonedElement.dataset.views = JSON.stringify(views);
+        clonedElement.dataset.currentViewIndex = "0";
+        clonedElement.dataset.source = 'dropZone';
+        
+        // Store room coordinates
+        clonedElement.dataset.roomLeft = roomX + 'px';
+        clonedElement.dataset.roomTop = roomY + 'px';
+        clonedElement.style.left = roomX + 'px';
+        clonedElement.style.top = roomY + 'px';
+
+        clonedElement.style.zIndex = ++highestZIndex;
+        clonedElement.draggable = true;
+
+        clonedElement.addEventListener('dragstart', drag);
+        clonedElement.addEventListener('keydown', function(event) {
+            handleArrowKeysRoom(event, clonedElement);
+        });
+        clonedElement.addEventListener('click', function() {
+            bringToFront(clonedElement);
+        });
+        clonedElement.addEventListener('dblclick', function() {
+            changeView(clonedElement);
+        });
+
+        roomContainer.appendChild(clonedElement);
+    } else {
+        // Update room coordinates for existing items
+        draggedElement.dataset.roomLeft = roomX + 'px';
+        draggedElement.dataset.roomTop = roomY + 'px';
+        draggedElement.style.left = roomX + 'px';
+        draggedElement.style.top = roomY + 'px';
+        draggedElement.style.zIndex = ++highestZIndex;
+    }
+}
+
+// Helper function for creating cloned elements in room coordinates
+function createClonedElementRoom(draggedElement, roomX, roomY) {
+    const views = JSON.parse(draggedElement.dataset.views);
+    const currentViewIndex = parseInt(draggedElement.dataset.currentViewIndex);
+    const clonedElement = document.createElement('img');
+    clonedElement.src = views[currentViewIndex];
+    clonedElement.alt = draggedElement.alt;
+    clonedElement.style.position = 'absolute';
+    clonedElement.setAttribute('tabindex', '0');
+    clonedElement.id = `cloned-${draggedElement.id}-${Date.now()}`;
+    clonedElement.dataset.views = JSON.stringify(views);
+    clonedElement.dataset.currentViewIndex = currentViewIndex.toString();
+    clonedElement.dataset.source = 'dropZone';
+    
+    // Store room coordinates
+    clonedElement.dataset.roomLeft = roomX + 'px';
+    clonedElement.dataset.roomTop = roomY + 'px';
+    clonedElement.style.left = roomX + 'px';
+    clonedElement.style.top = roomY + 'px';
+
+    clonedElement.style.zIndex = ++highestZIndex;
+    clonedElement.draggable = true;
+
+    clonedElement.addEventListener('dragstart', drag);
+    clonedElement.addEventListener('keydown', function(event) {
+        handleArrowKeysRoom(event, clonedElement);
+    });
+    clonedElement.addEventListener('click', function() {
+        bringToFront(clonedElement);
+    });
+    clonedElement.addEventListener('dblclick', function() {
+        changeView(clonedElement);
+    });
+
+    return clonedElement;
+}
+
+// Modified arrow key handler for room coordinates
+function handleArrowKeysRoom(event, element) {
+    const step = 5; // Step in room coordinates
+    event.preventDefault();
+    
+    // Get current room position
+    const currentLeft = parseInt(element.dataset.roomLeft) || parseInt(element.style.left) || 0;
+    const currentTop = parseInt(element.dataset.roomTop) || parseInt(element.style.top) || 0;
+    
+    let newLeft = currentLeft;
+    let newTop = currentTop;
+    
+    switch(event.key) {
+        case 'ArrowLeft':
+            newLeft = currentLeft - step;
+            break;
+        case 'ArrowRight':
+            newLeft = currentLeft + step;
+            break;
+        case 'ArrowUp':
+            newTop = currentTop - step;
+            break;
+        case 'ArrowDown':
+            newTop = currentTop + step;
+            break;
+        case 'Backspace':
+            element.remove();
+            event.preventDefault();
+            return;
+    }
+    
+    // Update room coordinates
+    element.dataset.roomLeft = newLeft + 'px';
+    element.dataset.roomTop = newTop + 'px';
+    element.style.left = newLeft + 'px';
+    element.style.top = newTop + 'px';
+}
+
+// Set up the room scaling system
+function initializeRoomScaling() {
+    const dropZone = document.getElementById('dropZone');
+    if (!dropZone) {
+        setTimeout(initializeRoomScaling, 100);
+        return;
+    }
+    
+    console.log('Initializing room scaling system...');
+    
+    // Initial room scaling
+    scaleRoomToFit();
+    
+    // Set up resize observer for responsive scaling
+    if (window.ResizeObserver) {
+        const resizeObserver = new ResizeObserver(() => {
+            scaleRoomToFit();
+        });
+        resizeObserver.observe(dropZone);
+    }
+    
+    // Fallback: window resize listener
+    window.addEventListener('resize', () => {
+        setTimeout(scaleRoomToFit, 100);
+    });
+    
+    // Replace the original drop function
+    window.drop = dropWithRoomCoords;
+    
+    // Replace arrow key handler
+    window.handleArrowKeys = handleArrowKeysRoom;
+    
+    console.log('Room scaling system initialized!');
+}
+
+// Initialize when ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeRoomScaling);
+} else {
+    initializeRoomScaling();
+}
+
+

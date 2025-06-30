@@ -1,5 +1,6 @@
+/* Modern UI Improvements */
 /* ===================
-   RESPONSIVE LAYOUT SYSTEM
+   RESPONSIVE LAYOUT SYSTEM - DROP ZONE PRIORITY
    =================== */
 
 /* Reset and base setup */
@@ -7,6 +8,7 @@
   box-sizing: border-box;
 }
 
+/* 1. IMPROVED COLOR SCHEME & GRADIENTS */
 body {
   margin: 0;
   padding: 0;
@@ -18,8 +20,10 @@ body {
   color: #333;
   display: flex;
   flex-direction: column;
+  min-width: 1200px; /* Minimum screen width for proper functionality */
 }
 
+<<<<<<< HEAD
 /* User info bar - fixed height */
 .user-info-bar {
   position: fixed;
@@ -32,44 +36,59 @@ body {
   padding: 0.5vh 2vw;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  height: 8vh; /* Fixed height as percentage of viewport */
+  height: 60px; /* Fixed height in pixels for consistency */
+=======
+
+/* 2. MODERN CARD-BASED LAYOUT */
+.container {
+>>>>>>> parent of c2880c8 (updated UI for browsers)
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 30px;
+  gap: 20px;
+  padding: 0 20px;
 }
 
+<<<<<<< HEAD
 .user-profile {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1vw;
-  font-size: clamp(14px, 2vw, 24px);
+  gap: 15px;
+  font-size: 16px;
   color: #333;
   width: 100%;
 }
 
 .profile-pic {
-  width: clamp(30px, 4vh, 50px);
-  height: clamp(30px, 4vh, 50px);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 2px solid #667eea;
 }
 
-/* Main app container - responsive grid */
+/* Main app container - 4 column layout: tabs | filters | catalog | dropzone */
 .main-app-container {
   display: grid;
-  grid-template-columns: auto auto 1fr auto;
+  grid-template-columns: 70px 220px 220px 1fr; /* tabs | filters | catalog | dropzone */
   grid-template-rows: 1fr;
-  height: 100vh;
+  grid-template-areas: "tabs filters catalog dropzone";
+  height: calc(100vh - 70px); /* Account for user bar + padding */
   width: 100vw;
-  padding: 8vh 1vw 1vh 1vw;
-  gap: 1vw;
+  padding: 70px 10px 10px 10px;
+  gap: 10px;
+  min-height: 600px; /* Minimum height for functionality */
 }
 
-/* Left tabs - responsive */
+/* Left tabs - full height */
+=======
+/* 3. SLEEK TAB NAVIGATION */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
 #leftTabs {
+  grid-area: tabs;
   display: flex;
   flex-direction: column;
-  width: clamp(80px, 8vw, 120px);
+  width: 70px;
   height: 100%;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -87,7 +106,7 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
-  font-size: clamp(16px, 2.5vw, 32px);
+  font-size: 14px;
   writing-mode: vertical-rl;
   text-orientation: sideways;
   transform: rotate(180deg);
@@ -95,7 +114,7 @@ body {
   text-align: center;
   width: 100%;
   height: 25%;
-  padding: 1vh 0;
+  padding: 10px 0;
   justify-content: center;
   border-radius: 12px;
   margin-bottom: 2px;
@@ -105,10 +124,10 @@ body {
 }
 
 #leftTabs .tablinks .tab-icon {
-  width: clamp(25px, 3vw, 40px);
-  height: clamp(25px, 3vw, 40px);
-  margin-right: 0.5vw;
-  margin-bottom: 1vh;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  margin-bottom: 8px;
   transform: rotate(90deg);
   transition: all 0.3s ease;
 }
@@ -121,6 +140,7 @@ body {
 }
 
 #leftTabs .tablinks:hover .tab-icon {
+  /* Removed grayscale(0%) - icons will keep their original colors */
   transform: rotate(90deg) scale(1.1);
 }
 
@@ -132,46 +152,56 @@ body {
 }
 
 #leftTabs .tablinks.active .tab-icon {
+  /* Changed from brightness(0) invert(1) to maintain original colors */
+  /* You can add a subtle glow effect instead if desired */
   filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
 }
 
-/* Filter containers - responsive */
+<<<<<<< HEAD
+/* Filters - separate column, full height */
 .filter-containers {
-  display: contents;
+  grid-area: filters;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
+=======
+/* 4. MODERN FILTER CONTAINERS */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
 #filterContainer, 
 #filterContainerWallpaperFlooring, 
 #filterContainerBackgrounds {
   display: flex;
   flex-direction: column;
-  width: clamp(300px, 25vw, 450px);
+  width: 100%;
+  height: 100%;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 1.5vh 1vw;
+  padding: 10px;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  height: 100%;
   overflow: hidden;
 }
 
+/* Filter buttons - very compact */
 #filterContainer button, 
 #filterContainerWallpaperFlooring button, 
 #filterContainerBackgrounds button {
-  padding: clamp(4px, 0.5vh, 8px);
-  font-size: clamp(18px, 2.2vw, 32px);
+  padding: 4px;
+  font-size: 11px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border: none;
   cursor: pointer;
   text-align: left;
-  margin-bottom: 0.5vh;
+  margin-bottom: 3px;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 12px;
+  border-radius: 6px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.2);
+  box-shadow: 0 2px 6px rgba(103, 126, 234, 0.2);
 }
 
 #filterContainer button:hover,
@@ -181,7 +211,331 @@ body {
   box-shadow: 0 8px 25px rgba(103, 126, 234, 0.3);
 }
 
-/* Content area - responsive */
+<<<<<<< HEAD
+/* Catalog - separate column, full height */
+#leftCatalogContent {
+  grid-area: catalog;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+}
+
+#AllItems, #AllWallpaperFlooring, #AllBackgrounds {
+  overflow-y: auto;
+  flex: 1;
+  padding: 8px;
+  background: transparent;
+  border-radius: 10px;
+  max-height: none; /* Remove height constraint */
+}
+
+/* Search inputs - compact for narrow columns */
+=======
+/* 5. ENHANCED DROPDOWN ANIMATIONS */
+.dropdown-button span:after {
+  content: '▼';
+  font-size: 14px;
+  position: absolute;
+  opacity: 0.7;
+  top: 0;
+  right: -20px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-button:hover span:after {
+  opacity: 1;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* 6. IMPROVED DROPDOWN CONTENT */
+
+.dropdown-content {
+  display: none;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  z-index: 1000;
+  max-height: 40vh;
+  overflow-y: auto;
+  padding: 1vh;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0.5vh;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-content::-webkit-scrollbar,
+#AllItems::-webkit-scrollbar,
+#AllWallpaperFlooring::-webkit-scrollbar,
+#AllBackgrounds::-webkit-scrollbar {
+  width: clamp(8px, 1vw, 18px);
+}
+
+.dropdown-content::-webkit-scrollbar-thumb,
+#AllItems::-webkit-scrollbar-thumb,
+#AllWallpaperFlooring::-webkit-scrollbar-thumb,
+#AllBackgrounds::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#filterContainer .dropdown-content,
+#filterContainerWallpaperFlooring .dropdown-content,
+#filterContainerBackgrounds .dropdown-content {
+  display: none;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  z-index: 1000;
+  max-height: 800px;
+  overflow-y: scroll; /* Changed from 'auto' to 'scroll' */
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 5px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 7. MODERN SEARCH INPUT - FULL WIDTH */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
+.leftTabContent input[type="text"] {
+  width: 100%;
+  height: 32px;
+  font-size: 12px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  border: 2px solid rgba(103, 126, 234, 0.2);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.leftTabContent input[type="text"]::placeholder {
+  width: 100%;
+  box-sizing: border-box;
+  color: #999;
+  font-weight: 400;
+}
+
+.leftTabContent input[type="text"]:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+  background: white;
+}
+
+<<<<<<< HEAD
+/* Catalog items - optimized sizing */
+=======
+/* 8. ENHANCED CATALOG ITEMS - FULL WIDTH TO MATCH SEARCH BAR */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
+.catalog-item {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  text-align: center;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.catalog-item img {
+  display: block;
+  margin: 8px auto;
+  border-radius: 8px;
+  max-width: 90%;
+  height: auto;
+  max-height: 80px; /* Smaller catalog images */
+  object-fit: contain;
+}
+
+.catalog-item img[draggable="true"] {
+    cursor: grab;
+}
+
+.catalog-item img[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+.catalog-item .item-label {
+  padding: 0 8px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+.catalog-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.catalog-item img:hover {
+  transform: scale(1.1);
+}
+
+<<<<<<< HEAD
+/* Drop zone - MAXIMUM priority - takes all remaining space */
+#dropZoneContainer {
+  grid-area: dropzone;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align to left (closer to catalog) */
+  height: 100%;
+  width: 100%;
+  padding: 0 10px 0 5px; /* Less padding on left, closer to catalog */
+}
+
+#dropZone {
+  width: min(calc(100vh - 90px), calc(100vw - 530px)); /* Slightly closer calculation */
+  height: calc(min(calc(100vh - 90px), calc(100vw - 530px)) * 0.75); /* Maintain 4:3 aspect ratio */
+  max-width: 1400px; /* Even larger maximum */
+  max-height: 1050px; /* Even larger maximum (4:3 ratio) */
+  min-width: 600px; /* Keep minimum functional size */
+  min-height: 450px; /* Keep minimum functional size (4:3 ratio) */
+  border: 3px dashed rgba(103, 126, 234, 0.3);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+/* Ensure background images fill the entire drop zone */
+#dropZone .background {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 0 !important;
+}
+
+/* Ensure wallpaper and flooring images also scale properly */
+#dropZone #wallpaper,
+#dropZone #flooring {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1 !important;
+}
+
+/* Ensure the main background element scales to show full room */
+#dropZone #background {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important; /* Use contain to show full room */
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: -1 !important;
+}
+
+#dropZone:hover {
+  border-color: rgba(103, 126, 234, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#dropZone img[draggable="true"] {
+    cursor: grab;
+}
+
+#dropZone img[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+/* Settings container */
+#settingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+#settingsContainer p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Filter buttons - very compact for narrow columns */
+=======
+/* 9. MODERN FILTER BUTTONS */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
+.collection-button, 
+.color-button, 
+.category-button, 
+.footprint-button {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  text-align: left;
+  border-radius: 6px;
+  margin-bottom: 3px;
+  border: 2px solid transparent;
+}
+
+.collection-button:hover, 
+.color-button:hover, 
+.category-button:hover, 
+.footprint-button:hover {
+  background: rgba(103, 126, 234, 0.1);
+  border-color: rgba(103, 126, 234, 0.3);
+  transform: translateX(5px);
+}
+
+.collection-button.active, 
+.color-button.active, 
+.category-button.active, 
+.footprint-button.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
+}
+
+<<<<<<< HEAD
+/* Icon sizing - very compact for narrow columns */
+=======
+/* 10. MODERN CONTENT AREA */
 #leftCatalogContent {
   display: flex;
   flex-direction: column;
@@ -200,82 +554,50 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Search inputs - responsive */
-.leftTabContent input[type="text"] {
-  width: 100%;
-  height: clamp(35px, 5vh, 60px);
-  font-size: clamp(16px, 2vw, 28px);
-  padding: 0 1vw;
-  box-sizing: border-box;
-  margin-bottom: 1vh;
-  border: 2px solid rgba(103, 126, 234, 0.2);
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  outline: none;
+/* 11. IMPROVED SCROLLBAR - LARGER AND MORE VISIBLE */
+#AllItems::-webkit-scrollbar,
+#AllWallpaperFlooring::-webkit-scrollbar,
+#AllBackgrounds::-webkit-scrollbar,
+.dropdown-content::-webkit-scrollbar {
+  width: 18px; /* Increased from 8px */
 }
 
-.leftTabContent input[type="text"]::placeholder {
-  color: #999;
-  font-weight: 400;
-}
-
-.leftTabContent input[type="text"]:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
-  background: white;
-}
-
-/* Catalog items - responsive */
-.catalog-item {
-  padding: 1vh 1vw;
-  background: rgba(255, 255, 255, 0.7);
+#AllItems::-webkit-scrollbar-track,
+#AllWallpaperFlooring::-webkit-scrollbar-track,
+#AllBackgrounds::-webkit-scrollbar-track,
+.dropdown-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 6px;
-  box-sizing: border-box;
-  margin-bottom: 1.5vh;
-  text-align: center;
-  width: 100%;
-  transition: all 0.3s ease;
+  border: 2px solid rgba(103, 126, 234, 0.1);
 }
 
-.catalog-item img {
-  display: block;
-  margin: 1vh auto;
-  border-radius: 8px;
-  max-width: 90%;
-  height: auto;
-  max-height: clamp(80px, 12vh, 150px);
-  object-fit: contain;
+#AllItems::-webkit-scrollbar-thumb,
+#AllWallpaperFlooring::-webkit-scrollbar-thumb,
+#AllBackgrounds::-webkit-scrollbar-thumb,
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.catalog-item img[draggable="true"] {
-    cursor: grab;
+#AllItems::-webkit-scrollbar-thumb:hover,
+#AllWallpaperFlooring::-webkit-scrollbar-thumb:hover,
+#AllBackgrounds::-webkit-scrollbar-thumb:hover,
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.catalog-item img[draggable="true"]:active {
-    cursor: grabbing;
+/* Add scrollbar corner styling */
+#AllItems::-webkit-scrollbar-corner,
+#AllWallpaperFlooring::-webkit-scrollbar-corner,
+#AllBackgrounds::-webkit-scrollbar-corner,
+.dropdown-content::-webkit-scrollbar-corner {
+  background: rgba(255, 255, 255, 0.4);
 }
 
-.catalog-item .item-label {
-  padding: 0 1vw 1vh;
-  font-size: clamp(12px, 1.8vw, 24px);
-  font-weight: 500;
-  word-wrap: break-word;
-  line-height: 1.2;
-}
-
-.catalog-item:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.catalog-item img:hover {
-  transform: scale(1.1);
-}
-
-/* Drop zone - responsive and maintains aspect ratio */
+/* 12. MODERN DROP ZONE */
 #dropZoneContainer {
   grid-column: 4;
   display: flex;
@@ -310,7 +632,6 @@ body {
     cursor: grabbing;
 }
 
-/* Settings container */
 #settingsContainer {
   display: flex;
   flex-direction: column;
@@ -324,80 +645,56 @@ body {
   margin: 0;
 }
 
-/* Filter buttons - responsive */
-.collection-button, 
-.color-button, 
-.category-button, 
-.footprint-button {
-  display: flex;
-  align-items: center;
-  padding: clamp(4px, 0.5vh, 8px);
-  font-size: clamp(16px, 2vw, 28px);
-  background: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-  text-align: left;
-  border-radius: 10px;
-  margin-bottom: 0.5vh;
-  border: 2px solid transparent;
+
+/* RESTORED ICON SIZING FROM PREVIOUS VERSION */
+
+/* Show grabby hand cursor when hovering over draggable items */
+[draggable="true"] {
+    cursor: grab;
 }
 
-.collection-button:hover, 
-.color-button:hover, 
-.category-button:hover, 
-.footprint-button:hover {
-  background: rgba(103, 126, 234, 0.1);
-  border-color: rgba(103, 126, 234, 0.3);
-  transform: translateX(5px);
+/* Show grabbing hand cursor when actively dragging */
+[draggable="true"]:active {
+    cursor: grabbing;
 }
 
-.collection-button.active, 
-.color-button.active, 
-.category-button.active, 
-.footprint-button.active {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
-}
-
-/* Icon sizing - responsive */
+/* Icon Sizing - Items Section */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
 .collection-button .icon,
 .category-button .icon {
-  width: clamp(40px, 4vw, 75px);
-  height: clamp(40px, 4vw, 75px);
-  margin-right: 1vw;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
 }
 
 .color-button .color-icon {
-  width: clamp(30px, 3vw, 50px);
-  height: clamp(30px, 3vw, 50px);
-  margin-right: 1vw;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
   background-size: cover;
 }
 
 .footprint-button .checkbox-icon {
-  width: clamp(30px, 3vw, 50px);
-  height: clamp(30px, 3vw, 50px);
-  margin-right: 1vw;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
 }
 
-/* Filter dropdown content - responsive */
+<<<<<<< HEAD
+/* Filter dropdown content - compact */
 .dropdown-content {
   display: none;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
+  border-radius: 10px;
   z-index: 1000;
-  max-height: 40vh;
+  max-height: 250px; /* Smaller max height for narrow columns */
   overflow-y: auto;
-  padding: 1vh;
+  padding: 8px;
   box-sizing: border-box;
   width: 100%;
-  margin-top: 0.5vh;
+  margin-top: 4px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   animation: slideDown 0.3s ease;
 }
@@ -413,12 +710,12 @@ body {
   }
 }
 
-/* Responsive scrollbars */
+/* Fixed scrollbars */
 .dropdown-content::-webkit-scrollbar,
 #AllItems::-webkit-scrollbar,
 #AllWallpaperFlooring::-webkit-scrollbar,
 #AllBackgrounds::-webkit-scrollbar {
-  width: clamp(8px, 1vw, 18px);
+  width: 12px;
 }
 
 .dropdown-content::-webkit-scrollbar-track,
@@ -465,380 +762,62 @@ body {
 }
 
 /* Wallpaper & Flooring and Backgrounds icon sizing */
+=======
+/* Icon Sizing - Wallpaper & Flooring and Backgrounds Sections */
+/* Category and Collection icons - larger size */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
 .collection-button .filter-icon{
-  width: 100px;
-  height: 100px;
-  margin-right: 15px;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
   vertical-align: middle;
 }
 
 .category-button .filter-icon {
-  width: 75px;
-  height: 75px;
-  margin-right: 15px;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
   vertical-align: middle;
 }
 
+/* Color icons in Wallpaper & Flooring - if using img.filter-icon */
 #filterContainerWallpaperFlooring .color-button .filter-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 15px;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
 }
 
+/* Color icons in Wallpaper & Flooring and Backgrounds - if using div.color-icon */
 #filterContainerWallpaperFlooring .color-button .color-icon,
 #filterContainerBackgrounds .color-button .color-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 15px;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
   background-size: cover;
 }
 
+/* Ensure color buttons have proper padding */
 #filterContainerWallpaperFlooring .color-button,
 #filterContainerBackgrounds .color-button {
-  padding: 12px 7px;
+  padding: 8px;
 }
 
 /* Checkbox States */
 .checkbox_off {
   background-image: url('assets/icons/items/footprint/checkbox_off.png');
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
 .checkbox_on {
   background-image: url('assets/icons/items/footprint/checkbox_on.png');
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
-/* Authentication styles - responsive */
-.auth-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  padding: 2vh 2vw;
-}
-
-.auth-modal {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: clamp(30px, 5vh, 60px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  text-align: center;
-  max-width: min(400px, 90vw);
-  width: 100%;
-}
-
-.auth-modal h1 {
-  font-size: clamp(24px, 4vw, 48px);
-  margin: 0 0 1vh 0;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.auth-modal p {
-  font-size: clamp(16px, 2.5vw, 32px);
-  color: #666;
-  margin: 0 0 3vh 0;
-}
-
-.auth-btn {
-  width: 100%;
-  padding: clamp(8px, 1.5vh, 15px) clamp(12px, 2vw, 20px);
-  font-size: clamp(16px, 2.5vw, 28px);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-bottom: 1.5vh;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1vw;
-}
-
-.google-btn {
-  background: white;
-  color: #333;
-  border: 2px solid #ddd;
-}
-
-.google-btn:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-}
-
-.google-btn img {
-  width: 35px;
-  height: 35px;
-}
-
-.email-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-}
-
-.email-btn:hover {
-  box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
-  transform: translateY(-2px);
-}
-
-.email-auth {
-  margin-top: 30px;
-  padding-top: 30px;
-  border-top: 1px solid #ddd;
-}
-
-.email-auth h3 {
-  font-size: 36px;
-  color: #333;
-  margin: 0 0 20px 0;
-}
-
-.email-auth input {
-  width: 100%;
-  padding: 15px;
-  font-size: 32px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-}
-
-.email-auth input:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
-}
-
-.toggle-btn {
-  background: none;
-  border: none;
-  color: #667eea;
-  font-size: 28px;
-  cursor: pointer;
-  text-decoration: underline;
-  margin-top: 10px;
-}
-
-.toggle-btn:hover {
-  color: #764ba2;
-}
-
-/* Save/Load Modal - responsive */
-.save-load-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-  z-index: 10001;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 2vh 2vw;
-}
-
-.modal-content {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: clamp(20px, 4vh, 40px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 100%;
-  max-width: min(600px, 90vw);
-  max-height: 85vh;
-  overflow-y: auto;
-  position: relative;
-}
-
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 48px;
-  font-weight: bold;
-  color: #667eea;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.close-modal:hover {
-  color: #764ba2;
-  transform: scale(1.1);
-}
-
-.modal-content h2 {
-  font-size: clamp(24px, 4vw, 48px);
-  margin: 0 0 2vh 0;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-align: center;
-}
-
-.modal-content h3 {
-  font-size: clamp(18px, 3vw, 36px);
-  color: #333;
-  margin: 2vh 0 1.5vh 0;
-  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
-  padding-bottom: 1vh;
-}
-
-.save-section, .load-section {
-  margin-bottom: 30px;
-}
-
-.save-section input {
-  width: 100%;
-  padding: 15px;
-  font-size: 32px;
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-}
-
-.save-section input:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
-}
-
-.save-btn, .load-btn, .delete-btn, .save-load-btn, .sign-out-btn {
-  padding: clamp(6px, 1vh, 12px) clamp(12px, 2vw, 24px);
-  font-size: clamp(14px, 2vw, 28px);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
-}
-
-.save-btn, .save-load-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  width: 100%;
-}
-
-.save-btn:hover, .save-load-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(103, 126, 234, 0.3);
-}
-
-.load-btn {
-  background: linear-gradient(135deg, #28a745, #20c997);
-  color: white;
-  margin-right: 10px;
-}
-
-.load-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-}
-
-.delete-btn {
-  background: linear-gradient(135deg, #dc3545, #e74c3c);
-  color: white;
-}
-
-.delete-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
-}
-
-.sign-out-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-}
-
-.sign-out-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(103, 126, 234, 0.3);
-}
-
-#savedDesignsList {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.design-item {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(103, 126, 234, 0.2);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.design-item:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(103, 126, 234, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.design-info h4 {
-  margin: 0 0 5px 0;
-  font-size: 32px;
-  color: #333;
-}
-
-.design-info small {
-  color: #666;
-  font-size: 24px;
-}
-
-.design-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.no-designs {
-  text-align: center;
-  color: #666;
-  font-size: 28px;
-  padding: 40px;
-  font-style: italic;
-}
-
-#savedDesignsList::-webkit-scrollbar {
-  width: 12px;
-}
-
-#savedDesignsList::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-}
-
-#savedDesignsList::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 6px;
-}
-
-#savedDesignsList::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5a67d8, #6b46c1);
-}
-
+<<<<<<< HEAD
+/* Authentication styles - unchanged */
+=======
 /* Popup Overlay Styles */
 .popup-overlay {
   position: fixed;
@@ -850,11 +829,11 @@ body {
   backdrop-filter: blur(1px);
   z-index: 10000;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: flex-start; /* Changed from center */
+  align-items: flex-start; /* Changed from center */
   animation: fadeIn 0.1s ease;
-  padding-top: 50px;
-  padding-left: 1300px;
+  padding-top: 50px; /* Align with catalog top */
+  padding-left: 1300px; /* Position to the right of catalog (adjust as needed) */
 }
 
 @keyframes fadeIn {
@@ -862,6 +841,7 @@ body {
   to { opacity: 1; }
 }
 
+/* Popup Modal */
 .popup-modal {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -887,17 +867,18 @@ body {
   }
 }
 
+/* Close Button */
 .popup-close {
   position: absolute;
-  top: 30px;
+  top: 30px; /* Moved up from 40px */
   right: 20px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 28px;
+  width: 50px; /* Increased from 40px */
+  height: 50px; /* Increased from 40px */
+  font-size: 28px; /* Increased from 24px */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -912,6 +893,7 @@ body {
   box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
 }
 
+/* Header */
 .popup-header {
   padding: 30px 30px 20px 30px;
   border-bottom: 2px solid rgba(103, 126, 234, 0.2);
@@ -919,7 +901,7 @@ body {
 
 .popup-header h2 {
   margin: 0;
-  font-size: 42px;
+  font-size: 42px; /* Increased from 32px */
   color: #333;
   font-weight: 600;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -928,6 +910,7 @@ body {
   background-clip: text;
 }
 
+/* Body */
 .popup-body {
   display: flex;
   gap: 30px;
@@ -936,11 +919,12 @@ body {
   overflow-y: auto;
 }
 
+/* Left Section - Info */
 .popup-left {
   flex: 1;
   min-width: 300px;
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Add this */
+  flex-direction: column; /* Add this */
 }
 
 .popup-info {
@@ -951,6 +935,18 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  /* REMOVE justify-content: space-around; - this was causing the downward push */
+}
+
+.info-item .info-value .single-item {
+  grid-column: 1 / -1; /* Span all columns */
+  justify-self: center;
+  text-align: center; /* NEW: Ensure text is centered */
+  width: 100%; /* NEW: Take full width for proper centering */
+  display: flex; /* NEW: Use flex to center icon and text together */
+  align-items: center; /* NEW: Vertically center icon and text */
+  justify-content: center; /* NEW: Horizontally center the content */
+  gap: 12px; /* NEW: Maintain gap between icon and text */
 }
 
 .info-item {
@@ -958,19 +954,23 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0;
-  padding: 25px 0;
+  margin-bottom: 0; /* Remove margin to prevent visual imbalance */
+  padding: 25px 0; /* Increase padding for more even whitespace distribution */
   border-bottom: 2px solid rgba(103, 126, 234, 0.2);
   flex: 1;
-  min-height: 120px;
+  min-height: 120px; /* Add minimum height for consistent sizing */
 }
 
+/* Add special styling for first and last items to balance whitespace */
 .info-item:first-child {
-  padding-top: 15px;
+  padding-top: 15px; /* Reduce top padding to match internal spacing */
 }
 
 .info-item:last-child {
-  padding-bottom: 15px;
+  padding-bottom: 15px; /* Reduce bottom padding to match internal spacing */
+}
+
+.info-item:last-child {
   border-bottom: none;
   margin-bottom: 0;
 }
@@ -978,7 +978,7 @@ body {
 .info-label {
   font-weight: 600;
   color: #667eea;
-  font-size: 34px;
+  font-size: 34px; /* Increased from 28px */
   display: flex;
   align-items: center;
   gap: 12px;
@@ -986,49 +986,57 @@ body {
   text-align: center;
 }
 
+/* Info Values - Increase content font size */
 .info-value {
   color: #333;
-  font-size: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 16px;
-  justify-items: center;
+  font-size: 30px; /* Increased from 26px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   margin-top: 0;
 }
 
-.info-item .info-value .single-item {
-  grid-column: 1 / -1;
-  justify-self: center;
-  text-align: center;
+/* Special layout for colors - create two-column grid */
+.info-item .info-value {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px; /* row gap 8px, column gap 16px */
+  justify-items: center;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
 }
 
-.info-item .info-value .color-item:only-child {
-  grid-column: 1 / -1;
+/* Single item (non-color) should span full width and center */
+.info-item .info-value .single-item {
+  grid-column: 1 / -1; /* Span all columns */
   justify-self: center;
 }
 
+/* Single color should span both columns and center */
+.info-item .info-value .color-item:only-child {
+  grid-column: 1 / -1; /* Span both columns */
+  justify-self: center;
+}
+
+/* Collection items styling for multiple collections - display in rows */
 .collection-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 28px;
+  font-size: 28px; /* Match color-item font size */
   margin: 4px 0;
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* Force each collection to span full width (new row) */
   justify-self: center;
 }
 
 .collection-item .info-icon {
-  width: 60px;
+  width: 60px; /* Match the existing info-icon size */
   height: 60px;
   flex-shrink: 0;
 }
 
+/* Override the grid layout specifically for collection items to stack vertically */
 .info-value:has(.collection-item) {
   display: flex !important;
   flex-direction: column !important;
@@ -1036,30 +1044,42 @@ body {
   gap: 8px !important;
 }
 
+/* Update the grid layout for collections to handle multiple rows */
+.info-item .info-value {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px; /* row gap 8px, column gap 16px */
+  justify-items: center;
+  width: 100%;
+}
+
+/* Collection items should also follow the two-column layout */
 .info-item .info-value .collection-item:only-child {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* Single collection spans both columns */
   justify-self: center;
 }
 
+/* Update icon sizes */
 .info-icon {
-  width: 60px;
+  width: 60px; /* Increased from 40px (50% increase) */
   height: 60px;
   flex-shrink: 0;
 }
 
 .color-icon-small {
-  width: 32px;
+  width: 32px; /* Increased from 24px */
   height: 32px;
   background-size: cover;
   border-radius: 4px;
   flex-shrink: 0;
 }
 
+/* New styles for color items and single items */
 .color-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 28px;
+  font-size: 28px; /* Increased from 24px */
   margin: 4px 0;
 }
 
@@ -1073,21 +1093,22 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 30px;
+  font-size: 30px; /* Increased from 26px */
 }
 
+/* Right Section - Preview */
 .popup-right {
   flex: 1.5;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 100%;
+  height: 100%; /* Ensure full height usage */
 }
 
 .popup-preview::before {
   content: "Preview";
   display: block;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px 0; /* Add bottom margin for spacing */
   font-size: 34px;
   color: #667eea;
   font-weight: 600;
@@ -1095,6 +1116,7 @@ body {
   flex-shrink: 0;
 }
 
+/* Update popup-preview to accommodate the pseudo-element header */
 .popup-preview {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
@@ -1113,10 +1135,13 @@ body {
   border-radius: 8px;
   transition: transform 0.3s ease;
   object-fit: contain;
+  /* Remove fixed dimensions - will be set by JavaScript */
   max-width: none;
   max-height: none;
+  /* Add smooth scaling for better quality */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  /* Make it clear this is draggable */
   cursor: grab;
 }
 
@@ -1128,34 +1153,37 @@ body {
   transform: scale(1.05);
 }
 
+/* Update image container for proper vertical centering */
 .popup-preview .image-container {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 20px;
+  padding: 20px; /* Padding for hover scaling space */
   box-sizing: border-box;
 }
 
+/* Views Section */
 .popup-views {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
   padding: 15px;
   border: 1px solid rgba(103, 126, 234, 0.2);
   flex-shrink: 0;
-  max-height: 180px;
+  max-height: 180px; /* For 4 or fewer views */
 }
 
+/* Expanded Views section for 5-8 views */
 .popup-views.expanded {
-  max-height: 280px;
-  padding: 20px;
+  max-height: 280px; /* Increased height for more views */
+  padding: 20px; /* Slightly more padding for larger content */
 }
 
 .popup-views h3 {
   margin: 0 0 15px 0;
-  font-size: 34px;
-  padding: 0;
+  font-size: 34px; /* Match Preview font size */
+  padding: 0; /* Remove the 20px padding */
   text-align: center;
   color: #667eea;
   font-weight: 600;
@@ -1165,31 +1193,32 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
-  justify-content: center;
+  justify-content: center; /* NEW: Center the grid items */
 }
 
 .views-grid:has(.view-thumbnail:nth-child(1):nth-last-child(1)) {
-  display: flex;
+  display: flex; /* NEW: Use flex instead of grid */
   justify-content: center;
   gap: 8px;
 }
 
 .views-grid:has(.view-thumbnail:nth-child(2):nth-last-child(1)) {
-  display: flex;
+  display: flex; /* NEW: Use flex instead of grid */
   justify-content: center;
   gap: 8px;
 }
 
 .views-grid:has(.view-thumbnail:nth-child(3):nth-last-child(1)) {
-  display: flex;
+  display: flex; /* NEW: Use flex instead of grid */
   justify-content: center;
   gap: 8px;
 }
 
+/* Expanded grid - 4 columns, 2 rows for 5-8 views */
 .views-grid.expanded {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
+  gap: 10px; /* Slightly more gap for better spacing */
 }
 
 .view-thumbnail {
@@ -1203,9 +1232,10 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 60px;
-  min-width: 80px;
+  min-width: 80px; /* NEW: Set consistent width for all thumbnails */
 }
 
+/* Slightly smaller thumbnails when expanded to fit better */
 .view-thumbnail.compact {
   min-height: 55px;
   padding: 5px;
@@ -1228,21 +1258,12 @@ body {
   border-radius: 4px;
 }
 
+/* Slightly smaller images in compact mode */
 .view-thumbnail.compact img {
   max-height: 45px;
 }
 
-/* Show grabbing cursor during drag operations globally */
-.dragging {
-    cursor: grabbing !important;
-}
-
-body.dragging,
-body.dragging * {
-    cursor: grabbing !important;
-}
-
-/* Media queries for responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
   .main-app-container {
     grid-template-columns: auto 1fr auto;
@@ -1272,20 +1293,6 @@ body.dragging * {
   #dropZone {
     width: min(30vw, 40vh);
     height: min(30vw * 0.75, 30vh);
-  }
-
-  .popup-modal {
-    width: 95%;
-    margin: 20px;
-  }
-  
-  .popup-body {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .views-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1340,6 +1347,892 @@ body.dragging * {
   #dropZone {
     width: 100%;
     height: 100%;
+  }
+}
+
+/* Show grabbing cursor during drag operations globally */
+.dragging {
+    cursor: grabbing !important;
+}
+
+/* Apply grabbing cursor to the entire body during drag operations */
+body.dragging,
+body.dragging * {
+    cursor: grabbing !important;
+}
+
+/* Authentication Styles */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
+.auth-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.auth-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.auth-modal h1 {
+  font-size: 32px;
+  margin: 0 0 10px 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-modal p {
+  font-size: 18px;
+  color: #666;
+  margin: 0 0 30px 0;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.google-btn {
+  background: white;
+  color: #333;
+  border: 2px solid #ddd;
+}
+
+.google-btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.email-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.email-btn:hover {
+  box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.email-auth {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+}
+
+.email-auth h3 {
+  font-size: 20px;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.email-auth input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.email-auth input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.toggle-btn:hover {
+  color: #764ba2;
+}
+
+<<<<<<< HEAD
+/* Save/Load Modal - fixed sizing */
+=======
+/* User Info Bar */
+.user-info-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(103, 126, 234, 0.2);
+  padding: 0.5vh 2vw;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 8vh; /* Fixed height as percentage of viewport */
+  display: flex;
+  align-items: center;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1vw;
+  font-size: clamp(14px, 2vw, 24px);
+  color: #333;
+  width: 100%;
+}
+
+.profile-pic {
+  width: clamp(30px, 4vh, 50px);
+  height: clamp(30px, 4vh, 50px);
+  border-radius: 50%;
+  border: 2px solid #667eea;
+}
+
+/* Main app container - responsive grid */
+.main-app-container {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 8vh; /* Account for user info bar */
+  gap: 1vw;
+  padding: 8vh 1vw 1vh 1vw;
+}
+
+.container {
+  display: contents; /* Let children participate in the main grid */
+}
+
+.sign-out-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sign-out-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(103, 126, 234, 0.3);
+}
+
+/* Adjust main container when user is logged in */
+body:has(.user-info-bar:not(:empty)) .container {
+  margin-top: 110px; /* Add space for user info bar */
+}
+
+/* Save/Load Modal Styles */
+>>>>>>> parent of c2880c8 (updated UI for browsers)
+.save-load-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 10001;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  color: #764ba2;
+  transform: scale(1.1);
+}
+
+.modal-content h2 {
+  font-size: 28px;
+  margin: 0 0 20px 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+
+.modal-content h3 {
+  font-size: 20px;
+  color: #333;
+  margin: 20px 0 15px 0;
+  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
+  padding-bottom: 10px;
+}
+
+.save-section, .load-section {
+  margin-bottom: 30px;
+}
+
+.save-section input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.save-section input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+}
+
+.save-btn, .load-btn, .delete-btn, .save-load-btn, .sign-out-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.save-btn, .save-load-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  width: 100%;
+}
+
+.save-btn:hover, .save-load-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(103, 126, 234, 0.3);
+}
+
+.load-btn {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  margin-right: 10px;
+}
+
+.load-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #dc3545, #e74c3c);
+  color: white;
+}
+
+.delete-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+#savedDesignsList {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.design-item {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.design-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(103, 126, 234, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.design-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.design-info small {
+  color: #666;
+  font-size: 14px;
+}
+
+.design-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.no-designs {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  padding: 40px;
+  font-style: italic;
+}
+
+/* Update user profile to include save/load button */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  font-size: 32px;
+  color: #333;
+}
+
+/* Scrollbar for saved designs list */
+#savedDesignsList::-webkit-scrollbar {
+  width: 8px;
+}
+
+#savedDesignsList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+}
+
+#savedDesignsList::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 6px;
+}
+
+#savedDesignsList::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+<<<<<<< HEAD
+}
+
+/* Popup Overlay Styles - keep existing but adjust positioning */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1px);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.1s ease;
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.popup-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
+}
+
+.popup-close:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
+}
+
+.popup-header {
+  padding: 20px 20px 15px 20px;
+  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
+}
+
+.popup-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.popup-body {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.popup-left {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-info {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  padding: 20px 0;
+  border-bottom: 2px solid rgba(103, 126, 234, 0.2);
+  flex: 1;
+  min-height: 100px;
+}
+
+.info-item:first-child {
+  padding-top: 10px;
+}
+
+.info-item:last-child {
+  padding-bottom: 10px;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.info-value {
+  color: #333;
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  justify-items: center;
+  width: 100%;
+  margin-top: 0;
+}
+
+.info-item .info-value .single-item {
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.info-item .info-value .color-item:only-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.collection-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin: 4px 0;
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.collection-item .info-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.info-value:has(.collection-item) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.info-item .info-value .collection-item:only-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.color-icon-small {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+.color-item .filter-icon.color-icon-small {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.single-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.popup-right {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+}
+
+.popup-preview::before {
+  content: "Preview";
+  display: block;
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: #667eea;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.popup-preview {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  min-height: 350px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.popup-preview img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  object-fit: contain;
+  max-width: none;
+  max-height: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  cursor: grab;
+}
+
+.popup-preview img:active {
+  cursor: grabbing;
+}
+
+.popup-preview img:hover {
+  transform: scale(1.05);
+}
+
+.popup-preview .image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.popup-views {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 12px;
+  border: 1px solid rgba(103, 126, 234, 0.2);
+  flex-shrink: 0;
+  max-height: 150px;
+}
+
+.popup-views.expanded {
+  max-height: 200px;
+  padding: 15px;
+}
+
+.popup-views h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  padding: 0;
+  text-align: center;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.views-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  justify-content: center;
+}
+
+.views-grid:has(.view-thumbnail:nth-child(1):nth-last-child(1)) {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.views-grid:has(.view-thumbnail:nth-child(2):nth-last-child(1)) {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.views-grid:has(.view-thumbnail:nth-child(3):nth-last-child(1)) {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.views-grid.expanded {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.view-thumbnail {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  min-width: 60px;
+}
+
+.view-thumbnail.compact {
+  min-height: 45px;
+  padding: 4px;
+}
+
+.view-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: rgba(103, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.2);
+}
+
+.view-thumbnail.active {
+  border-color: #667eea;
+  background: rgba(103, 126, 234, 0.1);
+}
+
+.view-thumbnail img {
+  max-width: 100%;
+  max-height: 40px;
+  border-radius: 4px;
+}
+
+.view-thumbnail.compact img {
+  max-height: 35px;
+}
+
+/* Show grabbing cursor during drag operations globally */
+.dragging {
+    cursor: grabbing !important;
+}
+
+body.dragging,
+body.dragging * {
+    cursor: grabbing !important;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1400px) {
+  .main-app-container {
+    grid-template-columns: 60px 200px 200px 1fr;
+  }
+  
+  #dropZone {
+    width: min(calc(100vh - 80px), calc(100vw - 480px));
+    height: calc(min(calc(100vh - 80px), calc(100vw - 480px)) * 0.75);
+  }
+}
+
+@media (max-width: 1200px) {
+  body {
+    min-width: 1000px; /* Minimum for 4-column layout */
+  }
+  
+  .main-app-container {
+    grid-template-columns: 50px 180px 180px 1fr;
+  }
+  
+  #leftTabs {
+    width: 50px;
+  }
+  
+  #dropZone {
+    width: min(calc(100vh - 70px), calc(100vw - 430px));
+    height: calc(min(calc(100vh - 70px), calc(100vw - 430px)) * 0.75);
+    min-width: 500px;
+    min-height: 375px;
+  }
+  
+  .catalog-item img {
+    max-height: 40px;
+  }
+  
+  .popup-modal {
+    width: 95%;
+  }
+  
+  .popup-body {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* For very small screens - show warning */
+@media (max-width: 1000px) {
+  body::before {
+    content: "This application requires a minimum screen width of 1000px for optimal functionality.";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #dc3545;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 10002;
+    font-size: 14px;
+  }
+  
+  .main-app-container {
+    padding-top: 100px;
   }
 }
 
@@ -1431,4 +2324,6 @@ input:focus,
     border: 1px solid #000;
     background: white;
   }
+=======
+>>>>>>> parent of c2880c8 (updated UI for browsers)
 }
