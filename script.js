@@ -927,6 +927,7 @@ function drop(event) {
             const dragData = window.popupDragData;
             setWallpaperOrFlooringFromPopup(dragData);
             window.popupDragData = null; // Clear immediately
+            if (window.markAsChanged) window.markAsChanged();
             return;
         } else {
             console.error('No popupDragData found for wallpaper/flooring');
@@ -942,6 +943,7 @@ function drop(event) {
             const dragData = window.popupDragData;
             setBackgroundFromPopup(dragData);
             window.popupDragData = null; // Clear immediately
+            if (window.markAsChanged) window.markAsChanged();
             return;
         } else {
             console.error('No popupDragData found for background');
@@ -999,6 +1001,7 @@ function drop(event) {
             
             // Clean up
             window.popupDragData = null;
+            if (window.markAsChanged) window.markAsChanged();
             return;
         } else {
             console.error('No popupDragData found for regular item');
@@ -1018,6 +1021,7 @@ function drop(event) {
         } else if (draggedElement.closest('#AllBackgrounds')) {
             setBackgroundFromCatalog(draggedElement);
         }
+        if (window.markAsChanged) window.markAsChanged();
         return;
     }
 
@@ -1037,6 +1041,7 @@ function drop(event) {
     if (event.shiftKey) {
         const clonedElement = createClonedElement(draggedElement, x, y);
         dropZone.appendChild(clonedElement);
+        if (window.markAsChanged) window.markAsChanged();
     } else if (draggedElement.dataset.source === 'catalog') {
         // Your existing catalog drag logic...
         const views = JSON.parse(draggedElement.dataset.views);
@@ -1067,10 +1072,12 @@ function drop(event) {
         });
 
         dropZone.appendChild(clonedElement);
+        if (window.markAsChanged) window.markAsChanged();
     } else {
         draggedElement.style.left = `${x}px`;
         draggedElement.style.top = `${y}px`;
         draggedElement.style.zIndex = ++highestZIndex;
+        if (window.markAsChanged) window.markAsChanged();
     }
 }
 

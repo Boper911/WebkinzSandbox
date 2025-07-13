@@ -637,21 +637,22 @@
       // User is signed in
       if (authContainer) authContainer.style.display = 'none';
       if (mainApp) mainApp.style.display = 'flex';
-      if (userInfo) {
-        userInfo.innerHTML = `
-          <div class="user-profile">
-            <div class="user-left">
-              <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
-              <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
+        if (userInfo) {
+          userInfo.innerHTML = `
+            <div class="user-profile">
+              <div class="user-left">
+                <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
+                <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
+                <span class="current-design-name">${currentDesignName || 'Untitled'}</span>
+              </div>
+              <div class="user-actions">
+                <button onclick="handleSaveClick()" class="save-btn-header">Save</button>
+                <button onclick="handleLoadClick()" class="load-btn-header">Load</button>
+                <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
+              </div>
             </div>
-            <div class="user-actions">
-              <button onclick="showSaveModal()" class="save-btn-header">Save</button>
-              <button onclick="showLoadModal()" class="load-btn-header">Load</button>
-              <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
-            </div>
-          </div>
-        `;
-      }
+          `;
+        }
     } else {
       // User is signed out
       if (authContainer) authContainer.style.display = 'flex';
