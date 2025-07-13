@@ -1091,10 +1091,23 @@ body.dragging * {
 .user-profile {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 15px;
   font-size: 32px;
   color: #333;
+  width: 100%;
+}
+
+.user-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .profile-pic {
@@ -1104,25 +1117,56 @@ body.dragging * {
   border: 2px solid #667eea;
 }
 
-.sign-out-btn {
+.save-btn-header, .load-btn-header {
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border: none;
   padding: 8px 16px;
-  font-size: 28px;
+  font-size: 24px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 70px;
 }
 
-.sign-out-btn:hover {
+.save-btn-header:hover, .load-btn-header:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(103, 126, 234, 0.3);
 }
 
+.load-btn-header {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.load-btn-header:hover {
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.sign-out-btn {
+  background: linear-gradient(135deg, #dc3545, #e74c3c);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.sign-out-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
 /* Adjust main container when user is logged in */
 body:has(.user-info-bar:not(:empty)) .container {
-  margin-top: 110px; /* Add space for user info bar */
+  margin-top: 120px; /* Increased space for user info bar */
+}
+
+/* Also adjust the drop zone container */
+body:has(.user-info-bar:not(:empty)) #dropZoneContainer {
+  margin-top: 120px;
 }
 
 /* Save/Load Modal Styles */

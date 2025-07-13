@@ -640,10 +640,15 @@
       if (userInfo) {
         userInfo.innerHTML = `
           <div class="user-profile">
-            <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
-            <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
-            <button onclick="showSaveLoadModal()" class="save-load-btn">Save/Load</button>
-            <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
+            <div class="user-left">
+              <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
+              <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
+            </div>
+            <div class="user-actions">
+              <button onclick="showSaveModal()" class="save-btn-header">Save</button>
+              <button onclick="showLoadModal()" class="load-btn-header">Load</button>
+              <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
+            </div>
           </div>
         `;
       }
