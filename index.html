@@ -236,10 +236,13 @@
   const db = getFirestore(app);
   const googleProvider = new GoogleAuthProvider();
 
-  // Current user state
+  // Current user state - MOVE THESE TO THE TOP
   let currentUser = null;
   let firebaseReady = false;
   let userRoomDesigns = [];
+  let currentDesignName = null; // Track current design name
+  let hasUnsavedChanges = false; // Track if there are unsaved changes
+  let lastSaveTime = null; // Track when last saved
 
   // Auth state listener
   onAuthStateChanged(auth, async (user) => {
@@ -253,6 +256,10 @@
     } else {
       console.log('User signed out');
       userRoomDesigns = [];
+      // Reset design tracking when user signs out
+      currentDesignName = null;
+      hasUnsavedChanges = false;
+      lastSaveTime = null;
     }
   });
 
@@ -637,22 +644,24 @@
       // User is signed in
       if (authContainer) authContainer.style.display = 'none';
       if (mainApp) mainApp.style.display = 'flex';
-        if (userInfo) {
-          userInfo.innerHTML = `
-            <div class="user-profile">
-              <div class="user-left">
-                <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
-                <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
-                <span class="current-design-name">${currentDesignName || 'Untitled'}</span>
-              </div>
-              <div class="user-actions">
-                <button onclick="handleSaveClick()" class="save-btn-header">Save</button>
-                <button onclick="handleLoadClick()" class="load-btn-header">Load</button>
-                <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
-              </div>
+      if (userInfo) {
+        // Safety check for currentDesignName
+        const designName = currentDesignName || 'Untitled';
+        userInfo.innerHTML = `
+          <div class="user-profile">
+            <div class="user-left">
+              <img src="${currentUser.photoURL || 'https://via.placeholder.com/40'}" alt="Profile" class="profile-pic">
+              <span>Welcome, ${currentUser.displayName || currentUser.email}!</span>
+              <span class="current-design-name">${designName}</span>
             </div>
-          `;
-        }
+            <div class="user-actions">
+              <button onclick="handleSaveClick()" class="save-btn-header">Save</button>
+              <button onclick="handleLoadClick()" class="load-btn-header">Load</button>
+              <button onclick="signOutUser()" class="sign-out-btn">Sign Out</button>
+            </div>
+          </div>
+        `;
+      }
     } else {
       // User is signed out
       if (authContainer) authContainer.style.display = 'flex';
